@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TrashVanish
@@ -17,13 +11,13 @@ namespace TrashVanish
             InitializeComponent();
         }
 
-        
+        private List<RuleModel> rules = new List<RuleModel>();
 
-        List<RuleModel> rules = new List<RuleModel>();
         private void RulesSettings_Load(object sender, EventArgs e)
         {
             updateGrid();
         }
+
         private void updateGrid()
         {
             rulesGrid.Rows.Clear();
@@ -33,6 +27,7 @@ namespace TrashVanish
                 rulesGrid.Rows.Add(rule.ruleExtension, rule.ruleIncludes, rule.rulePath);
             }
         }
+
         private void updateRulesButton_Click(object sender, EventArgs e)
         {
             updateGrid();
@@ -42,7 +37,7 @@ namespace TrashVanish
         {
             int selectedrow = rulesGrid.CurrentCell.RowIndex;
             int columnbydefault = 0;
-            //MessageBox.Show("Selected row: " + rulesGrid.CurrentCell.RowIndex + " value is " + rulesGrid.Rows[selectedrow].Cells[columnbydefault].Value.ToString());
+
             DBConnection.DeleteRule(rulesGrid.Rows[selectedrow].Cells[columnbydefault].Value.ToString());
             updateGrid();
         }

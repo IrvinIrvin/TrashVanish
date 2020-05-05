@@ -78,6 +78,7 @@
     <Compile Include="RulesSettings.Designer.cs">
       <DependentUpon>RulesSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Worker.cs" />
     <EmbeddedResource Include="AddRule.resx">
       <DependentUpon>AddRule.cs</DependentUpon>
     </EmbeddedResource>
