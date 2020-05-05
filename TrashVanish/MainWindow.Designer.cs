@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.addRule = new System.Windows.Forms.Button();
             this.rulesSettings = new System.Windows.Forms.Button();
             this.mainTask = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -36,19 +35,9 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // addRule
-            // 
-            this.addRule.Location = new System.Drawing.Point(377, 12);
-            this.addRule.Name = "addRule";
-            this.addRule.Size = new System.Drawing.Size(114, 23);
-            this.addRule.TabIndex = 0;
-            this.addRule.Text = "Добавить правило";
-            this.addRule.UseVisualStyleBackColor = true;
-            this.addRule.Click += new System.EventHandler(this.addRule_Click);
-            // 
             // rulesSettings
             // 
-            this.rulesSettings.Location = new System.Drawing.Point(377, 42);
+            this.rulesSettings.Location = new System.Drawing.Point(377, 27);
             this.rulesSettings.Name = "rulesSettings";
             this.rulesSettings.Size = new System.Drawing.Size(114, 23);
             this.rulesSettings.TabIndex = 1;
@@ -85,7 +74,7 @@
             this.logRTB.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
             this.logRTB.Size = new System.Drawing.Size(352, 168);
             this.logRTB.TabIndex = 0;
-            this.logRTB.Text = "";
+            this.logRTB.Text = "Лога нет, но вы держитесь";
             // 
             // MainWindow
             // 
@@ -95,7 +84,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.mainTask);
             this.Controls.Add(this.rulesSettings);
-            this.Controls.Add(this.addRule);
             this.Name = "MainWindow";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainWindow_Load);
@@ -105,8 +93,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button addRule;
         private System.Windows.Forms.Button rulesSettings;
         private System.Windows.Forms.Button mainTask;
         private System.Windows.Forms.GroupBox groupBox1;

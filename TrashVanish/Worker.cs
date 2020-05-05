@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,13 +26,23 @@ namespace TrashVanish
         private static void Work(string cwd, string extension, string targetpath)
         {
             string[] files = Directory.GetFiles(cwd, "*" + extension);
-            MessageBox.Show("For " + extension + " " + files.Length + " files were found");
+            if (files.Length < 1)
+            {
+                return;
+            }
+            if (!Directory.Exists(targetpath))
+            {
+                Directory.CreateDirectory(targetpath);
+            }
             foreach (string file in files)
             {
                 string destination = Path.Combine(targetpath, Path.GetFileName(file));
-                File.Copy(file, destination, false);
+                if (!File.Exists(destination))
+                {
+                    File.Copy(file, destination, false);
+                }
             }
-            MessageBox.Show("Task Done");
+            MessageBox.Show("Задача для \"" + extension + "\" завершена");
         }
     }
 }

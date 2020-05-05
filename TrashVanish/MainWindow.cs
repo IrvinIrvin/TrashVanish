@@ -20,12 +20,6 @@ namespace TrashVanish
         private List<RuleModel> rules = new List<RuleModel>();
         private string cwd = @"C:\Users\" + Environment.UserName + @"\Desktop";
 
-        private void addRule_Click(object sender, EventArgs e)
-        {
-            AddRule addRuleForm = new AddRule();
-            addRuleForm.Show();
-        }
-
         private void rulesSettings_Click(object sender, EventArgs e)
         {
             RulesSettings rulesSettingForm = new RulesSettings();

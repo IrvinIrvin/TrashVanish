@@ -41,5 +41,13 @@ namespace TrashVanish
             DBConnection.DeleteRule(rulesGrid.Rows[selectedrow].Cells[columnbydefault].Value.ToString());
             updateGrid();
         }
+
+        // Кнопка добавить правило, но мне ее лень переименовывать
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddRule addRuleForm = new AddRule();
+            addRuleForm.Show();
+            updateGrid();
+        }
     }
 }
