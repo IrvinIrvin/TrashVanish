@@ -17,21 +17,34 @@ namespace TrashVanish
             InitializeComponent();
         }
 
+        
+
         List<RuleModel> rules = new List<RuleModel>();
         private void RulesSettings_Load(object sender, EventArgs e)
         {
-
+            updateGrid();
         }
-
-        private void updateRulesButton_Click(object sender, EventArgs e)
+        private void updateGrid()
         {
+            rulesGrid.Rows.Clear();
             rules = DBConnection.LoadRules();
             foreach (RuleModel rule in rules)
             {
-                MessageBox.Show(rule.ruleExtension);
                 rulesGrid.Rows.Add(rule.ruleExtension, rule.ruleIncludes, rule.rulePath);
             }
-            MessageBox.Show("Table updated");
+        }
+        private void updateRulesButton_Click(object sender, EventArgs e)
+        {
+            updateGrid();
+        }
+
+        private void deleteRule_Click(object sender, EventArgs e)
+        {
+            int selectedrow = rulesGrid.CurrentCell.RowIndex;
+            int columnbydefault = 0;
+            //MessageBox.Show("Selected row: " + rulesGrid.CurrentCell.RowIndex + " value is " + rulesGrid.Rows[selectedrow].Cells[columnbydefault].Value.ToString());
+            DBConnection.DeleteRule(rulesGrid.Rows[selectedrow].Cells[columnbydefault].Value.ToString());
+            updateGrid();
         }
     }
 }

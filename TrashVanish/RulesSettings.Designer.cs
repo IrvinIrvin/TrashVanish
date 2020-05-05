@@ -29,40 +29,33 @@
         private void InitializeComponent()
         {
             this.rulesGrid = new System.Windows.Forms.DataGridView();
+            this.updateRulesButton = new System.Windows.Forms.Button();
+            this.deleteRule = new System.Windows.Forms.Button();
             this.FileExtension = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameIncludes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SavePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updateRulesButton = new System.Windows.Forms.Button();
-            this.deleteRule = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.rulesGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // rulesGrid
             // 
+            this.rulesGrid.AllowUserToAddRows = false;
+            this.rulesGrid.AllowUserToDeleteRows = false;
+            this.rulesGrid.AllowUserToResizeRows = false;
             this.rulesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.rulesGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FileExtension,
             this.NameIncludes,
             this.SavePath});
             this.rulesGrid.Location = new System.Drawing.Point(12, 12);
+            this.rulesGrid.MultiSelect = false;
             this.rulesGrid.Name = "rulesGrid";
-            this.rulesGrid.Size = new System.Drawing.Size(344, 150);
+            this.rulesGrid.ReadOnly = true;
+            this.rulesGrid.RowHeadersVisible = false;
+            this.rulesGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
+            this.rulesGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.rulesGrid.Size = new System.Drawing.Size(358, 150);
             this.rulesGrid.TabIndex = 0;
-            // 
-            // FileExtension
-            // 
-            this.FileExtension.HeaderText = "Расширение";
-            this.FileExtension.Name = "FileExtension";
-            // 
-            // NameIncludes
-            // 
-            this.NameIncludes.HeaderText = "Имя файла содержит";
-            this.NameIncludes.Name = "NameIncludes";
-            // 
-            // SavePath
-            // 
-            this.SavePath.HeaderText = "Путь";
-            this.SavePath.Name = "SavePath";
             // 
             // updateRulesButton
             // 
@@ -82,6 +75,27 @@
             this.deleteRule.TabIndex = 2;
             this.deleteRule.Text = "Удалить";
             this.deleteRule.UseVisualStyleBackColor = true;
+            this.deleteRule.Click += new System.EventHandler(this.deleteRule_Click);
+            // 
+            // FileExtension
+            // 
+            this.FileExtension.HeaderText = "Расширение";
+            this.FileExtension.Name = "FileExtension";
+            this.FileExtension.ReadOnly = true;
+            this.FileExtension.Width = 95;
+            // 
+            // NameIncludes
+            // 
+            this.NameIncludes.HeaderText = "Имя файла содержит";
+            this.NameIncludes.Name = "NameIncludes";
+            this.NameIncludes.ReadOnly = true;
+            // 
+            // SavePath
+            // 
+            this.SavePath.HeaderText = "Путь";
+            this.SavePath.Name = "SavePath";
+            this.SavePath.ReadOnly = true;
+            this.SavePath.Width = 200;
             // 
             // RulesSettings
             // 
@@ -102,10 +116,10 @@
         #endregion
 
         private System.Windows.Forms.DataGridView rulesGrid;
+        private System.Windows.Forms.Button updateRulesButton;
+        private System.Windows.Forms.Button deleteRule;
         private System.Windows.Forms.DataGridViewTextBoxColumn FileExtension;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameIncludes;
         private System.Windows.Forms.DataGridViewTextBoxColumn SavePath;
-        private System.Windows.Forms.Button updateRulesButton;
-        private System.Windows.Forms.Button deleteRule;
     }
 }

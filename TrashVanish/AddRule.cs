@@ -31,6 +31,7 @@ namespace TrashVanish
 
         private void AddRuleButton_Click(object sender, EventArgs e)
         {
+            path = pathTextBox.Text;
             extension = ExtensionTextBox.Text;
             if (DBConnection.isRuleExist(extension)) {
                 MessageBox.Show("Правило для этого расширения уже создано");
@@ -44,6 +45,9 @@ namespace TrashVanish
             }
             RuleModel rule = new RuleModel { ruleExtension = extension, ruleIncludes = includes, rulePath = path};
             DBConnection.AddRule(rule);
+            ExtensionTextBox.Text = "";
+            includesTextBox.Text = "";
+            pathTextBox.Text = "";
         }
 
         private void browseFolders_Click(object sender, EventArgs e)

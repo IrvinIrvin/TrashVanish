@@ -51,9 +51,29 @@ namespace TrashVanish
             }
         }
 
-        public static void DeleteRule()
+        public static void DeleteRule(string extension)
         {
-            // TODO delete row from db
+
+            using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
+            { 
+                try
+                {
+                    SQLiteCommand sqlComm = connection.CreateCommand();
+                    sqlComm.CommandText = "DELETE FROM rulestable WHERE extension=@extension;";
+                    //command.Parameters.AddWithValue("@demographics", demoXml);
+                    sqlComm.Parameters.AddWithValue("@extension", extension);
+                    connection.Open();
+                    sqlComm.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+                
+
+
+                connection.Close();
+            }
         }
 
         public static bool isRuleExist(string extension)
