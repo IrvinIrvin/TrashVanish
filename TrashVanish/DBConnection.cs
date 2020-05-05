@@ -56,6 +56,22 @@ namespace TrashVanish
             // TODO delete row from db
         }
 
+        public static bool isRuleExist(string extension)
+        {
+            int rowCount = 0;
+            using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
+            {
+                connection.Open();
+                SQLiteCommand cmd = new SQLiteCommand(connection);
+
+                cmd.CommandText = "SELECT COUNT(id) FROM rulestable WHERE extension = '" + extension +"' ;";
+                cmd.CommandType = CommandType.Text;
+                //SQLiteDataReader reader = cmd.ExecuteReader();
+                rowCount = Convert.ToInt32(cmd.ExecuteScalar());
+                connection.Close();
+                return rowCount > 0;
+            }
+        }
         private static string LoadConnectionString(string id = "Default")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;

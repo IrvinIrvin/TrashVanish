@@ -32,6 +32,11 @@ namespace TrashVanish
         private void AddRuleButton_Click(object sender, EventArgs e)
         {
             extension = ExtensionTextBox.Text;
+            if (DBConnection.isRuleExist(extension)) {
+                MessageBox.Show("Правило для этого расширения уже создано");
+                return;
+            }
+            extension = ExtensionTextBox.Text;
             if (extension == "" || path == "")
             {
                 MessageBox.Show("Обязательные поля не заполнены");
