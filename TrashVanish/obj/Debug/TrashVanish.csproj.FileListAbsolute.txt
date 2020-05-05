@@ -1,0 +1,12 @@
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Debug\TrashVanish.exe.config
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Debug\TrashVanish.exe
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Debug\TrashVanish.pdb
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.csprojAssemblyReference.cache
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.Properties.Resources.resources
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.csproj.GenerateResource.cache
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.csproj.CoreCompileInputs.cache
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.exe
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.pdb
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.AddRule.resources
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.MainWindow.resources
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.RulesSettings.resources
