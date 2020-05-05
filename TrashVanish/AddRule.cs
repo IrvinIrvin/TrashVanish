@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
+using System.IO;    
 
 namespace TrashVanish
 {
@@ -31,8 +31,14 @@ namespace TrashVanish
 
         private void AddRuleButton_Click(object sender, EventArgs e)
         {
-            
-
+            extension = ExtensionTextBox.Text;
+            if (extension == "" || path == "")
+            {
+                MessageBox.Show("Обязательные поля не заполнены");
+                return;
+            }
+            RuleModel rule = new RuleModel { ruleExtension = extension, ruleIncludes = includes, rulePath = path};
+            DBConnection.AddRule(rule);
         }
 
         private void browseFolders_Click(object sender, EventArgs e)
@@ -41,6 +47,7 @@ namespace TrashVanish
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 path = folderBrowserDialog.SelectedPath;
+                pathTextBox.Text = path;
             }
         }
     }

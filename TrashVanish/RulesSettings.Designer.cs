@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.rulesGrid = new System.Windows.Forms.DataGridView();
             this.FileExtension = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameIncludes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SavePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.updateRulesButton = new System.Windows.Forms.Button();
+            this.deleteRule = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.rulesGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // rulesGrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.rulesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.rulesGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FileExtension,
             this.NameIncludes,
             this.SavePath});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(344, 150);
-            this.dataGridView1.TabIndex = 0;
+            this.rulesGrid.Location = new System.Drawing.Point(12, 12);
+            this.rulesGrid.Name = "rulesGrid";
+            this.rulesGrid.Size = new System.Drawing.Size(344, 150);
+            this.rulesGrid.TabIndex = 0;
             // 
             // FileExtension
             // 
@@ -64,46 +64,48 @@
             this.SavePath.HeaderText = "Путь";
             this.SavePath.Name = "SavePath";
             // 
-            // button1
+            // updateRulesButton
             // 
-            this.button1.Location = new System.Drawing.Point(376, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Обновить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.updateRulesButton.Location = new System.Drawing.Point(376, 12);
+            this.updateRulesButton.Name = "updateRulesButton";
+            this.updateRulesButton.Size = new System.Drawing.Size(123, 23);
+            this.updateRulesButton.TabIndex = 1;
+            this.updateRulesButton.Text = "Обновить";
+            this.updateRulesButton.UseVisualStyleBackColor = true;
+            this.updateRulesButton.Click += new System.EventHandler(this.updateRulesButton_Click);
             // 
-            // button2
+            // deleteRule
             // 
-            this.button2.Location = new System.Drawing.Point(376, 57);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(123, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Удалить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.deleteRule.Location = new System.Drawing.Point(376, 57);
+            this.deleteRule.Name = "deleteRule";
+            this.deleteRule.Size = new System.Drawing.Size(123, 23);
+            this.deleteRule.TabIndex = 2;
+            this.deleteRule.Text = "Удалить";
+            this.deleteRule.UseVisualStyleBackColor = true;
             // 
             // RulesSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 189);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.deleteRule);
+            this.Controls.Add(this.updateRulesButton);
+            this.Controls.Add(this.rulesGrid);
             this.Name = "RulesSettings";
             this.Text = "RulesSettings";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.RulesSettings_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.rulesGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView rulesGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn FileExtension;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameIncludes;
         private System.Windows.Forms.DataGridViewTextBoxColumn SavePath;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button updateRulesButton;
+        private System.Windows.Forms.Button deleteRule;
     }
 }

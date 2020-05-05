@@ -15,7 +15,10 @@ namespace TrashVanish
         public MainWindow()
         {
             InitializeComponent();
+
         }
+        List<RuleModel> rules = new List<RuleModel>();
+        const string cwd = @"%USERPROFILE%\Desktop\";
 
         private void addRule_Click(object sender, EventArgs e)
         {
@@ -27,6 +30,17 @@ namespace TrashVanish
         {
             RulesSettings rulesSettingForm = new RulesSettings();
             rulesSettingForm.Show();
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mainTask_Click(object sender, EventArgs e)
+        {
+            rules = DBConnection.LoadRules();
+
         }
     }
 }
