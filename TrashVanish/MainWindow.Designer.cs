@@ -40,6 +40,7 @@
             // 
             // rulesSettings
             // 
+            this.rulesSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.rulesSettings.Location = new System.Drawing.Point(377, 27);
             this.rulesSettings.Name = "rulesSettings";
             this.rulesSettings.Size = new System.Drawing.Size(114, 23);
@@ -50,7 +51,8 @@
             // 
             // mainTask
             // 
-            this.mainTask.Location = new System.Drawing.Point(377, 177);
+            this.mainTask.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.mainTask.Location = new System.Drawing.Point(377, 174);
             this.mainTask.Name = "mainTask";
             this.mainTask.Size = new System.Drawing.Size(114, 23);
             this.mainTask.TabIndex = 2;
@@ -60,6 +62,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.logRTB);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
@@ -70,7 +75,9 @@
             // 
             // logRTB
             // 
-            this.logRTB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.logRTB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.logRTB.Location = new System.Drawing.Point(3, 16);
             this.logRTB.Name = "logRTB";
             this.logRTB.ReadOnly = true;
@@ -81,9 +88,10 @@
             // 
             // deleteFlag
             // 
+            this.deleteFlag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.deleteFlag.Checked = true;
             this.deleteFlag.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.deleteFlag.Location = new System.Drawing.Point(377, 116);
+            this.deleteFlag.Location = new System.Drawing.Point(377, 103);
             this.deleteFlag.Name = "deleteFlag";
             this.deleteFlag.Size = new System.Drawing.Size(114, 55);
             this.deleteFlag.TabIndex = 4;
@@ -93,9 +101,10 @@
             // 
             // overwriteFiles
             // 
+            this.overwriteFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.overwriteFiles.Checked = true;
             this.overwriteFiles.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.overwriteFiles.Location = new System.Drawing.Point(377, 83);
+            this.overwriteFiles.Location = new System.Drawing.Point(377, 77);
             this.overwriteFiles.Name = "overwriteFiles";
             this.overwriteFiles.Size = new System.Drawing.Size(114, 40);
             this.overwriteFiles.TabIndex = 5;
@@ -107,14 +116,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 212);
+            this.ClientSize = new System.Drawing.Size(499, 209);
             this.Controls.Add(this.overwriteFiles);
+            this.Controls.Add(this.rulesSettings);
             this.Controls.Add(this.deleteFlag);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.mainTask);
-            this.Controls.Add(this.rulesSettings);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(515, 248);
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrashVanisher";
