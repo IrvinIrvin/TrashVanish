@@ -118,8 +118,10 @@
             this.Controls.Add(this.deleteRule);
             this.Controls.Add(this.updateRulesButton);
             this.Controls.Add(this.rulesGrid);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RulesSettings";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrashVanisher - Настройка правил";
             this.Load += new System.EventHandler(this.RulesSettings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rulesGrid)).EndInit();
