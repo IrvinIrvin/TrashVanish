@@ -13,17 +13,16 @@ namespace TrashVanish
 {
     internal class Worker
     {
-        public static void RunVanisher(string cwd, List<RuleModel> rules)
+        public static void RunVanisher(string cwd, List<RuleModel> rules, bool deleteFile, bool owFiles)
         {
             foreach (RuleModel rule in rules)
             {
-                //   MessageBox.Show(rule.ruleExtension);
-                Thread thread = new Thread(new ThreadStart(() => Work(cwd, rule.ruleExtension, rule.rulePath)));
+                Thread thread = new Thread(new ThreadStart(() => Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles)));
                 thread.Start();
             }
         }
 
-        private static void Work(string cwd, string extension, string targetpath)
+        private static void Work(string cwd, string extension, string includes, string targetpath, bool deleteFile, bool owFiles)
         {
             string[] files = Directory.GetFiles(cwd, "*" + extension);
             if (files.Length < 1)
@@ -37,9 +36,15 @@ namespace TrashVanish
             foreach (string file in files)
             {
                 string destination = Path.Combine(targetpath, Path.GetFileName(file));
-                if (!File.Exists(destination))
+                if (File.Exists(destination) & owFiles)
                 {
-                    File.Copy(file, destination, false);
+                    MessageBox.Show("Файл уже существет");
+                    continue;
+                }
+                File.Copy(file, destination, owFiles);
+                if (deleteFile)
+                {
+                    File.Delete(file);
                 }
             }
             MessageBox.Show("Задача для \"" + extension + "\" завершена");

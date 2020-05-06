@@ -8,6 +8,7 @@ using System.Data.SQLite;
 using System.Configuration;
 using Dapper;
 using System.Windows.Forms;
+using System.IO;
 
 namespace TrashVanish
 {
@@ -35,14 +36,30 @@ namespace TrashVanish
                 }
                 connection.Close();
                 return rules;
-                // Почему-то не работает
-                //var output = connection.Query<RuleModel>("select * from rulestable", new DynamicParameters());
-                //return output.ToList();
-
             }
         }
 
-        public static void AddRule (RuleModel rule)
+        public static void CheckDB()
+        {
+            if (!File.Exists(@".\trashVanish.db"))
+            {
+                SQLiteConnection.CreateFile(@".\trashVanish.db");
+                using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
+                {
+                    connection.Open();
+                    string sql = @"CREATE TABLE rulestable (
+                            id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	                        extension TEXT NOT NULL,
+	                        includes  TEXT,
+	                        path  TEXT NOT NULL
+                            )";
+                    SQLiteCommand command = new SQLiteCommand(sql, connection);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static void AddRule(RuleModel rule)
         {
             using (IDbConnection connection = new SQLiteConnection(LoadConnectionString()))
             {
@@ -53,9 +70,8 @@ namespace TrashVanish
 
         public static void DeleteRule(string extension)
         {
-
             using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
-            { 
+            {
                 try
                 {
                     SQLiteCommand sqlComm = connection.CreateCommand();
@@ -69,8 +85,6 @@ namespace TrashVanish
                 {
                     MessageBox.Show(e.Message);
                 }
-                
-
 
                 connection.Close();
             }
@@ -84,7 +98,7 @@ namespace TrashVanish
                 connection.Open();
                 SQLiteCommand cmd = new SQLiteCommand(connection);
 
-                cmd.CommandText = "SELECT COUNT(id) FROM rulestable WHERE extension = '" + extension +"' ;";
+                cmd.CommandText = "SELECT COUNT(id) FROM rulestable WHERE extension = '" + extension + "' ;";
                 cmd.CommandType = CommandType.Text;
                 //SQLiteDataReader reader = cmd.ExecuteReader();
                 rowCount = Convert.ToInt32(cmd.ExecuteScalar());
@@ -92,6 +106,7 @@ namespace TrashVanish
                 return rowCount > 0;
             }
         }
+
         private static string LoadConnectionString(string id = "Default")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;

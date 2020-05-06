@@ -168,7 +168,7 @@
             this.Controls.Add(this.includesTextBox);
             this.Controls.Add(this.ExtensionTextBox);
             this.Name = "AddRule";
-            this.Text = "AddRule";
+            this.Text = "TrashVanisher - Добавить правило";
             this.ResumeLayout(false);
             this.PerformLayout();
 

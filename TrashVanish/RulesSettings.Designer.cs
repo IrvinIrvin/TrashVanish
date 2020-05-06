@@ -118,7 +118,7 @@
             this.Controls.Add(this.updateRulesButton);
             this.Controls.Add(this.rulesGrid);
             this.Name = "RulesSettings";
-            this.Text = "RulesSettings";
+            this.Text = "TrashVanisher - Настройка правил";
             this.Load += new System.EventHandler(this.RulesSettings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rulesGrid)).EndInit();
             this.ResumeLayout(false);

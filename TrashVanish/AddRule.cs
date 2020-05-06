@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;    
+using System.IO;
 
 namespace TrashVanish
 {
@@ -17,7 +17,8 @@ namespace TrashVanish
         {
             InitializeComponent();
         }
-        string path, extension, includes;
+
+        private string path, extension, includes;
 
         private void browseFilesButton_Click(object sender, EventArgs e)
         {
@@ -31,9 +32,11 @@ namespace TrashVanish
 
         private void AddRuleButton_Click(object sender, EventArgs e)
         {
+            includes = includesTextBox.Text;
             path = pathTextBox.Text;
             extension = ExtensionTextBox.Text;
-            if (DBConnection.isRuleExist(extension)) {
+            if (DBConnection.isRuleExist(extension))
+            {
                 MessageBox.Show("Правило для этого расширения уже создано");
                 return;
             }
@@ -43,7 +46,7 @@ namespace TrashVanish
                 MessageBox.Show("Обязательные поля не заполнены");
                 return;
             }
-            RuleModel rule = new RuleModel { ruleExtension = extension, ruleIncludes = includes, rulePath = path};
+            RuleModel rule = new RuleModel { ruleExtension = extension, ruleIncludes = includes, rulePath = path };
             DBConnection.AddRule(rule);
             ExtensionTextBox.Text = "";
             includesTextBox.Text = "";

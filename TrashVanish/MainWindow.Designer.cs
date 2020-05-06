@@ -32,6 +32,8 @@
             this.mainTask = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.logRTB = new System.Windows.Forms.RichTextBox();
+            this.deleteFlag = new System.Windows.Forms.CheckBox();
+            this.overwriteFiles = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,16 +78,42 @@
             this.logRTB.TabIndex = 0;
             this.logRTB.Text = "Лога нет, но вы держитесь";
             // 
+            // deleteFlag
+            // 
+            this.deleteFlag.Checked = true;
+            this.deleteFlag.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.deleteFlag.Location = new System.Drawing.Point(377, 116);
+            this.deleteFlag.Name = "deleteFlag";
+            this.deleteFlag.Size = new System.Drawing.Size(114, 55);
+            this.deleteFlag.TabIndex = 4;
+            this.deleteFlag.Text = "Удалять после копирования";
+            this.deleteFlag.UseVisualStyleBackColor = true;
+            this.deleteFlag.CheckedChanged += new System.EventHandler(this.deleteFlag_CheckedChanged);
+            // 
+            // overwriteFiles
+            // 
+            this.overwriteFiles.Checked = true;
+            this.overwriteFiles.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.overwriteFiles.Location = new System.Drawing.Point(377, 83);
+            this.overwriteFiles.Name = "overwriteFiles";
+            this.overwriteFiles.Size = new System.Drawing.Size(114, 40);
+            this.overwriteFiles.TabIndex = 5;
+            this.overwriteFiles.Text = "Перезаписывать файлы";
+            this.overwriteFiles.UseVisualStyleBackColor = true;
+            this.overwriteFiles.CheckedChanged += new System.EventHandler(this.overwriteFiles_CheckedChanged);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 212);
+            this.ClientSize = new System.Drawing.Size(499, 212);
+            this.Controls.Add(this.overwriteFiles);
+            this.Controls.Add(this.deleteFlag);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.mainTask);
             this.Controls.Add(this.rulesSettings);
             this.Name = "MainWindow";
-            this.Text = "Form1";
+            this.Text = "TrashVanisher";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -97,6 +125,8 @@
         private System.Windows.Forms.Button mainTask;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RichTextBox logRTB;
+        private System.Windows.Forms.CheckBox deleteFlag;
+        private System.Windows.Forms.CheckBox overwriteFiles;
     }
 }
 
