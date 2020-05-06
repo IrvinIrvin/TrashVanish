@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TrashVanish
 {
+    public delegate void UpdateLogger();
+
     public partial class MainWindow : Form
     {
         public MainWindow()
@@ -34,8 +30,12 @@ namespace TrashVanish
 
         private void mainTask_Click(object sender, EventArgs e)
         {
+            MainWindow mw = new MainWindow();
+            RichTextBox rtb = mw.logRTB;
             rules = DBConnection.LoadRules();
-            Worker.RunVanisher(cwd, rules, deleteFile, owFiles);
+            //Worker.RunVanisher(rtb, cwd, rules, deleteFile, owFiles);
+            Worker worker = new Worker(this);
+            worker.RunVanisher(cwd, rules, deleteFile, owFiles);
         }
 
         private void deleteFlag_CheckedChanged(object sender, EventArgs e)

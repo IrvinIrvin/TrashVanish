@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -7,20 +9,39 @@ namespace TrashVanish
 {
     internal class Worker
     {
-        public static void RunVanisher(string cwd, List<RuleModel> rules, bool deleteFile, bool owFiles)
+        private RichTextBox rtb;
+
+        public Worker(Form mw)
+        {
+            rtb = mw.Controls.Find("logRTB", true).FirstOrDefault() as RichTextBox;
+        }
+
+        public void RunVanisher(string cwd, List<RuleModel> rules, bool deleteFile, bool owFiles)
         {
             foreach (RuleModel rule in rules)
             {
-                Thread thread = new Thread(new ThreadStart(() => Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles)));
-                thread.Start();
+                new Thread(new ThreadStart(() => Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles))).Start();
+                rtb.AppendText("TaskStarted\r\n");
             }
         }
 
-        private static void Work(string cwd, string extension, string includes, string targetpath, bool deleteFile, bool owFiles)
+        private void Work(string cwd, string extension, string includes, string targetpath, bool deleteFile, bool owFiles)
         {
+            Action action = () =>
+            {
+                rtb.AppendText("Задача завершена");
+            };
             string[] files = Directory.GetFiles(cwd, "*" + extension);
             if (files.Length < 1)
             {
+                if (rtb.InvokeRequired)
+                {
+                    rtb.Invoke(action);
+                }
+                else
+                {
+                    action();
+                }
                 return;
             }
             if (!Directory.Exists(targetpath))
@@ -46,7 +67,14 @@ namespace TrashVanish
                     }
                 }
             }
-            MessageBox.Show("Задача для \"" + extension + "\" завершена");
+            if (rtb.InvokeRequired)
+            {
+                rtb.Invoke(action);
+            }
+            else
+            {
+                action();
+            }
         }
     }
 }

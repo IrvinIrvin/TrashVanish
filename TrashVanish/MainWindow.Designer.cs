@@ -84,7 +84,7 @@
             this.logRTB.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
             this.logRTB.Size = new System.Drawing.Size(352, 168);
             this.logRTB.TabIndex = 0;
-            this.logRTB.Text = "Лога нет, но вы держитесь";
+            this.logRTB.Text = "";
             // 
             // deleteFlag
             // 
