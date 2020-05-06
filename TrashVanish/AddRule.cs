@@ -35,6 +35,11 @@ namespace TrashVanish
             includes = includesTextBox.Text;
             path = pathTextBox.Text;
             extension = ExtensionTextBox.Text;
+            if (!isValid(extension))
+            {
+                return;
+            }
+
             if (DBConnection.isRuleExist(extension))
             {
                 MessageBox.Show("Правило для этого расширения уже создано");
@@ -61,6 +66,16 @@ namespace TrashVanish
                 path = folderBrowserDialog.SelectedPath;
                 pathTextBox.Text = path;
             }
+        }
+
+        private bool isValid(string extension)
+        {
+            if (extension[0] != '.')
+            {
+                MessageBox.Show("Расширение должно начинатся с \".\"");
+                return false;
+            }
+            return true;
         }
     }
 }
