@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.rulesSettings = new System.Windows.Forms.Button();
             this.mainTask = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -112,6 +113,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.mainTask);
             this.Controls.Add(this.rulesSettings);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.Text = "TrashVanisher";
             this.Load += new System.EventHandler(this.MainWindow_Load);

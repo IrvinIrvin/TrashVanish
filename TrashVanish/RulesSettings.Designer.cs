@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RulesSettings));
             this.rulesGrid = new System.Windows.Forms.DataGridView();
             this.FileExtension = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameIncludes = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -117,6 +118,7 @@
             this.Controls.Add(this.deleteRule);
             this.Controls.Add(this.updateRulesButton);
             this.Controls.Add(this.rulesGrid);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RulesSettings";
             this.Text = "TrashVanisher - Настройка правил";
             this.Load += new System.EventHandler(this.RulesSettings_Load);

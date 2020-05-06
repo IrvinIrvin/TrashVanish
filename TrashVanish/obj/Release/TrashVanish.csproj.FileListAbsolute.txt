@@ -15,4 +15,5 @@ C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVani
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.csproj.CopyComplete
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.exe
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.pdb
-C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.csproj.Fody.CopyLocal.cache
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Release\Dapper.dll
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Release\System.Data.SQLite.dll

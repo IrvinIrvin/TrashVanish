@@ -35,16 +35,21 @@ namespace TrashVanish
             }
             foreach (string file in files)
             {
-                string destination = Path.Combine(targetpath, Path.GetFileName(file));
-                if (File.Exists(destination) & owFiles)
+                string filename = Path.GetFileName(file);
+                string destination = Path.Combine(targetpath, filename);
+
+                if (filename.Contains(includes))
                 {
-                    MessageBox.Show("Файл уже существет");
-                    continue;
-                }
-                File.Copy(file, destination, owFiles);
-                if (deleteFile)
-                {
-                    File.Delete(file);
+                    if (File.Exists(destination) & !owFiles)
+                    {
+                        MessageBox.Show("Файл " + filename + " уже существет в " + targetpath);
+                        continue;
+                    }
+                    File.Copy(file, destination, owFiles);
+                    if (deleteFile)
+                    {
+                        File.Delete(file);
+                    }
                 }
             }
             MessageBox.Show("Задача для \"" + extension + "\" завершена");
