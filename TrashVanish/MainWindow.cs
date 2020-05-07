@@ -30,10 +30,9 @@ namespace TrashVanish
 
         private void mainTask_Click(object sender, EventArgs e)
         {
+            logRTB.Text = "";
             MainWindow mw = new MainWindow();
-            RichTextBox rtb = mw.logRTB;
             rules = DBConnection.LoadRules();
-            //Worker.RunVanisher(rtb, cwd, rules, deleteFile, owFiles);
             Worker worker = new Worker(this);
             worker.RunVanisher(cwd, rules, deleteFile, owFiles);
         }

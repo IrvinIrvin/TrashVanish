@@ -41,7 +41,7 @@
             // rulesSettings
             // 
             this.rulesSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.rulesSettings.Location = new System.Drawing.Point(377, 27);
+            this.rulesSettings.Location = new System.Drawing.Point(548, 27);
             this.rulesSettings.Name = "rulesSettings";
             this.rulesSettings.Size = new System.Drawing.Size(114, 23);
             this.rulesSettings.TabIndex = 1;
@@ -52,7 +52,7 @@
             // mainTask
             // 
             this.mainTask.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.mainTask.Location = new System.Drawing.Point(377, 174);
+            this.mainTask.Location = new System.Drawing.Point(548, 174);
             this.mainTask.Name = "mainTask";
             this.mainTask.Size = new System.Drawing.Size(114, 23);
             this.mainTask.TabIndex = 2;
@@ -68,7 +68,7 @@
             this.groupBox1.Controls.Add(this.logRTB);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(358, 187);
+            this.groupBox1.Size = new System.Drawing.Size(529, 187);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Лог";
@@ -78,11 +78,13 @@
             this.logRTB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.logRTB.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.logRTB.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.logRTB.Location = new System.Drawing.Point(3, 16);
             this.logRTB.Name = "logRTB";
             this.logRTB.ReadOnly = true;
             this.logRTB.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
-            this.logRTB.Size = new System.Drawing.Size(352, 168);
+            this.logRTB.Size = new System.Drawing.Size(523, 168);
             this.logRTB.TabIndex = 0;
             this.logRTB.Text = "";
             // 
@@ -91,7 +93,7 @@
             this.deleteFlag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.deleteFlag.Checked = true;
             this.deleteFlag.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.deleteFlag.Location = new System.Drawing.Point(377, 103);
+            this.deleteFlag.Location = new System.Drawing.Point(548, 103);
             this.deleteFlag.Name = "deleteFlag";
             this.deleteFlag.Size = new System.Drawing.Size(114, 55);
             this.deleteFlag.TabIndex = 4;
@@ -104,7 +106,7 @@
             this.overwriteFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.overwriteFiles.Checked = true;
             this.overwriteFiles.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.overwriteFiles.Location = new System.Drawing.Point(377, 77);
+            this.overwriteFiles.Location = new System.Drawing.Point(548, 77);
             this.overwriteFiles.Name = "overwriteFiles";
             this.overwriteFiles.Size = new System.Drawing.Size(114, 40);
             this.overwriteFiles.TabIndex = 5;
@@ -116,7 +118,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 209);
+            this.ClientSize = new System.Drawing.Size(670, 209);
             this.Controls.Add(this.overwriteFiles);
             this.Controls.Add(this.rulesSettings);
             this.Controls.Add(this.deleteFlag);

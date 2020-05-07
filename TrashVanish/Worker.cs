@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -9,11 +10,11 @@ namespace TrashVanish
 {
     internal class Worker
     {
-        private RichTextBox rtb;
+        private RichTextBox box;
 
         public Worker(Form mw)
         {
-            rtb = mw.Controls.Find("logRTB", true).FirstOrDefault() as RichTextBox;
+            box = mw.Controls.Find("logRTB", true).FirstOrDefault() as RichTextBox;
         }
 
         public void RunVanisher(string cwd, List<RuleModel> rules, bool deleteFile, bool owFiles)
@@ -21,27 +22,17 @@ namespace TrashVanish
             foreach (RuleModel rule in rules)
             {
                 new Thread(new ThreadStart(() => Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles))).Start();
-                rtb.AppendText("TaskStarted\r\n");
+                logger("Задание для \"" + rule.ruleExtension + "\" началось", Color.Orange);
             }
         }
 
         private void Work(string cwd, string extension, string includes, string targetpath, bool deleteFile, bool owFiles)
         {
-            Action action = () =>
-            {
-                rtb.AppendText("Задача завершена");
-            };
+            int errors = 0;
             string[] files = Directory.GetFiles(cwd, "*" + extension);
             if (files.Length < 1)
             {
-                if (rtb.InvokeRequired)
-                {
-                    rtb.Invoke(action);
-                }
-                else
-                {
-                    action();
-                }
+                logger("Нет файлов для \"" + extension + "\"... сворачиваюсь", Color.DarkOrange);
                 return;
             }
             if (!Directory.Exists(targetpath))
@@ -57,19 +48,48 @@ namespace TrashVanish
                 {
                     if (File.Exists(destination) & !owFiles)
                     {
-                        MessageBox.Show("Файл " + filename + " уже существет в " + targetpath);
+                        logger("Файл \"" + filename + "\" уже существет в \"" + targetpath + "\"... пропускаю", Color.Gold);
                         continue;
                     }
                     File.Copy(file, destination, owFiles);
                     if (deleteFile)
                     {
-                        File.Delete(file);
+                        try
+                        {
+                            File.Delete(file);
+                        }
+                        catch (Exception e)
+                        {
+                            logger(e.Message, Color.Maroon);
+                            errors++;
+                        }
                     }
                 }
             }
-            if (rtb.InvokeRequired)
+            if (errors != 0)
             {
-                rtb.Invoke(action);
+                logger("Не все файлы \"" + extension + "\" перемещенны успешно", Color.OrangeRed);
+            }
+            else
+            {
+                logger("Задание для \"" + extension + "\" завершилось успешно", Color.Lime);
+            }
+        }
+
+        private void logger(string message, Color color)
+        {
+            Action action = () =>
+            {
+                box.SelectionStart = box.TextLength;
+                box.SelectionLength = 0;
+
+                box.SelectionColor = color;
+                box.AppendText("[" + DateTime.Now + "]" + " - " + message + "\r\n");
+                box.SelectionColor = box.ForeColor;
+            };
+            if (box.InvokeRequired)
+            {
+                box.Invoke(action);
             }
             else
             {
