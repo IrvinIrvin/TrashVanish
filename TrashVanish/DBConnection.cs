@@ -61,7 +61,6 @@ namespace TrashVanish
             using (IDbConnection connection = new SQLiteConnection(LoadConnectionString()))
             {
                 connection.Execute("insert into rulestable (extension, includes, path) values (@ruleExtension, @ruleIncludes, @rulePath)", rule);
-                MessageBox.Show("Правило создано!");
             }
         }
 

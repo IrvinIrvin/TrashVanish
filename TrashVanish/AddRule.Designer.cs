@@ -41,6 +41,7 @@
             this.browseFolders = new System.Windows.Forms.Button();
             this.AddRuleButton = new System.Windows.Forms.Button();
             this.browseFilesButton = new System.Windows.Forms.Button();
+            this.messageLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ExtensionTextBox
@@ -151,11 +152,23 @@
             this.browseFilesButton.UseVisualStyleBackColor = true;
             this.browseFilesButton.Click += new System.EventHandler(this.browseFilesButton_Click);
             // 
+            // messageLabel
+            // 
+            this.messageLabel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.messageLabel.Location = new System.Drawing.Point(0, 167);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(318, 23);
+            this.messageLabel.TabIndex = 12;
+            this.messageLabel.Text = "Message";
+            this.messageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.messageLabel.Visible = false;
+            // 
             // AddRule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(320, 231);
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.browseFilesButton);
             this.Controls.Add(this.AddRuleButton);
             this.Controls.Add(this.browseFolders);
@@ -192,5 +205,6 @@
         private System.Windows.Forms.Button browseFolders;
         private System.Windows.Forms.Button AddRuleButton;
         private System.Windows.Forms.Button browseFilesButton;
+        private System.Windows.Forms.Label messageLabel;
     }
 }
