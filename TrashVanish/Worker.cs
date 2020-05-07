@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -27,45 +29,55 @@ namespace TrashVanish
         /// <param name="rules">Список правил</param>
         /// <param name="deleteFile">Флаг удаления файлов после копирования</param>
         /// <param name="owFiles">Флаг перезаписи файлов если уже есть в конечной директории</param>
-        public void RunVanisher(string cwd, List<RuleModel> rules, bool deleteFile, bool owFiles)
+        async public void RunVanisher(string cwd, List<RuleModel> rules, bool deleteFile, bool owFiles)
         {
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
+            logger("Старт", Color.Lime);
             int includesCount = 0;
             /* TODO - запустить потоки с инклудами и дождаться их завершения
              * После них запустить потоки без инклудов.
              * Если поставлен флаг owFiles закидывать затронутые файлы с инклудами в список и проверять если их использовали
+             * ===DONE===
             */
+            List<RuleModel> complexRules = new List<RuleModel>();
+            List<RuleModel> simpleRules = new List<RuleModel>();
+            List<Task> tasks = new List<Task>();
             foreach (RuleModel rule in rules)
             {
                 if (rule.ruleIncludes != "")
                 {
                     includesCount++;
+                    complexRules.Add(rule);
                 }
-            }
-            Task[] rulesWithIncludes = new Task[includesCount - 1];
-
-            int localindex = 0;
-            foreach (RuleModel rule in rules)
-            {
-                if (rule.ruleIncludes != "")
+                else
                 {
-                    rulesWithIncludes[localindex] = Task.Factory.StartNew(() =>
-                    {
-                        Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles);
-                    });
+                    simpleRules.Add(rule);
                 }
             }
+            foreach (RuleModel rule in complexRules)
+            {
+                tasks.Add(Task.Factory.StartNew(() =>
+                {
+                    Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles);
+                }));
+            }
+            await Task.WhenAll(tasks.ToArray());
+            logger("Задачи с комплексными правилами завершены", Color.MediumSpringGreen);
+            tasks.Clear();
+            foreach (RuleModel rule in simpleRules)
+            {
+                tasks.Add(Task.Factory.StartNew(() =>
+                {
+                    Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles);
+                }));
+            }
+            await Task.WhenAll(tasks.ToArray());
 
-            Task.WhenAll(rulesWithIncludes);
-            logger("Задания с инклудами завершены", Color.AliceBlue);
-
-            //foreach (RuleModel rule in rulesWithIncludes)
-            //{
-            //    new Thread(new ThreadStart(() => Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles))).Start();
-            //    logger("Задание для \"" + rule.ruleExtension + "\" началось rule with include", Color.Orange);
-            //}
-
-            // Работает с инклудами если включено удаление после копирования
-            //foreach (RuleModel rule in rules)
+            watch.Stop();
+            logger("Все задачи завершены за " + watch.ElapsedMilliseconds + " миллисекунд", Color.Lime);
+            //// === OLD METHOD === Работает с инклудами если включено удаление после копирования
+            //foreach (RuleModel rule in simpleRules)
             //{
             //    new Thread(new ThreadStart(() => Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles))).Start();
             //    logger("Задание для \"" + rule.ruleExtension + "\" началось", Color.Orange);
@@ -79,7 +91,15 @@ namespace TrashVanish
             string[] files = Directory.GetFiles(cwd, "*" + extension);
             if (files.Length < 1)
             {
-                logger("Нет файлов для \"" + extension + "\"... сворачиваюсь", Color.DarkOrange);
+                if (includes != "")
+                {
+                    logger("Нет файлов для задачи \"" + extension + "\" + \"" + includes + "\"... сворачиваюсь", Color.DarkOrange);
+                }
+                else
+                {
+                    logger("Нет файлов для задачи \"" + extension + "\"... сворачиваюсь", Color.DarkOrange);
+                }
+
                 return;
             }
             if (!Directory.Exists(targetpath))
@@ -128,7 +148,14 @@ namespace TrashVanish
             }
             else
             {
-                logger("Задание для \"" + extension + "\" завершилось успешно. Перемещенно файлов: " + filesCopied + ", Всего файлов: " + files.Length, Color.Lime);
+                if (includes != "")
+                {
+                    logger("Задача для \"" + extension + "\" \"" + includes + "\" завершилось успешно. Перемещенно файлов: " + filesCopied, Color.Lime);
+                }
+                else
+                {
+                    logger("Задача для \"" + extension + "\" завершилось успешно. Перемещенно файлов: " + filesCopied, Color.Lime);
+                }
             }
         }
 

@@ -35,6 +35,7 @@
             this.logRTB = new System.Windows.Forms.RichTextBox();
             this.deleteFlag = new System.Windows.Forms.CheckBox();
             this.overwriteFiles = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,7 +94,7 @@
             this.deleteFlag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.deleteFlag.Checked = true;
             this.deleteFlag.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.deleteFlag.Location = new System.Drawing.Point(548, 103);
+            this.deleteFlag.Location = new System.Drawing.Point(548, 113);
             this.deleteFlag.Name = "deleteFlag";
             this.deleteFlag.Size = new System.Drawing.Size(114, 55);
             this.deleteFlag.TabIndex = 4;
@@ -106,7 +107,7 @@
             this.overwriteFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.overwriteFiles.Checked = true;
             this.overwriteFiles.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.overwriteFiles.Location = new System.Drawing.Point(548, 77);
+            this.overwriteFiles.Location = new System.Drawing.Point(548, 87);
             this.overwriteFiles.Name = "overwriteFiles";
             this.overwriteFiles.Size = new System.Drawing.Size(114, 40);
             this.overwriteFiles.TabIndex = 5;
@@ -114,11 +115,24 @@
             this.overwriteFiles.UseVisualStyleBackColor = true;
             this.overwriteFiles.CheckedChanged += new System.EventHandler(this.overwriteFiles_CheckedChanged);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(548, 64);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(91, 17);
+            this.checkBox1.TabIndex = 6;
+            this.checkBox1.Text = "Очищать лог";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(670, 209);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.overwriteFiles);
             this.Controls.Add(this.rulesSettings);
             this.Controls.Add(this.deleteFlag);
@@ -132,6 +146,7 @@
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -142,6 +157,7 @@
         private System.Windows.Forms.RichTextBox logRTB;
         private System.Windows.Forms.CheckBox deleteFlag;
         private System.Windows.Forms.CheckBox overwriteFiles;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 
