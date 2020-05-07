@@ -17,6 +17,13 @@ namespace TrashVanish
             box = mw.Controls.Find("logRTB", true).FirstOrDefault() as RichTextBox;
         }
 
+        /// <summary>
+        /// Запускает потоки для каждой задачи
+        /// </summary>
+        /// <param name="cwd">Текущая рабочая директория (рабочий стол)</param>
+        /// <param name="rules">Список правил</param>
+        /// <param name="deleteFile">Флаг удаления файлов после копирования</param>
+        /// <param name="owFiles">Флаг перезаписи файлов если уже есть в конечной директории</param>
         public void RunVanisher(string cwd, List<RuleModel> rules, bool deleteFile, bool owFiles)
         {
             foreach (RuleModel rule in rules)

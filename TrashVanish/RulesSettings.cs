@@ -24,7 +24,7 @@ namespace TrashVanish
             rules = DBConnection.LoadRules();
             foreach (RuleModel rule in rules)
             {
-                rulesGrid.Rows.Add(rule.ruleExtension, rule.ruleIncludes, rule.rulePath);
+                rulesGrid.Rows.Add(rule.ruleID, rule.ruleExtension, rule.ruleIncludes, rule.rulePath);
             }
         }
 
@@ -37,7 +37,7 @@ namespace TrashVanish
         {
             int selectedrow = rulesGrid.CurrentCell.RowIndex;
             int columnbydefault = 0;
-
+            // Удаление по id
             DBConnection.DeleteRule(rulesGrid.Rows[selectedrow].Cells[columnbydefault].Value.ToString());
             updateGrid();
         }

@@ -25,7 +25,7 @@ namespace TrashVanish
                 {
                     rules.Add(new RuleModel
                     {
-                        id = reader["id"] as string,
+                        ruleID = Convert.ToString(reader["id"]),
                         ruleExtension = reader["extension"] as string,
                         ruleIncludes = reader["includes"] as string,
                         rulePath = reader["path"] as string
@@ -64,16 +64,15 @@ namespace TrashVanish
             }
         }
 
-        public static void DeleteRule(string extension)
+        public static void DeleteRule(string ruleID)
         {
             using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
             {
                 try
                 {
                     SQLiteCommand sqlComm = connection.CreateCommand();
-                    sqlComm.CommandText = "DELETE FROM rulestable WHERE extension=@extension;";
-                    //command.Parameters.AddWithValue("@demographics", demoXml);
-                    sqlComm.Parameters.AddWithValue("@extension", extension);
+                    sqlComm.CommandText = "DELETE FROM rulestable WHERE id=@id;";
+                    sqlComm.Parameters.AddWithValue("@id", ruleID);
                     connection.Open();
                     sqlComm.ExecuteNonQuery();
                 }
@@ -86,18 +85,16 @@ namespace TrashVanish
             }
         }
 
-        public static bool isRuleExist(string extension)
+        public static bool isRuleExist(string extension, string includes)
         {
-            int rowCount = 0;
             using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
             {
                 connection.Open();
                 SQLiteCommand cmd = new SQLiteCommand(connection);
 
-                cmd.CommandText = "SELECT COUNT(id) FROM rulestable WHERE extension = '" + extension + "' ;";
+                cmd.CommandText = "SELECT COUNT(id) FROM rulestable WHERE extension = '" + extension + "' AND includes = '" + includes + "';";
                 cmd.CommandType = CommandType.Text;
-                //SQLiteDataReader reader = cmd.ExecuteReader();
-                rowCount = Convert.ToInt32(cmd.ExecuteScalar());
+                int rowCount = Convert.ToInt32(cmd.ExecuteScalar());
                 connection.Close();
                 return rowCount > 0;
             }

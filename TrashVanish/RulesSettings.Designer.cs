@@ -33,6 +33,7 @@
             this.updateRulesButton = new System.Windows.Forms.Button();
             this.deleteRule = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileExtension = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameIncludes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SavePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +50,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rulesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.rulesGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.FileExtension,
             this.NameIncludes,
             this.SavePath});
@@ -94,6 +96,13 @@
             this.button1.Text = "Добавить правило";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 50;
             // 
             // FileExtension
             // 
@@ -141,6 +150,7 @@
         private System.Windows.Forms.Button updateRulesButton;
         private System.Windows.Forms.Button deleteRule;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn FileExtension;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameIncludes;
         private System.Windows.Forms.DataGridViewTextBoxColumn SavePath;

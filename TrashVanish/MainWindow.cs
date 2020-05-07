@@ -31,7 +31,6 @@ namespace TrashVanish
         private void mainTask_Click(object sender, EventArgs e)
         {
             logRTB.Text = "";
-            MainWindow mw = new MainWindow();
             rules = DBConnection.LoadRules();
             Worker worker = new Worker(this);
             worker.RunVanisher(cwd, rules, deleteFile, owFiles);

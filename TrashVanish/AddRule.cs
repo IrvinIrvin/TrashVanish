@@ -42,7 +42,7 @@ namespace TrashVanish
                 return;
             }
 
-            if (DBConnection.isRuleExist(extension))
+            if (DBConnection.isRuleExist(extension, includes))
             {
                 messageLabelFunc("Правило для \"" + extension + "\" уже существует", Color.DarkOrange);
                 return;
