@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TrashVanish
@@ -17,6 +18,8 @@ namespace TrashVanish
             box = mw.Controls.Find("logRTB", true).FirstOrDefault() as RichTextBox;
         }
 
+        private List<string> affectedFiles = new List<string>();
+
         /// <summary>
         /// Запускает потоки для каждой задачи
         /// </summary>
@@ -26,11 +29,47 @@ namespace TrashVanish
         /// <param name="owFiles">Флаг перезаписи файлов если уже есть в конечной директории</param>
         public void RunVanisher(string cwd, List<RuleModel> rules, bool deleteFile, bool owFiles)
         {
+            int includesCount = 0;
+            /* TODO - запустить потоки с инклудами и дождаться их завершения
+             * После них запустить потоки без инклудов.
+             * Если поставлен флаг owFiles закидывать затронутые файлы с инклудами в список и проверять если их использовали
+            */
             foreach (RuleModel rule in rules)
             {
-                new Thread(new ThreadStart(() => Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles))).Start();
-                logger("Задание для \"" + rule.ruleExtension + "\" началось", Color.Orange);
+                if (rule.ruleIncludes != "")
+                {
+                    includesCount++;
+                }
             }
+            Task[] rulesWithIncludes = new Task[includesCount - 1];
+
+            int localindex = 0;
+            foreach (RuleModel rule in rules)
+            {
+                if (rule.ruleIncludes != "")
+                {
+                    rulesWithIncludes[localindex] = Task.Factory.StartNew(() =>
+                    {
+                        Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles);
+                    });
+                }
+            }
+
+            Task.WhenAll(rulesWithIncludes);
+            logger("Задания с инклудами завершены", Color.AliceBlue);
+
+            //foreach (RuleModel rule in rulesWithIncludes)
+            //{
+            //    new Thread(new ThreadStart(() => Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles))).Start();
+            //    logger("Задание для \"" + rule.ruleExtension + "\" началось rule with include", Color.Orange);
+            //}
+
+            // Работает с инклудами если включено удаление после копирования
+            //foreach (RuleModel rule in rules)
+            //{
+            //    new Thread(new ThreadStart(() => Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles))).Start();
+            //    logger("Задание для \"" + rule.ruleExtension + "\" началось", Color.Orange);
+            //}
         }
 
         private void Work(string cwd, string extension, string includes, string targetpath, bool deleteFile, bool owFiles)
@@ -59,7 +98,15 @@ namespace TrashVanish
                         logger("Файл \"" + filename + "\" уже существет в \"" + targetpath + "\"... пропускаю", Color.Gold);
                         continue;
                     }
-                    File.Copy(file, destination, owFiles);
+                    if (notAffected(file))
+                    {
+                        File.Copy(file, destination, owFiles);
+                        affectedFiles.Add(file);
+                    }
+                    else
+                    {
+                        continue;
+                    }
                     filesCopied++;
                     if (deleteFile)
                     {
@@ -83,6 +130,18 @@ namespace TrashVanish
             {
                 logger("Задание для \"" + extension + "\" завершилось успешно. Перемещенно файлов: " + filesCopied + ", Всего файлов: " + files.Length, Color.Lime);
             }
+        }
+
+        private bool notAffected(string file)
+        {
+            foreach (string affectedFile in affectedFiles)
+            {
+                if (file == affectedFile)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         private void logger(string message, Color color)
