@@ -60,7 +60,7 @@ namespace TrashVanish
             messageLabel.Visible = true;
             messageLabel.ForeColor = color;
             messageLabel.Text = message;
-            var timer = new System.Windows.Forms.Timer();
+            var timer = new Timer();
             timer.Interval = 5000;
             timer.Tick += (s, e) =>
             {

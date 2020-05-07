@@ -28,6 +28,7 @@ namespace TrashVanish
 
         private void Work(string cwd, string extension, string includes, string targetpath, bool deleteFile, bool owFiles)
         {
+            int filesCopied = 0;
             int errors = 0;
             string[] files = Directory.GetFiles(cwd, "*" + extension);
             if (files.Length < 1)
@@ -52,6 +53,7 @@ namespace TrashVanish
                         continue;
                     }
                     File.Copy(file, destination, owFiles);
+                    filesCopied++;
                     if (deleteFile)
                     {
                         try
@@ -72,7 +74,7 @@ namespace TrashVanish
             }
             else
             {
-                logger("Задание для \"" + extension + "\" завершилось успешно", Color.Lime);
+                logger("Задание для \"" + extension + "\" завершилось успешно. Перемещенно файлов: " + filesCopied + ", Всего файлов: " + files.Length, Color.Lime);
             }
         }
 
