@@ -76,19 +76,13 @@ namespace TrashVanish
 
             watch.Stop();
             logger("Все задачи завершены за " + watch.ElapsedMilliseconds + " миллисекунд", Color.Lime);
-            //// === OLD METHOD === Работает с инклудами если включено удаление после копирования
-            //foreach (RuleModel rule in simpleRules)
-            //{
-            //    new Thread(new ThreadStart(() => Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles))).Start();
-            //    logger("Задание для \"" + rule.ruleExtension + "\" началось", Color.Orange);
-            //}
         }
 
         private void Work(string cwd, string extension, string includes, string targetpath, bool deleteFile, bool owFiles)
         {
             int filesCopied = 0;
             int errors = 0;
-            string[] files = Directory.GetFiles(cwd, "*" + extension);
+            string[] files = Directory.GetFiles(cwd, "*" + includes + "*" + extension);
             if (files.Length < 1)
             {
                 if (includes != "")
