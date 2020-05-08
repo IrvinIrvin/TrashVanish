@@ -35,11 +35,6 @@ namespace TrashVanish
             watch.Start();
             logger("Старт", Color.Lime);
             int includesCount = 0;
-            /* TODO - запустить потоки с инклудами и дождаться их завершения
-             * После них запустить потоки без инклудов.
-             * Если поставлен флаг owFiles закидывать затронутые файлы с инклудами в список и проверять если их использовали
-             * ===DONE===
-            */
             List<RuleModel> complexRules = new List<RuleModel>();
             List<RuleModel> simpleRules = new List<RuleModel>();
             List<Task> tasks = new List<Task>();

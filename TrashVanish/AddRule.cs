@@ -83,18 +83,6 @@ namespace TrashVanish
             }
         }
 
-        private void registerCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (registerCheckBox.CheckState == CheckState.Checked)
-            {
-                register = 1;
-            }
-            else
-            {
-                register = 0;
-            }
-        }
-
         private bool extValidate(string extension)
         {
             if (extension[0] == '.')

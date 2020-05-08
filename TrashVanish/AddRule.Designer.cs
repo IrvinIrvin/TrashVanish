@@ -42,7 +42,6 @@
             this.AddRuleButton = new System.Windows.Forms.Button();
             this.browseFilesButton = new System.Windows.Forms.Button();
             this.messageLabel = new System.Windows.Forms.Label();
-            this.registerCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // ExtensionTextBox
@@ -164,22 +163,11 @@
             this.messageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.messageLabel.Visible = false;
             // 
-            // registerCheckBox
-            // 
-            this.registerCheckBox.Location = new System.Drawing.Point(221, 76);
-            this.registerCheckBox.Name = "registerCheckBox";
-            this.registerCheckBox.Size = new System.Drawing.Size(89, 32);
-            this.registerCheckBox.TabIndex = 13;
-            this.registerCheckBox.Text = "Учитывать регистр";
-            this.registerCheckBox.UseVisualStyleBackColor = true;
-            this.registerCheckBox.CheckedChanged += new System.EventHandler(this.registerCheckBox_CheckedChanged);
-            // 
             // AddRule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(320, 231);
-            this.Controls.Add(this.registerCheckBox);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.browseFilesButton);
             this.Controls.Add(this.AddRuleButton);
@@ -218,6 +206,5 @@
         private System.Windows.Forms.Button AddRuleButton;
         private System.Windows.Forms.Button browseFilesButton;
         private System.Windows.Forms.Label messageLabel;
-        private System.Windows.Forms.CheckBox registerCheckBox;
     }
 }
