@@ -14,44 +14,59 @@ namespace TrashVanish
         public static List<RuleModel> LoadRules()
         {
             List<RuleModel> rules = new List<RuleModel>();
-            using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
+            try
             {
-                connection.Open();
-                string sqlcommand = "SELECT * FROM rulestable";
-                SQLiteCommand command = new SQLiteCommand(sqlcommand, connection);
-                command.Prepare();
-                SQLiteDataReader reader = command.ExecuteReader();
-                while (reader.Read())
+                using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
                 {
-                    rules.Add(new RuleModel
+                    connection.Open();
+                    string sqlcommand = "SELECT * FROM rulestable";
+                    SQLiteCommand command = new SQLiteCommand(sqlcommand, connection);
+                    command.Prepare();
+                    SQLiteDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
                     {
-                        ruleID = Convert.ToString(reader["id"]),
-                        ruleExtension = reader["extension"] as string,
-                        ruleIncludes = reader["includes"] as string,
-                        rulePath = reader["path"] as string
-                    });
+                        rules.Add(new RuleModel
+                        {
+                            ruleID = Convert.ToString(reader["id"]),
+                            ruleExtension = reader["extension"] as string,
+                            ruleIncludes = reader["includes"] as string,
+                            rulePath = reader["path"] as string
+                        });
+                    }
+                    connection.Close();
                 }
-                connection.Close();
-                return rules;
             }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Ошибка при получении информации из бд", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return rules;
         }
 
         public static void CheckDB()
         {
             if (!File.Exists(@".\trashVanish.db"))
             {
-                SQLiteConnection.CreateFile(@".\trashVanish.db");
-                using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
+                try
                 {
-                    connection.Open();
-                    string sql = @"CREATE TABLE rulestable (
-                            id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
-	                        extension TEXT NOT NULL,
-	                        includes  TEXT,
-	                        path  TEXT NOT NULL
+                    SQLiteConnection.CreateFile(@".\trashVanish.db");
+                    using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
+                    {
+                        connection.Open();
+                        string sql = @"CREATE TABLE rulestable (
+                                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	                            extension TEXT NOT NULL,
+	                            includes  TEXT,
+	                            path  TEXT NOT NULL,
+	                            register  INTEGER NOT NULL
                             )";
-                    SQLiteCommand command = new SQLiteCommand(sql, connection);
-                    command.ExecuteNonQuery();
+                        SQLiteCommand command = new SQLiteCommand(sql, connection);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message, "Ошибка при создании бд", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -60,7 +75,14 @@ namespace TrashVanish
         {
             using (IDbConnection connection = new SQLiteConnection(LoadConnectionString()))
             {
-                connection.Execute("insert into rulestable (extension, includes, path) values (@ruleExtension, @ruleIncludes, @rulePath)", rule);
+                try
+                {
+                    connection.Execute("insert into rulestable (extension, includes, path, register) values (@ruleExtension, @ruleIncludes, @rulePath, @ruleRegister)", rule);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message, "Ошибка при добавлении значений в бд", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

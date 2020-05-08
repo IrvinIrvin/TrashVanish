@@ -6,5 +6,6 @@
         public string ruleExtension { get; set; }
         public string rulePath { get; set; }
         public string ruleIncludes { get; set; }
+        public int ruleRegister { get; set; }
     }
 }

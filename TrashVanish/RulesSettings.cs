@@ -20,12 +20,14 @@ namespace TrashVanish
 
         private void updateGrid()
         {
-            rulesGrid.Rows.Clear();
-            rules = DBConnection.LoadRules();
-            foreach (RuleModel rule in rules)
-            {
-                rulesGrid.Rows.Add(rule.ruleID, rule.ruleExtension, rule.ruleIncludes, rule.rulePath);
-            }
+            GridUpdater gu = new GridUpdater(this.rulesGrid);
+            gu.UpdateGrid();
+            //rulesGrid.Rows.Clear();
+            //rules = DBConnection.LoadRules();
+            //foreach (RuleModel rule in rules)
+            //{
+            //    rulesGrid.Rows.Add(rule.ruleID, rule.ruleExtension, rule.ruleRegister, rule.ruleIncludes, rule.rulePath);
+            //}
         }
 
         private void updateRulesButton_Click(object sender, EventArgs e)

@@ -13,6 +13,7 @@ namespace TrashVanish
         }
 
         private string path, extension, includes;
+        private int register = 0;
 
         private void browseFilesButton_Click(object sender, EventArgs e)
         {
@@ -47,12 +48,14 @@ namespace TrashVanish
                 messageLabelFunc("Правило для \"" + extension + "\" уже существует", Color.DarkOrange);
                 return;
             }
-            RuleModel rule = new RuleModel { ruleExtension = extension, ruleIncludes = includes, rulePath = path };
+            RuleModel rule = new RuleModel { ruleExtension = extension, ruleIncludes = includes, rulePath = path, ruleRegister = register };
             DBConnection.AddRule(rule);
             messageLabelFunc("Правило для \"" + extension + "\" создано", Color.Lime);
             ExtensionTextBox.Text = "";
             includesTextBox.Text = "";
             pathTextBox.Text = "";
+            GridUpdater gu = new GridUpdater();
+            gu.UpdateGrid();
         }
 
         private void messageLabelFunc(string message, Color color)
@@ -77,6 +80,18 @@ namespace TrashVanish
             {
                 path = folderBrowserDialog.SelectedPath;
                 pathTextBox.Text = path;
+            }
+        }
+
+        private void registerCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (registerCheckBox.CheckState == CheckState.Checked)
+            {
+                register = 1;
+            }
+            else
+            {
+                register = 0;
             }
         }
 

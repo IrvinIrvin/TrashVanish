@@ -35,6 +35,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileExtension = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.register = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameIncludes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SavePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.rulesGrid)).BeginInit();
@@ -52,6 +53,7 @@
             this.rulesGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.FileExtension,
+            this.register,
             this.NameIncludes,
             this.SavePath});
             this.rulesGrid.Location = new System.Drawing.Point(12, 12);
@@ -107,16 +109,26 @@
             // 
             // FileExtension
             // 
+            this.FileExtension.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.FileExtension.HeaderText = "Расширение";
             this.FileExtension.Name = "FileExtension";
             this.FileExtension.ReadOnly = true;
-            this.FileExtension.Width = 55;
+            this.FileExtension.Width = 95;
+            // 
+            // register
+            // 
+            this.register.HeaderText = "Учитывать регистр";
+            this.register.Name = "register";
+            this.register.ReadOnly = true;
+            this.register.Visible = false;
             // 
             // NameIncludes
             // 
+            this.NameIncludes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.NameIncludes.HeaderText = "Имя файла содержит";
             this.NameIncludes.Name = "NameIncludes";
             this.NameIncludes.ReadOnly = true;
+            this.NameIncludes.Width = 129;
             // 
             // SavePath
             // 
@@ -153,6 +165,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn FileExtension;
+        private System.Windows.Forms.DataGridViewTextBoxColumn register;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameIncludes;
         private System.Windows.Forms.DataGridViewTextBoxColumn SavePath;
     }
