@@ -13,7 +13,6 @@ namespace TrashVanish
         }
 
         private string path, extension, includes;
-        private int register = 0;
 
         private void browseFilesButton_Click(object sender, EventArgs e)
         {
@@ -37,9 +36,8 @@ namespace TrashVanish
                 messageLabelFunc("Обязательные поля не заполнены", Color.DarkOrange);
                 return;
             }
-            if (!extValidate(extension))
+            if (!extValidate(extension) || !pathValidate(path))
             {
-                messageLabelFunc("Расширение не корректно", Color.DarkOrange);
                 return;
             }
 
@@ -48,7 +46,7 @@ namespace TrashVanish
                 messageLabelFunc("Правило для \"" + extension + "\" уже существует", Color.DarkOrange);
                 return;
             }
-            RuleModel rule = new RuleModel { ruleExtension = extension, ruleIncludes = includes, rulePath = path, ruleRegister = register };
+            RuleModel rule = new RuleModel { ruleExtension = extension, ruleIncludes = includes, rulePath = path };
             DBConnection.AddRule(rule);
             messageLabelFunc("Правило для \"" + extension + "\" создано", Color.Lime);
             ExtensionTextBox.Text = "";
@@ -91,14 +89,40 @@ namespace TrashVanish
             }
             else
             {
+                messageLabelFunc("Расширение не корректно", Color.DarkOrange);
+                return false;
+            }
+            if ((char)extension.Length == 0)
+            {
+                messageLabelFunc("Расширение не корректно", Color.DarkOrange);
                 return false;
             }
             foreach (char l in extension)
             {
                 if (!(l >= 65) && !(l <= 90) || !(l >= 97) && !(l <= 122))
                 {
+                    messageLabelFunc("Расширение не корректно", Color.DarkOrange);
                     return false;
                 }
+            }
+            return true;
+        }
+
+        private bool pathValidate(string path)
+        {
+            try
+            {
+                Path.GetFullPath(path);
+            }
+            catch
+            {
+                messageLabelFunc("Путь не корректен", Color.DarkOrange);
+                return false;
+            }
+            if (!Path.IsPathRooted(path))
+            {
+                messageLabelFunc("Относительные пути запрещены", Color.DarkOrange);
+                return false;
             }
             return true;
         }
@@ -106,7 +130,7 @@ namespace TrashVanish
         private string sliceDot(string str)
         {
             string newstr = "";
-            for (int i = 1; i < str.Length - 1; i++)
+            for (int i = 1; i < str.Length; i++)
             {
                 newstr = newstr + str[i];
             }

@@ -97,6 +97,7 @@ namespace TrashVanish
             }
             foreach (string file in files)
             {
+                bool doNotDelete = false;
                 string filename = Path.GetFileName(file);
                 string destination = Path.Combine(targetpath, filename);
 
@@ -109,7 +110,23 @@ namespace TrashVanish
                     }
                     if (notAffected(file))
                     {
-                        File.Copy(file, destination, owFiles);
+                        try
+                        {
+                            File.Copy(file, destination, owFiles);
+                        }
+                        catch (UnauthorizedAccessException uae)
+                        {
+                            logger(uae.Message + ". Чтобы скопировать файл в \"" + targetpath + "\" запустите программу от имени администратора", Color.Maroon);
+                            errors++;
+                            doNotDelete = true;
+                        }
+                        catch (Exception e)
+                        {
+                            //MessageBox.Show(e.Message, "Ошибка при копировании", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            logger(e.Message, Color.Maroon);
+                            errors++;
+                            doNotDelete = true;
+                        }
                         affectedFiles.Add(file);
                     }
                     else
@@ -119,14 +136,17 @@ namespace TrashVanish
                     filesCopied++;
                     if (deleteFile)
                     {
-                        try
+                        if (!doNotDelete) // Если произошла ошибка при копировании - оставить оригинал
                         {
-                            File.Delete(file);
-                        }
-                        catch (Exception e)
-                        {
-                            logger(e.Message, Color.Maroon);
-                            errors++;
+                            try
+                            {
+                                File.Delete(file);
+                            }
+                            catch (Exception e)
+                            {
+                                logger(e.Message, Color.Maroon);
+                                errors++;
+                            }
                         }
                     }
                 }

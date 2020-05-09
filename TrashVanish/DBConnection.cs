@@ -77,7 +77,7 @@ namespace TrashVanish
             {
                 try
                 {
-                    connection.Execute("insert into rulestable (extension, includes, path, register) values (@ruleExtension, @ruleIncludes, @rulePath, @ruleRegister)", rule);
+                    connection.Execute("insert into rulestable (extension, includes, path) values (@ruleExtension, @ruleIncludes, @rulePath)", rule);
                 }
                 catch (Exception e)
                 {
