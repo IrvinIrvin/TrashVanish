@@ -11,7 +11,7 @@ namespace TrashVanish
             InitializeComponent();
         }
 
-        private List<RuleModel> rules = new List<RuleModel>();
+        // private List<RuleModel> rules = new List<RuleModel>();
 
         private void RulesSettings_Load(object sender, EventArgs e)
         {
@@ -22,12 +22,6 @@ namespace TrashVanish
         {
             GridUpdater gu = new GridUpdater(this.rulesGrid);
             gu.UpdateGrid();
-            //rulesGrid.Rows.Clear();
-            //rules = DBConnection.LoadRules();
-            //foreach (RuleModel rule in rules)
-            //{
-            //    rulesGrid.Rows.Add(rule.ruleID, rule.ruleExtension, rule.ruleRegister, rule.ruleIncludes, rule.rulePath);
-            //}
         }
 
         private void updateRulesButton_Click(object sender, EventArgs e)
