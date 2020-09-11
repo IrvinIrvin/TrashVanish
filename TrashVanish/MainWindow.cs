@@ -28,9 +28,17 @@ namespace TrashVanish
         {
             var box = logRTB;
             DBConnection.CheckDB();
+            loadCheckboxSettings();
             box.SelectionColor = Color.Cyan;
             box.AppendText("[" + DateTime.Now + "]" + " - " + "Программа загружена" + "\r\n");
             box.SelectionColor = box.ForeColor;
+        }
+
+        private void loadCheckboxSettings()
+        {
+            checkBox1.Checked = Properties.Settings.Default.clearLog;
+            overwriteFiles.Checked = Properties.Settings.Default.overWriteFiles;
+            deleteFlag.Checked = Properties.Settings.Default.deleteAfterCopy;
         }
 
         private void mainTask_Click(object sender, EventArgs e)
@@ -48,16 +56,22 @@ namespace TrashVanish
         private void deleteFlag_CheckedChanged(object sender, EventArgs e)
         {
             deleteFile = deleteFlag.Checked;
+            Properties.Settings.Default.deleteAfterCopy = deleteFlag.Checked;
+            Properties.Settings.Default.Save();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             clearLog = checkBox1.Checked;
+            Properties.Settings.Default.clearLog = checkBox1.Checked;
+            Properties.Settings.Default.Save();
         }
 
         private void overwriteFiles_CheckedChanged(object sender, EventArgs e)
         {
             owFiles = overwriteFiles.Checked;
+            Properties.Settings.Default.overWriteFiles = overwriteFiles.Checked;
+            Properties.Settings.Default.Save();
         }
     }
 }
