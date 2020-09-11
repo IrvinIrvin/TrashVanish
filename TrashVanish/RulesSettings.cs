@@ -6,6 +6,8 @@ namespace TrashVanish
 {
     public partial class RulesSettings : Form
     {
+        private static AddRule addRuleForm;
+
         public RulesSettings()
         {
             InitializeComponent();
@@ -42,7 +44,7 @@ namespace TrashVanish
         private void button1_Click(object sender, EventArgs e)
         {
             AddRule addRuleForm = new AddRule();
-            addRuleForm.Show();
+            addRuleForm.ShowDialog(this);
             updateGrid();
         }
     }
