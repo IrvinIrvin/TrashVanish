@@ -11,9 +11,7 @@ C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.MainWindow.resources
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.RulesSettings.resources
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Debug\trashVanish.db
-C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Debug\Dapper.dll
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Debug\System.Data.SQLite.dll
-C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Debug\Dapper.xml
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Debug\System.Data.SQLite.xml
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.csproj.CopyComplete

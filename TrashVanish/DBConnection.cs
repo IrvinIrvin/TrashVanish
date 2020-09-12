@@ -1,8 +1,6 @@
-﻿//using Dapper;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
 using System.Data.SQLite;
 using System.IO;
 using System.Windows.Forms;
@@ -33,7 +31,6 @@ namespace TrashVanish
                             rulePath = reader["path"] as string
                         });
                     }
-                    connection.Close();
                 }
             }
             catch (Exception e)
@@ -80,13 +77,11 @@ namespace TrashVanish
                     SQLiteCommand cmd = new SQLiteCommand();
                     cmd.CommandText = "insert into rulestable (extension, includes, path) values (@ruleExtension, @ruleIncludes, @rulePath)";
                     cmd.Connection = connection;
-                    cmd.Parameters.Add(new SQLiteParameter("@ruleExtension", rule.ruleExtension));
-                    cmd.Parameters.Add(new SQLiteParameter("@ruleIncludes", rule.ruleIncludes));
-                    cmd.Parameters.Add(new SQLiteParameter("@rulePath", rule.rulePath));
+                    cmd.Parameters.AddWithValue("@ruleExtension", rule.ruleExtension);
+                    cmd.Parameters.AddWithValue("@ruleIncludes", rule.ruleIncludes);
+                    cmd.Parameters.AddWithValue("@rulePath", rule.rulePath);
                     connection.Open();
                     cmd.ExecuteNonQuery();
-
-                    //connection.Execute("insert into rulestable (extension, includes, path) values (@ruleExtension, @ruleIncludes, @rulePath)", rule);
                 }
                 catch (Exception e)
                 {
@@ -111,8 +106,6 @@ namespace TrashVanish
                 {
                     MessageBox.Show(e.Message);
                 }
-
-                connection.Close();
             }
         }
 
@@ -122,11 +115,10 @@ namespace TrashVanish
             {
                 connection.Open();
                 SQLiteCommand cmd = new SQLiteCommand(connection);
-
-                cmd.CommandText = "SELECT COUNT(id) FROM rulestable WHERE extension = '" + extension + "' AND includes = '" + includes + "';";
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT COUNT(id) FROM rulestable WHERE extension=@extension AND includes=@includes";
+                cmd.Parameters.AddWithValue("@extension", extension);
+                cmd.Parameters.AddWithValue("@includes", includes);
                 int rowCount = Convert.ToInt32(cmd.ExecuteScalar());
-                connection.Close();
                 return rowCount > 0;
             }
         }
