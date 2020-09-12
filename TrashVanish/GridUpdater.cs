@@ -21,6 +21,9 @@ namespace TrashVanish
             rulesGrid = dgv;
         }
 
+        /// <summary>
+        /// Reloads rules from database
+        /// </summary>
         public void UpdateGrid()
         {
             rulesGrid.Rows.Clear();
