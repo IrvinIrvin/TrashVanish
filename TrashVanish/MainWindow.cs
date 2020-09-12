@@ -60,6 +60,7 @@ namespace TrashVanish
             Properties.Settings.Default.Save();
         }
 
+        // clear log checkbox
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             clearLog = checkBox1.Checked;
