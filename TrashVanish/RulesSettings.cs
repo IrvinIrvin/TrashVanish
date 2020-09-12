@@ -6,14 +6,10 @@ namespace TrashVanish
 {
     public partial class RulesSettings : Form
     {
-        private static AddRule addRuleForm;
-
         public RulesSettings()
         {
             InitializeComponent();
         }
-
-        // private List<RuleModel> rules = new List<RuleModel>();
 
         private void RulesSettings_Load(object sender, EventArgs e)
         {

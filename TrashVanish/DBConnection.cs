@@ -1,4 +1,4 @@
-﻿using Dapper;
+﻿//using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -38,7 +38,7 @@ namespace TrashVanish
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Ошибка при получении информации из бд", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(e.Message, "Ошибка при получении информации из БД", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return rules;
         }
@@ -73,11 +73,20 @@ namespace TrashVanish
 
         public static void AddRule(RuleModel rule)
         {
-            using (IDbConnection connection = new SQLiteConnection(LoadConnectionString()))
+            using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
             {
                 try
                 {
-                    connection.Execute("insert into rulestable (extension, includes, path) values (@ruleExtension, @ruleIncludes, @rulePath)", rule);
+                    SQLiteCommand cmd = new SQLiteCommand();
+                    cmd.CommandText = "insert into rulestable (extension, includes, path) values (@ruleExtension, @ruleIncludes, @rulePath)";
+                    cmd.Connection = connection;
+                    cmd.Parameters.Add(new SQLiteParameter("@ruleExtension", rule.ruleExtension));
+                    cmd.Parameters.Add(new SQLiteParameter("@ruleIncludes", rule.ruleIncludes));
+                    cmd.Parameters.Add(new SQLiteParameter("@rulePath", rule.rulePath));
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+
+                    //connection.Execute("insert into rulestable (extension, includes, path) values (@ruleExtension, @ruleIncludes, @rulePath)", rule);
                 }
                 catch (Exception e)
                 {
