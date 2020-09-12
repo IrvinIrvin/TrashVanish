@@ -2,7 +2,6 @@ C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Release\trashVani
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Release\TrashVanish.exe.config
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Release\TrashVanish.exe
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Release\TrashVanish.pdb
-C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Release\Dapper.xml
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Release\System.Data.SQLite.xml
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Release\System.Data.SQLite.dll.config
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.csprojAssemblyReference.cache
@@ -15,5 +14,4 @@ C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVani
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.csproj.CopyComplete
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.exe
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.pdb
-C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Release\Dapper.dll
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Release\System.Data.SQLite.dll
