@@ -28,9 +28,17 @@ namespace TrashVanish
 
         private void deleteRule_Click(object sender, EventArgs e)
         {
-            int selectedrow = rulesGrid.CurrentCell.RowIndex;
-            int columnbydefault = 0;
-            // Удаление по id
+            int selectedrow;
+            try
+            {
+                selectedrow = rulesGrid.CurrentCell.RowIndex;
+            }
+            catch (NullReferenceException)
+            {
+                // Mo rules in grid yet
+                return;
+            }
+            int columnbydefault = 0; // column with id (invisible)
             DBConnection.DeleteRule(rulesGrid.Rows[selectedrow].Cells[columnbydefault].Value.ToString());
             updateGrid();
         }
@@ -38,8 +46,17 @@ namespace TrashVanish
         // Кнопка добавить правило, но мне ее лень переименовывать
         private void button1_Click(object sender, EventArgs e)
         {
-            AddRule addRuleForm = new AddRule();
-            addRuleForm.ShowDialog(this);
+            Form ar = Application.OpenForms["AddRule"];
+            if (ar != null)
+            {
+                ar.Activate();
+                return;
+            }
+            else
+            {
+                AddRule addRuleForm = new AddRule();
+                addRuleForm.Show();
+            }
             updateGrid();
         }
     }

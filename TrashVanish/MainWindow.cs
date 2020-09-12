@@ -20,8 +20,17 @@ namespace TrashVanish
 
         private void rulesSettings_Click(object sender, EventArgs e)
         {
-            RulesSettings rulesSettingForm = new RulesSettings();
-            rulesSettingForm.Show();
+            Form rs = Application.OpenForms["RulesSettings"];
+            if (rs != null)
+            {
+                rs.Activate();
+                return;
+            }
+            else
+            {
+                RulesSettings rulesSettingForm = new RulesSettings();
+                rulesSettingForm.Show();
+            }
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
