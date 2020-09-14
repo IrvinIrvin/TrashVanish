@@ -41,8 +41,8 @@
             // 
             // rulesSettings
             // 
-            this.rulesSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.rulesSettings.Location = new System.Drawing.Point(548, 27);
+            this.rulesSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rulesSettings.Location = new System.Drawing.Point(531, 27);
             this.rulesSettings.Name = "rulesSettings";
             this.rulesSettings.Size = new System.Drawing.Size(114, 23);
             this.rulesSettings.TabIndex = 1;
@@ -52,8 +52,8 @@
             // 
             // mainTask
             // 
-            this.mainTask.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.mainTask.Location = new System.Drawing.Point(548, 174);
+            this.mainTask.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mainTask.Location = new System.Drawing.Point(531, 174);
             this.mainTask.Name = "mainTask";
             this.mainTask.Size = new System.Drawing.Size(114, 23);
             this.mainTask.TabIndex = 2;
@@ -69,7 +69,7 @@
             this.groupBox1.Controls.Add(this.logRTB);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(529, 187);
+            this.groupBox1.Size = new System.Drawing.Size(512, 187);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Лог";
@@ -85,16 +85,16 @@
             this.logRTB.Name = "logRTB";
             this.logRTB.ReadOnly = true;
             this.logRTB.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
-            this.logRTB.Size = new System.Drawing.Size(523, 168);
+            this.logRTB.Size = new System.Drawing.Size(506, 168);
             this.logRTB.TabIndex = 0;
             this.logRTB.Text = "";
             // 
             // deleteFlag
             // 
-            this.deleteFlag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.deleteFlag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.deleteFlag.Checked = true;
             this.deleteFlag.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.deleteFlag.Location = new System.Drawing.Point(548, 113);
+            this.deleteFlag.Location = new System.Drawing.Point(531, 113);
             this.deleteFlag.Name = "deleteFlag";
             this.deleteFlag.Size = new System.Drawing.Size(114, 55);
             this.deleteFlag.TabIndex = 4;
@@ -104,10 +104,10 @@
             // 
             // overwriteFiles
             // 
-            this.overwriteFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.overwriteFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.overwriteFiles.Checked = true;
             this.overwriteFiles.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.overwriteFiles.Location = new System.Drawing.Point(548, 87);
+            this.overwriteFiles.Location = new System.Drawing.Point(531, 87);
             this.overwriteFiles.Name = "overwriteFiles";
             this.overwriteFiles.Size = new System.Drawing.Size(114, 40);
             this.overwriteFiles.TabIndex = 5;
@@ -117,10 +117,10 @@
             // 
             // checkBox1
             // 
-            this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.checkBox1.Location = new System.Drawing.Point(548, 64);
+            this.checkBox1.Location = new System.Drawing.Point(531, 64);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(91, 17);
             this.checkBox1.TabIndex = 6;
@@ -132,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(670, 209);
+            this.ClientSize = new System.Drawing.Size(653, 209);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.overwriteFiles);
             this.Controls.Add(this.rulesSettings);
