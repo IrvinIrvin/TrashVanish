@@ -9,6 +9,10 @@ namespace TrashVanish
 {
     public class DBConnection
     {
+        /// <summary>
+        /// Load all rules from database and create list of RuleModels
+        /// </summary>
+        /// <returns>list of RuleModels</returns>
         public static List<RuleModel> LoadRules()
         {
             List<RuleModel> rules = new List<RuleModel>();
@@ -40,6 +44,9 @@ namespace TrashVanish
             return rules;
         }
 
+        /// <summary>
+        /// Checks if database is exist. If not, creates new
+        /// </summary>
         public static void CheckDB()
         {
             if (!File.Exists(@".\trashVanish.db"))
@@ -68,6 +75,10 @@ namespace TrashVanish
             }
         }
 
+        /// <summary>
+        /// Adds rule in database
+        /// </summary>
+        /// <param name="rule">rule object</param>
         public static void AddRule(RuleModel rule)
         {
             using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
@@ -90,6 +101,10 @@ namespace TrashVanish
             }
         }
 
+        /// <summary>
+        /// Deletes rules by their id
+        /// </summary>
+        /// <param name="ruleID">id of the rule</param>
         public static void DeleteRule(string ruleID)
         {
             using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
