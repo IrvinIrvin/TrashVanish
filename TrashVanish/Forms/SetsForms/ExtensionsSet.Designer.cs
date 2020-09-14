@@ -72,6 +72,7 @@
             this.addSetButton.TabIndex = 1;
             this.addSetButton.Text = "Добавить набор";
             this.addSetButton.UseVisualStyleBackColor = true;
+            this.addSetButton.Click += new System.EventHandler(this.addSetButton_Click);
             // 
             // editSetButton
             // 

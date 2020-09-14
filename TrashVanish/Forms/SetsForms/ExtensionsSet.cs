@@ -16,5 +16,10 @@ namespace TrashVanish
         {
             InitializeComponent();
         }
+
+        private void addSetButton_Click(object sender, EventArgs e)
+        {
+            // Открыть форму с добавлением набора
+        }
     }
 }
