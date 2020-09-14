@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RulesSettings));
             this.rulesGrid = new System.Windows.Forms.DataGridView();
-            this.updateRulesButton = new System.Windows.Forms.Button();
-            this.deleteRule = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileExtension = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameIncludes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SavePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updateRulesButton = new System.Windows.Forms.Button();
+            this.deleteRule = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.rulesGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,39 +63,6 @@
             this.rulesGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.rulesGrid.Size = new System.Drawing.Size(358, 165);
             this.rulesGrid.TabIndex = 0;
-            // 
-            // updateRulesButton
-            // 
-            this.updateRulesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.updateRulesButton.Location = new System.Drawing.Point(376, 12);
-            this.updateRulesButton.Name = "updateRulesButton";
-            this.updateRulesButton.Size = new System.Drawing.Size(123, 23);
-            this.updateRulesButton.TabIndex = 1;
-            this.updateRulesButton.Text = "Обновить";
-            this.updateRulesButton.UseVisualStyleBackColor = true;
-            this.updateRulesButton.Click += new System.EventHandler(this.updateRulesButton_Click);
-            // 
-            // deleteRule
-            // 
-            this.deleteRule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteRule.Location = new System.Drawing.Point(376, 91);
-            this.deleteRule.Name = "deleteRule";
-            this.deleteRule.Size = new System.Drawing.Size(123, 23);
-            this.deleteRule.TabIndex = 2;
-            this.deleteRule.Text = "Удалить";
-            this.deleteRule.UseVisualStyleBackColor = true;
-            this.deleteRule.Click += new System.EventHandler(this.deleteRule_Click);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(376, 51);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Добавить правило";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // id
             // 
@@ -127,6 +94,39 @@
             this.SavePath.HeaderText = "Путь";
             this.SavePath.Name = "SavePath";
             this.SavePath.ReadOnly = true;
+            // 
+            // updateRulesButton
+            // 
+            this.updateRulesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.updateRulesButton.Location = new System.Drawing.Point(376, 12);
+            this.updateRulesButton.Name = "updateRulesButton";
+            this.updateRulesButton.Size = new System.Drawing.Size(123, 23);
+            this.updateRulesButton.TabIndex = 1;
+            this.updateRulesButton.Text = "Обновить";
+            this.updateRulesButton.UseVisualStyleBackColor = true;
+            this.updateRulesButton.Click += new System.EventHandler(this.updateRulesButton_Click);
+            // 
+            // deleteRule
+            // 
+            this.deleteRule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.deleteRule.Location = new System.Drawing.Point(376, 91);
+            this.deleteRule.Name = "deleteRule";
+            this.deleteRule.Size = new System.Drawing.Size(123, 23);
+            this.deleteRule.TabIndex = 2;
+            this.deleteRule.Text = "Удалить";
+            this.deleteRule.UseVisualStyleBackColor = true;
+            this.deleteRule.Click += new System.EventHandler(this.deleteRule_Click);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(376, 51);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(123, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Добавить правило";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // RulesSettings
             // 

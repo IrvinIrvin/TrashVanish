@@ -40,7 +40,6 @@
             this.AddRuleButton = new System.Windows.Forms.Button();
             this.browseFilesButton = new System.Windows.Forms.Button();
             this.messageLabel = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // ExtensionTextBox
@@ -140,24 +139,11 @@
             this.messageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.messageLabel.Visible = false;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "a",
-            "б",
-            "в"});
-            this.comboBox1.Location = new System.Drawing.Point(302, 27);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 13;
-            // 
             // AddRule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(441, 235);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(309, 235);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.browseFilesButton);
             this.Controls.Add(this.AddRuleButton);
@@ -192,6 +178,5 @@
         private System.Windows.Forms.Button AddRuleButton;
         private System.Windows.Forms.Button browseFilesButton;
         private System.Windows.Forms.Label messageLabel;
-        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
