@@ -108,6 +108,20 @@ namespace TrashVanish
             return true;
         }
 
+        private void ExtensionTextBox_DropDownClosed(object sender, EventArgs e)
+        {
+            if (ExtensionTextBox.SelectedItem.ToString() == "Добавить набор")
+            {
+                MessageBox.Show("Добавить набор");
+                // Открыть окно "добавить набор"
+            }
+            else if (ExtensionTextBox.SelectedItem.ToString() == "Изменить наборы")
+            {
+                MessageBox.Show("Изменить наборы");
+                // Открыть окно "изменить наборы"
+            }
+        }
+
         private bool pathValidate(string path)
         {
             try
