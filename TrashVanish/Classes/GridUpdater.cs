@@ -9,29 +9,38 @@ namespace TrashVanish
 {
     internal class GridUpdater
     {
-        private static DataGridView rulesGrid;
+        private static DataGridView dataGrid;
 
         public GridUpdater()
         {
             // To init class in non grid window
         }
 
-        public GridUpdater(DataGridView dgv)
+        public GridUpdater(DataGridView dataGrid)
         {
-            rulesGrid = dgv;
+            GridUpdater.dataGrid = dataGrid;
         }
 
         /// <summary>
         /// Reloads rules from database
         /// </summary>
-        public void UpdateGrid()
+        public void UpdateRules()
         {
-            rulesGrid.Rows.Clear();
+            dataGrid.Rows.Clear();
             List<RuleModel> rules = DBConnection.LoadRules();
             foreach (RuleModel rule in rules)
             {
-                rulesGrid.Rows.Add(rule.ruleID, rule.ruleExtension, rule.ruleIncludes, rule.rulePath);
+                dataGrid.Rows.Add(rule.ruleID, rule.ruleExtension, rule.ruleIncludes, rule.rulePath);
             }
+        }
+
+        /// <summary>
+        /// Reloads extension sets from database
+        /// </summary>
+        public void UpdateExtensionsSets()
+        {
+            dataGrid.Rows.Clear();
+            // Здесь будет список с наборами расширений
         }
     }
 }

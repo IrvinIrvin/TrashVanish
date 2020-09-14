@@ -21,5 +21,26 @@ namespace TrashVanish
         {
             // Открыть форму с добавлением набора
         }
+
+        private void editSetButton_Click(object sender, EventArgs e)
+        {
+            // Открыть форму с правкой набора
+        }
+
+        private void deleteSetButton_Click(object sender, EventArgs e)
+        {
+            // Удалить набор
+        }
+
+        private void updateGridButton_Click(object sender, EventArgs e)
+        {
+            updateGrid();
+        }
+
+        private void updateGrid()
+        {
+            GridUpdater gu = new GridUpdater(this.extensionsSetGrid);
+            gu.UpdateExtensionsSets();
+        }
     }
 }

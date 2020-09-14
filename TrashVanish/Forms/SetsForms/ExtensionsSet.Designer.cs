@@ -82,6 +82,7 @@
             this.editSetButton.TabIndex = 2;
             this.editSetButton.Text = "Править набор";
             this.editSetButton.UseVisualStyleBackColor = true;
+            this.editSetButton.Click += new System.EventHandler(this.editSetButton_Click);
             // 
             // deleteSetButton
             // 
@@ -91,6 +92,7 @@
             this.deleteSetButton.TabIndex = 3;
             this.deleteSetButton.Text = "Удалить набор";
             this.deleteSetButton.UseVisualStyleBackColor = true;
+            this.deleteSetButton.Click += new System.EventHandler(this.deleteSetButton_Click);
             // 
             // updateGridButton
             // 
@@ -100,6 +102,7 @@
             this.updateGridButton.TabIndex = 4;
             this.updateGridButton.Text = "Обновить";
             this.updateGridButton.UseVisualStyleBackColor = true;
+            this.updateGridButton.Click += new System.EventHandler(this.updateGridButton_Click);
             // 
             // ExtensionsSet
             // 

@@ -53,7 +53,7 @@ namespace TrashVanish
             includesTextBox.Text = "";
             pathTextBox.Text = "";
             GridUpdater gu = new GridUpdater();
-            gu.UpdateGrid();
+            gu.UpdateRules();
         }
 
         private void messageLabelFunc(string message, Color color)
