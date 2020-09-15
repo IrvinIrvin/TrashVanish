@@ -190,5 +190,14 @@ namespace TrashVanish
             }
             // add extensions to extensionsSetExtensions
         }
+
+        public static void LoadSets()
+        {
+            // Получить все названия наборов (id, name)
+            // Получить все расширения (id, name_id, extension)
+            // Для каждого id названия набора собрать список типа setExtensionModel
+            // Сделать SetModel для каждого набора
+            // Вернуть все это как список типа SetModel
+        }
     }
 }

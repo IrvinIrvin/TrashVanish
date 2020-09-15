@@ -40,7 +40,7 @@ namespace TrashVanish
         public void UpdateExtensionsSets()
         {
             dataGrid.Rows.Clear();
-            // Здесь будет список с наборами расширений
+            //List
         }
     }
 }

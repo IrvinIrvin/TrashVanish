@@ -75,6 +75,11 @@ namespace TrashVanish.Forms.SetsForms
                 setExtensions.Add(listItem.ToString());
             }
             DBConnection.AddSet(setName, setExtensions);
+            setNameTextBox.Text = "";
+            extensionTextBox.Text = "";
+            extensionsList.Items.Clear();
+            GridUpdater gridUpdater = new GridUpdater();
+            gridUpdater.UpdateExtensionsSets();
         }
 
         private void extensionTextBox_KeyPress(object sender, KeyPressEventArgs e)
