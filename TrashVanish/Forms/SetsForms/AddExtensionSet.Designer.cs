@@ -68,8 +68,9 @@
             // 
             this.extensionTextBox.Location = new System.Drawing.Point(12, 73);
             this.extensionTextBox.Name = "extensionTextBox";
-            this.extensionTextBox.Size = new System.Drawing.Size(136, 20);
+            this.extensionTextBox.Size = new System.Drawing.Size(204, 20);
             this.extensionTextBox.TabIndex = 3;
+            this.extensionTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.extensionTextBox_KeyPress);
             // 
             // label2
             // 
@@ -82,9 +83,9 @@
             // 
             // addExtensionToSetButton
             // 
-            this.addExtensionToSetButton.Location = new System.Drawing.Point(161, 72);
+            this.addExtensionToSetButton.Location = new System.Drawing.Point(222, 72);
             this.addExtensionToSetButton.Name = "addExtensionToSetButton";
-            this.addExtensionToSetButton.Size = new System.Drawing.Size(136, 23);
+            this.addExtensionToSetButton.Size = new System.Drawing.Size(75, 23);
             this.addExtensionToSetButton.TabIndex = 5;
             this.addExtensionToSetButton.Text = "Добавить";
             this.addExtensionToSetButton.UseVisualStyleBackColor = true;
@@ -146,6 +147,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.setNameTextBox);
             this.Name = "AddExtensionSet";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrashVanish - Добавить набор расширений";
             this.ResumeLayout(false);
             this.PerformLayout();

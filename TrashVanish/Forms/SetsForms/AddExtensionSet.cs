@@ -20,22 +20,7 @@ namespace TrashVanish.Forms.SetsForms
 
         private void addExtensionToSetButton_Click(object sender, EventArgs e)
         {
-            string extension = extensionTextBox.Text;
-            if (extensionTextBox.Text == "")
-            {
-                messageLabelFunc("Расширение не может быть пустым", Color.DarkOrange);
-                return;
-            }
-            if (extension[0] != '.')
-            {
-                extension = '.' + extension;
-            }
-            if (!extValidate(extension))
-            {
-                return;
-            }
-            extensionTextBox.Text = "";
-            extensionsList.Items.Add(extension);
+            addExtToList();
         }
 
         private void messageLabelFunc(string message, Color color)
@@ -78,9 +63,9 @@ namespace TrashVanish.Forms.SetsForms
 
         private void addSetButton_Click(object sender, EventArgs e)
         {
-            if (setNameTextBox.Text == "")
+            if (setNameTextBox.Text == "" || extensionsList.Items.Count == 0)
             {
-                messageLabelFunc("Имя набора не может быть пустым", Color.DarkOrange);
+                messageLabelFunc("Не заполнены необходимые данные", Color.DarkOrange);
                 return;
             }
             string setName = setNameTextBox.Text;
@@ -90,6 +75,34 @@ namespace TrashVanish.Forms.SetsForms
                 setExtensions.Add(listItem.ToString());
             }
             DBConnection.AddSet(setName, setExtensions);
+        }
+
+        private void extensionTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                addExtToList();
+            }
+        }
+
+        private void addExtToList()
+        {
+            string extension = extensionTextBox.Text;
+            if (extensionTextBox.Text == "")
+            {
+                messageLabelFunc("Расширение не может быть пустым", Color.DarkOrange);
+                return;
+            }
+            if (extension[0] != '.')
+            {
+                extension = '.' + extension;
+            }
+            if (!extValidate(extension))
+            {
+                return;
+            }
+            extensionTextBox.Text = "";
+            extensionsList.Items.Add(extension);
         }
     }
 }

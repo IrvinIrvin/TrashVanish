@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.extensionsSetGrid = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SetName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Extensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addSetButton = new System.Windows.Forms.Button();
             this.editSetButton = new System.Windows.Forms.Button();
             this.deleteSetButton = new System.Windows.Forms.Button();
             this.updateGridButton = new System.Windows.Forms.Button();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SetName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Extensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.extensionsSetGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,6 +52,28 @@
             this.extensionsSetGrid.RowHeadersVisible = false;
             this.extensionsSetGrid.Size = new System.Drawing.Size(240, 228);
             this.extensionsSetGrid.TabIndex = 0;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // SetName
+            // 
+            this.SetName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.SetName.HeaderText = "Имя набора";
+            this.SetName.Name = "SetName";
+            this.SetName.ReadOnly = true;
+            this.SetName.Width = 93;
+            // 
+            // Extensions
+            // 
+            this.Extensions.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Extensions.HeaderText = "Расширения";
+            this.Extensions.Name = "Extensions";
+            this.Extensions.ReadOnly = true;
             // 
             // addSetButton
             // 
@@ -93,28 +115,6 @@
             this.updateGridButton.UseVisualStyleBackColor = true;
             this.updateGridButton.Click += new System.EventHandler(this.updateGridButton_Click);
             // 
-            // id
-            // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // SetName
-            // 
-            this.SetName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.SetName.HeaderText = "Имя набора";
-            this.SetName.Name = "SetName";
-            this.SetName.ReadOnly = true;
-            this.SetName.Width = 93;
-            // 
-            // Extensions
-            // 
-            this.Extensions.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Extensions.HeaderText = "Расширения";
-            this.Extensions.Name = "Extensions";
-            this.Extensions.ReadOnly = true;
-            // 
             // ExtensionsSetSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -126,6 +126,7 @@
             this.Controls.Add(this.addSetButton);
             this.Controls.Add(this.extensionsSetGrid);
             this.Name = "ExtensionsSetSettings";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrashVanish - Настройки наборов расширений";
             ((System.ComponentModel.ISupportInitialize)(this.extensionsSetGrid)).EndInit();
             this.ResumeLayout(false);

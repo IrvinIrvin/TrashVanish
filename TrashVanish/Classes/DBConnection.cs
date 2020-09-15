@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Data.SQLite;
 using System.IO;
 using System.Windows.Forms;
@@ -150,6 +151,44 @@ namespace TrashVanish
         /// <param name="extensionsSet">Расширения входящие в набор</param>
         public static void AddSet(string setName, List<string> extensionsSet)
         {
+            // add name to extesionsSetName
+            using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
+            {
+                connection.Open();
+                SQLiteTransaction transaction = connection.BeginTransaction();
+                try
+                {
+                    SQLiteCommand cmd = new SQLiteCommand();
+                    cmd.Transaction = transaction;
+                    cmd.CommandText = "INSERT INTO extensionsSetName (name) VALUES (@Name)";
+                    cmd.Connection = connection;
+                    cmd.Parameters.AddWithValue("@Name", setName);
+                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.Clear();
+                    int setID = (int)connection.LastInsertRowId;
+                    cmd.CommandText = "INSERT INTO extensionsSetExtensions (setNameId, extension) VALUES (@setNameId, @extension)";
+                    cmd.Parameters.AddWithValue("@setNameId", setID);
+                    foreach (string extension in extensionsSet)
+                    {
+                        cmd.Parameters.AddWithValue("@extension", extension);
+                        cmd.ExecuteNonQuery();
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message, "Ошибка при добавлении значений в бд", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    try
+                    {
+                        transaction.Rollback();
+                    }
+                    catch (Exception exRollBack)
+                    {
+                        MessageBox.Show(exRollBack.Message, "Ошибка при откатывании бд в прежнее состояние", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            // add extensions to extensionsSetExtensions
         }
     }
 }
