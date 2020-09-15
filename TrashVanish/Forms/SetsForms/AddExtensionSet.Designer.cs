@@ -30,14 +30,14 @@
         {
             this.setNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.extensionsList = new System.Windows.Forms.ListBox();
             this.extensionTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.addExtensionToSetButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.addSetButton = new System.Windows.Forms.Button();
             this.messageLabel = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.deleteExtensionFromListButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // setNameTextBox
@@ -56,13 +56,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Название набора";
             // 
-            // listBox1
+            // extensionsList
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 125);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(204, 69);
-            this.listBox1.TabIndex = 2;
+            this.extensionsList.FormattingEnabled = true;
+            this.extensionsList.Location = new System.Drawing.Point(12, 125);
+            this.extensionsList.Name = "extensionsList";
+            this.extensionsList.Size = new System.Drawing.Size(204, 69);
+            this.extensionsList.TabIndex = 2;
             // 
             // extensionTextBox
             // 
@@ -88,6 +88,7 @@
             this.addExtensionToSetButton.TabIndex = 5;
             this.addExtensionToSetButton.Text = "Добавить";
             this.addExtensionToSetButton.UseVisualStyleBackColor = true;
+            this.addExtensionToSetButton.Click += new System.EventHandler(this.addExtensionToSetButton_Click);
             // 
             // label3
             // 
@@ -98,14 +99,15 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Расширения в наборе";
             // 
-            // button1
+            // addSetButton
             // 
-            this.button1.Location = new System.Drawing.Point(103, 232);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Добавить набор";
-            this.button1.UseVisualStyleBackColor = true;
+            this.addSetButton.Location = new System.Drawing.Point(103, 232);
+            this.addSetButton.Name = "addSetButton";
+            this.addSetButton.Size = new System.Drawing.Size(103, 23);
+            this.addSetButton.TabIndex = 7;
+            this.addSetButton.Text = "Добавить набор";
+            this.addSetButton.UseVisualStyleBackColor = true;
+            this.addSetButton.Click += new System.EventHandler(this.addSetButton_Click);
             // 
             // messageLabel
             // 
@@ -118,28 +120,29 @@
             this.messageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.messageLabel.Visible = false;
             // 
-            // button2
+            // deleteExtensionFromListButton
             // 
-            this.button2.Location = new System.Drawing.Point(222, 125);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Удалить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.deleteExtensionFromListButton.Location = new System.Drawing.Point(222, 125);
+            this.deleteExtensionFromListButton.Name = "deleteExtensionFromListButton";
+            this.deleteExtensionFromListButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteExtensionFromListButton.TabIndex = 14;
+            this.deleteExtensionFromListButton.Text = "Удалить";
+            this.deleteExtensionFromListButton.UseVisualStyleBackColor = true;
+            this.deleteExtensionFromListButton.Click += new System.EventHandler(this.deleteExtensionFromListButton_Click);
             // 
             // AddExtensionSet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(309, 267);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.deleteExtensionFromListButton);
             this.Controls.Add(this.messageLabel);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.addSetButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.addExtensionToSetButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.extensionTextBox);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.extensionsList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.setNameTextBox);
             this.Name = "AddExtensionSet";
@@ -153,13 +156,13 @@
 
         private System.Windows.Forms.TextBox setNameTextBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox extensionsList;
         private System.Windows.Forms.TextBox extensionTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button addExtensionToSetButton;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addSetButton;
         private System.Windows.Forms.Label messageLabel;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button deleteExtensionFromListButton;
     }
 }

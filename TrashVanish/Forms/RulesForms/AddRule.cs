@@ -27,15 +27,17 @@ namespace TrashVanish
 
         private void AddRuleButton_Click(object sender, EventArgs e)
         {
-            includes = includesTextBox.Text;
-            path = pathTextBox.Text;
-            extension = ExtensionTextBox.Text;
-            path = path.Trim();
-            extension = extension.Trim();
+            includes = includesTextBox.Text.Trim();
+            path = pathTextBox.Text.Trim();
+            extension = ExtensionTextBox.Text.Trim();
             if (extension == "" || path == "")
             {
                 messageLabelFunc("Обязательные поля не заполнены", Color.DarkOrange);
                 return;
+            }
+            if (extension[0] != '.')
+            {
+                extension = '.' + extension;
             }
             if (!extValidate(extension) || !pathValidate(path))
             {
@@ -84,23 +86,14 @@ namespace TrashVanish
 
         private bool extValidate(string extension)
         {
-            if (extension[0] == '.')
-            {
-                extension = sliceDot(extension);
-            }
-            else
+            if (extension.Substring(1).Length == 0)
             {
                 messageLabelFunc("Расширение не корректно", Color.DarkOrange);
                 return false;
             }
-            if ((char)extension.Length == 0)
+            foreach (char l in extension.Substring(1))
             {
-                messageLabelFunc("Расширение не корректно", Color.DarkOrange);
-                return false;
-            }
-            foreach (char l in extension)
-            {
-                if (!(l >= 65) && !(l <= 90) || !(l >= 97) && !(l <= 122))
+                if (!(l >= 65 && l <= 90) && !(l >= 97 && l <= 122))
                 {
                     messageLabelFunc("Расширение не корректно", Color.DarkOrange);
                     return false;
@@ -140,16 +133,6 @@ namespace TrashVanish
                 return false;
             }
             return true;
-        }
-
-        private string sliceDot(string str)
-        {
-            string newstr = "";
-            for (int i = 1; i < str.Length; i++)
-            {
-                newstr = newstr + str[i];
-            }
-            return newstr;
         }
     }
 }

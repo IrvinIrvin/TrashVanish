@@ -142,5 +142,14 @@ namespace TrashVanish
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
+
+        /// <summary>
+        /// Добавляет setName в extesionsSetName (таблица, содержащая названия наборов), а extensionsSet в extensionsSetExtensions (таблица, содержащая расширение и id набора, к которому оно принадлежит)
+        /// </summary>
+        /// <param name="setName">Название набора</param>
+        /// <param name="extensionsSet">Расширения входящие в набор</param>
+        public static void AddSet(string setName, List<string> extensionsSet)
+        {
+        }
     }
 }
