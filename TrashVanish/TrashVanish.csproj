@@ -51,7 +51,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>ico.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -72,6 +73,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\globalSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\globalSettingsForm.Designer.cs">
+      <DependentUpon>globalSettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\RulesForms\AddRule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,11 +86,17 @@
       <DependentUpon>AddRule.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\DBConnection.cs" />
-    <Compile Include="Forms\SetsForms\ExtensionsSet.cs">
+    <Compile Include="Forms\SetsForms\AddExtensionSet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SetsForms\ExtensionsSet.Designer.cs">
-      <DependentUpon>ExtensionsSet.cs</DependentUpon>
+    <Compile Include="Forms\SetsForms\AddExtensionSet.Designer.cs">
+      <DependentUpon>AddExtensionSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetsForms\ExtensionsSetSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetsForms\ExtensionsSetSettings.Designer.cs">
+      <DependentUpon>ExtensionsSetSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\GridUpdater.cs" />
     <Compile Include="Forms\MainWindow.cs">
@@ -102,11 +115,17 @@
       <DependentUpon>RulesSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Worker.cs" />
+    <EmbeddedResource Include="Forms\globalSettingsForm.resx">
+      <DependentUpon>globalSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\RulesForms\AddRule.resx">
       <DependentUpon>AddRule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SetsForms\ExtensionsSet.resx">
-      <DependentUpon>ExtensionsSet.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SetsForms\AddExtensionSet.resx">
+      <DependentUpon>AddExtensionSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetsForms\ExtensionsSetSettings.resx">
+      <DependentUpon>ExtensionsSetSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
@@ -134,7 +153,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Content Include="ico.ico" />
+    <None Include="Resources\ico.ico" />
     <Content Include="trashVanish.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

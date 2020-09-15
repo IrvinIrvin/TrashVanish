@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using TrashVanish.Forms;
 
 namespace TrashVanish
 {
@@ -12,76 +13,45 @@ namespace TrashVanish
         public MainWindow()
         {
             InitializeComponent();
+            this.Icon = Properties.Resources.appicon;
         }
 
         private List<RuleModel> rules = new List<RuleModel>();
-        private string cwd = @"C:\Users\" + Environment.UserName + @"\Desktop";
-        private bool deleteFile = true, owFiles = true, clearLog = false;
-
-        private void rulesSettings_Click(object sender, EventArgs e)
-        {
-            Form rs = Application.OpenForms["RulesSettings"];
-            if (rs != null)
-            {
-                rs.Activate();
-                return;
-            }
-            else
-            {
-                RulesSettings rulesSettingForm = new RulesSettings();
-                rulesSettingForm.Show();
-            }
-        }
+        private string cwd = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            var box = logRTB;
             DBConnection.CheckDB();
-            loadCheckboxSettings();
-            box.SelectionColor = Color.Cyan;
-            box.AppendText("[" + DateTime.Now + "]" + " - " + "Программа загружена" + "\r\n");
-            box.SelectionColor = box.ForeColor;
-        }
-
-        private void loadCheckboxSettings()
-        {
-            checkBox1.Checked = Properties.Settings.Default.clearLog;
-            overwriteFiles.Checked = Properties.Settings.Default.overWriteFiles;
-            deleteFlag.Checked = Properties.Settings.Default.deleteAfterCopy;
+            logRichTextBox.SelectionColor = Color.Cyan;
+            logRichTextBox.AppendText("[" + DateTime.Now + "]" + " - " + "Программа загружена" + "\r\n");
+            logRichTextBox.SelectionColor = logRichTextBox.ForeColor;
         }
 
         private void mainTask_Click(object sender, EventArgs e)
         {
-            if (clearLog)
+            if (Properties.Settings.Default.clearLog)
             {
-                logRTB.Text = "";
+                logRichTextBox.Text = "";
             }
 
             rules = DBConnection.LoadRules();
             Worker worker = new Worker(this);
-            worker.RunVanisher(cwd, rules, deleteFile, owFiles);
+            worker.RunVanisher(cwd, rules, Properties.Settings.Default.deleteAfterCopy, Properties.Settings.Default.overWriteFiles);
         }
 
-        private void deleteFlag_CheckedChanged(object sender, EventArgs e)
+        private void globalSettings_Click(object sender, EventArgs e)
         {
-            deleteFile = deleteFlag.Checked;
-            Properties.Settings.Default.deleteAfterCopy = deleteFlag.Checked;
-            Properties.Settings.Default.Save();
-        }
-
-        // clear log checkbox
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            clearLog = checkBox1.Checked;
-            Properties.Settings.Default.clearLog = checkBox1.Checked;
-            Properties.Settings.Default.Save();
-        }
-
-        private void overwriteFiles_CheckedChanged(object sender, EventArgs e)
-        {
-            owFiles = overwriteFiles.Checked;
-            Properties.Settings.Default.overWriteFiles = overwriteFiles.Checked;
-            Properties.Settings.Default.Save();
+            Form gSF = Application.OpenForms["globalSettingsForm"];
+            if (gSF != null)
+            {
+                gSF.Activate();
+                return;
+            }
+            else
+            {
+                globalSettingsForm globalSettingsForm = new globalSettingsForm();
+                globalSettingsForm.Show();
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace TrashVanish
 {
-    partial class ExtensionsSet
+    partial class ExtensionsSetSettings
     {
         /// <summary>
         /// Required designer variable.
@@ -104,7 +104,7 @@
             this.updateGridButton.UseVisualStyleBackColor = true;
             this.updateGridButton.Click += new System.EventHandler(this.updateGridButton_Click);
             // 
-            // ExtensionsSet
+            // ExtensionsSetSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -114,8 +114,8 @@
             this.Controls.Add(this.editSetButton);
             this.Controls.Add(this.addSetButton);
             this.Controls.Add(this.extensionsSetGrid);
-            this.Name = "ExtensionsSet";
-            this.Text = "ExtensionsSet";
+            this.Name = "ExtensionsSetSettings";
+            this.Text = "TrashVanish - Настройки наборов расширений";
             ((System.ComponentModel.ISupportInitialize)(this.extensionsSetGrid)).EndInit();
             this.ResumeLayout(false);
 

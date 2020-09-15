@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RulesSettings));
             this.rulesGrid = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileExtension = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -137,7 +136,6 @@
             this.Controls.Add(this.deleteRule);
             this.Controls.Add(this.updateRulesButton);
             this.Controls.Add(this.rulesGrid);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(527, 228);
             this.Name = "RulesSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

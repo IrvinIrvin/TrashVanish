@@ -10,6 +10,7 @@ namespace TrashVanish
         public AddRule()
         {
             InitializeComponent();
+            this.Icon = Properties.Resources.appicon;
         }
 
         private string path, extension, includes;

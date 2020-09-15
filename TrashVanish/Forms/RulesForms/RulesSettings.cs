@@ -8,6 +8,7 @@ namespace TrashVanish
         public RulesSettings()
         {
             InitializeComponent();
+            this.Icon = Properties.Resources.appicon;
         }
 
         private void RulesSettings_Load(object sender, EventArgs e)

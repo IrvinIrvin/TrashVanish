@@ -7,19 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrashVanish.Forms.SetsForms;
 
 namespace TrashVanish
 {
-    public partial class ExtensionsSet : Form
+    public partial class ExtensionsSetSettings : Form
     {
-        public ExtensionsSet()
+        public ExtensionsSetSettings()
         {
             InitializeComponent();
+            this.Icon = Properties.Resources.appicon;
         }
 
         private void addSetButton_Click(object sender, EventArgs e)
         {
-            // Открыть форму с добавлением набора
+            Form AES = Application.OpenForms["AddExtensionSet"];
+            if (AES != null)
+            {
+                AES.Activate();
+                return;
+            }
+            else
+            {
+                AddExtensionSet addExtensionSet = new AddExtensionSet();
+                addExtensionSet.Show();
+            }
         }
 
         private void editSetButton_Click(object sender, EventArgs e)
