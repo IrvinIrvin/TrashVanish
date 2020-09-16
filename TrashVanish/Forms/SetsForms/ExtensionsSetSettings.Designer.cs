@@ -52,12 +52,12 @@
             this.extensionsSetGrid.Location = new System.Drawing.Point(13, 13);
             this.extensionsSetGrid.Name = "extensionsSetGrid";
             this.extensionsSetGrid.RowHeadersVisible = false;
-            this.extensionsSetGrid.Size = new System.Drawing.Size(240, 228);
+            this.extensionsSetGrid.Size = new System.Drawing.Size(445, 228);
             this.extensionsSetGrid.TabIndex = 0;
             // 
             // addSetButton
             // 
-            this.addSetButton.Location = new System.Drawing.Point(269, 51);
+            this.addSetButton.Location = new System.Drawing.Point(464, 51);
             this.addSetButton.Name = "addSetButton";
             this.addSetButton.Size = new System.Drawing.Size(128, 23);
             this.addSetButton.TabIndex = 1;
@@ -67,7 +67,7 @@
             // 
             // editSetButton
             // 
-            this.editSetButton.Location = new System.Drawing.Point(269, 91);
+            this.editSetButton.Location = new System.Drawing.Point(464, 91);
             this.editSetButton.Name = "editSetButton";
             this.editSetButton.Size = new System.Drawing.Size(128, 23);
             this.editSetButton.TabIndex = 2;
@@ -77,7 +77,7 @@
             // 
             // deleteSetButton
             // 
-            this.deleteSetButton.Location = new System.Drawing.Point(269, 129);
+            this.deleteSetButton.Location = new System.Drawing.Point(464, 129);
             this.deleteSetButton.Name = "deleteSetButton";
             this.deleteSetButton.Size = new System.Drawing.Size(128, 23);
             this.deleteSetButton.TabIndex = 3;
@@ -87,7 +87,7 @@
             // 
             // updateGridButton
             // 
-            this.updateGridButton.Location = new System.Drawing.Point(269, 13);
+            this.updateGridButton.Location = new System.Drawing.Point(464, 13);
             this.updateGridButton.Name = "updateGridButton";
             this.updateGridButton.Size = new System.Drawing.Size(128, 23);
             this.updateGridButton.TabIndex = 4;
@@ -127,7 +127,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 253);
+            this.ClientSize = new System.Drawing.Size(604, 253);
             this.Controls.Add(this.updateGridButton);
             this.Controls.Add(this.deleteSetButton);
             this.Controls.Add(this.editSetButton);

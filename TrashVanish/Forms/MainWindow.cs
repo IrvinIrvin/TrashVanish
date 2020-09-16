@@ -38,7 +38,7 @@ namespace TrashVanish
 
             rules = DBConnection.LoadRules();
             sets = DBConnection.LoadSets();
-            Worker worker = new Worker(this);
+            Worker worker = new Worker(logRichTextBox);
             worker.RunVanisher(cwd, rules, sets, Properties.Settings.Default.deleteAfterCopy, Properties.Settings.Default.overWriteFiles);
         }
 

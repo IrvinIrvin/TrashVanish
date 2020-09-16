@@ -48,7 +48,7 @@ namespace TrashVanish
             string newstr = "";
             foreach (setExtensionModel ext in extensions)
             {
-                newstr = ext.extension + "; ";
+                newstr = newstr + ext.extension + "; ";
             }
             return newstr;
         }

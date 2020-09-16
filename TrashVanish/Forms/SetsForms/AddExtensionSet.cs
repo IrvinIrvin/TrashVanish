@@ -114,6 +114,7 @@ namespace TrashVanish.Forms.SetsForms
             extensionsList.Items.Clear();
             GridUpdater gridUpdater = new GridUpdater(gridView);
             gridUpdater.UpdateExtensionsSets();
+            messageLabelFunc("Набор был успешно добавлен", Color.Lime);
         }
 
         private void extensionTextBox_KeyPress(object sender, KeyPressEventArgs e)
