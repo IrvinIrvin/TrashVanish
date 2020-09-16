@@ -54,7 +54,7 @@ namespace TrashVanish
             }
             else
             {
-                AddRule addRuleForm = new AddRule();
+                AddRule addRuleForm = new AddRule(rulesGrid);
                 addRuleForm.ShowDialog();
             }
             updateGrid();

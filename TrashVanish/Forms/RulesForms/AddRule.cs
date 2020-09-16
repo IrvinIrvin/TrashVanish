@@ -13,6 +13,15 @@ namespace TrashVanish
             this.Icon = Properties.Resources.appicon;
         }
 
+        private DataGridView rulesGrid;
+
+        public AddRule(DataGridView dataGridView)
+        {
+            InitializeComponent();
+            this.Icon = Properties.Resources.appicon;
+            rulesGrid = dataGridView;
+        }
+
         private string path, extension, includes;
 
         private void browseFilesButton_Click(object sender, EventArgs e)
@@ -55,7 +64,7 @@ namespace TrashVanish
             ExtensionTextBox.Text = "";
             includesTextBox.Text = "";
             pathTextBox.Text = "";
-            GridUpdater gu = new GridUpdater();
+            GridUpdater gu = new GridUpdater(rulesGrid);
             gu.UpdateRules();
         }
 

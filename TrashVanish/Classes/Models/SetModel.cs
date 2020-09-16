@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrashVanish.Classes
 {
-    internal class SetModel
+    public class SetModel
     {
         public string setID { get; set; }
         public string setName { get; set; }

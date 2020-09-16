@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Data.SQLite;
 using System.IO;
 using System.Windows.Forms;
+using TrashVanish.Classes;
 
 namespace TrashVanish
 {
@@ -36,6 +37,7 @@ namespace TrashVanish
                             rulePath = reader["path"] as string
                         });
                     }
+                    reader.Close();
                 }
             }
             catch (Exception e)
@@ -191,13 +193,96 @@ namespace TrashVanish
             // add extensions to extensionsSetExtensions
         }
 
-        public static void LoadSets()
+        public static List<SetModel> LoadSets()
         {
             // Получить все названия наборов (id, name)
-            // Получить все расширения (id, name_id, extension)
-            // Для каждого id названия набора собрать список типа setExtensionModel
-            // Сделать SetModel для каждого набора
-            // Вернуть все это как список типа SetModel
+            List<SetModel> setsList = new List<SetModel>();
+            List<setExtensionModel> extensionsList = new List<setExtensionModel>();
+            try
+            {
+                using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
+                {
+                    connection.Open();
+                    using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM extensionsSetName", connection))
+                    {
+                        SQLiteDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            setsList.Add(new SetModel
+                            {
+                                setID = Convert.ToString(reader["id"]),
+                                setName = reader["name"] as string
+                            });
+                        }
+                        reader.Close();
+                        // Получить все расширения (id, name_id, extension)
+                        command.CommandText = "SELECT * FROM extensionsSetExtensions";
+                        reader = command.ExecuteReader();
+                        // Для каждого id названия набора собрать список типа setExtensionModel
+                        while (reader.Read())
+                        {
+                            extensionsList.Add(new setExtensionModel
+                            {
+                                extensionID = Convert.ToString(reader["id"]),
+                                setNameID = Convert.ToString(reader["setNameId"]),
+                                extension = reader["extension"] as string
+                            });
+                        }
+                        reader.Close();
+                        foreach (SetModel set in setsList) // This needs to be optimized
+                        {
+                            List<setExtensionModel> sortedExtensions = new List<setExtensionModel>();
+                            foreach (setExtensionModel extension in extensionsList)
+                            {
+                                if (set.setID == extension.setNameID)
+                                {
+                                    sortedExtensions.Add(extension);
+                                }
+                            }
+                            set.extensions = sortedExtensions;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Ошибка при получении информации о наборах из БД", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return setsList;
+        }
+
+        public static void DeleteSet(string setID)
+        {
+            using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
+            {
+                connection.Open();
+                using (SQLiteTransaction transaction = connection.BeginTransaction())
+                {
+                    using (SQLiteCommand command = new SQLiteCommand("DELETE FROM extensionsSetName WHERE id=@setID", connection, transaction))
+                    {
+                        try
+                        {
+                            command.Parameters.AddWithValue("@setID", setID);
+                            command.ExecuteNonQuery();
+                            command.CommandText = "DELETE FROM extensionsSetExtensions WHERE setNameId=?";
+                            command.ExecuteNonQuery();
+                            transaction.Commit();
+                        }
+                        catch (Exception e)
+                        {
+                            MessageBox.Show(e.Message, "Ошибка при удалении значений из бд", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            try
+                            {
+                                transaction.Rollback();
+                            }
+                            catch (Exception exRollBack)
+                            {
+                                MessageBox.Show(exRollBack.Message, "Ошибка при откатывании бд в прежнее состояние", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

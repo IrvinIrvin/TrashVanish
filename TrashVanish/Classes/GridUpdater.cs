@@ -4,21 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrashVanish.Classes;
 
 namespace TrashVanish
 {
     internal class GridUpdater
     {
-        private static DataGridView dataGrid;
-
-        public GridUpdater()
-        {
-            // To init class in non grid window
-        }
+        private DataGridView dataGrid;
 
         public GridUpdater(DataGridView dataGrid)
         {
-            GridUpdater.dataGrid = dataGrid;
+            this.dataGrid = dataGrid;
         }
 
         /// <summary>
@@ -40,7 +36,21 @@ namespace TrashVanish
         public void UpdateExtensionsSets()
         {
             dataGrid.Rows.Clear();
-            //List
+            List<SetModel> sets = DBConnection.LoadSets();
+            foreach (SetModel set in sets)
+            {
+                dataGrid.Rows.Add(set.setID, set.setName, stringifyExtensions(set.extensions)); // make string with all extensions
+            }
+        }
+
+        private string stringifyExtensions(List<setExtensionModel> extensions)
+        {
+            string newstr = "";
+            foreach (setExtensionModel ext in extensions)
+            {
+                newstr = ext.extension + "; ";
+            }
+            return newstr;
         }
     }
 }

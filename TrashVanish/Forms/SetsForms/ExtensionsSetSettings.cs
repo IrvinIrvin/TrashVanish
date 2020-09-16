@@ -29,8 +29,8 @@ namespace TrashVanish
             }
             else
             {
-                AddExtensionSet addExtensionSet = new AddExtensionSet();
-                addExtensionSet.Show();
+                AddExtensionSet addExtensionSet = new AddExtensionSet(extensionsSetGrid);
+                addExtensionSet.ShowDialog();
             }
         }
 
@@ -42,6 +42,19 @@ namespace TrashVanish
         private void deleteSetButton_Click(object sender, EventArgs e)
         {
             // Удалить набор
+            int selectedrow;
+            try
+            {
+                selectedrow = extensionsSetGrid.CurrentCell.RowIndex;
+            }
+            catch (NullReferenceException)
+            {
+                // Mo rules in grid yet
+                return;
+            }
+            int columnbydefault = 0; // column with id (invisible)
+            DBConnection.DeleteSet(extensionsSetGrid.Rows[selectedrow].Cells[columnbydefault].Value.ToString());
+            updateGrid();
         }
 
         private void updateGridButton_Click(object sender, EventArgs e)
@@ -51,8 +64,13 @@ namespace TrashVanish
 
         private void updateGrid()
         {
-            GridUpdater gu = new GridUpdater(this.extensionsSetGrid);
+            GridUpdater gu = new GridUpdater(extensionsSetGrid);
             gu.UpdateExtensionsSets();
+        }
+
+        private void ExtensionsSetSettings_Load(object sender, EventArgs e)
+        {
+            updateGrid();
         }
     }
 }

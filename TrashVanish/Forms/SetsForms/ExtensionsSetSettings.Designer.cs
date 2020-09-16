@@ -128,6 +128,7 @@
             this.Name = "ExtensionsSetSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrashVanish - Настройки наборов расширений";
+            this.Load += new System.EventHandler(this.ExtensionsSetSettings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.extensionsSetGrid)).EndInit();
             this.ResumeLayout(false);
 

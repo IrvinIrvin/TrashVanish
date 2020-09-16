@@ -17,6 +17,13 @@ namespace TrashVanish.Forms.SetsForms
             InitializeComponent();
             this.Icon = Properties.Resources.appicon;
         }
+        private DataGridView gridView;
+        public AddExtensionSet(DataGridView dataGridView)
+        {
+            InitializeComponent();
+            this.Icon = Properties.Resources.appicon;
+            gridView = dataGridView;
+        }
 
         private void addExtensionToSetButton_Click(object sender, EventArgs e)
         {
@@ -78,7 +85,7 @@ namespace TrashVanish.Forms.SetsForms
             setNameTextBox.Text = "";
             extensionTextBox.Text = "";
             extensionsList.Items.Clear();
-            GridUpdater gridUpdater = new GridUpdater();
+            GridUpdater gridUpdater = new GridUpdater(gridView);
             gridUpdater.UpdateExtensionsSets();
         }
 

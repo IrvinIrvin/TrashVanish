@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrashVanish.Classes
 {
-    internal class setExtensionModel
+    public class setExtensionModel
     {
         public string extensionID { get; set; }
         public string setNameID { get; set; }
