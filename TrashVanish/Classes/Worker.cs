@@ -180,10 +180,10 @@ namespace TrashVanish
 
         private void setWork(string cwd, SetModel set, bool deleteFile, bool owFiles)
         {
-            int filesCopied = 0;
-            int errors = 0;
             foreach (setExtensionModel extensionOfSet in set.extensions)
             {
+                int filesCopied = 0;
+                int errors = 0;
                 string[] files = Directory.GetFiles(cwd, "*" + extensionOfSet.extension);
                 if (files.Length < 1)
                 {
