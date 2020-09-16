@@ -36,6 +36,7 @@
             this.updateRulesButton = new System.Windows.Forms.Button();
             this.deleteRule = new System.Windows.Forms.Button();
             this.addRuleButton = new System.Windows.Forms.Button();
+            this.editRule = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.rulesGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,7 +109,7 @@
             // deleteRule
             // 
             this.deleteRule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteRule.Location = new System.Drawing.Point(376, 91);
+            this.deleteRule.Location = new System.Drawing.Point(376, 131);
             this.deleteRule.Name = "deleteRule";
             this.deleteRule.Size = new System.Drawing.Size(123, 23);
             this.deleteRule.TabIndex = 2;
@@ -127,11 +128,21 @@
             this.addRuleButton.UseVisualStyleBackColor = true;
             this.addRuleButton.Click += new System.EventHandler(this.addRuleButton_Click);
             // 
+            // editRule
+            // 
+            this.editRule.Location = new System.Drawing.Point(376, 90);
+            this.editRule.Name = "editRule";
+            this.editRule.Size = new System.Drawing.Size(123, 23);
+            this.editRule.TabIndex = 4;
+            this.editRule.Text = "Править правило";
+            this.editRule.UseVisualStyleBackColor = true;
+            // 
             // RulesSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 189);
+            this.Controls.Add(this.editRule);
             this.Controls.Add(this.addRuleButton);
             this.Controls.Add(this.deleteRule);
             this.Controls.Add(this.updateRulesButton);
@@ -156,5 +167,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FileExtension;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameIncludes;
         private System.Windows.Forms.DataGridViewTextBoxColumn SavePath;
+        private System.Windows.Forms.Button editRule;
     }
 }

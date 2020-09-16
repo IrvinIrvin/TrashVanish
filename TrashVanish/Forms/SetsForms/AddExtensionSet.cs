@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,9 @@ namespace TrashVanish.Forms.SetsForms
             InitializeComponent();
             this.Icon = Properties.Resources.appicon;
         }
+
         private DataGridView gridView;
+
         public AddExtensionSet(DataGridView dataGridView)
         {
             InitializeComponent();
@@ -63,6 +66,25 @@ namespace TrashVanish.Forms.SetsForms
             return true;
         }
 
+        private bool pathValidate(string path)
+        {
+            try
+            {
+                Path.GetFullPath(path);
+            }
+            catch
+            {
+                messageLabelFunc("Путь не корректен", Color.DarkOrange);
+                return false;
+            }
+            if (!Path.IsPathRooted(path))
+            {
+                messageLabelFunc("Относительные пути запрещены", Color.DarkOrange);
+                return false;
+            }
+            return true;
+        }
+
         private void deleteExtensionFromListButton_Click(object sender, EventArgs e)
         {
             extensionsList.Items.Remove(extensionsList.SelectedItem);
@@ -70,9 +92,13 @@ namespace TrashVanish.Forms.SetsForms
 
         private void addSetButton_Click(object sender, EventArgs e)
         {
-            if (setNameTextBox.Text == "" || extensionsList.Items.Count == 0)
+            if (setNameTextBox.Text == "" || extensionsList.Items.Count == 0 || targetPathTextBox.Text == "")
             {
                 messageLabelFunc("Не заполнены необходимые данные", Color.DarkOrange);
+                return;
+            }
+            if (!pathValidate(targetPathTextBox.Text))
+            {
                 return;
             }
             string setName = setNameTextBox.Text;
@@ -81,7 +107,8 @@ namespace TrashVanish.Forms.SetsForms
             {
                 setExtensions.Add(listItem.ToString());
             }
-            DBConnection.AddSet(setName, setExtensions);
+            string targetPath = targetPathTextBox.Text;
+            DBConnection.AddSet(setName, setExtensions, targetPath);
             setNameTextBox.Text = "";
             extensionTextBox.Text = "";
             extensionsList.Items.Clear();
@@ -115,6 +142,15 @@ namespace TrashVanish.Forms.SetsForms
             }
             extensionTextBox.Text = "";
             extensionsList.Items.Add(extension);
+        }
+
+        private void selectFolderButton_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                targetPathTextBox.Text = folderBrowserDialog.SelectedPath;
+            }
         }
     }
 }

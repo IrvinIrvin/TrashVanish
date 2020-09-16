@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrashVanish.Classes;
 
 namespace TrashVanish
 {
@@ -27,9 +28,10 @@ namespace TrashVanish
         /// </summary>
         /// <param name="cwd">Текущая рабочая директория (рабочий стол)</param>
         /// <param name="rules">Список правил</param>
+        /// <param name="sets">Список наборов</param>
         /// <param name="deleteFile">Флаг удаления файлов после копирования</param>
         /// <param name="owFiles">Флаг перезаписи файлов если уже есть в конечной директории</param>
-        async public void RunVanisher(string cwd, List<RuleModel> rules, bool deleteFile, bool owFiles)
+        async public void RunVanisher(string cwd, List<RuleModel> rules, List<SetModel> sets, bool deleteFile, bool owFiles)
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();
@@ -68,7 +70,8 @@ namespace TrashVanish
                 }));
             }
             await Task.WhenAll(tasks.ToArray());
-
+            // Todo: start sets
+            //setWork(cwd, sets, includesCount)
             watch.Stop();
             logger("Все задачи завершены за " + watch.ElapsedMilliseconds + " миллисекунд", Color.Lime);
         }
@@ -166,6 +169,10 @@ namespace TrashVanish
                     logger("Задача для \"" + extension + "\" завершилось успешно. Перемещенно файлов: " + filesCopied, Color.Lime);
                 }
             }
+        }
+
+        private void setWork() // Todo: write logic
+        {
         }
 
         private bool notAffected(string file)

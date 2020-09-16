@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using TrashVanish.Classes;
 using TrashVanish.Forms;
 
 namespace TrashVanish
@@ -17,6 +18,7 @@ namespace TrashVanish
         }
 
         private List<RuleModel> rules = new List<RuleModel>();
+        private List<SetModel> sets = new List<SetModel>();
         private string cwd = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -35,8 +37,9 @@ namespace TrashVanish
             }
 
             rules = DBConnection.LoadRules();
+            sets = DBConnection.LoadSets();
             Worker worker = new Worker(this);
-            worker.RunVanisher(cwd, rules, Properties.Settings.Default.deleteAfterCopy, Properties.Settings.Default.overWriteFiles);
+            worker.RunVanisher(cwd, rules, sets, Properties.Settings.Default.deleteAfterCopy, Properties.Settings.Default.overWriteFiles);
         }
 
         private void globalSettings_Click(object sender, EventArgs e)

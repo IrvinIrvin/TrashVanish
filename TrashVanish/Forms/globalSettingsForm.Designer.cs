@@ -35,14 +35,16 @@
             this.overwriteFiles = new System.Windows.Forms.CheckBox();
             this.deleteFlag = new System.Windows.Forms.CheckBox();
             this.checkboxesToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // rulesSettings
             // 
             this.rulesSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rulesSettings.Location = new System.Drawing.Point(46, 32);
+            this.rulesSettings.Location = new System.Drawing.Point(31, 35);
             this.rulesSettings.Name = "rulesSettings";
-            this.rulesSettings.Size = new System.Drawing.Size(115, 23);
+            this.rulesSettings.Size = new System.Drawing.Size(115, 41);
             this.rulesSettings.TabIndex = 2;
             this.rulesSettings.Text = "Настроить правила";
             this.rulesSettings.UseVisualStyleBackColor = true;
@@ -50,9 +52,9 @@
             // 
             // extensionSetSettingsButton
             // 
-            this.extensionSetSettingsButton.Location = new System.Drawing.Point(189, 32);
+            this.extensionSetSettingsButton.Location = new System.Drawing.Point(174, 35);
             this.extensionSetSettingsButton.Name = "extensionSetSettingsButton";
-            this.extensionSetSettingsButton.Size = new System.Drawing.Size(115, 23);
+            this.extensionSetSettingsButton.Size = new System.Drawing.Size(115, 41);
             this.extensionSetSettingsButton.TabIndex = 3;
             this.extensionSetSettingsButton.Text = "Настройки наборов";
             this.extensionSetSettingsButton.UseVisualStyleBackColor = true;
@@ -63,7 +65,7 @@
             this.clearLogCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.clearLogCheckbox.AutoSize = true;
             this.clearLogCheckbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.clearLogCheckbox.Location = new System.Drawing.Point(46, 88);
+            this.clearLogCheckbox.Location = new System.Drawing.Point(12, 130);
             this.clearLogCheckbox.Name = "clearLogCheckbox";
             this.clearLogCheckbox.Size = new System.Drawing.Size(91, 17);
             this.clearLogCheckbox.TabIndex = 9;
@@ -77,7 +79,7 @@
             this.overwriteFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.overwriteFiles.Checked = true;
             this.overwriteFiles.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.overwriteFiles.Location = new System.Drawing.Point(46, 111);
+            this.overwriteFiles.Location = new System.Drawing.Point(109, 118);
             this.overwriteFiles.Name = "overwriteFiles";
             this.overwriteFiles.Size = new System.Drawing.Size(114, 40);
             this.overwriteFiles.TabIndex = 8;
@@ -92,7 +94,7 @@
             this.deleteFlag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.deleteFlag.Checked = true;
             this.deleteFlag.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.deleteFlag.Location = new System.Drawing.Point(46, 137);
+            this.deleteFlag.Location = new System.Drawing.Point(229, 111);
             this.deleteFlag.Name = "deleteFlag";
             this.deleteFlag.Size = new System.Drawing.Size(114, 55);
             this.deleteFlag.TabIndex = 7;
@@ -101,19 +103,31 @@
             this.deleteFlag.UseVisualStyleBackColor = true;
             this.deleteFlag.CheckedChanged += new System.EventHandler(this.deleteFlag_CheckedChanged);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rulesSettings);
+            this.groupBox1.Controls.Add(this.extensionSetSettingsButton);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(323, 100);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Настройка БД";
+            // 
             // globalSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 290);
+            this.ClientSize = new System.Drawing.Size(347, 181);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.clearLogCheckbox);
             this.Controls.Add(this.overwriteFiles);
             this.Controls.Add(this.deleteFlag);
-            this.Controls.Add(this.extensionSetSettingsButton);
-            this.Controls.Add(this.rulesSettings);
             this.Name = "globalSettingsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrashVanish - Настройки";
             this.Load += new System.EventHandler(this.globalSettingsForm_Load);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,5 +141,6 @@
         private System.Windows.Forms.CheckBox overwriteFiles;
         private System.Windows.Forms.CheckBox deleteFlag;
         private System.Windows.Forms.ToolTip checkboxesToolTip;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

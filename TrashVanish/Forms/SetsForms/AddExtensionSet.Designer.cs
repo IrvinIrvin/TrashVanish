@@ -38,6 +38,9 @@
             this.addSetButton = new System.Windows.Forms.Button();
             this.messageLabel = new System.Windows.Forms.Label();
             this.deleteExtensionFromListButton = new System.Windows.Forms.Button();
+            this.targetPathTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.selectFolderButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // setNameTextBox
@@ -102,7 +105,7 @@
             // 
             // addSetButton
             // 
-            this.addSetButton.Location = new System.Drawing.Point(103, 232);
+            this.addSetButton.Location = new System.Drawing.Point(104, 282);
             this.addSetButton.Name = "addSetButton";
             this.addSetButton.Size = new System.Drawing.Size(103, 23);
             this.addSetButton.TabIndex = 7;
@@ -113,7 +116,7 @@
             // messageLabel
             // 
             this.messageLabel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.messageLabel.Location = new System.Drawing.Point(-5, 206);
+            this.messageLabel.Location = new System.Drawing.Point(-4, 256);
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(318, 23);
             this.messageLabel.TabIndex = 13;
@@ -131,11 +134,40 @@
             this.deleteExtensionFromListButton.UseVisualStyleBackColor = true;
             this.deleteExtensionFromListButton.Click += new System.EventHandler(this.deleteExtensionFromListButton_Click);
             // 
+            // targetPathTextBox
+            // 
+            this.targetPathTextBox.Location = new System.Drawing.Point(12, 222);
+            this.targetPathTextBox.Name = "targetPathTextBox";
+            this.targetPathTextBox.Size = new System.Drawing.Size(204, 20);
+            this.targetPathTextBox.TabIndex = 15;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 206);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Сохранить в...";
+            // 
+            // selectFolderButton
+            // 
+            this.selectFolderButton.Location = new System.Drawing.Point(222, 220);
+            this.selectFolderButton.Name = "selectFolderButton";
+            this.selectFolderButton.Size = new System.Drawing.Size(75, 23);
+            this.selectFolderButton.TabIndex = 17;
+            this.selectFolderButton.Text = "Обзор";
+            this.selectFolderButton.UseVisualStyleBackColor = true;
+            this.selectFolderButton.Click += new System.EventHandler(this.selectFolderButton_Click);
+            // 
             // AddExtensionSet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(309, 267);
+            this.ClientSize = new System.Drawing.Size(309, 317);
+            this.Controls.Add(this.selectFolderButton);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.targetPathTextBox);
             this.Controls.Add(this.deleteExtensionFromListButton);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.addSetButton);
@@ -166,5 +198,8 @@
         private System.Windows.Forms.Button addSetButton;
         private System.Windows.Forms.Label messageLabel;
         private System.Windows.Forms.Button deleteExtensionFromListButton;
+        private System.Windows.Forms.TextBox targetPathTextBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button selectFolderButton;
     }
 }

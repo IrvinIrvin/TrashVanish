@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data.SqlClient;
 using System.Data.SQLite;
 using System.IO;
 using System.Windows.Forms;
@@ -23,7 +22,7 @@ namespace TrashVanish
                 using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
                 {
                     connection.Open();
-                    string sqlcommand = "SELECT * FROM rulestable";
+                    string sqlcommand = "SELECT * FROM rulesTable";
                     SQLiteCommand command = new SQLiteCommand(sqlcommand, connection);
                     command.Prepare();
                     SQLiteDataReader reader = command.ExecuteReader();
@@ -59,8 +58,9 @@ namespace TrashVanish
                     SQLiteConnection.CreateFile(@".\trashVanish.db");
                     using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
                     {
+                        // TODO: make create commands for every table
                         connection.Open();
-                        string sql = @"CREATE TABLE rulestable (
+                        string sql = @"CREATE TABLE rulesTable (
                                 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
 	                            extension TEXT NOT NULL,
 	                            includes  TEXT,
@@ -89,7 +89,7 @@ namespace TrashVanish
                 try
                 {
                     SQLiteCommand cmd = new SQLiteCommand();
-                    cmd.CommandText = "insert into rulestable (extension, includes, path) values (@ruleExtension, @ruleIncludes, @rulePath)";
+                    cmd.CommandText = "insert into rulesTable (extension, includes, path) values (@ruleExtension, @ruleIncludes, @rulePath)";
                     cmd.Connection = connection;
                     cmd.Parameters.AddWithValue("@ruleExtension", rule.ruleExtension);
                     cmd.Parameters.AddWithValue("@ruleIncludes", rule.ruleIncludes);
@@ -115,7 +115,7 @@ namespace TrashVanish
                 try
                 {
                     SQLiteCommand sqlComm = connection.CreateCommand();
-                    sqlComm.CommandText = "DELETE FROM rulestable WHERE id=@id;";
+                    sqlComm.CommandText = "DELETE FROM rulesTable WHERE id=@id;";
                     sqlComm.Parameters.AddWithValue("@id", ruleID);
                     connection.Open();
                     sqlComm.ExecuteNonQuery();
@@ -133,7 +133,7 @@ namespace TrashVanish
             {
                 connection.Open();
                 SQLiteCommand cmd = new SQLiteCommand(connection);
-                cmd.CommandText = "SELECT COUNT(id) FROM rulestable WHERE extension=@extension AND includes=@includes";
+                cmd.CommandText = "SELECT COUNT(id) FROM rulesTable WHERE extension=@extension AND includes=@includes";
                 cmd.Parameters.AddWithValue("@extension", extension);
                 cmd.Parameters.AddWithValue("@includes", includes);
                 int rowCount = Convert.ToInt32(cmd.ExecuteScalar());
@@ -151,7 +151,9 @@ namespace TrashVanish
         /// </summary>
         /// <param name="setName">Название набора</param>
         /// <param name="extensionsSet">Расширения входящие в набор</param>
-        public static void AddSet(string setName, List<string> extensionsSet)
+        /// <param name="targetPath">Путь в который пойдут файлы набора</param>
+        ///
+        public static void AddSet(string setName, List<string> extensionsSet, string targetPath)
         {
             // add name to extesionsSetName
             using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
@@ -162,13 +164,14 @@ namespace TrashVanish
                 {
                     SQLiteCommand cmd = new SQLiteCommand();
                     cmd.Transaction = transaction;
-                    cmd.CommandText = "INSERT INTO extensionsSetName (name) VALUES (@Name)";
+                    cmd.CommandText = "INSERT INTO extensionSetsTable (name, targetPath) VALUES (@Name, @targetPath)";
                     cmd.Connection = connection;
                     cmd.Parameters.AddWithValue("@Name", setName);
+                    cmd.Parameters.AddWithValue("@targetPath", targetPath);
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();
                     int setID = (int)connection.LastInsertRowId;
-                    cmd.CommandText = "INSERT INTO extensionsSetExtensions (setNameId, extension) VALUES (@setNameId, @extension)";
+                    cmd.CommandText = "INSERT INTO extensionsForSetsTable (setNameId, extension) VALUES (@setNameId, @extension)";
                     cmd.Parameters.AddWithValue("@setNameId", setID);
                     foreach (string extension in extensionsSet)
                     {
@@ -190,12 +193,14 @@ namespace TrashVanish
                     }
                 }
             }
-            // add extensions to extensionsSetExtensions
         }
 
+        /// <summary>
+        /// Loads all sets from database
+        /// </summary>
+        /// <returns></returns>
         public static List<SetModel> LoadSets()
         {
-            // Получить все названия наборов (id, name)
             List<SetModel> setsList = new List<SetModel>();
             List<setExtensionModel> extensionsList = new List<setExtensionModel>();
             try
@@ -203,7 +208,7 @@ namespace TrashVanish
                 using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
                 {
                     connection.Open();
-                    using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM extensionsSetName", connection))
+                    using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM extensionSetsTable", connection))
                     {
                         SQLiteDataReader reader = command.ExecuteReader();
                         while (reader.Read())
@@ -211,14 +216,13 @@ namespace TrashVanish
                             setsList.Add(new SetModel
                             {
                                 setID = Convert.ToString(reader["id"]),
-                                setName = reader["name"] as string
+                                setName = reader["name"] as string,
+                                targetPath = reader["targetPath"] as string
                             });
                         }
                         reader.Close();
-                        // Получить все расширения (id, name_id, extension)
-                        command.CommandText = "SELECT * FROM extensionsSetExtensions";
+                        command.CommandText = "SELECT * FROM extensionsForSetsTable";
                         reader = command.ExecuteReader();
-                        // Для каждого id названия набора собрать список типа setExtensionModel
                         while (reader.Read())
                         {
                             extensionsList.Add(new setExtensionModel
@@ -251,6 +255,10 @@ namespace TrashVanish
             return setsList;
         }
 
+        /// <summary>
+        /// Deletes set by it's id
+        /// </summary>
+        /// <param name="setID">Id of set that needs to be deleted</param>
         public static void DeleteSet(string setID)
         {
             using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
@@ -258,13 +266,13 @@ namespace TrashVanish
                 connection.Open();
                 using (SQLiteTransaction transaction = connection.BeginTransaction())
                 {
-                    using (SQLiteCommand command = new SQLiteCommand("DELETE FROM extensionsSetName WHERE id=@setID", connection, transaction))
+                    using (SQLiteCommand command = new SQLiteCommand("DELETE FROM extensionSetsTable WHERE id=@setID", connection, transaction))
                     {
                         try
                         {
                             command.Parameters.AddWithValue("@setID", setID);
                             command.ExecuteNonQuery();
-                            command.CommandText = "DELETE FROM extensionsSetExtensions WHERE setNameId=?";
+                            command.CommandText = "DELETE FROM extensionsForSetsTable WHERE setNameId=?";
                             command.ExecuteNonQuery();
                             transaction.Commit();
                         }
