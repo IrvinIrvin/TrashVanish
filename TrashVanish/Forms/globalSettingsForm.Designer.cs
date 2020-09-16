@@ -52,6 +52,7 @@
             // 
             // extensionSetSettingsButton
             // 
+            this.extensionSetSettingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.extensionSetSettingsButton.Location = new System.Drawing.Point(174, 35);
             this.extensionSetSettingsButton.Name = "extensionSetSettingsButton";
             this.extensionSetSettingsButton.Size = new System.Drawing.Size(115, 41);
@@ -62,7 +63,7 @@
             // 
             // clearLogCheckbox
             // 
-            this.clearLogCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.clearLogCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.clearLogCheckbox.AutoSize = true;
             this.clearLogCheckbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.clearLogCheckbox.Location = new System.Drawing.Point(12, 130);
@@ -105,6 +106,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.rulesSettings);
             this.groupBox1.Controls.Add(this.extensionSetSettingsButton);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -123,6 +127,7 @@
             this.Controls.Add(this.clearLogCheckbox);
             this.Controls.Add(this.overwriteFiles);
             this.Controls.Add(this.deleteFlag);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "globalSettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrashVanish - Настройки";

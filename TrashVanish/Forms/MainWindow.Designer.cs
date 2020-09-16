@@ -76,6 +76,7 @@
             // 
             // globalSettings
             // 
+            this.globalSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.globalSettings.Location = new System.Drawing.Point(531, 28);
             this.globalSettings.Name = "globalSettings";
             this.globalSettings.Size = new System.Drawing.Size(114, 23);

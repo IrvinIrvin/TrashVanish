@@ -187,7 +187,7 @@ namespace TrashVanish
                 string[] files = Directory.GetFiles(cwd, "*" + extensionOfSet.extension);
                 if (files.Length < 1)
                 {
-                    logger("Нет файлов для задачи \"" + set.setName + "\"... сворачиваюсь", Color.DarkOrange);
+                    logger("<" + set.setName + ">" + " Нет файлов для задачи \"" + extensionOfSet.extension + "\"... сворачиваюсь", Color.DarkOrange);
                 }
                 if (!Directory.Exists(set.targetPath))
                 {
@@ -200,7 +200,7 @@ namespace TrashVanish
                     string destination = Path.Combine(set.targetPath, filename);
                     if (File.Exists(destination) && !owFiles)
                     {
-                        logger("Файл \"" + filename + "\" уже существет в \"" + set.targetPath + "\"... пропускаю", Color.Gold);
+                        logger("<" + set.setName + ">" + "Файл \"" + filename + "\" уже существет в \"" + set.targetPath + "\"... пропускаю", Color.Gold);
                         continue;
                     }
                     try
@@ -210,13 +210,13 @@ namespace TrashVanish
                     }
                     catch (UnauthorizedAccessException uae)
                     {
-                        logger(uae.Message + ". Чтобы скопировать файл в \"" + set.targetPath + "\" запустите программу от имени администратора", Color.Maroon);
+                        logger("<" + set.setName + ">" + uae.Message + ". Чтобы скопировать файл в \"" + set.targetPath + "\" запустите программу от имени администратора", Color.Maroon);
                         errors++;
                         doNotDelete = true;
                     }
                     catch (Exception e)
                     {
-                        logger(e.Message, Color.Maroon);
+                        logger("<" + set.setName + ">" + e.Message, Color.Maroon);
                         errors++;
                         doNotDelete = true;
                     }
@@ -230,7 +230,7 @@ namespace TrashVanish
                             }
                             catch (Exception e)
                             {
-                                logger(e.Message, Color.Maroon);
+                                logger("<" + set.setName + ">" + e.Message, Color.Maroon);
                                 errors++;
                             }
                         }
@@ -238,11 +238,11 @@ namespace TrashVanish
                 }
                 if (errors != 0)
                 {
-                    logger("Не все файлы \"" + set.setName + "\" перемещенны успешно", Color.OrangeRed);
+                    logger("<" + set.setName + ">" + "Не все файлы \"" + extensionOfSet.extension + "\" перемещенны успешно", Color.OrangeRed);
                 }
                 else
                 {
-                    logger("Задача для \"" + set.setName + "\" завершилось успешно. Перемещенно файлов: " + filesCopied, Color.Lime);
+                    logger("<" + set.setName + ">" + "Задача для \"" + extensionOfSet.extension + "\" завершилось успешно. Перемещенно файлов: " + filesCopied, Color.Lime);
                 }
             }
         }

@@ -130,6 +130,7 @@
             // 
             // editRule
             // 
+            this.editRule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.editRule.Location = new System.Drawing.Point(376, 90);
             this.editRule.Name = "editRule";
             this.editRule.Size = new System.Drawing.Size(123, 23);

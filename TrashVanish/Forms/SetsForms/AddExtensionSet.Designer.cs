@@ -178,6 +178,7 @@
             this.Controls.Add(this.extensionsList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.setNameTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddExtensionSet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrashVanish - Добавить набор расширений";
