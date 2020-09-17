@@ -104,11 +104,34 @@ namespace TrashVanish
             }
         }
 
+        public static void EditRule(string id, RuleModel rule) // TODO: wrap in transaction
+        {
+            using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
+            {
+                try
+                {
+                    SQLiteCommand cmd = new SQLiteCommand();
+                    cmd.CommandText = "UPDATE rulesTable SET extension=@ruleExtension, includes=@ruleIncludes, path=@rulePath WHERE id=@id";
+                    cmd.Connection = connection;
+                    cmd.Parameters.AddWithValue("@ruleExtension", rule.ruleExtension);
+                    cmd.Parameters.AddWithValue("@ruleIncludes", rule.ruleIncludes);
+                    cmd.Parameters.AddWithValue("@rulePath", rule.rulePath);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message, "Ошибка при обновлении значений в бд", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         /// <summary>
         /// Deletes rules by their id
         /// </summary>
         /// <param name="ruleID">id of the rule</param>
-        public static void DeleteRule(string ruleID)
+        public static void DeleteRule(string ruleID) // TODO: Wrap in transaction
         {
             using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
             {

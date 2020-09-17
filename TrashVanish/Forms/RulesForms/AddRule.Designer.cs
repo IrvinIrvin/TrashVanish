@@ -38,7 +38,7 @@
             this.AddRuleButton = new System.Windows.Forms.Button();
             this.browseFilesButton = new System.Windows.Forms.Button();
             this.messageLabel = new System.Windows.Forms.Label();
-            this.ExtensionTextBox = new System.Windows.Forms.ComboBox();
+            this.ExtensionTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // includesTextBox
@@ -133,15 +133,10 @@
             // 
             // ExtensionTextBox
             // 
-            this.ExtensionTextBox.FormattingEnabled = true;
-            this.ExtensionTextBox.Items.AddRange(new object[] {
-            "Добавить набор",
-            "Изменить наборы"});
-            this.ExtensionTextBox.Location = new System.Drawing.Point(12, 29);
+            this.ExtensionTextBox.Location = new System.Drawing.Point(12, 31);
             this.ExtensionTextBox.Name = "ExtensionTextBox";
-            this.ExtensionTextBox.Size = new System.Drawing.Size(203, 21);
-            this.ExtensionTextBox.TabIndex = 13;
-            this.ExtensionTextBox.DropDownClosed += new System.EventHandler(this.ExtensionTextBox_DropDownClosed);
+            this.ExtensionTextBox.Size = new System.Drawing.Size(205, 20);
+            this.ExtensionTextBox.TabIndex = 14;
             // 
             // AddRule
             // 
@@ -179,6 +174,6 @@
         private System.Windows.Forms.Button AddRuleButton;
         private System.Windows.Forms.Button browseFilesButton;
         private System.Windows.Forms.Label messageLabel;
-        private System.Windows.Forms.ComboBox ExtensionTextBox;
+        private System.Windows.Forms.TextBox ExtensionTextBox;
     }
 }

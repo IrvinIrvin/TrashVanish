@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using TrashVanish.Forms.RulesForms;
 
 namespace TrashVanish
 {
@@ -56,6 +57,22 @@ namespace TrashVanish
             {
                 AddRule addRuleForm = new AddRule(rulesGrid);
                 addRuleForm.ShowDialog();
+            }
+            updateGrid();
+        }
+
+        private void editRule_Click(object sender, EventArgs e)
+        {
+            Form er = Application.OpenForms["editRule"];
+            if (er != null)
+            {
+                er.Activate();
+                return;
+            }
+            else
+            {
+                editRuleForm editRuleForm = new editRuleForm(rulesGrid); // TODO: handle null value
+                editRuleForm.ShowDialog();
             }
             updateGrid();
         }
