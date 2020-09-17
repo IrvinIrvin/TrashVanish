@@ -135,7 +135,7 @@
             this.editRule.Name = "editRule";
             this.editRule.Size = new System.Drawing.Size(123, 23);
             this.editRule.TabIndex = 4;
-            this.editRule.Text = "Править правило";
+            this.editRule.Text = "Редактировать";
             this.editRule.UseVisualStyleBackColor = true;
             this.editRule.Click += new System.EventHandler(this.editRule_Click);
             // 

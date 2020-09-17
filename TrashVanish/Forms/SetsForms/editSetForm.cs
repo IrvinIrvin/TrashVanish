@@ -156,7 +156,9 @@ namespace TrashVanish.Forms.SetsForms
             }
             string targetPath = targetPathTextBox.Text;
             //DBConnection.AddSet(setName, setExtensions, targetPath);
-            DBConnection.UpdateSet(id, setName, setExtensions, targetPath);
+            DBConnection.DeleteSet(id);
+            DBConnection.AddSet(setName, setExtensions, targetPath);
+            //DBConnection.UpdateSet(id, setName, setExtensions, targetPath);
             setNameTextBox.Text = "";
             extensionTextBox.Text = "";
             extensionsList.Items.Clear();
