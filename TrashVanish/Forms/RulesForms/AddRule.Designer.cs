@@ -28,28 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddRule));
-            this.ExtensionTextBox = new System.Windows.Forms.TextBox();
             this.includesTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.pathTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.browseFolders = new System.Windows.Forms.Button();
             this.AddRuleButton = new System.Windows.Forms.Button();
             this.browseFilesButton = new System.Windows.Forms.Button();
             this.messageLabel = new System.Windows.Forms.Label();
+            this.ExtensionTextBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // ExtensionTextBox
-            // 
-            this.ExtensionTextBox.Location = new System.Drawing.Point(12, 28);
-            this.ExtensionTextBox.Name = "ExtensionTextBox";
-            this.ExtensionTextBox.Size = new System.Drawing.Size(203, 20);
-            this.ExtensionTextBox.TabIndex = 0;
             // 
             // includesTextBox
             // 
@@ -84,17 +74,6 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Название файла содержит...";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(301, 28);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(17, 24);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "*";
-            // 
             // pathTextBox
             // 
             this.pathTextBox.Location = new System.Drawing.Point(12, 133);
@@ -110,17 +89,6 @@
             this.label5.Size = new System.Drawing.Size(78, 13);
             this.label5.TabIndex = 7;
             this.label5.Text = "Сохранить в...";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(301, 133);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(17, 24);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "*";
             // 
             // browseFolders
             // 
@@ -144,7 +112,7 @@
             // 
             // browseFilesButton
             // 
-            this.browseFilesButton.Location = new System.Drawing.Point(221, 26);
+            this.browseFilesButton.Location = new System.Drawing.Point(221, 29);
             this.browseFilesButton.Name = "browseFilesButton";
             this.browseFilesButton.Size = new System.Drawing.Size(75, 23);
             this.browseFilesButton.TabIndex = 11;
@@ -163,26 +131,35 @@
             this.messageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.messageLabel.Visible = false;
             // 
+            // ExtensionTextBox
+            // 
+            this.ExtensionTextBox.FormattingEnabled = true;
+            this.ExtensionTextBox.Items.AddRange(new object[] {
+            "Добавить набор",
+            "Изменить наборы"});
+            this.ExtensionTextBox.Location = new System.Drawing.Point(12, 29);
+            this.ExtensionTextBox.Name = "ExtensionTextBox";
+            this.ExtensionTextBox.Size = new System.Drawing.Size(203, 21);
+            this.ExtensionTextBox.TabIndex = 13;
+            this.ExtensionTextBox.DropDownClosed += new System.EventHandler(this.ExtensionTextBox_DropDownClosed);
+            // 
             // AddRule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(320, 231);
+            this.ClientSize = new System.Drawing.Size(309, 235);
+            this.Controls.Add(this.ExtensionTextBox);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.browseFilesButton);
             this.Controls.Add(this.AddRuleButton);
             this.Controls.Add(this.browseFolders);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pathTextBox);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.includesTextBox);
-            this.Controls.Add(this.ExtensionTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddRule";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrashVanisher - Добавить правило";
@@ -192,19 +169,16 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox ExtensionTextBox;
         private System.Windows.Forms.TextBox includesTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox pathTextBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button browseFolders;
         private System.Windows.Forms.Button AddRuleButton;
         private System.Windows.Forms.Button browseFilesButton;
         private System.Windows.Forms.Label messageLabel;
+        private System.Windows.Forms.ComboBox ExtensionTextBox;
     }
 }

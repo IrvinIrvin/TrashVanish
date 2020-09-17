@@ -15,3 +15,6 @@ C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Debug\System.Data
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Debug\System.Data.SQLite.xml
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.csproj.CopyComplete
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.Forms.SetsForms.AddExtensionSet.resources
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.Forms.globalSettingsForm.resources
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.ExtensionsSetSettings.resources

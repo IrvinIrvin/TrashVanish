@@ -8,6 +8,7 @@ namespace TrashVanish
         public RulesSettings()
         {
             InitializeComponent();
+            this.Icon = Properties.Resources.appicon;
         }
 
         private void RulesSettings_Load(object sender, EventArgs e)
@@ -18,7 +19,7 @@ namespace TrashVanish
         private void updateGrid()
         {
             GridUpdater gu = new GridUpdater(this.rulesGrid);
-            gu.UpdateGrid();
+            gu.UpdateRules();
         }
 
         private void updateRulesButton_Click(object sender, EventArgs e)
@@ -43,8 +44,7 @@ namespace TrashVanish
             updateGrid();
         }
 
-        // Кнопка добавить правило, но мне ее лень переименовывать
-        private void button1_Click(object sender, EventArgs e)
+        private void addRuleButton_Click(object sender, EventArgs e)
         {
             Form ar = Application.OpenForms["AddRule"];
             if (ar != null)
@@ -54,8 +54,8 @@ namespace TrashVanish
             }
             else
             {
-                AddRule addRuleForm = new AddRule();
-                addRuleForm.Show();
+                AddRule addRuleForm = new AddRule(rulesGrid);
+                addRuleForm.ShowDialog();
             }
             updateGrid();
         }

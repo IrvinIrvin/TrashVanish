@@ -10,6 +10,16 @@ namespace TrashVanish
         public AddRule()
         {
             InitializeComponent();
+            this.Icon = Properties.Resources.appicon;
+        }
+
+        private DataGridView rulesGrid;
+
+        public AddRule(DataGridView dataGridView)
+        {
+            InitializeComponent();
+            this.Icon = Properties.Resources.appicon;
+            rulesGrid = dataGridView;
         }
 
         private string path, extension, includes;
@@ -26,15 +36,17 @@ namespace TrashVanish
 
         private void AddRuleButton_Click(object sender, EventArgs e)
         {
-            includes = includesTextBox.Text;
-            path = pathTextBox.Text;
-            extension = ExtensionTextBox.Text;
-            path = path.Trim();
-            extension = extension.Trim();
+            includes = includesTextBox.Text.Trim();
+            path = pathTextBox.Text.Trim();
+            extension = ExtensionTextBox.Text.Trim();
             if (extension == "" || path == "")
             {
                 messageLabelFunc("Обязательные поля не заполнены", Color.DarkOrange);
                 return;
+            }
+            if (extension[0] != '.')
+            {
+                extension = '.' + extension;
             }
             if (!extValidate(extension) || !pathValidate(path))
             {
@@ -52,8 +64,8 @@ namespace TrashVanish
             ExtensionTextBox.Text = "";
             includesTextBox.Text = "";
             pathTextBox.Text = "";
-            GridUpdater gu = new GridUpdater();
-            gu.UpdateGrid();
+            GridUpdater gu = new GridUpdater(rulesGrid);
+            gu.UpdateRules();
         }
 
         private void messageLabelFunc(string message, Color color)
@@ -83,29 +95,34 @@ namespace TrashVanish
 
         private bool extValidate(string extension)
         {
-            if (extension[0] == '.')
-            {
-                extension = sliceDot(extension);
-            }
-            else
+            if (extension.Substring(1).Length == 0)
             {
                 messageLabelFunc("Расширение не корректно", Color.DarkOrange);
                 return false;
             }
-            if ((char)extension.Length == 0)
+            foreach (char l in extension.Substring(1))
             {
-                messageLabelFunc("Расширение не корректно", Color.DarkOrange);
-                return false;
-            }
-            foreach (char l in extension)
-            {
-                if (!(l >= 65) && !(l <= 90) || !(l >= 97) && !(l <= 122))
+                if (!(l >= 65 && l <= 90) && !(l >= 97 && l <= 122))
                 {
                     messageLabelFunc("Расширение не корректно", Color.DarkOrange);
                     return false;
                 }
             }
             return true;
+        }
+
+        private void ExtensionTextBox_DropDownClosed(object sender, EventArgs e)
+        {
+            if (ExtensionTextBox.SelectedItem.ToString() == "Добавить набор")
+            {
+                MessageBox.Show("Добавить набор");
+                // Открыть окно "добавить набор"
+            }
+            else if (ExtensionTextBox.SelectedItem.ToString() == "Изменить наборы")
+            {
+                MessageBox.Show("Изменить наборы");
+                // Открыть окно "изменить наборы"
+            }
         }
 
         private bool pathValidate(string path)
@@ -125,16 +142,6 @@ namespace TrashVanish
                 return false;
             }
             return true;
-        }
-
-        private string sliceDot(string str)
-        {
-            string newstr = "";
-            for (int i = 1; i < str.Length; i++)
-            {
-                newstr = newstr + str[i];
-            }
-            return newstr;
         }
     }
 }
