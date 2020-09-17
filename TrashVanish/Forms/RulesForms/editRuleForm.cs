@@ -62,7 +62,7 @@ namespace TrashVanish.Forms.RulesForms
                 return;
             }
             RuleModel rule = new RuleModel { ruleExtension = extension, ruleIncludes = includes, rulePath = path };
-            DBConnection.EditRule(id, rule);
+            DBConnection.UpdateRule(id, rule);
             messageLabelFunc("Правило для \"" + extension + "\" обновленно", Color.Lime);
             ExtensionTextBox.Text = "";
             includesTextBox.Text = "";

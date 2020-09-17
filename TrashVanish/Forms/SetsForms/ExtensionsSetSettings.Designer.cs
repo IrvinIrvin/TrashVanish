@@ -100,11 +100,11 @@
             // editSetButton
             // 
             this.editSetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.editSetButton.Location = new System.Drawing.Point(371, 91);
+            this.editSetButton.Location = new System.Drawing.Point(371, 90);
             this.editSetButton.Name = "editSetButton";
             this.editSetButton.Size = new System.Drawing.Size(128, 23);
             this.editSetButton.TabIndex = 2;
-            this.editSetButton.Text = "Править набор";
+            this.editSetButton.Text = "Редактировать";
             this.editSetButton.UseVisualStyleBackColor = true;
             this.editSetButton.Click += new System.EventHandler(this.editSetButton_Click);
             // 

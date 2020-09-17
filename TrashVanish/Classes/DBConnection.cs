@@ -104,7 +104,12 @@ namespace TrashVanish
             }
         }
 
-        public static void EditRule(string id, RuleModel rule) // TODO: wrap in transaction
+        /// <summary>
+        /// Обновляет значения правила с соответствующим id
+        /// </summary>
+        /// <param name="id">id правила</param>
+        /// <param name="rule">Обновленные данные для существующего правила</param>
+        public static void UpdateRule(string id, RuleModel rule) // TODO: wrap in transaction
         {
             using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
             {
@@ -196,6 +201,47 @@ namespace TrashVanish
                     int setID = (int)connection.LastInsertRowId;
                     cmd.CommandText = "INSERT INTO extensionsForSetsTable (setNameId, extension) VALUES (@setNameId, @extension)";
                     cmd.Parameters.AddWithValue("@setNameId", setID);
+                    foreach (string extension in extensionsSet)
+                    {
+                        cmd.Parameters.AddWithValue("@extension", extension);
+                        cmd.ExecuteNonQuery();
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message, "Ошибка при добавлении значений в бд", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    try
+                    {
+                        transaction.Rollback();
+                    }
+                    catch (Exception exRollBack)
+                    {
+                        MessageBox.Show(exRollBack.Message, "Ошибка при откатывании бд в прежнее состояние", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        public static void UpdateSet(string id, string setName, List<string> extensionsSet, string targetPath)
+        {
+            using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
+            {
+                connection.Open();
+                SQLiteTransaction transaction = connection.BeginTransaction();
+                try
+                {
+                    SQLiteCommand cmd = new SQLiteCommand();
+                    cmd.Transaction = transaction;
+                    cmd.CommandText = "UPDATE extensionSetsTable SET name=@Name, targetPath=@targetPath WHERE id=@id";
+                    cmd.Connection = connection;
+                    cmd.Parameters.AddWithValue("@Name", setName);
+                    cmd.Parameters.AddWithValue("@targetPath", targetPath);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.Clear();
+                    cmd.CommandText = "UPDATE extensionsForSetsTable SET extension=@extension WHERE setNameId=@setNameId"; // TODO: search by extension id and not by set id or all set will be same extension
+                    cmd.Parameters.AddWithValue("@setNameId", id);
                     foreach (string extension in extensionsSet)
                     {
                         cmd.Parameters.AddWithValue("@extension", extension);

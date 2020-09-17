@@ -24,3 +24,4 @@ C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.TrustInfo.xml
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.exe.manifest
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.application
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.Forms.SetsForms.editSetForm.resources
