@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.rulesGrid = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FileExtension = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameIncludes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SavePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateRulesButton = new System.Windows.Forms.Button();
             this.deleteRule = new System.Windows.Forms.Button();
             this.addRuleButton = new System.Windows.Forms.Button();
             this.editRule = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileExtension = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameIncludes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SavePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.rulesGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,37 +63,6 @@
             this.rulesGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.rulesGrid.Size = new System.Drawing.Size(358, 165);
             this.rulesGrid.TabIndex = 0;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            this.id.Width = 50;
-            // 
-            // FileExtension
-            // 
-            this.FileExtension.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.FileExtension.HeaderText = "Расширение";
-            this.FileExtension.Name = "FileExtension";
-            this.FileExtension.ReadOnly = true;
-            this.FileExtension.Width = 95;
-            // 
-            // NameIncludes
-            // 
-            this.NameIncludes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.NameIncludes.HeaderText = "Имя файла содержит";
-            this.NameIncludes.Name = "NameIncludes";
-            this.NameIncludes.ReadOnly = true;
-            this.NameIncludes.Width = 129;
-            // 
-            // SavePath
-            // 
-            this.SavePath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SavePath.HeaderText = "Путь";
-            this.SavePath.Name = "SavePath";
-            this.SavePath.ReadOnly = true;
             // 
             // updateRulesButton
             // 
@@ -139,6 +108,37 @@
             this.editRule.UseVisualStyleBackColor = true;
             this.editRule.Click += new System.EventHandler(this.editRule_Click);
             // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 50;
+            // 
+            // FileExtension
+            // 
+            this.FileExtension.HeaderText = "Расширение";
+            this.FileExtension.MinimumWidth = 50;
+            this.FileExtension.Name = "FileExtension";
+            this.FileExtension.ReadOnly = true;
+            this.FileExtension.Width = 95;
+            // 
+            // NameIncludes
+            // 
+            this.NameIncludes.HeaderText = "Имя файла содержит";
+            this.NameIncludes.MinimumWidth = 50;
+            this.NameIncludes.Name = "NameIncludes";
+            this.NameIncludes.ReadOnly = true;
+            this.NameIncludes.Width = 129;
+            // 
+            // SavePath
+            // 
+            this.SavePath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SavePath.HeaderText = "Путь";
+            this.SavePath.Name = "SavePath";
+            this.SavePath.ReadOnly = true;
+            // 
             // RulesSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -165,10 +165,10 @@
         private System.Windows.Forms.Button updateRulesButton;
         private System.Windows.Forms.Button deleteRule;
         private System.Windows.Forms.Button addRuleButton;
+        private System.Windows.Forms.Button editRule;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn FileExtension;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameIncludes;
         private System.Windows.Forms.DataGridViewTextBoxColumn SavePath;
-        private System.Windows.Forms.Button editRule;
     }
 }

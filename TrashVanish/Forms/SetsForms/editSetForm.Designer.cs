@@ -134,6 +134,7 @@
             this.extensionTextBox.Name = "extensionTextBox";
             this.extensionTextBox.Size = new System.Drawing.Size(204, 20);
             this.extensionTextBox.TabIndex = 21;
+            this.extensionTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.extensionTextBox_KeyPress);
             // 
             // extensionsList
             // 

@@ -32,7 +32,7 @@ namespace TrashVanish.Forms.SetsForms
             setNameTextBox.Text = rulesGrid.CurrentRow.Cells[1].Value.ToString();
             foreach (string ext in getSplittedExtensions())
             {
-                if (ext != "")
+                if (ext.Trim() != "")
                 {
                     extensionsList.Items.Add(ext.Trim());
                 }
@@ -165,6 +165,14 @@ namespace TrashVanish.Forms.SetsForms
             GridUpdater gridUpdater = new GridUpdater(rulesGrid);
             gridUpdater.UpdateExtensionsSets();
             messageLabelFunc("Набор был успешно обновлен", Color.Lime);
+        }
+
+        private void extensionTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                addExtToList();
+            }
         }
     }
 }

@@ -24,3 +24,4 @@ C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVani
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.exe.manifest
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.application
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.Forms.RulesForms.editRuleForm.resources
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.Forms.SetsForms.editSetForm.resources
