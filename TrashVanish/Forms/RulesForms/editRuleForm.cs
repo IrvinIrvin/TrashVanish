@@ -42,6 +42,8 @@ namespace TrashVanish.Forms.RulesForms
             string includes = includesTextBox.Text.Trim();
             string path = pathTextBox.Text.Trim();
             string extension = ExtensionTextBox.Text.Trim();
+            int isCaseSensetive = caseSensetive.Checked ? 1 : 0;
+
             if (extension == "" || path == "")
             {
                 messageLabelFunc("Обязательные поля не заполнены", Color.DarkOrange);
@@ -56,13 +58,12 @@ namespace TrashVanish.Forms.RulesForms
                 return;
             }
 
-            if (DBConnection.isRuleExist(extension, includes))
+            if (DBConnection.isRuleExist(extension, includes, isCaseSensetive))
             {
                 messageLabelFunc("Правило для \"" + extension + "\" уже существует", Color.DarkOrange);
                 return;
             }
             RuleModel rule = new RuleModel { ruleExtension = extension, ruleIncludes = includes, rulePath = path };
-            //DBConnection.UpdateRule(id, rule);
             DBConnection.DeleteRule(id);
             DBConnection.AddRule(rule);
             messageLabelFunc("Правило для \"" + extension + "\" обновленно", Color.Lime);

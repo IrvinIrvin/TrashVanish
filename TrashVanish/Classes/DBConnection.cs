@@ -30,10 +30,12 @@ namespace TrashVanish
                     {
                         rules.Add(new RuleModel
                         {
+                            //ruleID = Convert.ToString(reader["id"]),
                             ruleID = Convert.ToString(reader["id"]),
                             ruleExtension = reader["extension"] as string,
                             ruleIncludes = reader["includes"] as string,
-                            rulePath = reader["path"] as string
+                            rulePath = reader["path"] as string,
+                            ruleIsCaseSensetive = Convert.ToInt32(reader["isCaseSensetive"]),
                         });
                     }
                     reader.Close();
@@ -89,10 +91,11 @@ namespace TrashVanish
                 try
                 {
                     SQLiteCommand cmd = new SQLiteCommand();
-                    cmd.CommandText = "insert into rulesTable (extension, includes, path) values (@ruleExtension, @ruleIncludes, @rulePath)";
+                    cmd.CommandText = "insert into rulesTable (extension, includes, isCaseSensetive, path) values (@ruleExtension, @ruleIncludes, @isCaseSensetive, @rulePath)";
                     cmd.Connection = connection;
                     cmd.Parameters.AddWithValue("@ruleExtension", rule.ruleExtension);
                     cmd.Parameters.AddWithValue("@ruleIncludes", rule.ruleIncludes);
+                    cmd.Parameters.AddWithValue("@isCaseSensetive", rule.ruleIsCaseSensetive);
                     cmd.Parameters.AddWithValue("@rulePath", rule.rulePath);
                     connection.Open();
                     cmd.ExecuteNonQuery();
@@ -155,15 +158,16 @@ namespace TrashVanish
             }
         }
 
-        public static bool isRuleExist(string extension, string includes)
+        public static bool isRuleExist(string extension, string includes, int isCaseSensetive)
         {
             using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
             {
                 connection.Open();
                 SQLiteCommand cmd = new SQLiteCommand(connection);
-                cmd.CommandText = "SELECT COUNT(id) FROM rulesTable WHERE extension=@extension AND includes=@includes";
+                cmd.CommandText = "SELECT COUNT(id) FROM rulesTable WHERE extension=@extension AND includes=@includes AND isCaseSensetive=@isCaseSensetive";
                 cmd.Parameters.AddWithValue("@extension", extension);
                 cmd.Parameters.AddWithValue("@includes", includes);
+                cmd.Parameters.AddWithValue("@isCaseSensetive", isCaseSensetive);
                 int rowCount = Convert.ToInt32(cmd.ExecuteScalar());
                 return rowCount > 0;
             }

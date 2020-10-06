@@ -36,6 +36,7 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileExtension = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameIncludes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isCaseSensetive = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SavePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.rulesGrid)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +54,7 @@
             this.id,
             this.FileExtension,
             this.NameIncludes,
+            this.isCaseSensetive,
             this.SavePath});
             this.rulesGrid.Location = new System.Drawing.Point(12, 12);
             this.rulesGrid.MultiSelect = false;
@@ -132,6 +134,12 @@
             this.NameIncludes.ReadOnly = true;
             this.NameIncludes.Width = 129;
             // 
+            // isCaseSensetive
+            // 
+            this.isCaseSensetive.HeaderText = "Учитывать регистр";
+            this.isCaseSensetive.Name = "isCaseSensetive";
+            this.isCaseSensetive.ReadOnly = true;
+            // 
             // SavePath
             // 
             this.SavePath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -169,6 +177,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn FileExtension;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameIncludes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isCaseSensetive;
         private System.Windows.Forms.DataGridViewTextBoxColumn SavePath;
     }
 }

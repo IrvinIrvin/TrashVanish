@@ -23,6 +23,7 @@ namespace TrashVanish
         }
 
         private string path, extension, includes;
+        private int isCaseSensetive;
 
         private void browseFilesButton_Click(object sender, EventArgs e)
         {
@@ -39,6 +40,7 @@ namespace TrashVanish
             includes = includesTextBox.Text.Trim();
             path = pathTextBox.Text.Trim();
             extension = ExtensionTextBox.Text.Trim();
+            isCaseSensetive = isCaseSensetiveCheckBox.Checked ? 1 : 0; // Since SQLite doesn't have native boolean, I will use digits instead
             if (extension == "" || path == "")
             {
                 messageLabelFunc("Обязательные поля не заполнены", Color.DarkOrange);
@@ -53,12 +55,12 @@ namespace TrashVanish
                 return;
             }
 
-            if (DBConnection.isRuleExist(extension, includes))
+            if (DBConnection.isRuleExist(extension, includes, isCaseSensetive))
             {
                 messageLabelFunc("Правило для \"" + extension + "\" уже существует", Color.DarkOrange);
                 return;
             }
-            RuleModel rule = new RuleModel { ruleExtension = extension, ruleIncludes = includes, rulePath = path };
+            RuleModel rule = new RuleModel { ruleExtension = extension, ruleIncludes = includes, ruleIsCaseSensetive = isCaseSensetive, rulePath = path };
             DBConnection.AddRule(rule);
             messageLabelFunc("Правило для \"" + extension + "\" создано", Color.Lime);
             ExtensionTextBox.Text = "";
@@ -91,6 +93,10 @@ namespace TrashVanish
                 path = folderBrowserDialog.SelectedPath;
                 pathTextBox.Text = path;
             }
+        }
+
+        private void isCaseSensetive_CheckedChanged(object sender, EventArgs e)
+        {
         }
 
         private bool extValidate(string extension)

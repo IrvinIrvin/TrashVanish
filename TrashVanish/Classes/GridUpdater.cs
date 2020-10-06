@@ -26,7 +26,7 @@ namespace TrashVanish
             List<RuleModel> rules = DBConnection.LoadRules();
             foreach (RuleModel rule in rules)
             {
-                dataGrid.Rows.Add(rule.ruleID, rule.ruleExtension, rule.ruleIncludes, rule.rulePath);
+                dataGrid.Rows.Add(rule.ruleID, rule.ruleExtension, rule.ruleIncludes, rule.ruleIsCaseSensetive, rule.rulePath);
             }
         }
 
