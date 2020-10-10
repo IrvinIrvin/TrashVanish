@@ -54,7 +54,6 @@ namespace TrashVanish
             }
             List<RuleModel> caseSensitiveRules = new List<RuleModel>();
             List<RuleModel> caseInsensitiveRules = new List<RuleModel>();
-            // Разделить комплексные правила по регистру
             foreach (RuleModel rule in complexRules)
             {
                 if (rule.ruleIsCaseSensetive == 1)
@@ -67,7 +66,6 @@ namespace TrashVanish
                     caseInsensitiveRules.Add(rule);
                 }
             }
-            // Запустить правила с регистром
             foreach (RuleModel rule in caseSensitiveRules)
             {
                 tasks.Add(Task.Factory.StartNew(() =>
@@ -78,7 +76,6 @@ namespace TrashVanish
             await Task.WhenAll(tasks.ToArray());
             logger("Задачи, чувствительные к регистру, с комплексными правилами завершены", Color.MediumSpringGreen);
             tasks.Clear();
-            // Запустить правила без регистра
             foreach (RuleModel rule in caseInsensitiveRules)
             {
                 tasks.Add(Task.Factory.StartNew(() =>
