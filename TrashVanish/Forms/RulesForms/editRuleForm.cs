@@ -33,7 +33,9 @@ namespace TrashVanish.Forms.RulesForms
         {
             ExtensionTextBox.Text = rulesGrid.CurrentRow.Cells[1].Value.ToString();
             includesTextBox.Text = rulesGrid.CurrentRow.Cells[2].Value.ToString();
-            pathTextBox.Text = rulesGrid.CurrentRow.Cells[3].Value.ToString();
+            //pathTextBox.Text = rulesGrid.CurrentRow.Cells[3].Value.ToString();
+            caseSensetive.Checked = Convert.ToInt32(rulesGrid.CurrentRow.Cells[3].Value.ToString()) == 1 ? true : false;
+            pathTextBox.Text = rulesGrid.CurrentRow.Cells[4].Value.ToString();
         }
 
         private void saveChangesButton_Click(object sender, EventArgs e)
@@ -63,7 +65,7 @@ namespace TrashVanish.Forms.RulesForms
                 messageLabelFunc("Правило для \"" + extension + "\" уже существует", Color.DarkOrange);
                 return;
             }
-            RuleModel rule = new RuleModel { ruleExtension = extension, ruleIncludes = includes, rulePath = path };
+            RuleModel rule = new RuleModel { ruleExtension = extension, ruleIncludes = includes, rulePath = path, ruleIsCaseSensetive = isCaseSensetive };
             DBConnection.DeleteRule(id);
             DBConnection.AddRule(rule);
             messageLabelFunc("Правило для \"" + extension + "\" обновленно", Color.Lime);
@@ -72,6 +74,7 @@ namespace TrashVanish.Forms.RulesForms
             pathTextBox.Text = "";
             GridUpdater gu = new GridUpdater(rulesGrid);
             gu.UpdateRules();
+            Close();
         }
 
         private void messageLabelFunc(string message, Color color)
