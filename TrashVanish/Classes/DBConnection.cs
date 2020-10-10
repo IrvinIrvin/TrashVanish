@@ -55,22 +55,35 @@ namespace TrashVanish
         {
             if (!File.Exists(@".\trashVanish.db"))
             {
+                string[] sqlCreateCommands = {@"CREATE TABLE ""extensionSetsTable"" (
+                                                ""id""    INTEGER NOT NULL UNIQUE,
+                                                ""name""  TEXT NOT NULL UNIQUE,
+                                                ""targetPath""    TEXT NOT NULL,
+                                                PRIMARY KEY(""id"" AUTOINCREMENT)
+                                            )""",
+                                                @"CREATE TABLE ""extensionSetsTable"" (
+                                                ""id""    INTEGER NOT NULL UNIQUE,
+                                                ""name""  TEXT NOT NULL UNIQUE,
+                                                ""targetPath""    TEXT NOT NULL,
+                                                PRIMARY KEY(""id"" AUTOINCREMENT)
+                                            )""",
+                                                @"CREATE TABLE ""extensionsForSetsTable"" (
+                                                ""id""    INTEGER NOT NULL UNIQUE,
+                                                ""setNameId"" INTEGER NOT NULL,
+                                                ""extension"" TEXT NOT NULL,
+                                                PRIMARY KEY(""id"" AUTOINCREMENT)
+                                            )""" };
                 try
                 {
                     SQLiteConnection.CreateFile(@".\trashVanish.db");
                     using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
                     {
-                        // TODO: make create commands for every table
                         connection.Open();
-                        string sql = @"CREATE TABLE rulesTable (
-                                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
-	                            extension TEXT NOT NULL,
-	                            includes  TEXT,
-	                            path  TEXT NOT NULL,
-	                            register  INTEGER NOT NULL
-                            )";
-                        SQLiteCommand command = new SQLiteCommand(sql, connection);
-                        command.ExecuteNonQuery();
+                        foreach (string sqlCreateCommand in sqlCreateCommands)
+                        {
+                            SQLiteCommand command = new SQLiteCommand(sqlCreateCommand, connection);
+                            command.ExecuteNonQuery();
+                        }
                     }
                 }
                 catch (Exception e)
