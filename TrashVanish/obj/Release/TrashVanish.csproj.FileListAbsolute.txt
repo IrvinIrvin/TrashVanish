@@ -15,3 +15,13 @@ C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVani
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.exe
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.pdb
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Release\System.Data.SQLite.dll
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.Forms.globalSettingsForm.resources
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.Forms.SetsForms.AddExtensionSet.resources
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.ExtensionsSetSettings.resources
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Release\TrashVanish.exe.manifest
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Release\TrashVanish.application
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.TrustInfo.xml
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.exe.manifest
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.application
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.Forms.RulesForms.editRuleForm.resources
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.Forms.SetsForms.editSetForm.resources

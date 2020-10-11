@@ -38,7 +38,8 @@
             this.AddRuleButton = new System.Windows.Forms.Button();
             this.browseFilesButton = new System.Windows.Forms.Button();
             this.messageLabel = new System.Windows.Forms.Label();
-            this.ExtensionTextBox = new System.Windows.Forms.ComboBox();
+            this.ExtensionTextBox = new System.Windows.Forms.TextBox();
+            this.isCaseSensetiveCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // includesTextBox
@@ -94,7 +95,7 @@
             // 
             this.browseFolders.Location = new System.Drawing.Point(221, 131);
             this.browseFolders.Name = "browseFolders";
-            this.browseFolders.Size = new System.Drawing.Size(75, 23);
+            this.browseFolders.Size = new System.Drawing.Size(114, 23);
             this.browseFolders.TabIndex = 9;
             this.browseFolders.Text = "Обзор";
             this.browseFolders.UseVisualStyleBackColor = true;
@@ -114,7 +115,7 @@
             // 
             this.browseFilesButton.Location = new System.Drawing.Point(221, 29);
             this.browseFilesButton.Name = "browseFilesButton";
-            this.browseFilesButton.Size = new System.Drawing.Size(75, 23);
+            this.browseFilesButton.Size = new System.Drawing.Size(114, 23);
             this.browseFilesButton.TabIndex = 11;
             this.browseFilesButton.Text = "Обзор";
             this.browseFilesButton.UseVisualStyleBackColor = true;
@@ -133,21 +134,30 @@
             // 
             // ExtensionTextBox
             // 
-            this.ExtensionTextBox.FormattingEnabled = true;
-            this.ExtensionTextBox.Items.AddRange(new object[] {
-            "Добавить набор",
-            "Изменить наборы"});
-            this.ExtensionTextBox.Location = new System.Drawing.Point(12, 29);
+            this.ExtensionTextBox.Location = new System.Drawing.Point(12, 31);
             this.ExtensionTextBox.Name = "ExtensionTextBox";
-            this.ExtensionTextBox.Size = new System.Drawing.Size(203, 21);
-            this.ExtensionTextBox.TabIndex = 13;
-            this.ExtensionTextBox.DropDownClosed += new System.EventHandler(this.ExtensionTextBox_DropDownClosed);
+            this.ExtensionTextBox.Size = new System.Drawing.Size(205, 20);
+            this.ExtensionTextBox.TabIndex = 14;
+            // 
+            // isCaseSensetive
+            // 
+            this.isCaseSensetiveCheckBox.AutoSize = true;
+            this.isCaseSensetiveCheckBox.Checked = true;
+            this.isCaseSensetiveCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.isCaseSensetiveCheckBox.Location = new System.Drawing.Point(222, 84);
+            this.isCaseSensetiveCheckBox.Name = "isCaseSensetive";
+            this.isCaseSensetiveCheckBox.Size = new System.Drawing.Size(124, 17);
+            this.isCaseSensetiveCheckBox.TabIndex = 15;
+            this.isCaseSensetiveCheckBox.Text = "Учитывать регистр";
+            this.isCaseSensetiveCheckBox.UseVisualStyleBackColor = true;
+            this.isCaseSensetiveCheckBox.CheckedChanged += new System.EventHandler(this.isCaseSensetive_CheckedChanged);
             // 
             // AddRule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(309, 235);
+            this.ClientSize = new System.Drawing.Size(347, 235);
+            this.Controls.Add(this.isCaseSensetiveCheckBox);
             this.Controls.Add(this.ExtensionTextBox);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.browseFilesButton);
@@ -179,6 +189,7 @@
         private System.Windows.Forms.Button AddRuleButton;
         private System.Windows.Forms.Button browseFilesButton;
         private System.Windows.Forms.Label messageLabel;
-        private System.Windows.Forms.ComboBox ExtensionTextBox;
+        private System.Windows.Forms.TextBox ExtensionTextBox;
+        private System.Windows.Forms.CheckBox isCaseSensetiveCheckBox;
     }
 }

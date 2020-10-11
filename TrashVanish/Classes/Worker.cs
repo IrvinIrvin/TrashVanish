@@ -52,11 +52,35 @@ namespace TrashVanish
                     simpleRules.Add(rule);
                 }
             }
+            List<RuleModel> caseSensitiveRules = new List<RuleModel>();
+            List<RuleModel> caseInsensitiveRules = new List<RuleModel>();
             foreach (RuleModel rule in complexRules)
+            {
+                if (rule.ruleIsCaseSensetive == 1)
+                {
+                    caseSensitiveRules.Add(rule);
+                    //complexRules.Remove(rule);// В комплексных правилах не останется правил с учетом регистра UPD нельзя удалять элементы кллекции по которой ходишь циклом
+                }
+                else
+                {
+                    caseInsensitiveRules.Add(rule);
+                }
+            }
+            foreach (RuleModel rule in caseSensitiveRules)
             {
                 tasks.Add(Task.Factory.StartNew(() =>
                 {
-                    Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles);
+                    Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles, rule.ruleIsCaseSensetive);
+                }));
+            }
+            await Task.WhenAll(tasks.ToArray());
+            logger("Задачи, чувствительные к регистру, с комплексными правилами завершены", Color.MediumSpringGreen);
+            tasks.Clear();
+            foreach (RuleModel rule in caseInsensitiveRules)
+            {
+                tasks.Add(Task.Factory.StartNew(() =>
+                {
+                    Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles, rule.ruleIsCaseSensetive);
                 }));
             }
             await Task.WhenAll(tasks.ToArray());
@@ -66,7 +90,7 @@ namespace TrashVanish
             {
                 tasks.Add(Task.Factory.StartNew(() =>
                 {
-                    Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles);
+                    Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles, rule.ruleIsCaseSensetive);
                 }));
             }
             await Task.WhenAll(tasks.ToArray());
@@ -84,7 +108,7 @@ namespace TrashVanish
             logger("Все задачи завершены за " + watch.ElapsedMilliseconds + " миллисекунд", Color.Lime);
         }
 
-        private void Work(string cwd, string extension, string includes, string targetpath, bool deleteFile, bool owFiles)
+        private void Work(string cwd, string extension, string includes, string targetpath, bool deleteFile, bool owFiles, int isCaseSensetive)
         {
             int filesCopied = 0;
             int errors = 0;
@@ -108,11 +132,26 @@ namespace TrashVanish
             }
             foreach (string file in files)
             {
+                bool isContains = false;
                 bool doNotDelete = false;
                 string filename = Path.GetFileName(file);
                 string destination = Path.Combine(targetpath, filename);
 
-                if (filename.Contains(includes))
+                if (isCaseSensetive == 1)
+                {
+                    if (filename.Contains(includes))
+                    {
+                        isContains = true;
+                    }
+                }
+                else
+                {
+                    if (filename.ToLower().Contains(includes.ToLower()))
+                    {
+                        isContains = true;
+                    }
+                }
+                if (isContains)
                 {
                     if (File.Exists(destination) & !owFiles)
                     {

@@ -36,7 +36,19 @@ namespace TrashVanish
 
         private void editSetButton_Click(object sender, EventArgs e)
         {
-            // Открыть форму с правкой набора
+            Form esf = Application.OpenForms["editSetForm"];
+            if (esf != null)
+            {
+                esf.Activate();
+                return;
+            }
+            else
+            {
+                editSetForm editSetForm = new editSetForm(extensionsSetGrid);
+                editSetForm.Show();
+                //AddExtensionSet addExtensionSet = new AddExtensionSet(extensionsSetGrid);
+                //addExtensionSet.ShowDialog();
+            }
         }
 
         private void deleteSetButton_Click(object sender, EventArgs e)

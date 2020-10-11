@@ -29,62 +29,38 @@
         private void InitializeComponent()
         {
             this.extensionsSetGrid = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SetName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Extensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.targetPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addSetButton = new System.Windows.Forms.Button();
             this.editSetButton = new System.Windows.Forms.Button();
             this.deleteSetButton = new System.Windows.Forms.Button();
             this.updateGridButton = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SetName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Extensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.targetPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.extensionsSetGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // extensionsSetGrid
             // 
             this.extensionsSetGrid.AllowUserToAddRows = false;
+            this.extensionsSetGrid.AllowUserToDeleteRows = false;
+            this.extensionsSetGrid.AllowUserToResizeRows = false;
             this.extensionsSetGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.extensionsSetGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.extensionsSetGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.extensionsSetGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.SetName,
             this.Extensions,
             this.targetPath});
-            this.extensionsSetGrid.Location = new System.Drawing.Point(13, 13);
+            this.extensionsSetGrid.Location = new System.Drawing.Point(12, 12);
+            this.extensionsSetGrid.MultiSelect = false;
             this.extensionsSetGrid.Name = "extensionsSetGrid";
+            this.extensionsSetGrid.ReadOnly = true;
             this.extensionsSetGrid.RowHeadersVisible = false;
             this.extensionsSetGrid.Size = new System.Drawing.Size(352, 164);
             this.extensionsSetGrid.TabIndex = 0;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // SetName
-            // 
-            this.SetName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.SetName.HeaderText = "Имя набора";
-            this.SetName.Name = "SetName";
-            this.SetName.ReadOnly = true;
-            this.SetName.Width = 93;
-            // 
-            // Extensions
-            // 
-            this.Extensions.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Extensions.HeaderText = "Расширения";
-            this.Extensions.Name = "Extensions";
-            this.Extensions.ReadOnly = true;
-            // 
-            // targetPath
-            // 
-            this.targetPath.HeaderText = "Путь";
-            this.targetPath.Name = "targetPath";
-            this.targetPath.ReadOnly = true;
             // 
             // addSetButton
             // 
@@ -100,11 +76,11 @@
             // editSetButton
             // 
             this.editSetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.editSetButton.Location = new System.Drawing.Point(371, 91);
+            this.editSetButton.Location = new System.Drawing.Point(371, 90);
             this.editSetButton.Name = "editSetButton";
             this.editSetButton.Size = new System.Drawing.Size(128, 23);
             this.editSetButton.TabIndex = 2;
-            this.editSetButton.Text = "Править набор";
+            this.editSetButton.Text = "Редактировать";
             this.editSetButton.UseVisualStyleBackColor = true;
             this.editSetButton.Click += new System.EventHandler(this.editSetButton_Click);
             // 
@@ -129,6 +105,36 @@
             this.updateGridButton.Text = "Обновить";
             this.updateGridButton.UseVisualStyleBackColor = true;
             this.updateGridButton.Click += new System.EventHandler(this.updateGridButton_Click);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // SetName
+            // 
+            this.SetName.HeaderText = "Имя набора";
+            this.SetName.MinimumWidth = 50;
+            this.SetName.Name = "SetName";
+            this.SetName.ReadOnly = true;
+            this.SetName.Width = 93;
+            // 
+            // Extensions
+            // 
+            this.Extensions.HeaderText = "Расширения";
+            this.Extensions.MinimumWidth = 50;
+            this.Extensions.Name = "Extensions";
+            this.Extensions.ReadOnly = true;
+            this.Extensions.Width = 95;
+            // 
+            // targetPath
+            // 
+            this.targetPath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.targetPath.HeaderText = "Путь";
+            this.targetPath.Name = "targetPath";
+            this.targetPath.ReadOnly = true;
             // 
             // ExtensionsSetSettings
             // 

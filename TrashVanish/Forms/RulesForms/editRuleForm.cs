@@ -1,13 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TrashVanish
+namespace TrashVanish.Forms.RulesForms
 {
-    public partial class AddRule : Form
+    public partial class editRuleForm : Form
     {
-        public AddRule()
+        public editRuleForm()
         {
             InitializeComponent();
             this.Icon = Properties.Resources.appicon;
@@ -15,32 +21,31 @@ namespace TrashVanish
 
         private DataGridView rulesGrid;
 
-        public AddRule(DataGridView dataGridView)
+        public editRuleForm(DataGridView dataGridView)
         {
+            //rulesGrid.CurrentRow.Cells[i].Value.ToString();
             InitializeComponent();
-            this.Icon = Properties.Resources.appicon;
             rulesGrid = dataGridView;
+            this.Icon = Properties.Resources.appicon;
         }
 
-        private string path, extension, includes;
-        private int isCaseSensetive;
-
-        private void browseFilesButton_Click(object sender, EventArgs e)
+        private void editRuleForm_Load(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                extension = Path.GetExtension(openFileDialog.FileName);
-                ExtensionTextBox.Text = extension;
-            }
+            ExtensionTextBox.Text = rulesGrid.CurrentRow.Cells[1].Value.ToString();
+            includesTextBox.Text = rulesGrid.CurrentRow.Cells[2].Value.ToString();
+            //pathTextBox.Text = rulesGrid.CurrentRow.Cells[3].Value.ToString();
+            caseSensetive.Checked = Convert.ToInt32(rulesGrid.CurrentRow.Cells[3].Value.ToString()) == 1 ? true : false;
+            pathTextBox.Text = rulesGrid.CurrentRow.Cells[4].Value.ToString();
         }
 
-        private void AddRuleButton_Click(object sender, EventArgs e)
+        private void saveChangesButton_Click(object sender, EventArgs e)
         {
-            includes = includesTextBox.Text.Trim();
-            path = pathTextBox.Text.Trim();
-            extension = ExtensionTextBox.Text.Trim();
-            isCaseSensetive = isCaseSensetiveCheckBox.Checked ? 1 : 0; // Since SQLite doesn't have native boolean, I will use digits instead
+            string id = rulesGrid.CurrentRow.Cells[0].Value.ToString();
+            string includes = includesTextBox.Text.Trim();
+            string path = pathTextBox.Text.Trim();
+            string extension = ExtensionTextBox.Text.Trim();
+            int isCaseSensetive = caseSensetive.Checked ? 1 : 0;
+
             if (extension == "" || path == "")
             {
                 messageLabelFunc("Обязательные поля не заполнены", Color.DarkOrange);
@@ -60,14 +65,16 @@ namespace TrashVanish
                 messageLabelFunc("Правило для \"" + extension + "\" уже существует", Color.DarkOrange);
                 return;
             }
-            RuleModel rule = new RuleModel { ruleExtension = extension, ruleIncludes = includes, ruleIsCaseSensetive = isCaseSensetive, rulePath = path };
+            RuleModel rule = new RuleModel { ruleExtension = extension, ruleIncludes = includes, rulePath = path, ruleIsCaseSensetive = isCaseSensetive };
+            DBConnection.DeleteRule(id);
             DBConnection.AddRule(rule);
-            messageLabelFunc("Правило для \"" + extension + "\" создано", Color.Lime);
+            messageLabelFunc("Правило для \"" + extension + "\" обновленно", Color.Lime);
             ExtensionTextBox.Text = "";
             includesTextBox.Text = "";
             pathTextBox.Text = "";
             GridUpdater gu = new GridUpdater(rulesGrid);
             gu.UpdateRules();
+            Close();
         }
 
         private void messageLabelFunc(string message, Color color)
@@ -83,20 +90,6 @@ namespace TrashVanish
                 timer.Stop();
             };
             timer.Start();
-        }
-
-        private void browseFolders_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
-            {
-                path = folderBrowserDialog.SelectedPath;
-                pathTextBox.Text = path;
-            }
-        }
-
-        private void isCaseSensetive_CheckedChanged(object sender, EventArgs e)
-        {
         }
 
         private bool extValidate(string extension)

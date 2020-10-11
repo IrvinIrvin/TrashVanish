@@ -18,3 +18,10 @@ C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.Forms.SetsForms.AddExtensionSet.resources
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.Forms.globalSettingsForm.resources
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.ExtensionsSetSettings.resources
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Debug\TrashVanish.exe.manifest
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Debug\TrashVanish.application
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.Forms.RulesForms.editRuleForm.resources
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.TrustInfo.xml
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.exe.manifest
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.application
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.Forms.SetsForms.editSetForm.resources

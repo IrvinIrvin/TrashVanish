@@ -30,10 +30,12 @@ namespace TrashVanish
                     {
                         rules.Add(new RuleModel
                         {
+                            //ruleID = Convert.ToString(reader["id"]),
                             ruleID = Convert.ToString(reader["id"]),
                             ruleExtension = reader["extension"] as string,
                             ruleIncludes = reader["includes"] as string,
-                            rulePath = reader["path"] as string
+                            rulePath = reader["path"] as string,
+                            ruleIsCaseSensetive = Convert.ToInt32(reader["isCaseSensetive"]),
                         });
                     }
                     reader.Close();
@@ -53,22 +55,35 @@ namespace TrashVanish
         {
             if (!File.Exists(@".\trashVanish.db"))
             {
+                string[] sqlCreateCommands = {@"CREATE TABLE ""extensionSetsTable"" (
+                                                ""id""    INTEGER NOT NULL UNIQUE,
+                                                ""name""  TEXT NOT NULL UNIQUE,
+                                                ""targetPath""    TEXT NOT NULL,
+                                                PRIMARY KEY(""id"" AUTOINCREMENT)
+                                            )""",
+                                                @"CREATE TABLE ""extensionSetsTable"" (
+                                                ""id""    INTEGER NOT NULL UNIQUE,
+                                                ""name""  TEXT NOT NULL UNIQUE,
+                                                ""targetPath""    TEXT NOT NULL,
+                                                PRIMARY KEY(""id"" AUTOINCREMENT)
+                                            )""",
+                                                @"CREATE TABLE ""extensionsForSetsTable"" (
+                                                ""id""    INTEGER NOT NULL UNIQUE,
+                                                ""setNameId"" INTEGER NOT NULL,
+                                                ""extension"" TEXT NOT NULL,
+                                                PRIMARY KEY(""id"" AUTOINCREMENT)
+                                            )""" };
                 try
                 {
                     SQLiteConnection.CreateFile(@".\trashVanish.db");
                     using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
                     {
-                        // TODO: make create commands for every table
                         connection.Open();
-                        string sql = @"CREATE TABLE rulesTable (
-                                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
-	                            extension TEXT NOT NULL,
-	                            includes  TEXT,
-	                            path  TEXT NOT NULL,
-	                            register  INTEGER NOT NULL
-                            )";
-                        SQLiteCommand command = new SQLiteCommand(sql, connection);
-                        command.ExecuteNonQuery();
+                        foreach (string sqlCreateCommand in sqlCreateCommands)
+                        {
+                            SQLiteCommand command = new SQLiteCommand(sqlCreateCommand, connection);
+                            command.ExecuteNonQuery();
+                        }
                     }
                 }
                 catch (Exception e)
@@ -89,10 +104,11 @@ namespace TrashVanish
                 try
                 {
                     SQLiteCommand cmd = new SQLiteCommand();
-                    cmd.CommandText = "insert into rulesTable (extension, includes, path) values (@ruleExtension, @ruleIncludes, @rulePath)";
+                    cmd.CommandText = "insert into rulesTable (extension, includes, isCaseSensetive, path) values (@ruleExtension, @ruleIncludes, @isCaseSensetive, @rulePath)";
                     cmd.Connection = connection;
                     cmd.Parameters.AddWithValue("@ruleExtension", rule.ruleExtension);
                     cmd.Parameters.AddWithValue("@ruleIncludes", rule.ruleIncludes);
+                    cmd.Parameters.AddWithValue("@isCaseSensetive", rule.ruleIsCaseSensetive);
                     cmd.Parameters.AddWithValue("@rulePath", rule.rulePath);
                     connection.Open();
                     cmd.ExecuteNonQuery();
@@ -105,10 +121,38 @@ namespace TrashVanish
         }
 
         /// <summary>
+        /// Обновляет значения правила с соответствующим id
+        /// </summary>
+        /// <param name="id">id правила</param>
+        /// <param name="rule">Обновленные данные для существующего правила</param>
+        //public static void UpdateRule(string id, RuleModel rule) // TODO: wrap in transaction
+        //{
+        //    using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
+        //    {
+        //        try
+        //        {
+        //            SQLiteCommand cmd = new SQLiteCommand();
+        //            cmd.CommandText = "UPDATE rulesTable SET extension=@ruleExtension, includes=@ruleIncludes, path=@rulePath WHERE id=@id";
+        //            cmd.Connection = connection;
+        //            cmd.Parameters.AddWithValue("@ruleExtension", rule.ruleExtension);
+        //            cmd.Parameters.AddWithValue("@ruleIncludes", rule.ruleIncludes);
+        //            cmd.Parameters.AddWithValue("@rulePath", rule.rulePath);
+        //            cmd.Parameters.AddWithValue("@id", id);
+        //            connection.Open();
+        //            cmd.ExecuteNonQuery();
+        //        }
+        //        catch (Exception e)
+        //        {
+        //            MessageBox.Show(e.Message, "Ошибка при обновлении значений в бд", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //}
+
+        /// <summary>
         /// Deletes rules by their id
         /// </summary>
         /// <param name="ruleID">id of the rule</param>
-        public static void DeleteRule(string ruleID)
+        public static void DeleteRule(string ruleID) // TODO: Wrap in transaction
         {
             using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
             {
@@ -127,15 +171,16 @@ namespace TrashVanish
             }
         }
 
-        public static bool isRuleExist(string extension, string includes)
+        public static bool isRuleExist(string extension, string includes, int isCaseSensetive)
         {
             using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
             {
                 connection.Open();
                 SQLiteCommand cmd = new SQLiteCommand(connection);
-                cmd.CommandText = "SELECT COUNT(id) FROM rulesTable WHERE extension=@extension AND includes=@includes";
+                cmd.CommandText = "SELECT COUNT(id) FROM rulesTable WHERE extension=@extension AND includes=@includes AND isCaseSensetive=@isCaseSensetive";
                 cmd.Parameters.AddWithValue("@extension", extension);
                 cmd.Parameters.AddWithValue("@includes", includes);
+                cmd.Parameters.AddWithValue("@isCaseSensetive", isCaseSensetive);
                 int rowCount = Convert.ToInt32(cmd.ExecuteScalar());
                 return rowCount > 0;
             }
@@ -253,6 +298,51 @@ namespace TrashVanish
                 MessageBox.Show(e.Message, "Ошибка при получении информации о наборах из БД", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return setsList;
+        }
+
+        public static SetModel LoadSetByID(string id)
+        {
+            SetModel set = new SetModel();
+            List<setExtensionModel> extensionsList = new List<setExtensionModel>();
+            try
+            {
+                using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
+                {
+                    connection.Open();
+                    using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM extensionSetsTable WHERE id=@id", connection))
+                    {
+                        command.Parameters.AddWithValue("@id", id);
+                        SQLiteDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            set.setID = id;
+                            set.setName = reader["name"] as string;
+                            set.targetPath = reader["targetPath"] as string;
+                        }
+                        reader.Close();
+                        command.Parameters.Clear();
+                        command.CommandText = "SELECT * FROM extensionsForSetsTable WHERE setNameId=@setNameId";
+                        command.Parameters.AddWithValue("@setNameId", id);
+                        reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            extensionsList.Add(new setExtensionModel
+                            {
+                                extensionID = Convert.ToString(reader["id"]),
+                                setNameID = Convert.ToString(reader["setNameId"]),
+                                extension = reader["extension"] as string
+                            });
+                        }
+                        reader.Close();
+                        set.extensions = extensionsList;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Ошибка при получении информации о наборах из БД", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return set;
         }
 
         /// <summary>

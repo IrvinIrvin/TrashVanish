@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using TrashVanish.Forms.RulesForms;
 
 namespace TrashVanish
 {
@@ -29,16 +30,11 @@ namespace TrashVanish
 
         private void deleteRule_Click(object sender, EventArgs e)
         {
-            int selectedrow;
-            try
+            if (!rulesAreExist())
             {
-                selectedrow = rulesGrid.CurrentCell.RowIndex;
-            }
-            catch (NullReferenceException)
-            {
-                // Mo rules in grid yet
                 return;
             }
+            int selectedrow = rulesGrid.CurrentCell.RowIndex; ;
             int columnbydefault = 0; // column with id (invisible)
             DBConnection.DeleteRule(rulesGrid.Rows[selectedrow].Cells[columnbydefault].Value.ToString());
             updateGrid();
@@ -58,6 +54,41 @@ namespace TrashVanish
                 addRuleForm.ShowDialog();
             }
             updateGrid();
+        }
+
+        private void editRule_Click(object sender, EventArgs e)
+        {
+            if (!rulesAreExist())
+            {
+                return;
+            }
+            Form er = Application.OpenForms["editRule"];
+            if (er != null)
+            {
+                er.Activate();
+                return;
+            }
+            else
+            {
+                editRuleForm editRuleForm = new editRuleForm(rulesGrid);
+                editRuleForm.ShowDialog();
+            }
+            updateGrid();
+        }
+
+        private bool rulesAreExist()
+        {
+            int selectedrow;
+            try
+            {
+                selectedrow = rulesGrid.CurrentCell.RowIndex;
+            }
+            catch (NullReferenceException)
+            {
+                // No rules in grid yet
+                return false;
+            }
+            return true;
         }
     }
 }
