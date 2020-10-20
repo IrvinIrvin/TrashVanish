@@ -28,26 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.setNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.extensionsList = new System.Windows.Forms.ListBox();
             this.extensionTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.addExtensionToSetButton = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.addSetButton = new System.Windows.Forms.Button();
             this.messageLabel = new System.Windows.Forms.Label();
             this.deleteExtensionFromListButton = new System.Windows.Forms.Button();
             this.targetPathTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.selectFolderButton = new System.Windows.Forms.Button();
+            this.isCaseSensetiveCheckBox = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.includesTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.extensionsList = new System.Windows.Forms.DataGridView();
+            this.extColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.includesColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.extensionsList)).BeginInit();
             this.SuspendLayout();
             // 
             // setNameTextBox
             // 
             this.setNameTextBox.Location = new System.Drawing.Point(12, 29);
             this.setNameTextBox.Name = "setNameTextBox";
-            this.setNameTextBox.Size = new System.Drawing.Size(285, 20);
+            this.setNameTextBox.Size = new System.Drawing.Size(343, 20);
             this.setNameTextBox.TabIndex = 0;
             // 
             // label1
@@ -59,26 +70,19 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Название набора";
             // 
-            // extensionsList
-            // 
-            this.extensionsList.FormattingEnabled = true;
-            this.extensionsList.Location = new System.Drawing.Point(12, 125);
-            this.extensionsList.Name = "extensionsList";
-            this.extensionsList.Size = new System.Drawing.Size(204, 69);
-            this.extensionsList.TabIndex = 2;
-            // 
             // extensionTextBox
             // 
-            this.extensionTextBox.Location = new System.Drawing.Point(12, 73);
+            this.extensionTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.extensionTextBox.Location = new System.Drawing.Point(6, 32);
             this.extensionTextBox.Name = "extensionTextBox";
-            this.extensionTextBox.Size = new System.Drawing.Size(204, 20);
+            this.extensionTextBox.Size = new System.Drawing.Size(332, 20);
             this.extensionTextBox.TabIndex = 3;
             this.extensionTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.extensionTextBox_KeyPress);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 59);
+            this.label2.Location = new System.Drawing.Point(6, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 4;
@@ -86,26 +90,17 @@
             // 
             // addExtensionToSetButton
             // 
-            this.addExtensionToSetButton.Location = new System.Drawing.Point(222, 72);
+            this.addExtensionToSetButton.Location = new System.Drawing.Point(121, 97);
             this.addExtensionToSetButton.Name = "addExtensionToSetButton";
-            this.addExtensionToSetButton.Size = new System.Drawing.Size(75, 23);
+            this.addExtensionToSetButton.Size = new System.Drawing.Size(103, 23);
             this.addExtensionToSetButton.TabIndex = 5;
             this.addExtensionToSetButton.Text = "Добавить";
             this.addExtensionToSetButton.UseVisualStyleBackColor = true;
             this.addExtensionToSetButton.Click += new System.EventHandler(this.addExtensionToSetButton_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 109);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Расширения в наборе";
-            // 
             // addSetButton
             // 
-            this.addSetButton.Location = new System.Drawing.Point(104, 282);
+            this.addSetButton.Location = new System.Drawing.Point(132, 378);
             this.addSetButton.Name = "addSetButton";
             this.addSetButton.Size = new System.Drawing.Size(103, 23);
             this.addSetButton.TabIndex = 7;
@@ -116,9 +111,9 @@
             // messageLabel
             // 
             this.messageLabel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.messageLabel.Location = new System.Drawing.Point(-4, 256);
+            this.messageLabel.Location = new System.Drawing.Point(-3, 352);
             this.messageLabel.Name = "messageLabel";
-            this.messageLabel.Size = new System.Drawing.Size(318, 23);
+            this.messageLabel.Size = new System.Drawing.Size(372, 23);
             this.messageLabel.TabIndex = 13;
             this.messageLabel.Text = "Message";
             this.messageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -126,17 +121,18 @@
             // 
             // deleteExtensionFromListButton
             // 
-            this.deleteExtensionFromListButton.Location = new System.Drawing.Point(222, 125);
+            this.deleteExtensionFromListButton.Location = new System.Drawing.Point(217, 19);
             this.deleteExtensionFromListButton.Name = "deleteExtensionFromListButton";
-            this.deleteExtensionFromListButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteExtensionFromListButton.Size = new System.Drawing.Size(121, 23);
             this.deleteExtensionFromListButton.TabIndex = 14;
             this.deleteExtensionFromListButton.Text = "Удалить";
+            this.toolTip1.SetToolTip(this.deleteExtensionFromListButton, "Удалить расширение из набора");
             this.deleteExtensionFromListButton.UseVisualStyleBackColor = true;
             this.deleteExtensionFromListButton.Click += new System.EventHandler(this.deleteExtensionFromListButton_Click);
             // 
             // targetPathTextBox
             // 
-            this.targetPathTextBox.Location = new System.Drawing.Point(12, 222);
+            this.targetPathTextBox.Location = new System.Drawing.Point(12, 328);
             this.targetPathTextBox.Name = "targetPathTextBox";
             this.targetPathTextBox.Size = new System.Drawing.Size(204, 20);
             this.targetPathTextBox.TabIndex = 15;
@@ -144,7 +140,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 206);
+            this.label4.Location = new System.Drawing.Point(12, 312);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 13);
             this.label4.TabIndex = 16;
@@ -152,36 +148,121 @@
             // 
             // selectFolderButton
             // 
-            this.selectFolderButton.Location = new System.Drawing.Point(222, 220);
+            this.selectFolderButton.Location = new System.Drawing.Point(222, 326);
             this.selectFolderButton.Name = "selectFolderButton";
-            this.selectFolderButton.Size = new System.Drawing.Size(75, 23);
+            this.selectFolderButton.Size = new System.Drawing.Size(133, 23);
             this.selectFolderButton.TabIndex = 17;
             this.selectFolderButton.Text = "Обзор";
             this.selectFolderButton.UseVisualStyleBackColor = true;
             this.selectFolderButton.Click += new System.EventHandler(this.selectFolderButton_Click);
             // 
+            // isCaseSensetiveCheckBox
+            // 
+            this.isCaseSensetiveCheckBox.AutoSize = true;
+            this.isCaseSensetiveCheckBox.Location = new System.Drawing.Point(217, 83);
+            this.isCaseSensetiveCheckBox.Name = "isCaseSensetiveCheckBox";
+            this.isCaseSensetiveCheckBox.Size = new System.Drawing.Size(124, 17);
+            this.isCaseSensetiveCheckBox.TabIndex = 18;
+            this.isCaseSensetiveCheckBox.Text = "Учитывать регистр";
+            this.toolTip1.SetToolTip(this.isCaseSensetiveCheckBox, "Регистр будет учитываться для всех расширений в наборе");
+            this.isCaseSensetiveCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // includesTextBox
+            // 
+            this.includesTextBox.Location = new System.Drawing.Point(6, 71);
+            this.includesTextBox.Name = "includesTextBox";
+            this.includesTextBox.Size = new System.Drawing.Size(332, 20);
+            this.includesTextBox.TabIndex = 19;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 55);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(97, 13);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Файл содержит...";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.includesTextBox);
+            this.groupBox1.Controls.Add(this.extensionTextBox);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.addExtensionToSetButton);
+            this.groupBox1.Location = new System.Drawing.Point(11, 59);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(344, 128);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Файл";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.extensionsList);
+            this.groupBox2.Controls.Add(this.isCaseSensetiveCheckBox);
+            this.groupBox2.Controls.Add(this.deleteExtensionFromListButton);
+            this.groupBox2.Location = new System.Drawing.Point(11, 193);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(344, 116);
+            this.groupBox2.TabIndex = 22;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Расширения в наборе";
+            // 
+            // extensionsList
+            // 
+            this.extensionsList.AllowUserToAddRows = false;
+            this.extensionsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.extensionsList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.extColumn,
+            this.includesColumn});
+            this.extensionsList.Location = new System.Drawing.Point(7, 19);
+            this.extensionsList.Name = "extensionsList";
+            this.extensionsList.RowHeadersVisible = false;
+            this.extensionsList.Size = new System.Drawing.Size(204, 91);
+            this.extensionsList.TabIndex = 19;
+            // 
+            // extColumn
+            // 
+            this.extColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.extColumn.HeaderText = "Расширение";
+            this.extColumn.Name = "extColumn";
+            this.extColumn.ReadOnly = true;
+            this.extColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.extColumn.Width = 95;
+            // 
+            // includesColumn
+            // 
+            this.includesColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.includesColumn.HeaderText = "Содержит";
+            this.includesColumn.Name = "includesColumn";
+            this.includesColumn.ReadOnly = true;
+            this.includesColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.includesColumn.Width = 82;
+            // 
             // AddExtensionSet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(309, 317);
+            this.ClientSize = new System.Drawing.Size(367, 413);
             this.Controls.Add(this.selectFolderButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.targetPathTextBox);
-            this.Controls.Add(this.deleteExtensionFromListButton);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.addSetButton);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.addExtensionToSetButton);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.extensionTextBox);
-            this.Controls.Add(this.extensionsList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.setNameTextBox);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddExtensionSet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrashVanish - Добавить набор расширений";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.extensionsList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,16 +272,23 @@
 
         private System.Windows.Forms.TextBox setNameTextBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox extensionsList;
         private System.Windows.Forms.TextBox extensionTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button addExtensionToSetButton;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button addSetButton;
         private System.Windows.Forms.Label messageLabel;
         private System.Windows.Forms.Button deleteExtensionFromListButton;
         private System.Windows.Forms.TextBox targetPathTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button selectFolderButton;
+        private System.Windows.Forms.CheckBox isCaseSensetiveCheckBox;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.TextBox includesTextBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView extensionsList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn extColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn includesColumn;
     }
 }

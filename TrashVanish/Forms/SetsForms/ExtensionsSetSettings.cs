@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrashVanish.Classes;
 using TrashVanish.Forms.SetsForms;
 
 namespace TrashVanish
@@ -44,10 +45,20 @@ namespace TrashVanish
             }
             else
             {
-                editSetForm editSetForm = new editSetForm(extensionsSetGrid);
+                int selectedrow;
+                try
+                {
+                    selectedrow = extensionsSetGrid.CurrentCell.RowIndex;
+                }
+                catch (NullReferenceException)
+                {
+                    // Mo rules in grid yet
+                    return;
+                }
+                int columnbydefault = 0; // column with id (invisible)
+                SetModel setToEdit = DBConnection.LoadSetByID(extensionsSetGrid.Rows[selectedrow].Cells[columnbydefault].Value.ToString());
+                editSetForm editSetForm = new editSetForm(setToEdit, extensionsSetGrid);
                 editSetForm.Show();
-                //AddExtensionSet addExtensionSet = new AddExtensionSet(extensionsSetGrid);
-                //addExtensionSet.ShowDialog();
             }
         }
 

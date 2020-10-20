@@ -121,34 +121,6 @@ namespace TrashVanish
         }
 
         /// <summary>
-        /// Обновляет значения правила с соответствующим id
-        /// </summary>
-        /// <param name="id">id правила</param>
-        /// <param name="rule">Обновленные данные для существующего правила</param>
-        //public static void UpdateRule(string id, RuleModel rule) // TODO: wrap in transaction
-        //{
-        //    using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
-        //    {
-        //        try
-        //        {
-        //            SQLiteCommand cmd = new SQLiteCommand();
-        //            cmd.CommandText = "UPDATE rulesTable SET extension=@ruleExtension, includes=@ruleIncludes, path=@rulePath WHERE id=@id";
-        //            cmd.Connection = connection;
-        //            cmd.Parameters.AddWithValue("@ruleExtension", rule.ruleExtension);
-        //            cmd.Parameters.AddWithValue("@ruleIncludes", rule.ruleIncludes);
-        //            cmd.Parameters.AddWithValue("@rulePath", rule.rulePath);
-        //            cmd.Parameters.AddWithValue("@id", id);
-        //            connection.Open();
-        //            cmd.ExecuteNonQuery();
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            MessageBox.Show(e.Message, "Ошибка при обновлении значений в бд", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-        //    }
-        //}
-
-        /// <summary>
         /// Deletes rules by their id
         /// </summary>
         /// <param name="ruleID">id of the rule</param>
@@ -198,7 +170,7 @@ namespace TrashVanish
         /// <param name="extensionsSet">Расширения входящие в набор</param>
         /// <param name="targetPath">Путь в который пойдут файлы набора</param>
         ///
-        public static void AddSet(string setName, List<string> extensionsSet, string targetPath)
+        public static void AddSet(string setName, Dictionary<string, string> extensionsSet, string targetPath, int isCaseSensetive)
         {
             // add name to extesionsSetName
             using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
@@ -209,18 +181,20 @@ namespace TrashVanish
                 {
                     SQLiteCommand cmd = new SQLiteCommand();
                     cmd.Transaction = transaction;
-                    cmd.CommandText = "INSERT INTO extensionSetsTable (name, targetPath) VALUES (@Name, @targetPath)";
+                    cmd.CommandText = "INSERT INTO extensionSetsTable (name, isCaseSensetive, targetPath) VALUES (@Name, @isCaseSensetive, @targetPath)";
                     cmd.Connection = connection;
                     cmd.Parameters.AddWithValue("@Name", setName);
+                    cmd.Parameters.AddWithValue("@isCaseSensetive", isCaseSensetive);
                     cmd.Parameters.AddWithValue("@targetPath", targetPath);
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();
                     int setID = (int)connection.LastInsertRowId;
-                    cmd.CommandText = "INSERT INTO extensionsForSetsTable (setNameId, extension) VALUES (@setNameId, @extension)";
+                    cmd.CommandText = "INSERT INTO extensionsForSetsTable (setNameId, extension, includes) VALUES (@setNameId, @extension, @includes)";
                     cmd.Parameters.AddWithValue("@setNameId", setID);
-                    foreach (string extension in extensionsSet)
+                    foreach (KeyValuePair<string, string> extEntry in extensionsSet)
                     {
-                        cmd.Parameters.AddWithValue("@extension", extension);
+                        cmd.Parameters.AddWithValue("@extension", extEntry.Key);
+                        cmd.Parameters.AddWithValue("@includes", extEntry.Value);
                         cmd.ExecuteNonQuery();
                     }
                     transaction.Commit();
@@ -262,7 +236,8 @@ namespace TrashVanish
                             {
                                 setID = Convert.ToString(reader["id"]),
                                 setName = reader["name"] as string,
-                                targetPath = reader["targetPath"] as string
+                                targetPath = reader["targetPath"] as string,
+                                isCaseSensetive = Convert.ToInt32(reader["isCaseSensetive"]),
                             });
                         }
                         reader.Close();
@@ -274,7 +249,8 @@ namespace TrashVanish
                             {
                                 extensionID = Convert.ToString(reader["id"]),
                                 setNameID = Convert.ToString(reader["setNameId"]),
-                                extension = reader["extension"] as string
+                                extension = reader["extension"] as string,
+                                includes = reader["includes"] as string,
                             });
                         }
                         reader.Close();
@@ -318,6 +294,7 @@ namespace TrashVanish
                             set.setID = id;
                             set.setName = reader["name"] as string;
                             set.targetPath = reader["targetPath"] as string;
+                            set.isCaseSensetive = Convert.ToInt32(reader["isCaseSensetive"]);
                         }
                         reader.Close();
                         command.Parameters.Clear();
@@ -330,7 +307,8 @@ namespace TrashVanish
                             {
                                 extensionID = Convert.ToString(reader["id"]),
                                 setNameID = Convert.ToString(reader["setNameId"]),
-                                extension = reader["extension"] as string
+                                extension = reader["extension"] as string,
+                                includes = reader["includes"] as string,
                             });
                         }
                         reader.Close();

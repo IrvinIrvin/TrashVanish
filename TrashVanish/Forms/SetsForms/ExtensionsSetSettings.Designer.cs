@@ -36,6 +36,7 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SetName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Extensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isCaseSensetive = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.targetPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.extensionsSetGrid)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +54,7 @@
             this.id,
             this.SetName,
             this.Extensions,
+            this.isCaseSensetive,
             this.targetPath});
             this.extensionsSetGrid.Location = new System.Drawing.Point(12, 12);
             this.extensionsSetGrid.MultiSelect = false;
@@ -129,12 +131,21 @@
             this.Extensions.ReadOnly = true;
             this.Extensions.Width = 95;
             // 
+            // isCaseSensetive
+            // 
+            this.isCaseSensetive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.isCaseSensetive.HeaderText = "Учитывать регистр";
+            this.isCaseSensetive.Name = "isCaseSensetive";
+            this.isCaseSensetive.ReadOnly = true;
+            this.isCaseSensetive.Width = 130;
+            // 
             // targetPath
             // 
-            this.targetPath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.targetPath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.targetPath.HeaderText = "Путь";
             this.targetPath.Name = "targetPath";
             this.targetPath.ReadOnly = true;
+            this.targetPath.Width = 56;
             // 
             // ExtensionsSetSettings
             // 
@@ -166,6 +177,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn SetName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Extensions;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isCaseSensetive;
         private System.Windows.Forms.DataGridViewTextBoxColumn targetPath;
     }
 }

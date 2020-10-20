@@ -36,7 +36,6 @@ namespace TrashVanish
             Stopwatch watch = new Stopwatch();
             watch.Start();
             logger("Старт", Color.Lime);
-            int includesCount = 0;
             List<RuleModel> complexRules = new List<RuleModel>();
             List<RuleModel> simpleRules = new List<RuleModel>();
             List<Task> tasks = new List<Task>();
@@ -44,7 +43,6 @@ namespace TrashVanish
             {
                 if (rule.ruleIncludes != "")
                 {
-                    includesCount++;
                     complexRules.Add(rule);
                 }
                 else
@@ -94,15 +92,68 @@ namespace TrashVanish
                 }));
             }
             await Task.WhenAll(tasks.ToArray());
+            complexRules.Clear();
+            simpleRules.Clear();
             logger("Задачи с правилами завершены", Color.MediumSpringGreen);
             tasks.Clear();
             foreach (SetModel set in sets)
             {
+                foreach (setExtensionModel ext in set.extensions)
+                {
+                    if (ext.includes != "")
+                    {
+                        complexRules.Add(new RuleModel { ruleExtension = ext.extension, ruleIncludes = ext.includes, ruleIsCaseSensetive = set.isCaseSensetive, rulePath = set.targetPath });
+                    }
+                    else
+                    {
+                        simpleRules.Add(new RuleModel { ruleExtension = ext.extension, ruleIncludes = ext.includes, ruleIsCaseSensetive = set.isCaseSensetive, rulePath = set.targetPath });
+                    }
+                }
+            }
+            caseSensitiveRules.Clear();
+            caseInsensitiveRules.Clear();
+
+            foreach (RuleModel rule in complexRules)
+            {
+                if (rule.ruleIsCaseSensetive == 1)
+                {
+                    caseSensitiveRules.Add(rule);
+                }
+                else
+                {
+                    caseInsensitiveRules.Add(rule);
+                }
+            }
+
+            foreach (RuleModel rule in caseSensitiveRules)
+            {
                 tasks.Add(Task.Factory.StartNew(() =>
                 {
-                    setWork(cwd, set, deleteFile, owFiles);
+                    Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles, rule.ruleIsCaseSensetive);
                 }));
             }
+            await Task.WhenAll(tasks.ToArray());
+            logger("Задачи с наборами, чувствительными к регистру, с комплексными правилами завершены", Color.MediumSpringGreen);
+            tasks.Clear();
+            foreach (RuleModel rule in caseInsensitiveRules)
+            {
+                tasks.Add(Task.Factory.StartNew(() =>
+                {
+                    Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles, rule.ruleIsCaseSensetive);
+                }));
+            }
+            await Task.WhenAll(tasks.ToArray());
+            logger("Задачи с наборами, с комплексными правилами, завершены", Color.MediumSpringGreen);
+            tasks.Clear();
+            foreach (RuleModel rule in simpleRules)
+            {
+                tasks.Add(Task.Factory.StartNew(() =>
+                {
+                    Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles, rule.ruleIsCaseSensetive);
+                }));
+            }
+            await Task.WhenAll(tasks.ToArray());
+            logger("Задачи с простыми наборами завершены", Color.MediumSpringGreen);
             await Task.WhenAll(tasks.ToArray());
             watch.Stop();
             logger("Все задачи завершены за " + watch.ElapsedMilliseconds + " миллисекунд", Color.Lime);
@@ -217,74 +268,74 @@ namespace TrashVanish
             }
         }
 
-        private void setWork(string cwd, SetModel set, bool deleteFile, bool owFiles)
-        {
-            foreach (setExtensionModel extensionOfSet in set.extensions)
-            {
-                int filesCopied = 0;
-                int errors = 0;
-                string[] files = Directory.GetFiles(cwd, "*" + extensionOfSet.extension);
-                if (files.Length < 1)
-                {
-                    logger("<" + set.setName + ">" + " Нет файлов для задачи \"" + extensionOfSet.extension + "\"... сворачиваюсь", Color.DarkOrange);
-                }
-                if (!Directory.Exists(set.targetPath))
-                {
-                    Directory.CreateDirectory(set.targetPath);
-                }
-                foreach (string file in files)
-                {
-                    bool doNotDelete = false;
-                    string filename = Path.GetFileName(file);
-                    string destination = Path.Combine(set.targetPath, filename);
-                    if (File.Exists(destination) && !owFiles)
-                    {
-                        logger("<" + set.setName + ">" + "Файл \"" + filename + "\" уже существет в \"" + set.targetPath + "\"... пропускаю", Color.Gold);
-                        continue;
-                    }
-                    try
-                    {
-                        File.Copy(file, destination, owFiles);
-                        filesCopied++;
-                    }
-                    catch (UnauthorizedAccessException uae)
-                    {
-                        logger("<" + set.setName + ">" + uae.Message + ". Чтобы скопировать файл в \"" + set.targetPath + "\" запустите программу от имени администратора", Color.Maroon);
-                        errors++;
-                        doNotDelete = true;
-                    }
-                    catch (Exception e)
-                    {
-                        logger("<" + set.setName + ">" + e.Message, Color.Maroon);
-                        errors++;
-                        doNotDelete = true;
-                    }
-                    if (deleteFile)
-                    {
-                        if (!doNotDelete) // Если произошла ошибка при копировании - оставить оригинал
-                        {
-                            try
-                            {
-                                File.Delete(file);
-                            }
-                            catch (Exception e)
-                            {
-                                logger("<" + set.setName + ">" + e.Message, Color.Maroon);
-                                errors++;
-                            }
-                        }
-                    }
-                }
-                if (errors != 0)
-                {
-                    logger("<" + set.setName + ">" + "Не все файлы \"" + extensionOfSet.extension + "\" перемещенны успешно", Color.OrangeRed);
-                }
-                else
-                {
-                    logger("<" + set.setName + ">" + "Задача для \"" + extensionOfSet.extension + "\" завершилось успешно. Перемещенно файлов: " + filesCopied, Color.Lime);
-                }
-            }
-        }
+        //private void setWork(string cwd, SetModel set, bool deleteFile, bool owFiles)
+        //{
+        //    foreach (setExtensionModel extensionOfSet in set.extensions)
+        //    {
+        //        int filesCopied = 0;
+        //        int errors = 0;
+        //        string[] files = Directory.GetFiles(cwd, "*" + extensionOfSet.extension);
+        //        if (files.Length < 1)
+        //        {
+        //            logger("<" + set.setName + ">" + " Нет файлов для задачи \"" + extensionOfSet.extension + "\"... сворачиваюсь", Color.DarkOrange);
+        //        }
+        //        if (!Directory.Exists(set.targetPath))
+        //        {
+        //            Directory.CreateDirectory(set.targetPath);
+        //        }
+        //        foreach (string file in files)
+        //        {
+        //            bool doNotDelete = false;
+        //            string filename = Path.GetFileName(file);
+        //            string destination = Path.Combine(set.targetPath, filename);
+        //            if (File.Exists(destination) && !owFiles)
+        //            {
+        //                logger("<" + set.setName + ">" + "Файл \"" + filename + "\" уже существет в \"" + set.targetPath + "\"... пропускаю", Color.Gold);
+        //                continue;
+        //            }
+        //            try
+        //            {
+        //                File.Copy(file, destination, owFiles);
+        //                filesCopied++;
+        //            }
+        //            catch (UnauthorizedAccessException uae)
+        //            {
+        //                logger("<" + set.setName + ">" + uae.Message + ". Чтобы скопировать файл в \"" + set.targetPath + "\" запустите программу от имени администратора", Color.Maroon);
+        //                errors++;
+        //                doNotDelete = true;
+        //            }
+        //            catch (Exception e)
+        //            {
+        //                logger("<" + set.setName + ">" + e.Message, Color.Maroon);
+        //                errors++;
+        //                doNotDelete = true;
+        //            }
+        //            if (deleteFile)
+        //            {
+        //                if (!doNotDelete) // Если произошла ошибка при копировании - оставить оригинал
+        //                {
+        //                    try
+        //                    {
+        //                        File.Delete(file);
+        //                    }
+        //                    catch (Exception e)
+        //                    {
+        //                        logger("<" + set.setName + ">" + e.Message, Color.Maroon);
+        //                        errors++;
+        //                    }
+        //                }
+        //            }
+        //        }
+        //        if (errors != 0)
+        //        {
+        //            logger("<" + set.setName + ">" + "Не все файлы \"" + extensionOfSet.extension + "\" перемещенны успешно", Color.OrangeRed);
+        //        }
+        //        else
+        //        {
+        //            logger("<" + set.setName + ">" + "Задача для \"" + extensionOfSet.extension + "\" завершилось успешно. Перемещенно файлов: " + filesCopied, Color.Lime);
+        //        }
+        //    }
+        //}
 
         private bool notAffected(string file)
         {

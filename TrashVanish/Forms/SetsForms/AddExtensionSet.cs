@@ -87,12 +87,12 @@ namespace TrashVanish.Forms.SetsForms
 
         private void deleteExtensionFromListButton_Click(object sender, EventArgs e)
         {
-            extensionsList.Items.Remove(extensionsList.SelectedItem);
+            extensionsList.Rows.RemoveAt(extensionsList.SelectedRows[0].Index);
         }
 
         private void addSetButton_Click(object sender, EventArgs e)
         {
-            if (setNameTextBox.Text == "" || extensionsList.Items.Count == 0 || targetPathTextBox.Text == "")
+            if (setNameTextBox.Text.Trim() == "" || extensionsList.Rows.Count == 0 || targetPathTextBox.Text.Trim() == "")
             {
                 messageLabelFunc("Не заполнены необходимые данные", Color.DarkOrange);
                 return;
@@ -101,17 +101,19 @@ namespace TrashVanish.Forms.SetsForms
             {
                 return;
             }
-            string setName = setNameTextBox.Text;
-            List<string> setExtensions = new List<string>();
-            foreach (string listItem in extensionsList.Items)
+            string setName = setNameTextBox.Text.Trim();
+            int isCaseSensetive = isCaseSensetiveCheckBox.Checked ? 1 : 0;
+            Dictionary<string, string> setExtensionsAndIncludes = new Dictionary<string, string>();
+            foreach (DataGridViewRow listItem in extensionsList.Rows)
             {
-                setExtensions.Add(listItem.ToString());
+                setExtensionsAndIncludes.Add(listItem.Cells[0].Value.ToString(), listItem.Cells[1].Value.ToString());
             }
             string targetPath = targetPathTextBox.Text;
-            DBConnection.AddSet(setName, setExtensions, targetPath);
+            DBConnection.AddSet(setName, setExtensionsAndIncludes, targetPath, isCaseSensetive);
             setNameTextBox.Text = "";
             extensionTextBox.Text = "";
-            extensionsList.Items.Clear();
+            includesTextBox.Text = "";
+            extensionsList.Rows.Clear();
             GridUpdater gridUpdater = new GridUpdater(gridView);
             gridUpdater.UpdateExtensionsSets();
             messageLabelFunc("Набор был успешно добавлен", Color.Lime);
@@ -128,6 +130,7 @@ namespace TrashVanish.Forms.SetsForms
         private void addExtToList()
         {
             string extension = extensionTextBox.Text;
+            string includes = includesTextBox.Text;
             if (extensionTextBox.Text == "")
             {
                 messageLabelFunc("Расширение не может быть пустым", Color.DarkOrange);
@@ -141,8 +144,9 @@ namespace TrashVanish.Forms.SetsForms
             {
                 return;
             }
+            extensionsList.Rows.Add(extension, includes);
+            includesTextBox.Text = "";
             extensionTextBox.Text = "";
-            extensionsList.Items.Add(extension);
         }
 
         private void selectFolderButton_Click(object sender, EventArgs e)

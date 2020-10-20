@@ -11,5 +11,6 @@ namespace TrashVanish.Classes
         public string extensionID { get; set; }
         public string setNameID { get; set; }
         public string extension { get; set; }
+        public string includes { get; set; }
     }
 }
