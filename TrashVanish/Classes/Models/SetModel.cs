@@ -12,5 +12,7 @@ namespace TrashVanish.Classes
         public string setName { get; set; }
         public List<setExtensionModel> extensions { get; set; }
         public string targetPath { get; set; }
+
+        public int isCaseSensetive { get; set; }
     }
 }

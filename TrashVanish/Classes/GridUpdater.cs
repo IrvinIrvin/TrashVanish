@@ -39,7 +39,7 @@ namespace TrashVanish
             List<SetModel> sets = DBConnection.LoadSets();
             foreach (SetModel set in sets)
             {
-                dataGrid.Rows.Add(set.setID, set.setName, stringifyExtensions(set.extensions), set.targetPath); // make string with all extensions
+                dataGrid.Rows.Add(set.setID, set.setName, stringifyExtensions(set.extensions), set.isCaseSensetive, set.targetPath); // make string with all extensions
             }
         }
 

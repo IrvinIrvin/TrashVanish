@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrashVanish.Classes;
 
 namespace TrashVanish.Forms.SetsForms
 {
@@ -18,41 +19,42 @@ namespace TrashVanish.Forms.SetsForms
             InitializeComponent();
         }
 
+        private SetModel setToEdit;
         private DataGridView rulesGrid;
 
-        public editSetForm(DataGridView dataGridView)
+        public editSetForm(SetModel set, DataGridView dgv)
         {
             InitializeComponent();
-            rulesGrid = dataGridView;
+            setToEdit = set;
+            rulesGrid = dgv;
             this.Icon = Properties.Resources.appicon;
         }
 
         private void editSetForm_Load(object sender, EventArgs e)
         {
-            setNameTextBox.Text = rulesGrid.CurrentRow.Cells[1].Value.ToString();
-            foreach (string ext in getSplittedExtensions())
+            setNameTextBox.Text = setToEdit.setName;
+            foreach (KeyValuePair<string, string> entry in getExtensionsAndIncludes())
             {
-                if (ext.Trim() != "")
-                {
-                    extensionsList.Items.Add(ext.Trim());
-                }
+                extensionsList.Rows.Add(entry.Key, entry.Value);
             }
-            targetPathTextBox.Text = rulesGrid.CurrentRow.Cells[3].Value.ToString();
+            targetPathTextBox.Text = setToEdit.targetPath;
+            isCaseSensetiveCheckBox.Checked = setToEdit.isCaseSensetive == 1 ? true : false;
         }
 
-        private string[] getSplittedExtensions()
+        private Dictionary<string, string> getExtensionsAndIncludes()
         {
-            return rulesGrid.CurrentRow.Cells[2].Value.ToString().Split(';');
-        }
-
-        private void addExtensionToSetButton_Click(object sender, EventArgs e)
-        {
-            addExtToList();
+            Dictionary<string, string> extensionsAndIncludes = new Dictionary<string, string>();
+            foreach (setExtensionModel ext in setToEdit.extensions)
+            {
+                extensionsAndIncludes.Add(ext.extension, ext.includes);
+            }
+            return extensionsAndIncludes;
         }
 
         private void addExtToList()
         {
-            string extension = extensionTextBox.Text;
+            string extension = extensionTextBox.Text.Trim();
+            string includes = includesTextBox.Text.Trim();
             if (extensionTextBox.Text == "")
             {
                 messageLabelFunc("Расширение не может быть пустым", Color.DarkOrange);
@@ -67,7 +69,8 @@ namespace TrashVanish.Forms.SetsForms
                 return;
             }
             extensionTextBox.Text = "";
-            extensionsList.Items.Add(extension);
+            includesTextBox.Text = "";
+            extensionsList.Rows.Add(extension, includes);
         }
 
         private void messageLabelFunc(string message, Color color)
@@ -122,24 +125,12 @@ namespace TrashVanish.Forms.SetsForms
             return true;
         }
 
-        private void deleteExtensionFromListButton_Click(object sender, EventArgs e)
-        {
-            extensionsList.Items.Remove(extensionsList.SelectedItem);
-        }
-
-        private void selectFolderButton_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
-            {
-                targetPathTextBox.Text = folderBrowserDialog.SelectedPath;
-            }
-        }
-
         private void updateSetButton_Click(object sender, EventArgs e)
         {
-            string id = rulesGrid.CurrentRow.Cells[0].Value.ToString();
-            if (setNameTextBox.Text == "" || extensionsList.Items.Count == 0 || targetPathTextBox.Text == "")
+            //string id = rulesGrid.CurrentRow.Cells[0].Value.ToString();
+            string id = setToEdit.setID;
+            int isCaseSensetive = isCaseSensetiveCheckBox.Checked ? 1 : 0;
+            if (setNameTextBox.Text == "" || extensionsList.Rows.Count == 0 || targetPathTextBox.Text == "")
             {
                 messageLabelFunc("Не заполнены необходимые данные", Color.DarkOrange);
                 return;
@@ -149,29 +140,58 @@ namespace TrashVanish.Forms.SetsForms
                 return;
             }
             string setName = setNameTextBox.Text;
-            List<string> setExtensions = new List<string>();
-            foreach (string listItem in extensionsList.Items)
+            Dictionary<string, string> setExtensionsAndIncludes = new Dictionary<string, string>();
+            foreach (DataGridViewRow listItem in extensionsList.Rows)
             {
-                setExtensions.Add(listItem.ToString());
+                setExtensionsAndIncludes.Add(listItem.Cells[0].Value.ToString(), listItem.Cells[1].Value.ToString());
             }
             string targetPath = targetPathTextBox.Text;
-            //DBConnection.AddSet(setName, setExtensions, targetPath);
             DBConnection.DeleteSet(id);
-            DBConnection.AddSet(setName, setExtensions, targetPath);
+            DBConnection.AddSet(setName, setExtensionsAndIncludes, targetPath, isCaseSensetive);
             //DBConnection.UpdateSet(id, setName, setExtensions, targetPath);
             setNameTextBox.Text = "";
             extensionTextBox.Text = "";
-            extensionsList.Items.Clear();
+            extensionsList.Rows.Clear();
             GridUpdater gridUpdater = new GridUpdater(rulesGrid);
             gridUpdater.UpdateExtensionsSets();
             messageLabelFunc("Набор был успешно обновлен", Color.Lime);
+            Close();
         }
 
-        private void extensionTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void addExtensionToSetButton_Click_1(object sender, EventArgs e)
+        {
+            addExtToList();
+        }
+
+        private void deleteExtensionFromListButton_Click_1(object sender, EventArgs e)
+        {
+            int selectedrow;
+            try
+            {
+                selectedrow = extensionsList.CurrentCell.RowIndex;
+            }
+            catch (NullReferenceException)
+            {
+                // Mo rules in grid yet
+                return;
+            }
+            extensionsList.Rows.RemoveAt(selectedrow);
+        }
+
+        private void extensionTextBox_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
                 addExtToList();
+            }
+        }
+
+        private void selectFolderButton_Click_1(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                targetPathTextBox.Text = folderBrowserDialog.SelectedPath;
             }
         }
     }
