@@ -64,13 +64,28 @@ namespace TrashVanish.Forms
             }
         }
 
-        // RULES CONTROLS START HERE
-        private void updateRulesButton_Click(object sender, EventArgs e)
+        private bool rulesAreExist()
+        {
+            int selectedrow;
+            try
+            {
+                selectedrow = rulesGrid.CurrentCell.RowIndex;
+            }
+            catch (NullReferenceException)
+            {
+                // No rules in grid yet
+                return false;
+            }
+            return true;
+        }
+
+        // RULES CONTEXT MENU
+        private void UpdateGridItem_Click(object sender, EventArgs e)
         {
             rulesUpdater.UpdateRules();
         }
 
-        private void addRuleButton_Click(object sender, EventArgs e)
+        private void AddRuleItem_Click(object sender, EventArgs e)
         {
             Form ar = Application.OpenForms["AddRule"];
             if (ar != null)
@@ -86,7 +101,7 @@ namespace TrashVanish.Forms
             rulesUpdater.UpdateRules();
         }
 
-        private void editRule_Click(object sender, EventArgs e)
+        private void editRuleItem_Click(object sender, EventArgs e)
         {
             if (!rulesAreExist())
             {
@@ -107,22 +122,7 @@ namespace TrashVanish.Forms
             rulesUpdater.UpdateRules();
         }
 
-        private bool rulesAreExist()
-        {
-            int selectedrow;
-            try
-            {
-                selectedrow = rulesGrid.CurrentCell.RowIndex;
-            }
-            catch (NullReferenceException)
-            {
-                // No rules in grid yet
-                return false;
-            }
-            return true;
-        }
-
-        private void deleteRule_Click(object sender, EventArgs e)
+        private void deleteRuleItem_Click(object sender, EventArgs e)
         {
             if (!rulesAreExist())
             {
@@ -134,16 +134,14 @@ namespace TrashVanish.Forms
             rulesUpdater.UpdateRules();
         }
 
-        // RULES CONTROLS END HERE
+        // SETS CONTEXT MENU
 
-        // SETS CONTROLS START HERE
-
-        private void updateGridButton_Click(object sender, EventArgs e)
+        private void updateSetGridItem_Click(object sender, EventArgs e)
         {
             setsUpdater.UpdateExtensionsSets();
         }
 
-        private void addSetButton_Click(object sender, EventArgs e)
+        private void addSetItem_Click(object sender, EventArgs e)
         {
             Form AES = Application.OpenForms["AddExtensionSet"];
             if (AES != null)
@@ -158,7 +156,7 @@ namespace TrashVanish.Forms
             }
         }
 
-        private void editSetButton_Click(object sender, EventArgs e)
+        private void editSetItem_Click(object sender, EventArgs e)
         {
             Form esf = Application.OpenForms["editSetForm"];
             if (esf != null)
@@ -185,7 +183,7 @@ namespace TrashVanish.Forms
             }
         }
 
-        private void deleteSetButton_Click(object sender, EventArgs e)
+        private void deleteSetItem_Click(object sender, EventArgs e)
         {
             // Удалить набор
             int selectedrow;
