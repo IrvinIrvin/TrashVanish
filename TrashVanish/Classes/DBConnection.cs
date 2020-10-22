@@ -93,6 +93,17 @@ namespace TrashVanish
                 catch (Exception e)
                 {
                     MessageBox.Show(e.Message, "Ошибка при создании бд", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (File.Exists(@".\trashVanish.db"))
+                    {
+                        try
+                        {
+                            File.Delete(@".\trashVanish.db");
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Ошибка при удалении бд. База данных была создана не корректно и не может быть удалена. Если проблема не исчезнет, удалите ее вручную, пройдя по пути" + Environment.CurrentDirectory);
+                        }
+                    }
                 }
             }
         }
@@ -105,23 +116,35 @@ namespace TrashVanish
         {
             using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
             {
-                try
+                connection.Open();
+                using (SQLiteTransaction transaction = connection.BeginTransaction())
                 {
-                    SQLiteCommand cmd = new SQLiteCommand
+                    try
                     {
-                        CommandText = "insert into rulesTable (extension, includes, isCaseSensetive, path) values (@ruleExtension, @ruleIncludes, @isCaseSensetive, @rulePath)",
-                        Connection = connection
-                    };
-                    cmd.Parameters.AddWithValue("@ruleExtension", rule.ruleExtension);
-                    cmd.Parameters.AddWithValue("@ruleIncludes", rule.ruleIncludes);
-                    cmd.Parameters.AddWithValue("@isCaseSensetive", rule.ruleIsCaseSensetive);
-                    cmd.Parameters.AddWithValue("@rulePath", rule.rulePath);
-                    connection.Open();
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message, "Ошибка при добавлении значений в бд", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        SQLiteCommand cmd = new SQLiteCommand
+                        {
+                            CommandText = "insert into rulesTable (extension, includes, isCaseSensetive, path) values (@ruleExtension, @ruleIncludes, @isCaseSensetive, @rulePath)",
+                            Connection = connection
+                        };
+                        cmd.Parameters.AddWithValue("@ruleExtension", rule.ruleExtension);
+                        cmd.Parameters.AddWithValue("@ruleIncludes", rule.ruleIncludes);
+                        cmd.Parameters.AddWithValue("@isCaseSensetive", rule.ruleIsCaseSensetive);
+                        cmd.Parameters.AddWithValue("@rulePath", rule.rulePath);
+                        cmd.ExecuteNonQuery();
+                        transaction.Commit();
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.Message, "Ошибка при добавлении значений в бд", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        try
+                        {
+                            transaction.Rollback();
+                        }
+                        catch (Exception exRollBack)
+                        {
+                            MessageBox.Show(exRollBack.Message, "Ошибка при откатывании бд в прежнее состояние", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
             }
         }
@@ -134,17 +157,29 @@ namespace TrashVanish
         {
             using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
             {
-                try
+                connection.Open();
+                using (SQLiteTransaction transaction = connection.BeginTransaction())
                 {
-                    SQLiteCommand sqlComm = connection.CreateCommand();
-                    sqlComm.CommandText = "DELETE FROM rulesTable WHERE id=@id;";
-                    sqlComm.Parameters.AddWithValue("@id", ruleID);
-                    connection.Open();
-                    sqlComm.ExecuteNonQuery();
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message);
+                    try
+                    {
+                        SQLiteCommand sqlComm = connection.CreateCommand();
+                        sqlComm.CommandText = "DELETE FROM rulesTable WHERE id=@id;";
+                        sqlComm.Parameters.AddWithValue("@id", ruleID);
+                        sqlComm.ExecuteNonQuery();
+                        transaction.Commit();
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.Message);
+                        try
+                        {
+                            transaction.Rollback();
+                        }
+                        catch (Exception exRollBack)
+                        {
+                            MessageBox.Show(exRollBack.Message, "Ошибка при откатывании бд в прежнее состояние", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
             }
         }
@@ -177,6 +212,8 @@ namespace TrashVanish
         /// <param name="setName">Название набора</param>
         /// <param name="extensionsSet">Расширения входящие в набор</param>
         /// <param name="targetPath">Путь в который пойдут файлы набора</param>
+        /// <param name="isCaseSensetive">Проверять регистр или нет</param>
+        ///
         ///
         public static void AddSet(string setName, Dictionary<string, string> extensionsSet, string targetPath, int isCaseSensetive)
         {
@@ -227,7 +264,7 @@ namespace TrashVanish
         /// <summary>
         /// Loads all sets from database
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Список типа SetModel </returns>
         public static List<SetModel> LoadSets()
         {
             List<SetModel> setsList = new List<SetModel>();
@@ -286,6 +323,11 @@ namespace TrashVanish
             return setsList;
         }
 
+        /// <summary>
+        /// Достает набор из бд по идентификатору
+        /// </summary>
+        /// <param name="id">Идентификатор набора</param>
+        /// <returns>Набор типа SetModel</returns>
         public static SetModel LoadSetByID(string id)
         {
             SetModel set = new SetModel();
