@@ -55,24 +55,28 @@ namespace TrashVanish
         {
             if (!File.Exists(@".\trashVanish.db"))
             {
-                string[] sqlCreateCommands = {@"CREATE TABLE ""extensionSetsTable"" (
+                string[] sqlCreateCommands = { @"CREATE TABLE ""extensionSetsTable"" (
                                                 ""id""    INTEGER NOT NULL UNIQUE,
                                                 ""name""  TEXT NOT NULL UNIQUE,
+                                                ""isCaseSensetive""   INTEGER NOT NULL,
                                                 ""targetPath""    TEXT NOT NULL,
                                                 PRIMARY KEY(""id"" AUTOINCREMENT)
-                                            )""",
-                                                @"CREATE TABLE ""extensionSetsTable"" (
-                                                ""id""    INTEGER NOT NULL UNIQUE,
-                                                ""name""  TEXT NOT NULL UNIQUE,
-                                                ""targetPath""    TEXT NOT NULL,
-                                                PRIMARY KEY(""id"" AUTOINCREMENT)
-                                            )""",
+                                            )",
                                                 @"CREATE TABLE ""extensionsForSetsTable"" (
                                                 ""id""    INTEGER NOT NULL UNIQUE,
                                                 ""setNameId"" INTEGER NOT NULL,
                                                 ""extension"" TEXT NOT NULL,
+                                                ""includes""  TEXT NOT NULL,
                                                 PRIMARY KEY(""id"" AUTOINCREMENT)
-                                            )""" };
+                                            )",
+                                                @"CREATE TABLE ""rulesTable"" (
+                                                ""id""    INTEGER NOT NULL UNIQUE,
+                                                ""extension"" TEXT NOT NULL,
+                                                ""includes""  TEXT,
+                                                ""isCaseSensetive""   INTEGER NOT NULL,
+                                                ""path""  TEXT NOT NULL,
+                                                PRIMARY KEY(""id"" AUTOINCREMENT)
+                                            )"};
                 try
                 {
                     SQLiteConnection.CreateFile(@".\trashVanish.db");
