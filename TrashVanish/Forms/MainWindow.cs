@@ -19,7 +19,7 @@ namespace TrashVanish
 
         private List<RuleModel> rules = new List<RuleModel>();
         private List<SetModel> sets = new List<SetModel>();
-        private string cwd = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        private readonly string cwd = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
@@ -29,7 +29,7 @@ namespace TrashVanish
             logRichTextBox.SelectionColor = logRichTextBox.ForeColor;
         }
 
-        private void mainTask_Click(object sender, EventArgs e)
+        private void MainTask_Click(object sender, EventArgs e)
         {
             if (Properties.Settings.Default.clearLog)
             {
@@ -42,7 +42,7 @@ namespace TrashVanish
             worker.RunVanisher(cwd, rules, sets, Properties.Settings.Default.deleteAfterCopy, Properties.Settings.Default.overWriteFiles);
         }
 
-        private void globalSettings_Click(object sender, EventArgs e)
+        private void GlobalSettings_Click(object sender, EventArgs e)
         {
             Form gSF = Application.OpenForms["globalSettingsForm"];
             if (gSF != null)

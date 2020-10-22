@@ -48,7 +48,7 @@
             this.mainTask.TabIndex = 2;
             this.mainTask.Text = "Vanish";
             this.mainTask.UseVisualStyleBackColor = true;
-            this.mainTask.Click += new System.EventHandler(this.mainTask_Click);
+            this.mainTask.Click += new System.EventHandler(this.MainTask_Click);
             // 
             // groupBox1
             // 
@@ -88,7 +88,7 @@
             this.globalSettings.TabIndex = 7;
             this.globalSettings.Text = "Настройки";
             this.globalSettings.UseVisualStyleBackColor = true;
-            this.globalSettings.Click += new System.EventHandler(this.globalSettings_Click);
+            this.globalSettings.Click += new System.EventHandler(this.GlobalSettings_Click);
             // 
             // logMenuStrip
             // 

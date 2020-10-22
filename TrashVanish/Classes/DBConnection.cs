@@ -107,9 +107,11 @@ namespace TrashVanish
             {
                 try
                 {
-                    SQLiteCommand cmd = new SQLiteCommand();
-                    cmd.CommandText = "insert into rulesTable (extension, includes, isCaseSensetive, path) values (@ruleExtension, @ruleIncludes, @isCaseSensetive, @rulePath)";
-                    cmd.Connection = connection;
+                    SQLiteCommand cmd = new SQLiteCommand
+                    {
+                        CommandText = "insert into rulesTable (extension, includes, isCaseSensetive, path) values (@ruleExtension, @ruleIncludes, @isCaseSensetive, @rulePath)",
+                        Connection = connection
+                    };
                     cmd.Parameters.AddWithValue("@ruleExtension", rule.ruleExtension);
                     cmd.Parameters.AddWithValue("@ruleIncludes", rule.ruleIncludes);
                     cmd.Parameters.AddWithValue("@isCaseSensetive", rule.ruleIsCaseSensetive);
@@ -147,13 +149,15 @@ namespace TrashVanish
             }
         }
 
-        public static bool isRuleExist(string extension, string includes, int isCaseSensetive)
+        public static bool IsRuleExist(string extension, string includes, int isCaseSensetive)
         {
             using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
             {
                 connection.Open();
-                SQLiteCommand cmd = new SQLiteCommand(connection);
-                cmd.CommandText = "SELECT COUNT(id) FROM rulesTable WHERE extension=@extension AND includes=@includes AND isCaseSensetive=@isCaseSensetive";
+                SQLiteCommand cmd = new SQLiteCommand(connection)
+                {
+                    CommandText = "SELECT COUNT(id) FROM rulesTable WHERE extension=@extension AND includes=@includes AND isCaseSensetive=@isCaseSensetive"
+                };
                 cmd.Parameters.AddWithValue("@extension", extension);
                 cmd.Parameters.AddWithValue("@includes", includes);
                 cmd.Parameters.AddWithValue("@isCaseSensetive", isCaseSensetive);
@@ -183,10 +187,12 @@ namespace TrashVanish
                 SQLiteTransaction transaction = connection.BeginTransaction();
                 try
                 {
-                    SQLiteCommand cmd = new SQLiteCommand();
-                    cmd.Transaction = transaction;
-                    cmd.CommandText = "INSERT INTO extensionSetsTable (name, isCaseSensetive, targetPath) VALUES (@Name, @isCaseSensetive, @targetPath)";
-                    cmd.Connection = connection;
+                    SQLiteCommand cmd = new SQLiteCommand
+                    {
+                        Transaction = transaction,
+                        CommandText = "INSERT INTO extensionSetsTable (name, isCaseSensetive, targetPath) VALUES (@Name, @isCaseSensetive, @targetPath)",
+                        Connection = connection
+                    };
                     cmd.Parameters.AddWithValue("@Name", setName);
                     cmd.Parameters.AddWithValue("@isCaseSensetive", isCaseSensetive);
                     cmd.Parameters.AddWithValue("@targetPath", targetPath);

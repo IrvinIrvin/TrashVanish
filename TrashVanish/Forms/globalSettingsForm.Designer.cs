@@ -98,7 +98,7 @@
             this.checkboxesToolTip.SetToolTip(this.overwriteFiles, "Перезаписывать уже существующие файлы в случае конфликта (если не отмечено, файл " +
         "не будет скопирован)");
             this.overwriteFiles.UseVisualStyleBackColor = true;
-            this.overwriteFiles.CheckedChanged += new System.EventHandler(this.overwriteFiles_CheckedChanged);
+            this.overwriteFiles.CheckedChanged += new System.EventHandler(this.OverwriteFiles_CheckedChanged);
             // 
             // deleteFlag
             // 
@@ -112,7 +112,7 @@
             this.deleteFlag.Text = "Удалять после копирования";
             this.checkboxesToolTip.SetToolTip(this.deleteFlag, "Удалить файл после копирования");
             this.deleteFlag.UseVisualStyleBackColor = true;
-            this.deleteFlag.CheckedChanged += new System.EventHandler(this.deleteFlag_CheckedChanged);
+            this.deleteFlag.CheckedChanged += new System.EventHandler(this.DeleteFlag_CheckedChanged);
             // 
             // rulesAndSetsTabControl
             // 
@@ -126,7 +126,7 @@
             this.rulesAndSetsTabControl.SelectedIndex = 0;
             this.rulesAndSetsTabControl.Size = new System.Drawing.Size(605, 265);
             this.rulesAndSetsTabControl.TabIndex = 10;
-            this.rulesAndSetsTabControl.SelectedIndexChanged += new System.EventHandler(this.rulesAndSetsTabControl_SelectedIndexChanged);
+            this.rulesAndSetsTabControl.SelectedIndexChanged += new System.EventHandler(this.RulesAndSetsTabControl_SelectedIndexChanged);
             // 
             // RulesSettingsTab
             // 
@@ -195,14 +195,14 @@
             this.editRuleItem.Name = "editRuleItem";
             this.editRuleItem.Size = new System.Drawing.Size(154, 22);
             this.editRuleItem.Text = "Редактировать";
-            this.editRuleItem.Click += new System.EventHandler(this.editRuleItem_Click);
+            this.editRuleItem.Click += new System.EventHandler(this.EditRuleItem_Click);
             // 
             // deleteRuleItem
             // 
             this.deleteRuleItem.Name = "deleteRuleItem";
             this.deleteRuleItem.Size = new System.Drawing.Size(154, 22);
             this.deleteRuleItem.Text = "Удалить";
-            this.deleteRuleItem.Click += new System.EventHandler(this.deleteRuleItem_Click);
+            this.deleteRuleItem.Click += new System.EventHandler(this.DeleteRuleItem_Click);
             // 
             // NameIncludes
             // 
@@ -299,14 +299,14 @@
             this.editSetItem.Name = "editSetItem";
             this.editSetItem.Size = new System.Drawing.Size(154, 22);
             this.editSetItem.Text = "Редактировать";
-            this.editSetItem.Click += new System.EventHandler(this.editSetItem_Click);
+            this.editSetItem.Click += new System.EventHandler(this.EditSetItem_Click);
             // 
             // deleteSetItem
             // 
             this.deleteSetItem.Name = "deleteSetItem";
             this.deleteSetItem.Size = new System.Drawing.Size(154, 22);
             this.deleteSetItem.Text = "Удалить";
-            this.deleteSetItem.Click += new System.EventHandler(this.deleteSetItem_Click);
+            this.deleteSetItem.Click += new System.EventHandler(this.DeleteSetItem_Click);
             // 
             // setGridControlStrip
             // 
@@ -321,14 +321,14 @@
             this.updateSetGridItem.Name = "updateSetGridItem";
             this.updateSetGridItem.Size = new System.Drawing.Size(163, 22);
             this.updateSetGridItem.Text = "Обновить";
-            this.updateSetGridItem.Click += new System.EventHandler(this.updateSetGridItem_Click);
+            this.updateSetGridItem.Click += new System.EventHandler(this.UpdateSetGridItem_Click);
             // 
             // addSetItem
             // 
             this.addSetItem.Name = "addSetItem";
             this.addSetItem.Size = new System.Drawing.Size(163, 22);
             this.addSetItem.Text = "Добавить набор";
-            this.addSetItem.Click += new System.EventHandler(this.addSetItem_Click);
+            this.addSetItem.Click += new System.EventHandler(this.AddSetItem_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -385,7 +385,7 @@
             this.Name = "globalSettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrashVanish - Настройки";
-            this.Load += new System.EventHandler(this.globalSettingsForm_Load);
+            this.Load += new System.EventHandler(this.GlobalSettingsForm_Load);
             this.rulesAndSetsTabControl.ResumeLayout(false);
             this.RulesSettingsTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rulesGrid)).EndInit();

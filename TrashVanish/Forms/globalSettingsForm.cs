@@ -23,21 +23,21 @@ namespace TrashVanish.Forms
             Properties.Settings.Default.Save();
         }
 
-        private void overwriteFiles_CheckedChanged(object sender, EventArgs e)
+        private void OverwriteFiles_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.overWriteFiles = overwriteFiles.Checked;
             Properties.Settings.Default.Save();
         }
 
-        private void deleteFlag_CheckedChanged(object sender, EventArgs e)
+        private void DeleteFlag_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.deleteAfterCopy = deleteFlag.Checked;
             Properties.Settings.Default.Save();
         }
 
-        private void globalSettingsForm_Load(object sender, EventArgs e)
+        private void GlobalSettingsForm_Load(object sender, EventArgs e)
         {
-            loadCheckboxSettings();
+            LoadCheckboxSettings();
             rulesUpdater = new GridUpdater(rulesGrid);
             setsUpdater = new GridUpdater(extensionsSetGrid);
 
@@ -45,14 +45,14 @@ namespace TrashVanish.Forms
             setsUpdater.UpdateExtensionsSets();
         }
 
-        private void loadCheckboxSettings()
+        private void LoadCheckboxSettings()
         {
             clearLogCheckbox.Checked = Properties.Settings.Default.clearLog;
             overwriteFiles.Checked = Properties.Settings.Default.overWriteFiles;
             deleteFlag.Checked = Properties.Settings.Default.deleteAfterCopy;
         }
 
-        private void rulesAndSetsTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        private void RulesAndSetsTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (rulesAndSetsTabControl.SelectedTab == rulesAndSetsTabControl.TabPages["RulesSettingsTab"])
             {
@@ -64,7 +64,7 @@ namespace TrashVanish.Forms
             }
         }
 
-        private bool rulesAreExist()
+        private bool RulesAreExist()
         {
             int selectedrow;
             try
@@ -101,9 +101,9 @@ namespace TrashVanish.Forms
             rulesUpdater.UpdateRules();
         }
 
-        private void editRuleItem_Click(object sender, EventArgs e)
+        private void EditRuleItem_Click(object sender, EventArgs e)
         {
-            if (!rulesAreExist())
+            if (!RulesAreExist())
             {
                 return;
             }
@@ -122,9 +122,9 @@ namespace TrashVanish.Forms
             rulesUpdater.UpdateRules();
         }
 
-        private void deleteRuleItem_Click(object sender, EventArgs e)
+        private void DeleteRuleItem_Click(object sender, EventArgs e)
         {
-            if (!rulesAreExist())
+            if (!RulesAreExist())
             {
                 return;
             }
@@ -136,12 +136,12 @@ namespace TrashVanish.Forms
 
         // SETS CONTEXT MENU
 
-        private void updateSetGridItem_Click(object sender, EventArgs e)
+        private void UpdateSetGridItem_Click(object sender, EventArgs e)
         {
             setsUpdater.UpdateExtensionsSets();
         }
 
-        private void addSetItem_Click(object sender, EventArgs e)
+        private void AddSetItem_Click(object sender, EventArgs e)
         {
             Form AES = Application.OpenForms["AddExtensionSet"];
             if (AES != null)
@@ -156,7 +156,7 @@ namespace TrashVanish.Forms
             }
         }
 
-        private void editSetItem_Click(object sender, EventArgs e)
+        private void EditSetItem_Click(object sender, EventArgs e)
         {
             Form esf = Application.OpenForms["editSetForm"];
             if (esf != null)
@@ -183,7 +183,7 @@ namespace TrashVanish.Forms
             }
         }
 
-        private void deleteSetItem_Click(object sender, EventArgs e)
+        private void DeleteSetItem_Click(object sender, EventArgs e)
         {
             // Удалить набор
             int selectedrow;

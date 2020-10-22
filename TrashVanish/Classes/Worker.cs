@@ -14,14 +14,14 @@ namespace TrashVanish
 {
     internal class Worker
     {
-        private RichTextBox box;
+        private readonly RichTextBox box;
 
         public Worker(RichTextBox richTextBox)
         {
             box = richTextBox;
         }
 
-        private List<string> affectedFiles = new List<string>();
+        private readonly List<string> affectedFiles = new List<string>();
 
         /// <summary>
         /// Запускает потоки для каждой задачи
@@ -35,7 +35,7 @@ namespace TrashVanish
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();
-            logger("Старт", Color.Lime);
+            Logger("Старт", Color.Lime);
             List<RuleModel> complexRules = new List<RuleModel>();
             List<RuleModel> simpleRules = new List<RuleModel>();
             List<Task> tasks = new List<Task>();
@@ -72,7 +72,7 @@ namespace TrashVanish
                 }));
             }
             await Task.WhenAll(tasks.ToArray());
-            logger("Задачи, чувствительные к регистру, с комплексными правилами завершены", Color.MediumSpringGreen);
+            Logger("Задачи, чувствительные к регистру, с комплексными правилами завершены", Color.MediumSpringGreen);
             tasks.Clear();
             foreach (RuleModel rule in caseInsensitiveRules)
             {
@@ -82,7 +82,7 @@ namespace TrashVanish
                 }));
             }
             await Task.WhenAll(tasks.ToArray());
-            logger("Задачи с комплексными правилами завершены", Color.MediumSpringGreen);
+            Logger("Задачи с комплексными правилами завершены", Color.MediumSpringGreen);
             tasks.Clear();
             foreach (RuleModel rule in simpleRules)
             {
@@ -94,7 +94,7 @@ namespace TrashVanish
             await Task.WhenAll(tasks.ToArray());
             complexRules.Clear();
             simpleRules.Clear();
-            logger("Задачи с правилами завершены", Color.MediumSpringGreen);
+            Logger("Задачи с правилами завершены", Color.MediumSpringGreen);
             tasks.Clear();
             foreach (SetModel set in sets)
             {
@@ -133,7 +133,7 @@ namespace TrashVanish
                 }));
             }
             await Task.WhenAll(tasks.ToArray());
-            logger("Задачи с наборами, чувствительными к регистру, с комплексными правилами завершены", Color.MediumSpringGreen);
+            Logger("Задачи с наборами, чувствительными к регистру, с комплексными правилами завершены", Color.MediumSpringGreen);
             tasks.Clear();
             foreach (RuleModel rule in caseInsensitiveRules)
             {
@@ -143,7 +143,7 @@ namespace TrashVanish
                 }));
             }
             await Task.WhenAll(tasks.ToArray());
-            logger("Задачи с наборами, с комплексными правилами, завершены", Color.MediumSpringGreen);
+            Logger("Задачи с наборами, с комплексными правилами, завершены", Color.MediumSpringGreen);
             tasks.Clear();
             foreach (RuleModel rule in simpleRules)
             {
@@ -153,10 +153,10 @@ namespace TrashVanish
                 }));
             }
             await Task.WhenAll(tasks.ToArray());
-            logger("Задачи с простыми наборами завершены", Color.MediumSpringGreen);
+            Logger("Задачи с простыми наборами завершены", Color.MediumSpringGreen);
             await Task.WhenAll(tasks.ToArray());
             watch.Stop();
-            logger("Все задачи завершены за " + watch.ElapsedMilliseconds + " миллисекунд", Color.Lime);
+            Logger("Все задачи завершены за " + watch.ElapsedMilliseconds + " миллисекунд", Color.Lime);
         }
 
         private void Work(string cwd, string extension, string includes, string targetpath, bool deleteFile, bool owFiles, int isCaseSensetive)
@@ -168,11 +168,11 @@ namespace TrashVanish
             {
                 if (includes != "")
                 {
-                    logger("Нет файлов для задачи \"" + extension + "\" + \"" + includes + "\"... сворачиваюсь", Color.DarkOrange);
+                    Logger("Нет файлов для задачи \"" + extension + "\" + \"" + includes + "\"... сворачиваюсь", Color.DarkOrange);
                 }
                 else
                 {
-                    logger("Нет файлов для задачи \"" + extension + "\"... сворачиваюсь", Color.DarkOrange);
+                    Logger("Нет файлов для задачи \"" + extension + "\"... сворачиваюсь", Color.DarkOrange);
                 }
 
                 return;
@@ -206,10 +206,10 @@ namespace TrashVanish
                 {
                     if (File.Exists(destination) & !owFiles)
                     {
-                        logger("Файл \"" + filename + "\" уже существет в \"" + targetpath + "\"... пропускаю", Color.Gold);
+                        Logger("Файл \"" + filename + "\" уже существет в \"" + targetpath + "\"... пропускаю", Color.Gold);
                         continue;
                     }
-                    if (notAffected(file))
+                    if (NotAffected(file))
                     {
                         try
                         {
@@ -217,13 +217,13 @@ namespace TrashVanish
                         }
                         catch (UnauthorizedAccessException uae)
                         {
-                            logger(uae.Message + ". Чтобы скопировать файл в \"" + targetpath + "\" запустите программу от имени администратора", Color.Maroon);
+                            Logger(uae.Message + ". Чтобы скопировать файл в \"" + targetpath + "\" запустите программу от имени администратора", Color.Maroon);
                             errors++;
                             doNotDelete = true;
                         }
                         catch (Exception e)
                         {
-                            logger(e.Message, Color.Maroon);
+                            Logger(e.Message, Color.Maroon);
                             errors++;
                             doNotDelete = true;
                         }
@@ -244,7 +244,7 @@ namespace TrashVanish
                             }
                             catch (Exception e)
                             {
-                                logger(e.Message, Color.Maroon);
+                                Logger(e.Message, Color.Maroon);
                                 errors++;
                             }
                         }
@@ -253,22 +253,22 @@ namespace TrashVanish
             }
             if (errors != 0)
             {
-                logger("Не все файлы \"" + extension + "\" перемещенны успешно", Color.OrangeRed);
+                Logger("Не все файлы \"" + extension + "\" перемещенны успешно", Color.OrangeRed);
             }
             else
             {
                 if (includes != "")
                 {
-                    logger("Задача для \"" + extension + "\" \"" + includes + "\" завершилось успешно. Перемещенно файлов: " + filesCopied, Color.Lime);
+                    Logger("Задача для \"" + extension + "\" \"" + includes + "\" завершилось успешно. Перемещенно файлов: " + filesCopied, Color.Lime);
                 }
                 else
                 {
-                    logger("Задача для \"" + extension + "\" завершилось успешно. Перемещенно файлов: " + filesCopied, Color.Lime);
+                    Logger("Задача для \"" + extension + "\" завершилось успешно. Перемещенно файлов: " + filesCopied, Color.Lime);
                 }
             }
         }
 
-        private bool notAffected(string file)
+        private bool NotAffected(string file)
         {
             foreach (string affectedFile in affectedFiles)
             {
@@ -280,7 +280,7 @@ namespace TrashVanish
             return true;
         }
 
-        private void logger(string message, Color color)
+        private void Logger(string message, Color color)
         {
             Action action = () =>
             {

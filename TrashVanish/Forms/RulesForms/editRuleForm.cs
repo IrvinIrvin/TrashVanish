@@ -60,7 +60,7 @@ namespace TrashVanish.Forms.RulesForms
                 return;
             }
 
-            if (DBConnection.isRuleExist(extension, includes, isCaseSensetive))
+            if (DBConnection.IsRuleExist(extension, includes, isCaseSensetive))
             {
                 messageLabelFunc("Правило для \"" + extension + "\" уже существует", Color.DarkOrange);
                 return;
