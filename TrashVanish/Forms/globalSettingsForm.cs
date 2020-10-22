@@ -17,7 +17,7 @@ namespace TrashVanish.Forms
         private GridUpdater rulesUpdater;
         private GridUpdater setsUpdater;
 
-        private void clearLogCheckbox_CheckedChanged(object sender, EventArgs e)
+        private void ClearLogCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.clearLog = clearLogCheckbox.Checked;
             Properties.Settings.Default.Save();

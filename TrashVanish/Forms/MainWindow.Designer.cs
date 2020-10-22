@@ -28,16 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.mainTask = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.logRichTextBox = new System.Windows.Forms.RichTextBox();
             this.globalSettings = new System.Windows.Forms.Button();
+            this.logMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ClearLogItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
+            this.logMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainTask
             // 
-            this.mainTask.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mainTask.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.mainTask.Location = new System.Drawing.Point(531, 160);
             this.mainTask.Name = "mainTask";
             this.mainTask.Size = new System.Drawing.Size(114, 37);
@@ -65,6 +69,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.logRichTextBox.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.logRichTextBox.ContextMenuStrip = this.logMenuStrip;
             this.logRichTextBox.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.logRichTextBox.Location = new System.Drawing.Point(3, 16);
             this.logRichTextBox.Name = "logRichTextBox";
@@ -85,6 +90,20 @@
             this.globalSettings.UseVisualStyleBackColor = true;
             this.globalSettings.Click += new System.EventHandler(this.globalSettings_Click);
             // 
+            // logMenuStrip
+            // 
+            this.logMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ClearLogItem});
+            this.logMenuStrip.Name = "logMenuStrip";
+            this.logMenuStrip.Size = new System.Drawing.Size(149, 26);
+            // 
+            // ClearLogItem
+            // 
+            this.ClearLogItem.Name = "ClearLogItem";
+            this.ClearLogItem.Size = new System.Drawing.Size(180, 22);
+            this.ClearLogItem.Text = "Очистить лог";
+            this.ClearLogItem.Click += new System.EventHandler(this.ClearLogItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -99,6 +118,7 @@
             this.Text = "TrashVanisher";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.groupBox1.ResumeLayout(false);
+            this.logMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -108,6 +128,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RichTextBox logRichTextBox;
         private System.Windows.Forms.Button globalSettings;
+        private System.Windows.Forms.ContextMenuStrip logMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem ClearLogItem;
     }
 }
 

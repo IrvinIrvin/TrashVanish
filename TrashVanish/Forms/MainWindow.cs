@@ -56,5 +56,10 @@ namespace TrashVanish
                 globalSettingsForm.Show();
             }
         }
+
+        private void ClearLogItem_Click(object sender, EventArgs e)
+        {
+            logRichTextBox.Text = "";
+        }
     }
 }

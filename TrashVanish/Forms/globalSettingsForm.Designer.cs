@@ -83,7 +83,7 @@
             this.clearLogCheckbox.Text = "Очищать лог";
             this.checkboxesToolTip.SetToolTip(this.clearLogCheckbox, "Очистить лог перед выполнением задания");
             this.clearLogCheckbox.UseVisualStyleBackColor = true;
-            this.clearLogCheckbox.CheckedChanged += new System.EventHandler(this.clearLogCheckbox_CheckedChanged);
+            this.clearLogCheckbox.CheckedChanged += new System.EventHandler(this.ClearLogCheckbox_CheckedChanged);
             // 
             // overwriteFiles
             // 
