@@ -64,49 +64,6 @@ namespace TrashVanish.Forms
             }
         }
 
-        // RULES CONTROLS START HERE
-        private void updateRulesButton_Click(object sender, EventArgs e)
-        {
-            rulesUpdater.UpdateRules();
-        }
-
-        private void addRuleButton_Click(object sender, EventArgs e)
-        {
-            Form ar = Application.OpenForms["AddRule"];
-            if (ar != null)
-            {
-                ar.Activate();
-                return;
-            }
-            else
-            {
-                AddRule addRuleForm = new AddRule(rulesGrid);
-                addRuleForm.ShowDialog();
-            }
-            rulesUpdater.UpdateRules();
-        }
-
-        private void editRule_Click(object sender, EventArgs e)
-        {
-            if (!rulesAreExist())
-            {
-                return;
-            }
-            Form er = Application.OpenForms["editRule"];
-            if (er != null)
-            {
-                er.Activate();
-                return;
-            }
-            else
-            {
-                //editRuleForm editRuleForm = new editRuleForm(rulesGrid);
-                editRuleForm erf = new editRuleForm(rulesGrid);
-                erf.ShowDialog();
-            }
-            rulesUpdater.UpdateRules();
-        }
-
         private bool rulesAreExist()
         {
             int selectedrow;
@@ -121,20 +78,6 @@ namespace TrashVanish.Forms
             }
             return true;
         }
-
-        private void deleteRule_Click(object sender, EventArgs e)
-        {
-            if (!rulesAreExist())
-            {
-                return;
-            }
-            int selectedrow = rulesGrid.CurrentCell.RowIndex; ;
-            int columnbydefault = 0; // column with id (invisible)
-            DBConnection.DeleteRule(rulesGrid.Rows[selectedrow].Cells[columnbydefault].Value.ToString());
-            rulesUpdater.UpdateRules();
-        }
-
-        // RULES CONTROLS END HERE
 
         // SETS CONTROLS START HERE
 
@@ -201,6 +144,61 @@ namespace TrashVanish.Forms
             int columnbydefault = 0; // column with id (invisible)
             DBConnection.DeleteSet(extensionsSetGrid.Rows[selectedrow].Cells[columnbydefault].Value.ToString());
             setsUpdater.UpdateExtensionsSets();
+        }
+
+        // RULES CONTEXT MENU
+        private void UpdateGridItem_Click(object sender, EventArgs e)
+        {
+            rulesUpdater.UpdateRules();
+        }
+
+        private void AddRuleItem_Click(object sender, EventArgs e)
+        {
+            Form ar = Application.OpenForms["AddRule"];
+            if (ar != null)
+            {
+                ar.Activate();
+                return;
+            }
+            else
+            {
+                AddRule addRuleForm = new AddRule(rulesGrid);
+                addRuleForm.ShowDialog();
+            }
+            rulesUpdater.UpdateRules();
+        }
+
+        private void editRuleItem_Click(object sender, EventArgs e)
+        {
+            if (!rulesAreExist())
+            {
+                return;
+            }
+            Form er = Application.OpenForms["editRule"];
+            if (er != null)
+            {
+                er.Activate();
+                return;
+            }
+            else
+            {
+                //editRuleForm editRuleForm = new editRuleForm(rulesGrid);
+                editRuleForm erf = new editRuleForm(rulesGrid);
+                erf.ShowDialog();
+            }
+            rulesUpdater.UpdateRules();
+        }
+
+        private void deleteRuleItem_Click(object sender, EventArgs e)
+        {
+            if (!rulesAreExist())
+            {
+                return;
+            }
+            int selectedrow = rulesGrid.CurrentCell.RowIndex; ;
+            int columnbydefault = 0; // column with id (invisible)
+            DBConnection.DeleteRule(rulesGrid.Rows[selectedrow].Cells[columnbydefault].Value.ToString());
+            rulesUpdater.UpdateRules();
         }
     }
 }

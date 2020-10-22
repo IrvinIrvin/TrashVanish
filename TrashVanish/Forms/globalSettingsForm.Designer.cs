@@ -35,16 +35,10 @@
             this.checkboxesToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.rulesAndSetsTabControl = new System.Windows.Forms.TabControl();
             this.RulesSettingsTab = new System.Windows.Forms.TabPage();
-            this.editRule = new System.Windows.Forms.Button();
-            this.addRuleButton = new System.Windows.Forms.Button();
-            this.deleteRule = new System.Windows.Forms.Button();
-            this.updateRulesButton = new System.Windows.Forms.Button();
             this.rulesGrid = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FileExtension = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameIncludes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isCaseSensetive = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SavePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ruleGridControlsStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.UpdateGridItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddRuleItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SetsSettingsTab = new System.Windows.Forms.TabPage();
             this.updateGridButton = new System.Windows.Forms.Button();
             this.deleteSetButton = new System.Windows.Forms.Button();
@@ -56,11 +50,21 @@
             this.Extensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.targetPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rowControlMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editRuleItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteRuleItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileExtension = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameIncludes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isCaseSensetive = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SavePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rulesAndSetsTabControl.SuspendLayout();
             this.RulesSettingsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rulesGrid)).BeginInit();
+            this.ruleGridControlsStrip.SuspendLayout();
             this.SetsSettingsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.extensionsSetGrid)).BeginInit();
+            this.rowControlMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // clearLogCheckbox
@@ -120,10 +124,6 @@
             // 
             // RulesSettingsTab
             // 
-            this.RulesSettingsTab.Controls.Add(this.editRule);
-            this.RulesSettingsTab.Controls.Add(this.addRuleButton);
-            this.RulesSettingsTab.Controls.Add(this.deleteRule);
-            this.RulesSettingsTab.Controls.Add(this.updateRulesButton);
             this.RulesSettingsTab.Controls.Add(this.rulesGrid);
             this.RulesSettingsTab.Location = new System.Drawing.Point(4, 22);
             this.RulesSettingsTab.Name = "RulesSettingsTab";
@@ -132,50 +132,6 @@
             this.RulesSettingsTab.TabIndex = 0;
             this.RulesSettingsTab.Text = "Правила";
             this.RulesSettingsTab.UseVisualStyleBackColor = true;
-            // 
-            // editRule
-            // 
-            this.editRule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.editRule.Location = new System.Drawing.Point(468, 94);
-            this.editRule.Name = "editRule";
-            this.editRule.Size = new System.Drawing.Size(123, 23);
-            this.editRule.TabIndex = 9;
-            this.editRule.Text = "Редактировать";
-            this.editRule.UseVisualStyleBackColor = true;
-            this.editRule.Click += new System.EventHandler(this.editRule_Click);
-            // 
-            // addRuleButton
-            // 
-            this.addRuleButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addRuleButton.Location = new System.Drawing.Point(468, 55);
-            this.addRuleButton.Name = "addRuleButton";
-            this.addRuleButton.Size = new System.Drawing.Size(123, 23);
-            this.addRuleButton.TabIndex = 8;
-            this.addRuleButton.Text = "Добавить правило";
-            this.addRuleButton.UseVisualStyleBackColor = true;
-            this.addRuleButton.Click += new System.EventHandler(this.addRuleButton_Click);
-            // 
-            // deleteRule
-            // 
-            this.deleteRule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteRule.Location = new System.Drawing.Point(468, 135);
-            this.deleteRule.Name = "deleteRule";
-            this.deleteRule.Size = new System.Drawing.Size(123, 23);
-            this.deleteRule.TabIndex = 7;
-            this.deleteRule.Text = "Удалить";
-            this.deleteRule.UseVisualStyleBackColor = true;
-            this.deleteRule.Click += new System.EventHandler(this.deleteRule_Click);
-            // 
-            // updateRulesButton
-            // 
-            this.updateRulesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.updateRulesButton.Location = new System.Drawing.Point(468, 16);
-            this.updateRulesButton.Name = "updateRulesButton";
-            this.updateRulesButton.Size = new System.Drawing.Size(123, 23);
-            this.updateRulesButton.TabIndex = 6;
-            this.updateRulesButton.Text = "Обновить";
-            this.updateRulesButton.UseVisualStyleBackColor = true;
-            this.updateRulesButton.Click += new System.EventHandler(this.updateRulesButton_Click);
             // 
             // rulesGrid
             // 
@@ -190,6 +146,7 @@
             this.NameIncludes,
             this.isCaseSensetive,
             this.SavePath});
+            this.rulesGrid.ContextMenuStrip = this.ruleGridControlsStrip;
             this.rulesGrid.Location = new System.Drawing.Point(6, 16);
             this.rulesGrid.MultiSelect = false;
             this.rulesGrid.Name = "rulesGrid";
@@ -197,45 +154,30 @@
             this.rulesGrid.RowHeadersVisible = false;
             this.rulesGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
             this.rulesGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.rulesGrid.Size = new System.Drawing.Size(448, 203);
+            this.rulesGrid.Size = new System.Drawing.Size(585, 203);
             this.rulesGrid.TabIndex = 5;
             // 
-            // id
+            // ruleGridControlsStrip
             // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            this.id.Width = 50;
+            this.ruleGridControlsStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.UpdateGridItem,
+            this.AddRuleItem});
+            this.ruleGridControlsStrip.Name = "ruleControlsStrip";
+            this.ruleGridControlsStrip.Size = new System.Drawing.Size(177, 48);
             // 
-            // FileExtension
+            // UpdateGridItem
             // 
-            this.FileExtension.HeaderText = "Расширение";
-            this.FileExtension.MinimumWidth = 50;
-            this.FileExtension.Name = "FileExtension";
-            this.FileExtension.ReadOnly = true;
-            this.FileExtension.Width = 95;
+            this.UpdateGridItem.Name = "UpdateGridItem";
+            this.UpdateGridItem.Size = new System.Drawing.Size(180, 22);
+            this.UpdateGridItem.Text = "Обновить";
+            this.UpdateGridItem.Click += new System.EventHandler(this.UpdateGridItem_Click);
             // 
-            // NameIncludes
+            // AddRuleItem
             // 
-            this.NameIncludes.HeaderText = "Имя файла содержит";
-            this.NameIncludes.MinimumWidth = 50;
-            this.NameIncludes.Name = "NameIncludes";
-            this.NameIncludes.ReadOnly = true;
-            this.NameIncludes.Width = 129;
-            // 
-            // isCaseSensetive
-            // 
-            this.isCaseSensetive.HeaderText = "Учитывать регистр";
-            this.isCaseSensetive.Name = "isCaseSensetive";
-            this.isCaseSensetive.ReadOnly = true;
-            // 
-            // SavePath
-            // 
-            this.SavePath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SavePath.HeaderText = "Путь";
-            this.SavePath.Name = "SavePath";
-            this.SavePath.ReadOnly = true;
+            this.AddRuleItem.Name = "AddRuleItem";
+            this.AddRuleItem.Size = new System.Drawing.Size(180, 22);
+            this.AddRuleItem.Text = "Добавить правило";
+            this.AddRuleItem.Click += new System.EventHandler(this.AddRuleItem_Click);
             // 
             // SetsSettingsTab
             // 
@@ -358,6 +300,69 @@
             this.targetPath.ReadOnly = true;
             this.targetPath.Width = 56;
             // 
+            // rowControlMenuStrip
+            // 
+            this.rowControlMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editRuleItem,
+            this.deleteRuleItem});
+            this.rowControlMenuStrip.Name = "ruleControlsStrip";
+            this.rowControlMenuStrip.Size = new System.Drawing.Size(155, 48);
+            // 
+            // editRuleItem
+            // 
+            this.editRuleItem.Name = "editRuleItem";
+            this.editRuleItem.Size = new System.Drawing.Size(180, 22);
+            this.editRuleItem.Text = "Редактировать";
+            this.editRuleItem.Click += new System.EventHandler(this.editRuleItem_Click);
+            // 
+            // deleteRuleItem
+            // 
+            this.deleteRuleItem.Name = "deleteRuleItem";
+            this.deleteRuleItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteRuleItem.Text = "Удалить";
+            this.deleteRuleItem.Click += new System.EventHandler(this.deleteRuleItem_Click);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 50;
+            // 
+            // FileExtension
+            // 
+            this.FileExtension.ContextMenuStrip = this.rowControlMenuStrip;
+            this.FileExtension.HeaderText = "Расширение";
+            this.FileExtension.MinimumWidth = 50;
+            this.FileExtension.Name = "FileExtension";
+            this.FileExtension.ReadOnly = true;
+            this.FileExtension.Width = 95;
+            // 
+            // NameIncludes
+            // 
+            this.NameIncludes.ContextMenuStrip = this.rowControlMenuStrip;
+            this.NameIncludes.HeaderText = "Имя файла содержит";
+            this.NameIncludes.MinimumWidth = 50;
+            this.NameIncludes.Name = "NameIncludes";
+            this.NameIncludes.ReadOnly = true;
+            this.NameIncludes.Width = 129;
+            // 
+            // isCaseSensetive
+            // 
+            this.isCaseSensetive.ContextMenuStrip = this.rowControlMenuStrip;
+            this.isCaseSensetive.HeaderText = "Учитывать регистр";
+            this.isCaseSensetive.Name = "isCaseSensetive";
+            this.isCaseSensetive.ReadOnly = true;
+            // 
+            // SavePath
+            // 
+            this.SavePath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SavePath.ContextMenuStrip = this.rowControlMenuStrip;
+            this.SavePath.HeaderText = "Путь";
+            this.SavePath.Name = "SavePath";
+            this.SavePath.ReadOnly = true;
+            // 
             // globalSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,8 +380,10 @@
             this.rulesAndSetsTabControl.ResumeLayout(false);
             this.RulesSettingsTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rulesGrid)).EndInit();
+            this.ruleGridControlsStrip.ResumeLayout(false);
             this.SetsSettingsTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.extensionsSetGrid)).EndInit();
+            this.rowControlMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -390,16 +397,7 @@
         private System.Windows.Forms.TabControl rulesAndSetsTabControl;
         private System.Windows.Forms.TabPage RulesSettingsTab;
         private System.Windows.Forms.TabPage SetsSettingsTab;
-        private System.Windows.Forms.Button editRule;
-        private System.Windows.Forms.Button addRuleButton;
-        private System.Windows.Forms.Button deleteRule;
-        private System.Windows.Forms.Button updateRulesButton;
         private System.Windows.Forms.DataGridView rulesGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FileExtension;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameIncludes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn isCaseSensetive;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SavePath;
         private System.Windows.Forms.Button updateGridButton;
         private System.Windows.Forms.Button deleteSetButton;
         private System.Windows.Forms.Button editSetButton;
@@ -410,5 +408,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Extensions;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn targetPath;
+        private System.Windows.Forms.ContextMenuStrip ruleGridControlsStrip;
+        private System.Windows.Forms.ToolStripMenuItem UpdateGridItem;
+        private System.Windows.Forms.ToolStripMenuItem AddRuleItem;
+        private System.Windows.Forms.ContextMenuStrip rowControlMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem editRuleItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteRuleItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FileExtension;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameIncludes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isCaseSensetive;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SavePath;
     }
 }
