@@ -9,7 +9,6 @@ C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.pdb
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.AddRule.resources
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.MainWindow.resources
-C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.RulesSettings.resources
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Debug\trashVanish.db
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Debug\System.Data.SQLite.dll
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Debug\System.Data.SQLite.xml
@@ -17,7 +16,6 @@ C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Debug\System.Data
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.csproj.CopyComplete
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.Forms.SetsForms.AddExtensionSet.resources
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.Forms.globalSettingsForm.resources
-C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.ExtensionsSetSettings.resources
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Debug\TrashVanish.exe.manifest
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Debug\TrashVanish.application
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Debug\TrashVanish.Forms.RulesForms.editRuleForm.resources

@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrashVanish.Classes;
 using TrashVanish.Forms.RulesForms;
+using TrashVanish.Forms.SetsForms;
 
 namespace TrashVanish.Forms
 {
@@ -69,6 +64,7 @@ namespace TrashVanish.Forms
             }
         }
 
+        // RULES CONTROLS START HERE
         private void updateRulesButton_Click(object sender, EventArgs e)
         {
             rulesUpdater.UpdateRules();
@@ -136,6 +132,75 @@ namespace TrashVanish.Forms
             int columnbydefault = 0; // column with id (invisible)
             DBConnection.DeleteRule(rulesGrid.Rows[selectedrow].Cells[columnbydefault].Value.ToString());
             rulesUpdater.UpdateRules();
+        }
+
+        // RULES CONTROLS END HERE
+
+        // SETS CONTROLS START HERE
+
+        private void updateGridButton_Click(object sender, EventArgs e)
+        {
+            setsUpdater.UpdateExtensionsSets();
+        }
+
+        private void addSetButton_Click(object sender, EventArgs e)
+        {
+            Form AES = Application.OpenForms["AddExtensionSet"];
+            if (AES != null)
+            {
+                AES.Activate();
+                return;
+            }
+            else
+            {
+                AddExtensionSet addExtensionSet = new AddExtensionSet(extensionsSetGrid);
+                addExtensionSet.ShowDialog();
+            }
+        }
+
+        private void editSetButton_Click(object sender, EventArgs e)
+        {
+            Form esf = Application.OpenForms["editSetForm"];
+            if (esf != null)
+            {
+                esf.Activate();
+                return;
+            }
+            else
+            {
+                int selectedrow;
+                try
+                {
+                    selectedrow = extensionsSetGrid.CurrentCell.RowIndex;
+                }
+                catch (NullReferenceException)
+                {
+                    // Mo rules in grid yet
+                    return;
+                }
+                int columnbydefault = 0; // column with id (invisible)
+                SetModel setToEdit = DBConnection.LoadSetByID(extensionsSetGrid.Rows[selectedrow].Cells[columnbydefault].Value.ToString());
+                editSetForm editSetForm = new editSetForm(setToEdit, extensionsSetGrid);
+                editSetForm.Show();
+            }
+        }
+
+        private void deleteSetButton_Click(object sender, EventArgs e)
+        {
+            // Удалить набор
+            int selectedrow;
+            try
+            {
+                selectedrow = extensionsSetGrid.CurrentCell.RowIndex;
+            }
+            catch (NullReferenceException)
+            {
+                // Mo rules in grid yet
+                return;
+            }
+            int columnbydefault = 0; // column with id (invisible)
+            DBConnection.DeleteSet(extensionsSetGrid.Rows[selectedrow].Cells[columnbydefault].Value.ToString());
+            setsUpdater.UpdateExtensionsSets();
         }
     }
 }

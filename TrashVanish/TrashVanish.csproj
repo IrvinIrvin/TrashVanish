@@ -135,12 +135,6 @@
     <Compile Include="Forms\SetsForms\editSetForm.Designer.cs">
       <DependentUpon>editSetForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SetsForms\ExtensionsSetSettings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\SetsForms\ExtensionsSetSettings.Designer.cs">
-      <DependentUpon>ExtensionsSetSettings.cs</DependentUpon>
-    </Compile>
     <Compile Include="Classes\GridUpdater.cs" />
     <Compile Include="Forms\MainWindow.cs">
       <SubType>Form</SubType>
@@ -151,12 +145,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\Models\RuleModel.cs" />
-    <Compile Include="Forms\RulesForms\RulesSettings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\RulesForms\RulesSettings.Designer.cs">
-      <DependentUpon>RulesSettings.cs</DependentUpon>
-    </Compile>
     <Compile Include="Classes\Worker.cs" />
     <EmbeddedResource Include="Forms\globalSettingsForm.resx">
       <DependentUpon>globalSettingsForm.cs</DependentUpon>
@@ -173,9 +161,6 @@
     <EmbeddedResource Include="Forms\SetsForms\editSetForm.resx">
       <DependentUpon>editSetForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SetsForms\ExtensionsSetSettings.resx">
-      <DependentUpon>ExtensionsSetSettings.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,9 +174,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Forms\RulesForms\RulesSettings.resx">
-      <DependentUpon>RulesSettings.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
