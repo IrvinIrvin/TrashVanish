@@ -49,12 +49,12 @@
             this.AddRuleItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SetsSettingsTab = new System.Windows.Forms.TabPage();
             this.extensionsSetGrid = new System.Windows.Forms.DataGridView();
-            this.setGridControlStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.updateSetGridItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addSetItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setRowControlMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editSetItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteSetItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setGridControlStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.updateSetGridItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addSetItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SetName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Extensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,13 +67,13 @@
             this.ruleGridControlsStrip.SuspendLayout();
             this.SetsSettingsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.extensionsSetGrid)).BeginInit();
-            this.setGridControlStrip.SuspendLayout();
             this.setRowControlMenuStrip.SuspendLayout();
+            this.setGridControlStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // clearLogCheckbox
             // 
-            this.clearLogCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.clearLogCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.clearLogCheckbox.AutoSize = true;
             this.clearLogCheckbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.clearLogCheckbox.Location = new System.Drawing.Point(12, 294);
@@ -87,7 +87,7 @@
             // 
             // overwriteFiles
             // 
-            this.overwriteFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.overwriteFiles.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.overwriteFiles.Checked = true;
             this.overwriteFiles.CheckState = System.Windows.Forms.CheckState.Checked;
             this.overwriteFiles.Location = new System.Drawing.Point(246, 282);
@@ -116,7 +116,9 @@
             // 
             // rulesAndSetsTabControl
             // 
-            this.rulesAndSetsTabControl.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rulesAndSetsTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rulesAndSetsTabControl.Controls.Add(this.RulesSettingsTab);
             this.rulesAndSetsTabControl.Controls.Add(this.SetsSettingsTab);
             this.rulesAndSetsTabControl.Location = new System.Drawing.Point(12, 8);
@@ -142,7 +144,9 @@
             this.rulesGrid.AllowUserToAddRows = false;
             this.rulesGrid.AllowUserToDeleteRows = false;
             this.rulesGrid.AllowUserToResizeRows = false;
-            this.rulesGrid.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rulesGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rulesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.rulesGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -278,30 +282,9 @@
             this.extensionsSetGrid.Name = "extensionsSetGrid";
             this.extensionsSetGrid.ReadOnly = true;
             this.extensionsSetGrid.RowHeadersVisible = false;
+            this.extensionsSetGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.extensionsSetGrid.Size = new System.Drawing.Size(585, 203);
             this.extensionsSetGrid.TabIndex = 5;
-            // 
-            // setGridControlStrip
-            // 
-            this.setGridControlStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.updateSetGridItem,
-            this.addSetItem});
-            this.setGridControlStrip.Name = "ruleControlsStrip";
-            this.setGridControlStrip.Size = new System.Drawing.Size(164, 48);
-            // 
-            // updateSetGridItem
-            // 
-            this.updateSetGridItem.Name = "updateSetGridItem";
-            this.updateSetGridItem.Size = new System.Drawing.Size(180, 22);
-            this.updateSetGridItem.Text = "Обновить";
-            this.updateSetGridItem.Click += new System.EventHandler(this.updateSetGridItem_Click);
-            // 
-            // addSetItem
-            // 
-            this.addSetItem.Name = "addSetItem";
-            this.addSetItem.Size = new System.Drawing.Size(180, 22);
-            this.addSetItem.Text = "Добавить набор";
-            this.addSetItem.Click += new System.EventHandler(this.addSetItem_Click);
             // 
             // setRowControlMenuStrip
             // 
@@ -314,16 +297,38 @@
             // editSetItem
             // 
             this.editSetItem.Name = "editSetItem";
-            this.editSetItem.Size = new System.Drawing.Size(180, 22);
+            this.editSetItem.Size = new System.Drawing.Size(154, 22);
             this.editSetItem.Text = "Редактировать";
             this.editSetItem.Click += new System.EventHandler(this.editSetItem_Click);
             // 
             // deleteSetItem
             // 
             this.deleteSetItem.Name = "deleteSetItem";
-            this.deleteSetItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteSetItem.Size = new System.Drawing.Size(154, 22);
             this.deleteSetItem.Text = "Удалить";
             this.deleteSetItem.Click += new System.EventHandler(this.deleteSetItem_Click);
+            // 
+            // setGridControlStrip
+            // 
+            this.setGridControlStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updateSetGridItem,
+            this.addSetItem});
+            this.setGridControlStrip.Name = "ruleControlsStrip";
+            this.setGridControlStrip.Size = new System.Drawing.Size(164, 48);
+            // 
+            // updateSetGridItem
+            // 
+            this.updateSetGridItem.Name = "updateSetGridItem";
+            this.updateSetGridItem.Size = new System.Drawing.Size(163, 22);
+            this.updateSetGridItem.Text = "Обновить";
+            this.updateSetGridItem.Click += new System.EventHandler(this.updateSetGridItem_Click);
+            // 
+            // addSetItem
+            // 
+            this.addSetItem.Name = "addSetItem";
+            this.addSetItem.Size = new System.Drawing.Size(163, 22);
+            this.addSetItem.Text = "Добавить набор";
+            this.addSetItem.Click += new System.EventHandler(this.addSetItem_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -361,12 +366,11 @@
             // 
             // targetPath
             // 
-            this.targetPath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.targetPath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.targetPath.ContextMenuStrip = this.setRowControlMenuStrip;
             this.targetPath.HeaderText = "Путь";
             this.targetPath.Name = "targetPath";
             this.targetPath.ReadOnly = true;
-            this.targetPath.Width = 56;
             // 
             // globalSettingsForm
             // 
@@ -377,7 +381,7 @@
             this.Controls.Add(this.clearLogCheckbox);
             this.Controls.Add(this.overwriteFiles);
             this.Controls.Add(this.deleteFlag);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimumSize = new System.Drawing.Size(645, 373);
             this.Name = "globalSettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrashVanish - Настройки";
@@ -389,8 +393,8 @@
             this.ruleGridControlsStrip.ResumeLayout(false);
             this.SetsSettingsTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.extensionsSetGrid)).EndInit();
-            this.setGridControlStrip.ResumeLayout(false);
             this.setRowControlMenuStrip.ResumeLayout(false);
+            this.setGridControlStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -219,6 +219,7 @@
             this.extensionsList.Location = new System.Drawing.Point(7, 19);
             this.extensionsList.Name = "extensionsList";
             this.extensionsList.RowHeadersVisible = false;
+            this.extensionsList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.extensionsList.Size = new System.Drawing.Size(204, 91);
             this.extensionsList.TabIndex = 19;
             // 
@@ -233,12 +234,11 @@
             // 
             // includesColumn
             // 
-            this.includesColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.includesColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.includesColumn.HeaderText = "Содержит";
             this.includesColumn.Name = "includesColumn";
             this.includesColumn.ReadOnly = true;
             this.includesColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.includesColumn.Width = 82;
             // 
             // AddExtensionSet
             // 
