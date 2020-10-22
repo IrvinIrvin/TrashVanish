@@ -23,3 +23,12 @@ C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVani
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.application
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.Forms.RulesForms.editRuleForm.resources
 C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.Forms.SetsForms.editSetForm.resources
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\bin\Release\en-US\TrashVanish.resources.dll
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.Forms.globalSettingsForm.en-US.resources
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.MainWindow.en-US.resources
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.AddRule.en-US.resources
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.Forms.RulesForms.editRuleForm.en-US.resources
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.Forms.SetsForms.AddExtensionSet.en-US.resources
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.Forms.SetsForms.editSetForm.en-US.resources
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\en-US\TrashVanish.resources.dll
+C:\Users\DEUS\Documents\VSProjects\TrashVanish\TrashVanish\obj\Release\TrashVanish.lang_en.resources

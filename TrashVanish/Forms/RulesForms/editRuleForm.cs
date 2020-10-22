@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,12 +15,7 @@ namespace TrashVanish.Forms.RulesForms
 {
     public partial class editRuleForm : Form
     {
-        public editRuleForm()
-        {
-            InitializeComponent();
-            this.Icon = Properties.Resources.appicon;
-        }
-
+        private ResourceManager resourceManager;
         private DataGridView rulesGrid;
 
         public editRuleForm(DataGridView dataGridView)
@@ -27,6 +24,7 @@ namespace TrashVanish.Forms.RulesForms
             InitializeComponent();
             rulesGrid = dataGridView;
             this.Icon = Properties.Resources.appicon;
+            resourceManager = new ResourceManager("TrashVanish.lang_" + System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName, Assembly.GetExecutingAssembly());
         }
 
         private void editRuleForm_Load(object sender, EventArgs e)
@@ -48,7 +46,7 @@ namespace TrashVanish.Forms.RulesForms
 
             if (extension == "" || path == "")
             {
-                messageLabelFunc("Обязательные поля не заполнены", Color.DarkOrange);
+                messageLabelFunc(resourceManager.GetString("ReqFieldsAreEmpty"), Color.DarkOrange);
                 return;
             }
             if (extension[0] != '.')
@@ -62,13 +60,13 @@ namespace TrashVanish.Forms.RulesForms
 
             if (DBConnection.IsRuleExist(extension, includes, isCaseSensetive))
             {
-                messageLabelFunc("Правило для \"" + extension + "\" уже существует", Color.DarkOrange);
+                messageLabelFunc(string.Format(resourceManager.GetString("ruleForExtAlreadyExist"), extension), Color.DarkOrange);
                 return;
             }
             RuleModel rule = new RuleModel { ruleExtension = extension, ruleIncludes = includes, rulePath = path, ruleIsCaseSensetive = isCaseSensetive };
             DBConnection.DeleteRule(id);
             DBConnection.AddRule(rule);
-            messageLabelFunc("Правило для \"" + extension + "\" обновленно", Color.Lime);
+            messageLabelFunc(string.Format(resourceManager.GetString("ruleUpdatedSuccessfully"), extension), Color.Lime);
             ExtensionTextBox.Text = "";
             includesTextBox.Text = "";
             pathTextBox.Text = "";
@@ -96,14 +94,14 @@ namespace TrashVanish.Forms.RulesForms
         {
             if (extension.Substring(1).Length == 0)
             {
-                messageLabelFunc("Расширение не корректно", Color.DarkOrange);
+                messageLabelFunc(resourceManager.GetString("extIsInvalid"), Color.DarkOrange);
                 return false;
             }
             foreach (char l in extension.Substring(1))
             {
                 if (!(l >= 65 && l <= 90) && !(l >= 97 && l <= 122))
                 {
-                    messageLabelFunc("Расширение не корректно", Color.DarkOrange);
+                    messageLabelFunc(resourceManager.GetString("extIsInvalid"), Color.DarkOrange);
                     return false;
                 }
             }
@@ -118,12 +116,12 @@ namespace TrashVanish.Forms.RulesForms
             }
             catch
             {
-                messageLabelFunc("Путь не корректен", Color.DarkOrange);
+                messageLabelFunc(resourceManager.GetString("pathIsInvalid"), Color.DarkOrange);
                 return false;
             }
             if (!Path.IsPathRooted(path))
             {
-                messageLabelFunc("Относительные пути запрещены", Color.DarkOrange);
+                messageLabelFunc(resourceManager.GetString("relPathesAreForbidden"), Color.DarkOrange);
                 return false;
             }
             return true;

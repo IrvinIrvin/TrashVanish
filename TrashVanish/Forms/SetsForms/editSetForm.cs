@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,11 +16,7 @@ namespace TrashVanish.Forms.SetsForms
 {
     public partial class editSetForm : Form
     {
-        public editSetForm()
-        {
-            InitializeComponent();
-        }
-
+        private ResourceManager resourceManager;
         private SetModel setToEdit;
         private DataGridView rulesGrid;
 
@@ -28,6 +26,7 @@ namespace TrashVanish.Forms.SetsForms
             setToEdit = set;
             rulesGrid = dgv;
             this.Icon = Properties.Resources.appicon;
+            resourceManager = new ResourceManager("TrashVanish.lang_" + System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, Assembly.GetExecutingAssembly());
         }
 
         private void editSetForm_Load(object sender, EventArgs e)
@@ -57,7 +56,7 @@ namespace TrashVanish.Forms.SetsForms
             string includes = includesTextBox.Text.Trim();
             if (extensionTextBox.Text == "")
             {
-                messageLabelFunc("Расширение не может быть пустым", Color.DarkOrange);
+                messageLabelFunc(resourceManager.GetString("extIsInvalid"), Color.DarkOrange);
                 return;
             }
             if (extension[0] != '.')
@@ -92,14 +91,14 @@ namespace TrashVanish.Forms.SetsForms
         {
             if (extension.Substring(1).Length == 0)
             {
-                messageLabelFunc("Расширение не корректно", Color.DarkOrange);
+                messageLabelFunc(resourceManager.GetString("extIsInvalid"), Color.DarkOrange);
                 return false;
             }
             foreach (char l in extension.Substring(1))
             {
                 if (!(l >= 65 && l <= 90) && !(l >= 97 && l <= 122))
                 {
-                    messageLabelFunc("Расширение не корректно", Color.DarkOrange);
+                    messageLabelFunc(resourceManager.GetString("extIsInvalid"), Color.DarkOrange);
                     return false;
                 }
             }
@@ -114,12 +113,12 @@ namespace TrashVanish.Forms.SetsForms
             }
             catch
             {
-                messageLabelFunc("Путь не корректен", Color.DarkOrange);
+                messageLabelFunc(resourceManager.GetString("pathIsInvalid"), Color.DarkOrange);
                 return false;
             }
             if (!Path.IsPathRooted(path))
             {
-                messageLabelFunc("Относительные пути запрещены", Color.DarkOrange);
+                messageLabelFunc(resourceManager.GetString("relPathesAreForbidden"), Color.DarkOrange);
                 return false;
             }
             return true;
@@ -132,7 +131,7 @@ namespace TrashVanish.Forms.SetsForms
             int isCaseSensetive = isCaseSensetiveCheckBox.Checked ? 1 : 0;
             if (setNameTextBox.Text == "" || extensionsList.Rows.Count == 0 || targetPathTextBox.Text == "")
             {
-                messageLabelFunc("Не заполнены необходимые данные", Color.DarkOrange);
+                messageLabelFunc(resourceManager.GetString("ReqFieldsAreEmpty"), Color.DarkOrange);
                 return;
             }
             if (!pathValidate(targetPathTextBox.Text))
@@ -154,7 +153,7 @@ namespace TrashVanish.Forms.SetsForms
             extensionsList.Rows.Clear();
             GridUpdater gridUpdater = new GridUpdater(rulesGrid);
             gridUpdater.UpdateExtensionsSets();
-            messageLabelFunc("Набор был успешно обновлен", Color.Lime);
+            messageLabelFunc(resourceManager.GetString("setAddedSuccessfully"), Color.Lime);
             Close();
         }
 
