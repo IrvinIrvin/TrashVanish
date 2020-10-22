@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrashVanish.Forms.RulesForms;
 
 namespace TrashVanish.Forms
 {
@@ -18,20 +19,8 @@ namespace TrashVanish.Forms
             this.Icon = Properties.Resources.appicon;
         }
 
-        private void rulesSettings_Click(object sender, EventArgs e)
-        {
-            Form rs = Application.OpenForms["RulesSettings"];
-            if (rs != null)
-            {
-                rs.Activate();
-                return;
-            }
-            else
-            {
-                RulesSettings rulesSettingForm = new RulesSettings();
-                rulesSettingForm.Show();
-            }
-        }
+        private GridUpdater rulesUpdater;
+        private GridUpdater setsUpdater;
 
         private void clearLogCheckbox_CheckedChanged(object sender, EventArgs e)
         {
@@ -54,6 +43,11 @@ namespace TrashVanish.Forms
         private void globalSettingsForm_Load(object sender, EventArgs e)
         {
             loadCheckboxSettings();
+            rulesUpdater = new GridUpdater(rulesGrid);
+            setsUpdater = new GridUpdater(extensionsSetGrid);
+
+            rulesUpdater.UpdateRules();
+            setsUpdater.UpdateExtensionsSets();
         }
 
         private void loadCheckboxSettings()
@@ -63,19 +57,85 @@ namespace TrashVanish.Forms
             deleteFlag.Checked = Properties.Settings.Default.deleteAfterCopy;
         }
 
-        private void extensionSetSettingsButton_Click(object sender, EventArgs e)
+        private void rulesAndSetsTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Form eSS = Application.OpenForms["ExtensionsSetSettings"];
-            if (eSS != null)
+            if (rulesAndSetsTabControl.SelectedTab == rulesAndSetsTabControl.TabPages["RulesSettingsTab"])
             {
-                eSS.Activate();
+                rulesUpdater.UpdateRules();
+            }
+            else
+            {
+                setsUpdater.UpdateExtensionsSets();
+            }
+        }
+
+        private void updateRulesButton_Click(object sender, EventArgs e)
+        {
+            rulesUpdater.UpdateRules();
+        }
+
+        private void addRuleButton_Click(object sender, EventArgs e)
+        {
+            Form ar = Application.OpenForms["AddRule"];
+            if (ar != null)
+            {
+                ar.Activate();
                 return;
             }
             else
             {
-                ExtensionsSetSettings extensionsSetSettings = new ExtensionsSetSettings();
-                extensionsSetSettings.Show();
+                AddRule addRuleForm = new AddRule(rulesGrid);
+                addRuleForm.ShowDialog();
             }
+            rulesUpdater.UpdateRules();
+        }
+
+        private void editRule_Click(object sender, EventArgs e)
+        {
+            if (!rulesAreExist())
+            {
+                return;
+            }
+            Form er = Application.OpenForms["editRule"];
+            if (er != null)
+            {
+                er.Activate();
+                return;
+            }
+            else
+            {
+                //editRuleForm editRuleForm = new editRuleForm(rulesGrid);
+                editRuleForm erf = new editRuleForm(rulesGrid);
+                erf.ShowDialog();
+            }
+            rulesUpdater.UpdateRules();
+        }
+
+        private bool rulesAreExist()
+        {
+            int selectedrow;
+            try
+            {
+                selectedrow = rulesGrid.CurrentCell.RowIndex;
+            }
+            catch (NullReferenceException)
+            {
+                // No rules in grid yet
+                return false;
+            }
+            return true;
+        }
+
+        private void deleteRule_Click(object sender, EventArgs e)
+        {
+            if (!rulesAreExist())
+            {
+                return;
+            }
+            int selectedrow = rulesGrid.CurrentCell.RowIndex; ;
+            int columnbydefault = 0; // column with id (invisible)
+            DBConnection.DeleteRule(rulesGrid.Rows[selectedrow].Cells[columnbydefault].Value.ToString());
+            rulesUpdater.UpdateRules();
         }
     }
 }
