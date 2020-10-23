@@ -137,6 +137,21 @@
     <value>Tasks with complex sets are done</value>
     <comment>case insensetive sets with "includes"</comment>
   </data>
+  <data name="dbCreationError" xml:space="preserve">
+    <value>Error occured while creating database</value>
+  </data>
+  <data name="dbDeleteError" xml:space="preserve">
+    <value>Error occured while deleting database. The database was not created correctly and cannot be deleted. If the problem persists, remove the database manually by following the path: {0}</value>
+  </data>
+  <data name="dbError" xml:space="preserve">
+    <value>Error occured while retreiving info from database</value>
+  </data>
+  <data name="dbInteractionError" xml:space="preserve">
+    <value>Error occured while interacting with the database</value>
+  </data>
+  <data name="dbRollbackError" xml:space="preserve">
+    <value>Error occured while rolling back the database</value>
+  </data>
   <data name="extIsInvalid" xml:space="preserve">
     <value>Extension is invalid</value>
     <comment>Extension must not include anything than letters</comment>

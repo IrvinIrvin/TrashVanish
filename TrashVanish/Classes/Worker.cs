@@ -156,7 +156,6 @@ namespace TrashVanish
                     Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles, rule.ruleIsCaseSensetive);
                 }));
             }
-            // TODO: continue translation (Check DBConnection also)
             await Task.WhenAll(tasks.ToArray());
             Logger(resourceManager.GetString("setsAreDone"), Color.MediumSpringGreen);
             await Task.WhenAll(tasks.ToArray());

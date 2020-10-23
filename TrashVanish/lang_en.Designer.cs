@@ -106,6 +106,51 @@ namespace TrashVanish {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error occured while creating database.
+        /// </summary>
+        internal static string dbCreationError {
+            get {
+                return ResourceManager.GetString("dbCreationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occured while deleting database. The database was not created correctly and cannot be deleted. If the problem persists, remove the database manually by following the path: {0}.
+        /// </summary>
+        internal static string dbDeleteError {
+            get {
+                return ResourceManager.GetString("dbDeleteError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occured while retreiving info from database.
+        /// </summary>
+        internal static string dbError {
+            get {
+                return ResourceManager.GetString("dbError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occured while interacting with the database.
+        /// </summary>
+        internal static string dbInteractionError {
+            get {
+                return ResourceManager.GetString("dbInteractionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occured while rolling back the database.
+        /// </summary>
+        internal static string dbRollbackError {
+            get {
+                return ResourceManager.GetString("dbRollbackError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Extension is invalid.
         /// </summary>
         internal static string extIsInvalid {

@@ -106,6 +106,51 @@ namespace TrashVanish {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to При создании БД произошла ошибка.
+        /// </summary>
+        internal static string dbCreationError {
+            get {
+                return ResourceManager.GetString("dbCreationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ошибка при удалении бд. База данных была создана не корректно и не может быть удалена. Если проблема не исчезнет, удалите ее вручную, пройдя по пути&quot; + Environment.CurrentDirectory.
+        /// </summary>
+        internal static string dbDeleteError {
+            get {
+                return ResourceManager.GetString("dbDeleteError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ошибка при полуении информации из БД.
+        /// </summary>
+        internal static string dbError {
+            get {
+                return ResourceManager.GetString("dbError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ошибка при взаимодействии с базой данных.
+        /// </summary>
+        internal static string dbInteractionError {
+            get {
+                return ResourceManager.GetString("dbInteractionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ошибка при откатывании бд в прежнее состояние.
+        /// </summary>
+        internal static string dbRollbackError {
+            get {
+                return ResourceManager.GetString("dbRollbackError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Расширение не корректно.
         /// </summary>
         internal static string extIsInvalid {

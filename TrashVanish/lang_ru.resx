@@ -137,6 +137,21 @@
     <value>Задачи с наборами, с комплексными правилами, завершены</value>
     <comment>case insensetive sets with "includes"</comment>
   </data>
+  <data name="dbCreationError" xml:space="preserve">
+    <value>При создании БД произошла ошибка</value>
+  </data>
+  <data name="dbDeleteError" xml:space="preserve">
+    <value>Ошибка при удалении бд. База данных была создана не корректно и не может быть удалена. Если проблема не исчезнет, удалите ее вручную, пройдя по пути" + Environment.CurrentDirectory</value>
+  </data>
+  <data name="dbError" xml:space="preserve">
+    <value>Ошибка при полуении информации из БД</value>
+  </data>
+  <data name="dbInteractionError" xml:space="preserve">
+    <value>Ошибка при взаимодействии с базой данных</value>
+  </data>
+  <data name="dbRollbackError" xml:space="preserve">
+    <value>Ошибка при откатывании бд в прежнее состояние</value>
+  </data>
   <data name="extIsInvalid" xml:space="preserve">
     <value>Расширение не корректно</value>
     <comment>Extension must not include anything than letters</comment>
