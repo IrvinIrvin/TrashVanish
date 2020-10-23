@@ -70,11 +70,83 @@ namespace TrashVanish {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tasks with case sensetive sets with complex rules are done.
+        /// </summary>
+        internal static string caseSensetiveSetsWithCmplxRulesAreDone {
+            get {
+                return ResourceManager.GetString("caseSensetiveSetsWithCmplxRulesAreDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tasks with case sensetive tasks with compelx rules are done.
+        /// </summary>
+        internal static string caseSensetiveTasksWithCmplxRulesAreDone {
+            get {
+                return ResourceManager.GetString("caseSensetiveTasksWithCmplxRulesAreDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tasks with complex rules are done.
+        /// </summary>
+        internal static string complexRulesAreDone {
+            get {
+                return ResourceManager.GetString("complexRulesAreDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tasks with complex sets are done.
+        /// </summary>
+        internal static string complexSetsAreDone {
+            get {
+                return ResourceManager.GetString("complexSetsAreDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Extension is invalid.
         /// </summary>
         internal static string extIsInvalid {
             get {
                 return ResourceManager.GetString("extIsInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File &quot;{0}&quot; already exist in {1}, skipping....
+        /// </summary>
+        internal static string fileAlreadyExist {
+            get {
+                return ResourceManager.GetString("fileAlreadyExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are no files for task &quot;{0}&quot;, moving on to the next task.
+        /// </summary>
+        internal static string noFilesForExt {
+            get {
+                return ResourceManager.GetString("noFilesForExt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are no files for the task &quot;{0}&quot; +&quot; {1}&quot;, moving on to the next task.
+        /// </summary>
+        internal static string noFilesForExtAndInclude {
+            get {
+                return ResourceManager.GetString("noFilesForExtAndInclude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not all &quot;{0}&quot; files were copied successfully.
+        /// </summary>
+        internal static string notAllFilesWithExtWereMoved {
+            get {
+                return ResourceManager.GetString("notAllFilesWithExtWereMoved", resourceCulture);
             }
         }
         
@@ -124,6 +196,15 @@ namespace TrashVanish {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tasks with rules are done.
+        /// </summary>
+        internal static string rulesAreDone {
+            get {
+                return ResourceManager.GetString("rulesAreDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rule for {0} updated successfully.
         /// </summary>
         internal static string ruleUpdatedSuccessfully {
@@ -138,6 +219,60 @@ namespace TrashVanish {
         internal static string setAddedSuccessfully {
             get {
                 return ResourceManager.GetString("setAddedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tasks with sets are done.
+        /// </summary>
+        internal static string setsAreDone {
+            get {
+                return ResourceManager.GetString("setsAreDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start.
+        /// </summary>
+        internal static string start {
+            get {
+                return ResourceManager.GetString("start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Задача для &quot;{0}&quot; завершилась успешно. Перемещенно файлов: {1}.
+        /// </summary>
+        internal static string taskCompleted {
+            get {
+                return ResourceManager.GetString("taskCompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task for&quot;0&quot; + &quot;1&quot; done successfully. Files copied: {2}.
+        /// </summary>
+        internal static string taskCompletedWithIncludes {
+            get {
+                return ResourceManager.GetString("taskCompletedWithIncludes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All tasks done in {0} milliseconds.
+        /// </summary>
+        internal static string tasksAreDoneForElapsedTime {
+            get {
+                return ResourceManager.GetString("tasksAreDoneForElapsedTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}. To copy file in {1} run app as administrator.
+        /// </summary>
+        internal static string unauthorizedAccessExceptionMessage {
+            get {
+                return ResourceManager.GetString("unauthorizedAccessExceptionMessage", resourceCulture);
             }
         }
     }

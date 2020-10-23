@@ -121,9 +121,37 @@
     <value>Программа загружена</value>
     <comment>Message appears in log when app is loaded</comment>
   </data>
+  <data name="caseSensetiveSetsWithCmplxRulesAreDone" xml:space="preserve">
+    <value>Задачи с наборами, чувствительными к регистру, с комплексными правилами завершены</value>
+    <comment>case sensetive sets with "includes"</comment>
+  </data>
+  <data name="caseSensetiveTasksWithCmplxRulesAreDone" xml:space="preserve">
+    <value>Задачи, чувствительные к регистру, с комплексными правилами завершены</value>
+    <comment>case sensetive rules with "includes"</comment>
+  </data>
+  <data name="complexRulesAreDone" xml:space="preserve">
+    <value>Задачи с комплексными правилами завершены</value>
+    <comment>case insensetive rules with "includes"</comment>
+  </data>
+  <data name="complexSetsAreDone" xml:space="preserve">
+    <value>Задачи с наборами, с комплексными правилами, завершены</value>
+    <comment>case insensetive sets with "includes"</comment>
+  </data>
   <data name="extIsInvalid" xml:space="preserve">
     <value>Расширение не корректно</value>
     <comment>Extension must not include anything than letters</comment>
+  </data>
+  <data name="fileAlreadyExist" xml:space="preserve">
+    <value>Файл "{0}" уже существует в {1}, пропускаю...</value>
+  </data>
+  <data name="noFilesForExt" xml:space="preserve">
+    <value>Нет файлов для задачи "{0}", иду дальше</value>
+  </data>
+  <data name="noFilesForExtAndInclude" xml:space="preserve">
+    <value>Нет файлов для задачи "{0}" + "{1}", иду дальше</value>
+  </data>
+  <data name="notAllFilesWithExtWereMoved" xml:space="preserve">
+    <value>Не все файлы "{0}" были скопированы успешно</value>
   </data>
   <data name="pathIsInvalid" xml:space="preserve">
     <value>Путь не корректен</value>
@@ -145,10 +173,33 @@
     <value>Правило для {0} уже существует</value>
     <comment>Templated message shows if rule already exists</comment>
   </data>
+  <data name="rulesAreDone" xml:space="preserve">
+    <value>Задачи с правилами завершены</value>
+  </data>
   <data name="ruleUpdatedSuccessfully" xml:space="preserve">
     <value>Правило для {0} обновлено</value>
   </data>
   <data name="setAddedSuccessfully" xml:space="preserve">
     <value>Набор успешно добавлен</value>
+  </data>
+  <data name="setsAreDone" xml:space="preserve">
+    <value>Задачи с наборами завершены</value>
+  </data>
+  <data name="start" xml:space="preserve">
+    <value>Старт</value>
+    <comment>Worker class. Prints when work started</comment>
+  </data>
+  <data name="taskCompleted" xml:space="preserve">
+    <value>Задача для "{0}" завершилась успешно. Перемещенно файлов: {1}</value>
+  </data>
+  <data name="taskCompletedWithIncludes" xml:space="preserve">
+    <value>Задача для "0" + "1" завершилось успешно. Перемещенно файлов: {2}</value>
+    <comment>single rule was copied</comment>
+  </data>
+  <data name="tasksAreDoneForElapsedTime" xml:space="preserve">
+    <value>Все задачи завершены за {0} миллисекунд</value>
+  </data>
+  <data name="unauthorizedAccessExceptionMessage" xml:space="preserve">
+    <value>{0}. Чтобы скопировать файл в {1} запустите программу от имени администратра</value>
   </data>
 </root>

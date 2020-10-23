@@ -70,11 +70,83 @@ namespace TrashVanish {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Задачи с наборами, чувствительными к регистру, с комплексными правилами завершены.
+        /// </summary>
+        internal static string caseSensetiveSetsWithCmplxRulesAreDone {
+            get {
+                return ResourceManager.GetString("caseSensetiveSetsWithCmplxRulesAreDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Задачи, чувствительные к регистру, с комплексными правилами завершены.
+        /// </summary>
+        internal static string caseSensetiveTasksWithCmplxRulesAreDone {
+            get {
+                return ResourceManager.GetString("caseSensetiveTasksWithCmplxRulesAreDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Задачи с комплексными правилами завершены.
+        /// </summary>
+        internal static string complexRulesAreDone {
+            get {
+                return ResourceManager.GetString("complexRulesAreDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Задачи с наборами, с комплексными правилами, завершены.
+        /// </summary>
+        internal static string complexSetsAreDone {
+            get {
+                return ResourceManager.GetString("complexSetsAreDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Расширение не корректно.
         /// </summary>
         internal static string extIsInvalid {
             get {
                 return ResourceManager.GetString("extIsInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Файл &quot;{0}&quot; уже существует в {1}, пропускаю....
+        /// </summary>
+        internal static string fileAlreadyExist {
+            get {
+                return ResourceManager.GetString("fileAlreadyExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нет файлов для задачи &quot;{0}&quot;, иду дальше.
+        /// </summary>
+        internal static string noFilesForExt {
+            get {
+                return ResourceManager.GetString("noFilesForExt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нет файлов для задачи &quot;{0}&quot; + &quot;{1}&quot;, иду дальше.
+        /// </summary>
+        internal static string noFilesForExtAndInclude {
+            get {
+                return ResourceManager.GetString("noFilesForExtAndInclude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Не все файлы &quot;{0}&quot; были скопированы успешно.
+        /// </summary>
+        internal static string notAllFilesWithExtWereMoved {
+            get {
+                return ResourceManager.GetString("notAllFilesWithExtWereMoved", resourceCulture);
             }
         }
         
@@ -124,6 +196,15 @@ namespace TrashVanish {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Задачи с правилами завершены.
+        /// </summary>
+        internal static string rulesAreDone {
+            get {
+                return ResourceManager.GetString("rulesAreDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Правило для {0} обновлено.
         /// </summary>
         internal static string ruleUpdatedSuccessfully {
@@ -138,6 +219,60 @@ namespace TrashVanish {
         internal static string setAddedSuccessfully {
             get {
                 return ResourceManager.GetString("setAddedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Задачи с наборами завершены.
+        /// </summary>
+        internal static string setsAreDone {
+            get {
+                return ResourceManager.GetString("setsAreDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Старт.
+        /// </summary>
+        internal static string start {
+            get {
+                return ResourceManager.GetString("start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Задача для &quot;{0}&quot; завершилась успешно. Перемещенно файлов: {1}.
+        /// </summary>
+        internal static string taskCompleted {
+            get {
+                return ResourceManager.GetString("taskCompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Задача для &quot;0&quot; + &quot;1&quot; завершилось успешно. Перемещенно файлов: {2}.
+        /// </summary>
+        internal static string taskCompletedWithIncludes {
+            get {
+                return ResourceManager.GetString("taskCompletedWithIncludes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Все задачи завершены за {0} миллисекунд.
+        /// </summary>
+        internal static string tasksAreDoneForElapsedTime {
+            get {
+                return ResourceManager.GetString("tasksAreDoneForElapsedTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}. Чтобы скопировать файл в {1} запустите программу от имени администратра.
+        /// </summary>
+        internal static string unauthorizedAccessExceptionMessage {
+            get {
+                return ResourceManager.GetString("unauthorizedAccessExceptionMessage", resourceCulture);
             }
         }
     }

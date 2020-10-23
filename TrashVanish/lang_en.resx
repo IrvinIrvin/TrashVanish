@@ -121,9 +121,37 @@
     <value>Application is loaded</value>
     <comment>Message appears in log when app is loaded</comment>
   </data>
+  <data name="caseSensetiveSetsWithCmplxRulesAreDone" xml:space="preserve">
+    <value>Tasks with case sensetive sets with complex rules are done</value>
+    <comment>case sensetive sets with "includes"</comment>
+  </data>
+  <data name="caseSensetiveTasksWithCmplxRulesAreDone" xml:space="preserve">
+    <value>Tasks with case sensetive tasks with compelx rules are done</value>
+    <comment>caseSensetive rules with "includes"</comment>
+  </data>
+  <data name="complexRulesAreDone" xml:space="preserve">
+    <value>Tasks with complex rules are done</value>
+    <comment>case insensetive rules with "includes"</comment>
+  </data>
+  <data name="complexSetsAreDone" xml:space="preserve">
+    <value>Tasks with complex sets are done</value>
+    <comment>case insensetive sets with "includes"</comment>
+  </data>
   <data name="extIsInvalid" xml:space="preserve">
     <value>Extension is invalid</value>
     <comment>Extension must not include anything than letters</comment>
+  </data>
+  <data name="fileAlreadyExist" xml:space="preserve">
+    <value>File "{0}" already exist in {1}, skipping...</value>
+  </data>
+  <data name="noFilesForExt" xml:space="preserve">
+    <value>There are no files for task "{0}", moving on to the next task</value>
+  </data>
+  <data name="noFilesForExtAndInclude" xml:space="preserve">
+    <value>There are no files for the task "{0}" +" {1}", moving on to the next task</value>
+  </data>
+  <data name="notAllFilesWithExtWereMoved" xml:space="preserve">
+    <value>Not all "{0}" files were copied successfully</value>
   </data>
   <data name="pathIsInvalid" xml:space="preserve">
     <value>Path is invalid</value>
@@ -145,10 +173,33 @@
     <value>Rule for {0} already exists</value>
     <comment>Templated message shows if rule already exists</comment>
   </data>
+  <data name="rulesAreDone" xml:space="preserve">
+    <value>Tasks with rules are done</value>
+  </data>
   <data name="ruleUpdatedSuccessfully" xml:space="preserve">
     <value>Rule for {0} updated successfully</value>
   </data>
   <data name="setAddedSuccessfully" xml:space="preserve">
     <value>Set added successfully</value>
+  </data>
+  <data name="setsAreDone" xml:space="preserve">
+    <value>Tasks with sets are done</value>
+  </data>
+  <data name="start" xml:space="preserve">
+    <value>Start</value>
+    <comment>Worker class. Prints when work started</comment>
+  </data>
+  <data name="taskCompleted" xml:space="preserve">
+    <value>Задача для "{0}" завершилась успешно. Перемещенно файлов: {1}</value>
+  </data>
+  <data name="taskCompletedWithIncludes" xml:space="preserve">
+    <value>Task for"0" + "1" done successfully. Files copied: {2}</value>
+    <comment>task for single rule done</comment>
+  </data>
+  <data name="tasksAreDoneForElapsedTime" xml:space="preserve">
+    <value>All tasks done in {0} milliseconds</value>
+  </data>
+  <data name="unauthorizedAccessExceptionMessage" xml:space="preserve">
+    <value>{0}. To copy file in {1} run app as administrator</value>
   </data>
 </root>

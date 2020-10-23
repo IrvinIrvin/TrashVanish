@@ -5,6 +5,8 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,10 +17,12 @@ namespace TrashVanish
     internal class Worker
     {
         private readonly RichTextBox box;
+        private ResourceManager resourceManager;
 
         public Worker(RichTextBox richTextBox)
         {
             box = richTextBox;
+            resourceManager = new ResourceManager("TrashVanish.lang_" + System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, Assembly.GetExecutingAssembly());
         }
 
         private readonly List<string> affectedFiles = new List<string>();
@@ -35,7 +39,7 @@ namespace TrashVanish
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();
-            Logger("Старт", Color.Lime);
+            Logger(resourceManager.GetString("start"), Color.Lime);
             List<RuleModel> complexRules = new List<RuleModel>();
             List<RuleModel> simpleRules = new List<RuleModel>();
             List<Task> tasks = new List<Task>();
@@ -72,7 +76,7 @@ namespace TrashVanish
                 }));
             }
             await Task.WhenAll(tasks.ToArray());
-            Logger("Задачи, чувствительные к регистру, с комплексными правилами завершены", Color.MediumSpringGreen);
+            Logger(resourceManager.GetString("caseSensetiveTasksWithCmplxRulesAreDone"), Color.MediumSpringGreen);
             tasks.Clear();
             foreach (RuleModel rule in caseInsensitiveRules)
             {
@@ -82,7 +86,7 @@ namespace TrashVanish
                 }));
             }
             await Task.WhenAll(tasks.ToArray());
-            Logger("Задачи с комплексными правилами завершены", Color.MediumSpringGreen);
+            Logger(resourceManager.GetString("complexRulesAreDone"), Color.MediumSpringGreen);
             tasks.Clear();
             foreach (RuleModel rule in simpleRules)
             {
@@ -94,7 +98,7 @@ namespace TrashVanish
             await Task.WhenAll(tasks.ToArray());
             complexRules.Clear();
             simpleRules.Clear();
-            Logger("Задачи с правилами завершены", Color.MediumSpringGreen);
+            Logger(resourceManager.GetString("rulesAreDone"), Color.MediumSpringGreen);
             tasks.Clear();
             foreach (SetModel set in sets)
             {
@@ -133,7 +137,7 @@ namespace TrashVanish
                 }));
             }
             await Task.WhenAll(tasks.ToArray());
-            Logger("Задачи с наборами, чувствительными к регистру, с комплексными правилами завершены", Color.MediumSpringGreen);
+            Logger(resourceManager.GetString("caseSensetiveSetsWithCmplxRulesAreDone"), Color.MediumSpringGreen);
             tasks.Clear();
             foreach (RuleModel rule in caseInsensitiveRules)
             {
@@ -143,7 +147,7 @@ namespace TrashVanish
                 }));
             }
             await Task.WhenAll(tasks.ToArray());
-            Logger("Задачи с наборами, с комплексными правилами, завершены", Color.MediumSpringGreen);
+            Logger(resourceManager.GetString("complexSetsAreDone"), Color.MediumSpringGreen);
             tasks.Clear();
             foreach (RuleModel rule in simpleRules)
             {
@@ -152,11 +156,12 @@ namespace TrashVanish
                     Work(cwd, rule.ruleExtension, rule.ruleIncludes, rule.rulePath, deleteFile, owFiles, rule.ruleIsCaseSensetive);
                 }));
             }
+            // TODO: continue translation (Check DBConnection also)
             await Task.WhenAll(tasks.ToArray());
-            Logger("Задачи с простыми наборами завершены", Color.MediumSpringGreen);
+            Logger(resourceManager.GetString("setsAreDone"), Color.MediumSpringGreen);
             await Task.WhenAll(tasks.ToArray());
             watch.Stop();
-            Logger("Все задачи завершены за " + watch.ElapsedMilliseconds + " миллисекунд", Color.Lime);
+            Logger(string.Format(resourceManager.GetString("tasksAreDoneForElapsedTime"), watch.ElapsedMilliseconds), Color.Lime);
         }
 
         private void Work(string cwd, string extension, string includes, string targetpath, bool deleteFile, bool owFiles, int isCaseSensetive)
@@ -168,11 +173,11 @@ namespace TrashVanish
             {
                 if (includes != "")
                 {
-                    Logger("Нет файлов для задачи \"" + extension + "\" + \"" + includes + "\"... сворачиваюсь", Color.DarkOrange);
+                    Logger(string.Format(resourceManager.GetString("noFilesForExtAndInclude"), extension, includes), Color.DarkOrange);
                 }
                 else
                 {
-                    Logger("Нет файлов для задачи \"" + extension + "\"... сворачиваюсь", Color.DarkOrange);
+                    Logger(string.Format(resourceManager.GetString("noFilesForExt"), extension), Color.DarkOrange);
                 }
 
                 return;
@@ -206,7 +211,7 @@ namespace TrashVanish
                 {
                     if (File.Exists(destination) & !owFiles)
                     {
-                        Logger("Файл \"" + filename + "\" уже существет в \"" + targetpath + "\"... пропускаю", Color.Gold);
+                        Logger(string.Format(resourceManager.GetString("fileAlreadyExist"), filename, targetpath), Color.Gold);
                         continue;
                     }
                     if (NotAffected(file))
@@ -217,7 +222,8 @@ namespace TrashVanish
                         }
                         catch (UnauthorizedAccessException uae)
                         {
-                            Logger(uae.Message + ". Чтобы скопировать файл в \"" + targetpath + "\" запустите программу от имени администратора", Color.Maroon);
+                            //Logger(uae.Message + ". Чтобы скопировать файл в \"" + targetpath + "\" запустите программу от имени администратора", Color.Maroon);
+                            Logger(string.Format(resourceManager.GetString("unauthorizedAccessExceptionMessage"), uae.Message, targetpath), Color.Maroon);
                             errors++;
                             doNotDelete = true;
                         }
@@ -253,17 +259,17 @@ namespace TrashVanish
             }
             if (errors != 0)
             {
-                Logger("Не все файлы \"" + extension + "\" перемещенны успешно", Color.OrangeRed);
+                Logger(string.Format(resourceManager.GetString("notAllFilesWithExtWereMoved"), extension), Color.OrangeRed);
             }
             else
             {
                 if (includes != "")
                 {
-                    Logger("Задача для \"" + extension + "\" \"" + includes + "\" завершилось успешно. Перемещенно файлов: " + filesCopied, Color.Lime);
+                    Logger(string.Format(resourceManager.GetString("taskCompletedWithIncludes"), extension, includes, filesCopied), Color.Lime);
                 }
                 else
                 {
-                    Logger("Задача для \"" + extension + "\" завершилось успешно. Перемещенно файлов: " + filesCopied, Color.Lime);
+                    Logger(string.Format(resourceManager.GetString("taskCompleted"), extension, filesCopied), Color.Lime);
                 }
             }
         }
