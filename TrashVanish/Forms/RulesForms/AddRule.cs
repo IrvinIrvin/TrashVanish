@@ -1,25 +1,23 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using System.Reflection;
+using System.Resources;
 using System.Windows.Forms;
 
 namespace TrashVanish
 {
     public partial class AddRule : Form
     {
-        public AddRule()
-        {
-            InitializeComponent();
-            this.Icon = Properties.Resources.appicon;
-        }
-
         private DataGridView rulesGrid;
+        private ResourceManager resourceManager;
 
         public AddRule(DataGridView dataGridView)
         {
             InitializeComponent();
             this.Icon = Properties.Resources.appicon;
             rulesGrid = dataGridView;
+            resourceManager = new ResourceManager("TrashVanish.lang_" + System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, Assembly.GetExecutingAssembly());
         }
 
         private string path, extension, includes;
@@ -43,7 +41,7 @@ namespace TrashVanish
             isCaseSensetive = isCaseSensetiveCheckBox.Checked ? 1 : 0; // Since SQLite doesn't have native boolean, I will use digits instead
             if (extension == "" || path == "")
             {
-                messageLabelFunc("Обязательные поля не заполнены", Color.DarkOrange);
+                messageLabelFunc(resourceManager.GetString("ReqFieldsAreEmpty"), Color.DarkOrange);
                 return;
             }
             if (extension[0] != '.')
@@ -57,12 +55,12 @@ namespace TrashVanish
 
             if (DBConnection.IsRuleExist(extension, includes, isCaseSensetive))
             {
-                messageLabelFunc("Правило для \"" + extension + "\" уже существует", Color.DarkOrange);
+                messageLabelFunc(string.Format(resourceManager.GetString("ruleForExtAlreadyExist"), extension), Color.DarkOrange);
                 return;
             }
             RuleModel rule = new RuleModel { ruleExtension = extension, ruleIncludes = includes, ruleIsCaseSensetive = isCaseSensetive, rulePath = path };
             DBConnection.AddRule(rule);
-            messageLabelFunc("Правило для \"" + extension + "\" создано", Color.Lime);
+            messageLabelFunc(string.Format(resourceManager.GetString("ruleCreatedSuccessfuly")), Color.Lime);
             ExtensionTextBox.Text = "";
             includesTextBox.Text = "";
             pathTextBox.Text = "";
@@ -103,14 +101,14 @@ namespace TrashVanish
         {
             if (extension.Substring(1).Length == 0)
             {
-                messageLabelFunc("Расширение не корректно", Color.DarkOrange);
+                messageLabelFunc(resourceManager.GetString("extIsInvalid"), Color.DarkOrange);
                 return false;
             }
             foreach (char l in extension.Substring(1))
             {
                 if (!(l >= 65 && l <= 90) && !(l >= 97 && l <= 122))
                 {
-                    messageLabelFunc("Расширение не корректно", Color.DarkOrange);
+                    messageLabelFunc(resourceManager.GetString("extIsInvalid"), Color.DarkOrange);
                     return false;
                 }
             }
@@ -125,12 +123,12 @@ namespace TrashVanish
             }
             catch
             {
-                messageLabelFunc("Путь не корректен", Color.DarkOrange);
+                messageLabelFunc(resourceManager.GetString("pathIsInvalid"), Color.DarkOrange);
                 return false;
             }
             if (!Path.IsPathRooted(path))
             {
-                messageLabelFunc("Относительные пути запрещены", Color.DarkOrange);
+                messageLabelFunc(resourceManager.GetString("relPathesAreForbidden"), Color.DarkOrange);
                 return false;
             }
             return true;

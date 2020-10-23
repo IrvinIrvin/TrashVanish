@@ -117,7 +117,172 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="mainTask.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="mainTask.Location" type="System.Drawing.Point, System.Drawing">
+    <value>531, 160</value>
+  </data>
+  <data name="mainTask.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 37</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="mainTask.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="mainTask.Text" xml:space="preserve">
+    <value>Vanish</value>
+  </data>
+  <data name="&gt;&gt;mainTask.Name" xml:space="preserve">
+    <value>mainTask</value>
+  </data>
+  <data name="&gt;&gt;mainTask.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mainTask.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;mainTask.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="groupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="logRichTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
   <metadata name="logMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="ClearLogItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 22</value>
+  </data>
+  <data name="ClearLogItem.Text" xml:space="preserve">
+    <value>Очистить лог</value>
+  </data>
+  <data name="logMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 26</value>
+  </data>
+  <data name="&gt;&gt;logMenuStrip.Name" xml:space="preserve">
+    <value>logMenuStrip</value>
+  </data>
+  <data name="&gt;&gt;logMenuStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="logRichTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 9.75pt, style=Bold</value>
+  </data>
+  <data name="logRichTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 16</value>
+  </data>
+  <data name="logRichTextBox.ScrollBars" type="System.Windows.Forms.RichTextBoxScrollBars, System.Windows.Forms">
+    <value>ForcedBoth</value>
+  </data>
+  <data name="logRichTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>506, 168</value>
+  </data>
+  <data name="logRichTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="logRichTextBox.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;logRichTextBox.Name" xml:space="preserve">
+    <value>logRichTextBox</value>
+  </data>
+  <data name="&gt;&gt;logRichTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;logRichTextBox.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;logRichTextBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 13</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>512, 187</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Лог</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="globalSettings.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="globalSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>531, 28</value>
+  </data>
+  <data name="globalSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 23</value>
+  </data>
+  <data name="globalSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="globalSettings.Text" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="&gt;&gt;globalSettings.Name" xml:space="preserve">
+    <value>globalSettings</value>
+  </data>
+  <data name="&gt;&gt;globalSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;globalSettings.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;globalSettings.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en-US</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>653, 209</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>515, 248</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>TrashVanisher</value>
+  </data>
+  <data name="&gt;&gt;ClearLogItem.Name" xml:space="preserve">
+    <value>ClearLogItem</value>
+  </data>
+  <data name="&gt;&gt;ClearLogItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainWindow</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

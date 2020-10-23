@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Reflection;
+using System.Resources;
 using System.Windows.Forms;
 using TrashVanish.Classes;
 using TrashVanish.Forms;
@@ -15,8 +17,10 @@ namespace TrashVanish
         {
             InitializeComponent();
             this.Icon = Properties.Resources.appicon;
+            resourceManager = new ResourceManager("TrashVanish.lang_" + System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, Assembly.GetExecutingAssembly());
         }
 
+        private ResourceManager resourceManager;
         private List<RuleModel> rules = new List<RuleModel>();
         private List<SetModel> sets = new List<SetModel>();
         private readonly string cwd = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -25,7 +29,7 @@ namespace TrashVanish
         {
             DBConnection.CheckDB();
             logRichTextBox.SelectionColor = Color.Cyan;
-            logRichTextBox.AppendText("[" + DateTime.Now + "]" + " - " + "Программа загружена" + "\r\n");
+            logRichTextBox.AppendText("[" + DateTime.Now + "]" + " - " + resourceManager.GetString("AppIsLoaded") + "\r\n");
             logRichTextBox.SelectionColor = logRichTextBox.ForeColor;
         }
 

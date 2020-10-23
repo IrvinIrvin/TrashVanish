@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SQLite;
 using System.IO;
+using System.Reflection;
+using System.Resources;
 using System.Windows.Forms;
 using TrashVanish.Classes;
 
@@ -10,6 +12,8 @@ namespace TrashVanish
 {
     public class DBConnection
     {
+        private static ResourceManager resourceManager = new ResourceManager("TrashVanish.lang_" + System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, Assembly.GetExecutingAssembly());
+
         /// <summary>
         /// Load all rules from database and create list of RuleModels
         /// </summary>
@@ -43,7 +47,7 @@ namespace TrashVanish
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Ошибка при получении информации из БД", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(e.Message, resourceManager.GetString("dbError"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return rules;
         }
@@ -92,7 +96,7 @@ namespace TrashVanish
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message, "Ошибка при создании бд", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(e.Message, resourceManager.GetString("dbCreationError"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     if (File.Exists(@".\trashVanish.db"))
                     {
                         try
@@ -101,7 +105,7 @@ namespace TrashVanish
                         }
                         catch
                         {
-                            MessageBox.Show("Ошибка при удалении бд. База данных была создана не корректно и не может быть удалена. Если проблема не исчезнет, удалите ее вручную, пройдя по пути" + Environment.CurrentDirectory);
+                            MessageBox.Show(string.Format(resourceManager.GetString("dbDeleteError"), Environment.CurrentDirectory));
                         }
                     }
                 }
@@ -135,14 +139,14 @@ namespace TrashVanish
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show(e.Message, "Ошибка при добавлении значений в бд", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(e.Message, resourceManager.GetString("dbInteractionError"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                         try
                         {
                             transaction.Rollback();
                         }
                         catch (Exception exRollBack)
                         {
-                            MessageBox.Show(exRollBack.Message, "Ошибка при откатывании бд в прежнее состояние", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(exRollBack.Message, resourceManager.GetString("dbRollBackError"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -153,7 +157,7 @@ namespace TrashVanish
         /// Deletes rules by their id
         /// </summary>
         /// <param name="ruleID">id of the rule</param>
-        public static void DeleteRule(string ruleID) // TODO: Wrap in transaction
+        public static void DeleteRule(string ruleID)
         {
             using (SQLiteConnection connection = new SQLiteConnection(LoadConnectionString()))
             {
@@ -170,14 +174,14 @@ namespace TrashVanish
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show(e.Message);
+                        MessageBox.Show(e.Message, resourceManager.GetString("dbInteractionError"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                         try
                         {
                             transaction.Rollback();
                         }
                         catch (Exception exRollBack)
                         {
-                            MessageBox.Show(exRollBack.Message, "Ошибка при откатывании бд в прежнее состояние", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(exRollBack.Message, resourceManager.GetString("dbRollBackError"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -248,14 +252,15 @@ namespace TrashVanish
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message, "Ошибка при добавлении значений в бд", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(e.Message, resourceManager.GetString("dbInteractionError"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                     try
                     {
                         transaction.Rollback();
                     }
                     catch (Exception exRollBack)
                     {
-                        MessageBox.Show(exRollBack.Message, "Ошибка при откатывании бд в прежнее состояние", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(exRollBack.Message, resourceManager.GetString("dbRollBackError"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -318,7 +323,7 @@ namespace TrashVanish
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Ошибка при получении информации о наборах из БД", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(e.Message, resourceManager.GetString("dbInteractionError"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return setsList;
         }
@@ -370,7 +375,7 @@ namespace TrashVanish
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Ошибка при получении информации о наборах из БД", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(e.Message, resourceManager.GetString("dbInteractionError"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return set;
         }
@@ -398,14 +403,15 @@ namespace TrashVanish
                         }
                         catch (Exception e)
                         {
-                            MessageBox.Show(e.Message, "Ошибка при удалении значений из бд", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(e.Message, resourceManager.GetString("dbInteractionError"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                             try
                             {
                                 transaction.Rollback();
                             }
                             catch (Exception exRollBack)
                             {
-                                MessageBox.Show(exRollBack.Message, "Ошибка при откатывании бд в прежнее состояние", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show(exRollBack.Message, resourceManager.GetString("dbRollBackError"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                     }
