@@ -31,7 +31,7 @@ namespace TrashVanish.Classes
             }
             if (!localizationExists)
             {
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
+                GlobalResourseManager = new ResourceManager($"TrashVanish.lang_en", Assembly.GetExecutingAssembly());
             }
             else
             {

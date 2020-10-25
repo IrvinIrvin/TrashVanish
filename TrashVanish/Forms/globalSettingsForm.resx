@@ -117,613 +117,595 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="clearLogCheckbox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="clearLogCheckbox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="clearLogCheckbox.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="clearLogCheckbox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 294</value>
-  </data>
-  <data name="clearLogCheckbox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 17</value>
-  </data>
-  <data name="clearLogCheckbox.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="clearLogCheckbox.Text" xml:space="preserve">
-    <value>Clear log</value>
-  </data>
-  <metadata name="checkboxesToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="clearLogCheckbox.ToolTip" xml:space="preserve">
-    <value>Clear the log before executing the task</value>
-  </data>
-  <data name="&gt;&gt;clearLogCheckbox.Name" xml:space="preserve">
-    <value>clearLogCheckbox</value>
-  </data>
-  <data name="&gt;&gt;clearLogCheckbox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;clearLogCheckbox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;clearLogCheckbox.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="overwriteFiles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="overwriteFiles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>246, 282</value>
-  </data>
-  <data name="overwriteFiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 40</value>
-  </data>
-  <data name="overwriteFiles.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="overwriteFiles.Text" xml:space="preserve">
-    <value>Overwrite files</value>
-  </data>
-  <data name="overwriteFiles.ToolTip" xml:space="preserve">
-    <value>Overwrite existing files in case of conflict (if not checked, the file will not be copied)</value>
-  </data>
-  <data name="&gt;&gt;overwriteFiles.Name" xml:space="preserve">
-    <value>overwriteFiles</value>
-  </data>
-  <data name="&gt;&gt;overwriteFiles.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;overwriteFiles.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;overwriteFiles.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="deleteFlag.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="deleteFlag.Location" type="System.Drawing.Point, System.Drawing">
-    <value>503, 275</value>
-  </data>
-  <data name="deleteFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 55</value>
-  </data>
-  <data name="deleteFlag.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="deleteFlag.Text" xml:space="preserve">
-    <value>Delete after copy</value>
-  </data>
-  <data name="deleteFlag.ToolTip" xml:space="preserve">
-    <value>Delete file after copying</value>
-  </data>
   <data name="&gt;&gt;deleteFlag.Name" xml:space="preserve">
     <value>deleteFlag</value>
   </data>
-  <data name="&gt;&gt;deleteFlag.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;deleteFlag.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;deleteFlag.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="rulesAndSetsTabControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;RulesSettingsTab.Name" xml:space="preserve">
-    <value>RulesSettingsTab</value>
-  </data>
-  <data name="&gt;&gt;RulesSettingsTab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RulesSettingsTab.Parent" xml:space="preserve">
-    <value>rulesAndSetsTabControl</value>
-  </data>
-  <data name="&gt;&gt;RulesSettingsTab.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;SetsSettingsTab.Name" xml:space="preserve">
-    <value>SetsSettingsTab</value>
-  </data>
-  <data name="&gt;&gt;SetsSettingsTab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SetsSettingsTab.Parent" xml:space="preserve">
-    <value>rulesAndSetsTabControl</value>
-  </data>
-  <data name="&gt;&gt;SetsSettingsTab.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="rulesAndSetsTabControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 8</value>
-  </data>
-  <data name="rulesAndSetsTabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>605, 265</value>
-  </data>
-  <data name="rulesAndSetsTabControl.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;rulesAndSetsTabControl.Name" xml:space="preserve">
-    <value>rulesAndSetsTabControl</value>
-  </data>
-  <data name="&gt;&gt;rulesAndSetsTabControl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rulesAndSetsTabControl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;rulesAndSetsTabControl.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;rulesGrid.Name" xml:space="preserve">
-    <value>rulesGrid</value>
-  </data>
-  <data name="&gt;&gt;rulesGrid.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rulesGrid.Parent" xml:space="preserve">
-    <value>RulesSettingsTab</value>
-  </data>
   <data name="&gt;&gt;rulesGrid.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="RulesSettingsTab.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="RulesSettingsTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="RulesSettingsTab.Size" type="System.Drawing.Size, System.Drawing">
-    <value>597, 239</value>
-  </data>
-  <data name="RulesSettingsTab.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="RulesSettingsTab.Text" xml:space="preserve">
-    <value>Rules</value>
-  </data>
-  <data name="&gt;&gt;RulesSettingsTab.Name" xml:space="preserve">
-    <value>RulesSettingsTab</value>
-  </data>
-  <data name="&gt;&gt;RulesSettingsTab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RulesSettingsTab.Parent" xml:space="preserve">
-    <value>rulesAndSetsTabControl</value>
-  </data>
-  <data name="&gt;&gt;RulesSettingsTab.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rulesGrid.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <metadata name="id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="id.HeaderText" xml:space="preserve">
-    <value>ID</value>
-  </data>
-  <data name="id.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="id.Width" type="System.Int32, mscorlib">
-    <value>50</value>
-  </data>
-  <metadata name="FileExtension.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ruleRowControlMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>327, 17</value>
-  </metadata>
-  <data name="ruleRowControlMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 48</value>
-  </data>
-  <data name="&gt;&gt;ruleRowControlMenuStrip.Name" xml:space="preserve">
-    <value>ruleRowControlMenuStrip</value>
-  </data>
-  <data name="&gt;&gt;ruleRowControlMenuStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="FileExtension.HeaderText" xml:space="preserve">
-    <value>Extension</value>
-  </data>
-  <data name="FileExtension.MinimumWidth" type="System.Int32, mscorlib">
-    <value>50</value>
-  </data>
-  <data name="FileExtension.Width" type="System.Int32, mscorlib">
-    <value>95</value>
-  </data>
-  <metadata name="NameIncludes.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="NameIncludes.HeaderText" xml:space="preserve">
-    <value>Filename includes</value>
-  </data>
-  <data name="NameIncludes.MinimumWidth" type="System.Int32, mscorlib">
-    <value>50</value>
-  </data>
-  <data name="NameIncludes.Width" type="System.Int32, mscorlib">
-    <value>129</value>
-  </data>
-  <metadata name="isCaseSensetive.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="isCaseSensetive.HeaderText" xml:space="preserve">
-    <value>Is case sensetive</value>
-  </data>
-  <metadata name="SavePath.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="SavePath.HeaderText" xml:space="preserve">
-    <value>Path</value>
-  </data>
-  <metadata name="ruleGridControlsStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>172, 17</value>
-  </metadata>
-  <data name="ruleGridControlsStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 48</value>
-  </data>
-  <data name="&gt;&gt;ruleGridControlsStrip.Name" xml:space="preserve">
-    <value>ruleGridControlsStrip</value>
-  </data>
-  <data name="&gt;&gt;ruleGridControlsStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="rulesGrid.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 16</value>
-  </data>
-  <data name="rulesGrid.Size" type="System.Drawing.Size, System.Drawing">
-    <value>585, 203</value>
-  </data>
-  <data name="rulesGrid.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;rulesGrid.Name" xml:space="preserve">
-    <value>rulesGrid</value>
-  </data>
-  <data name="&gt;&gt;rulesGrid.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rulesGrid.Parent" xml:space="preserve">
-    <value>RulesSettingsTab</value>
-  </data>
-  <data name="&gt;&gt;rulesGrid.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="editRuleItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 22</value>
-  </data>
-  <data name="editRuleItem.Text" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="deleteRuleItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 22</value>
-  </data>
-  <data name="deleteRuleItem.Text" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="UpdateGridItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
-  </data>
-  <data name="UpdateGridItem.Text" xml:space="preserve">
-    <value>Update</value>
-  </data>
-  <data name="AddRuleItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
-  </data>
-  <data name="AddRuleItem.Text" xml:space="preserve">
-    <value>Add rule</value>
-  </data>
-  <data name="&gt;&gt;extensionsSetGrid.Name" xml:space="preserve">
-    <value>extensionsSetGrid</value>
-  </data>
-  <data name="&gt;&gt;extensionsSetGrid.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;extensionsSetGrid.Parent" xml:space="preserve">
-    <value>SetsSettingsTab</value>
-  </data>
-  <data name="&gt;&gt;extensionsSetGrid.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="SetsSettingsTab.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="SetsSettingsTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="SetsSettingsTab.Size" type="System.Drawing.Size, System.Drawing">
-    <value>597, 239</value>
-  </data>
-  <data name="SetsSettingsTab.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="SetsSettingsTab.Text" xml:space="preserve">
-    <value>Sets</value>
-  </data>
-  <data name="&gt;&gt;SetsSettingsTab.Name" xml:space="preserve">
-    <value>SetsSettingsTab</value>
-  </data>
-  <data name="&gt;&gt;SetsSettingsTab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SetsSettingsTab.Parent" xml:space="preserve">
-    <value>rulesAndSetsTabControl</value>
-  </data>
-  <data name="&gt;&gt;SetsSettingsTab.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="extensionsSetGrid.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <metadata name="dataGridViewTextBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="dataGridViewTextBoxColumn1.HeaderText" xml:space="preserve">
-    <value>ID</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn1.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <metadata name="SetName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="setRowControlMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>652, 17</value>
-  </metadata>
-  <data name="setRowControlMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 48</value>
-  </data>
-  <data name="&gt;&gt;setRowControlMenuStrip.Name" xml:space="preserve">
-    <value>setRowControlMenuStrip</value>
-  </data>
-  <data name="&gt;&gt;setRowControlMenuStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="SetName.HeaderText" xml:space="preserve">
-    <value>Set name</value>
-  </data>
-  <data name="SetName.MinimumWidth" type="System.Int32, mscorlib">
-    <value>50</value>
-  </data>
-  <data name="SetName.Width" type="System.Int32, mscorlib">
-    <value>93</value>
-  </data>
-  <metadata name="Extensions.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="Extensions.HeaderText" xml:space="preserve">
-    <value>Extesnions</value>
-  </data>
-  <data name="Extensions.MinimumWidth" type="System.Int32, mscorlib">
-    <value>50</value>
-  </data>
-  <data name="Extensions.Width" type="System.Int32, mscorlib">
-    <value>95</value>
-  </data>
-  <metadata name="dataGridViewTextBoxColumn2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="dataGridViewTextBoxColumn2.HeaderText" xml:space="preserve">
-    <value>Is case sensetive</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn2.Width" type="System.Int32, mscorlib">
-    <value>114</value>
-  </data>
-  <metadata name="targetPath.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="targetPath.HeaderText" xml:space="preserve">
-    <value>Path</value>
-  </data>
-  <metadata name="setGridControlStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>496, 17</value>
-  </metadata>
-  <data name="setGridControlStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 48</value>
-  </data>
-  <data name="&gt;&gt;setGridControlStrip.Name" xml:space="preserve">
-    <value>setGridControlStrip</value>
-  </data>
-  <data name="&gt;&gt;setGridControlStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="extensionsSetGrid.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 16</value>
-  </data>
-  <data name="extensionsSetGrid.Size" type="System.Drawing.Size, System.Drawing">
-    <value>585, 203</value>
-  </data>
-  <data name="extensionsSetGrid.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;extensionsSetGrid.Name" xml:space="preserve">
-    <value>extensionsSetGrid</value>
-  </data>
-  <data name="&gt;&gt;extensionsSetGrid.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;extensionsSetGrid.Parent" xml:space="preserve">
-    <value>SetsSettingsTab</value>
-  </data>
-  <data name="&gt;&gt;extensionsSetGrid.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="editSetItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 22</value>
-  </data>
-  <data name="editSetItem.Text" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="deleteSetItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 22</value>
   </data>
   <data name="deleteSetItem.Text" xml:space="preserve">
     <value>Delete</value>
   </data>
-  <data name="updateSetGridItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 22</value>
+  <data name="clearLogCheckbox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 17</value>
   </data>
-  <data name="updateSetGridItem.Text" xml:space="preserve">
-    <value>Update</value>
+  <data name="&gt;&gt;SetsSettingsTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="addSetItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 22</value>
+  <data name="UpdateGridItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 22</value>
   </data>
-  <data name="addSetItem.Text" xml:space="preserve">
-    <value>Add set</value>
+  <data name="SetsSettingsTab.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>ru</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>629, 334</value>
-  </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>645, 373</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>TrashVanish - Настройки</value>
-  </data>
-  <data name="&gt;&gt;checkboxesToolTip.Name" xml:space="preserve">
-    <value>checkboxesToolTip</value>
-  </data>
-  <data name="&gt;&gt;checkboxesToolTip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;id.Name" xml:space="preserve">
-    <value>id</value>
-  </data>
-  <data name="&gt;&gt;id.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;FileExtension.Name" xml:space="preserve">
-    <value>FileExtension</value>
-  </data>
-  <data name="&gt;&gt;FileExtension.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;editRuleItem.Name" xml:space="preserve">
-    <value>editRuleItem</value>
-  </data>
-  <data name="&gt;&gt;editRuleItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;deleteRuleItem.Name" xml:space="preserve">
-    <value>deleteRuleItem</value>
-  </data>
-  <data name="&gt;&gt;deleteRuleItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;NameIncludes.Name" xml:space="preserve">
-    <value>NameIncludes</value>
-  </data>
-  <data name="&gt;&gt;NameIncludes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;isCaseSensetive.Name" xml:space="preserve">
-    <value>isCaseSensetive</value>
+  <data name="overwriteFiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>246, 282</value>
   </data>
   <data name="&gt;&gt;isCaseSensetive.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SavePath.Name" xml:space="preserve">
-    <value>SavePath</value>
-  </data>
-  <data name="&gt;&gt;SavePath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;UpdateGridItem.Name" xml:space="preserve">
-    <value>UpdateGridItem</value>
-  </data>
-  <data name="&gt;&gt;UpdateGridItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;AddRuleItem.Name" xml:space="preserve">
-    <value>AddRuleItem</value>
-  </data>
-  <data name="&gt;&gt;AddRuleItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn1</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;SetName.Name" xml:space="preserve">
     <value>SetName</value>
   </data>
-  <data name="&gt;&gt;SetName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="clearLogCheckbox.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
-  <data name="&gt;&gt;editSetItem.Name" xml:space="preserve">
-    <value>editSetItem</value>
+  <data name="Extensions.Width" type="System.Int32, mscorlib">
+    <value>95</value>
   </data>
-  <data name="&gt;&gt;editSetItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;deleteSetItem.Name" xml:space="preserve">
-    <value>deleteSetItem</value>
-  </data>
-  <data name="&gt;&gt;deleteSetItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Extensions.Name" xml:space="preserve">
-    <value>Extensions</value>
-  </data>
-  <data name="&gt;&gt;Extensions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="targetPath.HeaderText" xml:space="preserve">
+    <value>Path</value>
   </data>
   <data name="&gt;&gt;dataGridViewTextBoxColumn2.Name" xml:space="preserve">
     <value>dataGridViewTextBoxColumn2</value>
   </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="deleteFlag.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="rulesGrid.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="&gt;&gt;targetPath.Name" xml:space="preserve">
     <value>targetPath</value>
   </data>
-  <data name="&gt;&gt;targetPath.Type" xml:space="preserve">
+  <data name="deleteFlag.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 55</value>
+  </data>
+  <data name="&gt;&gt;clearLogCheckbox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;overwriteFiles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NameIncludes.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;updateSetGridItem.Name" xml:space="preserve">
-    <value>updateSetGridItem</value>
+  <data name="&gt;&gt;rulesGrid.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;updateSetGridItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;RulesSettingsTab.Name" xml:space="preserve">
+    <value>RulesSettingsTab</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn2.HeaderText" xml:space="preserve">
+    <value>Is case sensetive</value>
+  </data>
+  <data name="overwriteFiles.Text" xml:space="preserve">
+    <value>Overwrite files</value>
+  </data>
+  <data name="extensionsSetGrid.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;SavePath.Name" xml:space="preserve">
+    <value>SavePath</value>
+  </data>
+  <data name="&gt;&gt;extensionsSetGrid.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="clearLogCheckbox.Text" xml:space="preserve">
+    <value>Clear log</value>
+  </data>
+  <data name="NameIncludes.Width" type="System.Int32, mscorlib">
+    <value>129</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>TrashVanish - Настройки</value>
+  </data>
+  <data name="NameIncludes.MinimumWidth" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="Extensions.HeaderText" xml:space="preserve">
+    <value>Extesnions</value>
+  </data>
+  <data name="&gt;&gt;id.Name" xml:space="preserve">
+    <value>id</value>
+  </data>
+  <data name="&gt;&gt;RulesSettingsTab.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;deleteFlag.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="id.Width" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="&gt;&gt;RulesSettingsTab.Parent" xml:space="preserve">
+    <value>rulesAndSetsTabControl</value>
+  </data>
+  <data name="rulesGrid.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;editRuleItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;addSetItem.Name" xml:space="preserve">
-    <value>addSetItem</value>
+  <data name="extensionsSetGrid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 16</value>
+  </data>
+  <data name="&gt;&gt;setRowControlMenuStrip.Name" xml:space="preserve">
+    <value>setRowControlMenuStrip</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="&gt;&gt;clearLogCheckbox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;deleteRuleItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="deleteFlag.Text" xml:space="preserve">
+    <value>Delete after copy</value>
+  </data>
+  <data name="deleteFlag.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;deleteSetItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="overwriteFiles.ToolTip" xml:space="preserve">
+    <value>Overwrite existing files in case of conflict (if not checked, the file will not be copied)</value>
+  </data>
+  <data name="rulesGrid.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;editSetItem.Name" xml:space="preserve">
+    <value>editSetItem</value>
+  </data>
+  <data name="SetsSettingsTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="rulesAndSetsTabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>605, 265</value>
+  </data>
+  <data name="deleteFlag.ToolTip" xml:space="preserve">
+    <value>Delete file after copying</value>
+  </data>
+  <data name="overwriteFiles.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="addSetItem.Text" xml:space="preserve">
+    <value>Add set</value>
+  </data>
+  <data name="clearLogCheckbox.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;FileExtension.Name" xml:space="preserve">
+    <value>FileExtension</value>
+  </data>
+  <data name="&gt;&gt;rulesAndSetsTabControl.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="SetsSettingsTab.Text" xml:space="preserve">
+    <value>Sets</value>
+  </data>
+  <data name="&gt;&gt;setGridControlStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="editSetItem.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="&gt;&gt;deleteFlag.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="ruleRowControlMenuStrip.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="clearLogCheckbox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 294</value>
+  </data>
+  <data name="&gt;&gt;overwriteFiles.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;FileExtension.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="setRowControlMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 48</value>
+  </data>
+  <data name="RulesSettingsTab.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="updateSetGridItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 22</value>
   </data>
   <data name="&gt;&gt;addSetItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;editRuleItem.Name" xml:space="preserve">
+    <value>editRuleItem</value>
+  </data>
+  <data name="&gt;&gt;SetsSettingsTab.Parent" xml:space="preserve">
+    <value>rulesAndSetsTabControl</value>
+  </data>
+  <data name="UpdateGridItem.Text" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="overwriteFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 40</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>globalSettingsForm</value>
+  </data>
+  <data name="RulesSettingsTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="&gt;&gt;RulesSettingsTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="deleteFlag.Location" type="System.Drawing.Point, System.Drawing">
+    <value>503, 275</value>
+  </data>
+  <data name="rulesAndSetsTabControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;setRowControlMenuStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>645, 373</value>
+  </data>
+  <data name="RulesSettingsTab.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SavePath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn1.HeaderText" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="&gt;&gt;SetsSettingsTab.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ruleRowControlMenuStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="setRowControlMenuStrip.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;Extensions.Name" xml:space="preserve">
+    <value>Extensions</value>
+  </data>
+  <data name="rulesGrid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>585, 203</value>
+  </data>
+  <data name="rulesAndSetsTabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="isCaseSensetive.HeaderText" xml:space="preserve">
+    <value>Is case sensetive</value>
+  </data>
+  <data name="id.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="updateSetGridItem.Text" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="editRuleItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 22</value>
+  </data>
+  <data name="ruleGridControlsStrip.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;AddRuleItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;isCaseSensetive.Name" xml:space="preserve">
+    <value>isCaseSensetive</value>
+  </data>
+  <data name="clearLogCheckbox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;extensionsSetGrid.Name" xml:space="preserve">
+    <value>extensionsSetGrid</value>
+  </data>
+  <data name="SetsSettingsTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>597, 239</value>
+  </data>
+  <data name="rulesAndSetsTabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 8</value>
+  </data>
+  <data name="&gt;&gt;rulesAndSetsTabControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="RulesSettingsTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="&gt;&gt;editSetItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ruleGridControlsStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 48</value>
+  </data>
+  <data name="SetName.MinimumWidth" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="&gt;&gt;deleteSetItem.Name" xml:space="preserve">
+    <value>deleteSetItem</value>
+  </data>
+  <data name="FileExtension.MinimumWidth" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="&gt;&gt;targetPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rulesGrid.Parent" xml:space="preserve">
+    <value>RulesSettingsTab</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn1</value>
+  </data>
+  <data name="SetsSettingsTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="clearLogCheckbox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="extensionsSetGrid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>585, 203</value>
+  </data>
+  <data name="deleteRuleItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 22</value>
+  </data>
+  <data name="&gt;&gt;updateSetGridItem.Name" xml:space="preserve">
+    <value>updateSetGridItem</value>
+  </data>
+  <data name="&gt;&gt;SetName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UpdateGridItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="deleteRuleItem.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="setGridControlStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 48</value>
+  </data>
+  <data name="&gt;&gt;addSetItem.Name" xml:space="preserve">
+    <value>addSetItem</value>
+  </data>
+  <data name="&gt;&gt;UpdateGridItem.Name" xml:space="preserve">
+    <value>UpdateGridItem</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="overwriteFiles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="deleteSetItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 22</value>
+  </data>
+  <data name="&gt;&gt;ruleRowControlMenuStrip.Name" xml:space="preserve">
+    <value>ruleRowControlMenuStrip</value>
+  </data>
+  <data name="setGridControlStrip.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;rulesGrid.Name" xml:space="preserve">
+    <value>rulesGrid</value>
+  </data>
+  <data name="&gt;&gt;overwriteFiles.Name" xml:space="preserve">
+    <value>overwriteFiles</value>
+  </data>
+  <data name="&gt;&gt;deleteFlag.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="rulesAndSetsTabControl.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FileExtension.HeaderText" xml:space="preserve">
+    <value>Extension</value>
+  </data>
+  <data name="RulesSettingsTab.Text" xml:space="preserve">
+    <value>Rules</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn2.Width" type="System.Int32, mscorlib">
+    <value>114</value>
+  </data>
+  <data name="NameIncludes.HeaderText" xml:space="preserve">
+    <value>Filename includes</value>
+  </data>
+  <data name="&gt;&gt;deleteRuleItem.Name" xml:space="preserve">
+    <value>deleteRuleItem</value>
+  </data>
+  <data name="&gt;&gt;ruleGridControlsStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Extensions.MinimumWidth" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="&gt;&gt;updateSetGridItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AddRuleItem.Text" xml:space="preserve">
+    <value>Add rule</value>
+  </data>
+  <data name="SetsSettingsTab.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="editRuleItem.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="&gt;&gt;rulesAndSetsTabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;clearLogCheckbox.Name" xml:space="preserve">
+    <value>clearLogCheckbox</value>
+  </data>
+  <data name="SavePath.HeaderText" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="id.HeaderText" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="&gt;&gt;AddRuleItem.Name" xml:space="preserve">
+    <value>AddRuleItem</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>629, 334</value>
+  </data>
+  <data name="&gt;&gt;SetsSettingsTab.Name" xml:space="preserve">
+    <value>SetsSettingsTab</value>
+  </data>
+  <data name="&gt;&gt;checkboxesToolTip.Name" xml:space="preserve">
+    <value>checkboxesToolTip</value>
+  </data>
+  <data name="SetName.Width" type="System.Int32, mscorlib">
+    <value>93</value>
+  </data>
+  <data name="&gt;&gt;clearLogCheckbox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="ruleRowControlMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 48</value>
+  </data>
+  <data name="&gt;&gt;id.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;extensionsSetGrid.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SetName.HeaderText" xml:space="preserve">
+    <value>Set name</value>
+  </data>
+  <data name="addSetItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 22</value>
+  </data>
+  <data name="extensionsSetGrid.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;setGridControlStrip.Name" xml:space="preserve">
+    <value>setGridControlStrip</value>
+  </data>
+  <data name="&gt;&gt;rulesAndSetsTabControl.Name" xml:space="preserve">
+    <value>rulesAndSetsTabControl</value>
+  </data>
+  <data name="&gt;&gt;Extensions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FileExtension.Width" type="System.Int32, mscorlib">
+    <value>95</value>
+  </data>
+  <data name="RulesSettingsTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>597, 239</value>
+  </data>
+  <data name="&gt;&gt;ruleGridControlsStrip.Name" xml:space="preserve">
+    <value>ruleGridControlsStrip</value>
+  </data>
+  <data name="AddRuleItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 22</value>
+  </data>
+  <data name="rulesGrid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 16</value>
+  </data>
+  <data name="&gt;&gt;checkboxesToolTip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="clearLogCheckbox.ToolTip" xml:space="preserve">
+    <value>Clear the log before executing the task</value>
+  </data>
+  <data name="&gt;&gt;NameIncludes.Name" xml:space="preserve">
+    <value>NameIncludes</value>
+  </data>
+  <data name="&gt;&gt;overwriteFiles.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="extensionsSetGrid.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;extensionsSetGrid.Parent" xml:space="preserve">
+    <value>SetsSettingsTab</value>
+  </data>
+  <metadata name="checkboxesToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="Extensions.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="setRowControlMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>652, 17</value>
+  </metadata>
+  <metadata name="isCaseSensetive.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="SavePath.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="targetPath.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="FileExtension.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ruleGridControlsStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>172, 17</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>ru</value>
+  </metadata>
+  <metadata name="ruleRowControlMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>327, 17</value>
+  </metadata>
+  <metadata name="SetName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="NameIncludes.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="setGridControlStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>496, 17</value>
+  </metadata>
 </root>
