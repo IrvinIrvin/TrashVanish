@@ -157,13 +157,13 @@
     <value>17, 17</value>
   </metadata>
   <data name="ClearLogItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="ClearLogItem.Text" xml:space="preserve">
-    <value>Очистить лог</value>
+    <value>Clear log</value>
   </data>
   <data name="logMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 26</value>
+    <value>181, 48</value>
   </data>
   <data name="&gt;&gt;logMenuStrip.Name" xml:space="preserve">
     <value>logMenuStrip</value>
@@ -211,7 +211,7 @@
     <value>3</value>
   </data>
   <data name="groupBox1.Text" xml:space="preserve">
-    <value>Лог</value>
+    <value>Log</value>
   </data>
   <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
     <value>groupBox1</value>
@@ -238,7 +238,7 @@
     <value>7</value>
   </data>
   <data name="globalSettings.Text" xml:space="preserve">
-    <value>Настройки</value>
+    <value>Settings</value>
   </data>
   <data name="&gt;&gt;globalSettings.Name" xml:space="preserve">
     <value>globalSettings</value>
@@ -254,9 +254,6 @@
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en-US</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>

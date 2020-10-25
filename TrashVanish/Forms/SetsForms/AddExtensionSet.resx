@@ -147,13 +147,13 @@
     <value>12, 12</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 13</value>
+    <value>52, 13</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Название набора</value>
+    <value>Set name</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -195,13 +195,13 @@
     <value>6, 16</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 13</value>
+    <value>53, 13</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Расширение</value>
+    <value>Extension</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
@@ -225,7 +225,7 @@
     <value>5</value>
   </data>
   <data name="addExtensionToSetButton.Text" xml:space="preserve">
-    <value>Добавить</value>
+    <value>Add</value>
   </data>
   <data name="&gt;&gt;addExtensionToSetButton.Name" xml:space="preserve">
     <value>addExtensionToSetButton</value>
@@ -249,7 +249,7 @@
     <value>7</value>
   </data>
   <data name="addSetButton.Text" xml:space="preserve">
-    <value>Добавить набор</value>
+    <value>Create set</value>
   </data>
   <data name="&gt;&gt;addSetButton.Name" xml:space="preserve">
     <value>addSetButton</value>
@@ -296,6 +296,9 @@
   <data name="&gt;&gt;messageLabel.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="deleteExtensionFromListButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>217, 19</value>
   </data>
@@ -306,11 +309,8 @@
     <value>14</value>
   </data>
   <data name="deleteExtensionFromListButton.Text" xml:space="preserve">
-    <value>Удалить</value>
+    <value>Remove</value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="deleteExtensionFromListButton.ToolTip" xml:space="preserve">
     <value>Удалить расширение из набора</value>
   </data>
@@ -354,13 +354,13 @@
     <value>12, 312</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 13</value>
+    <value>43, 13</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
-    <value>Сохранить в...</value>
+    <value>Copy to</value>
   </data>
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
@@ -384,7 +384,7 @@
     <value>17</value>
   </data>
   <data name="selectFolderButton.Text" xml:space="preserve">
-    <value>Обзор</value>
+    <value>Browse</value>
   </data>
   <data name="&gt;&gt;selectFolderButton.Name" xml:space="preserve">
     <value>selectFolderButton</value>
@@ -405,16 +405,16 @@
     <value>217, 83</value>
   </data>
   <data name="isCaseSensetiveCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 17</value>
+    <value>108, 17</value>
   </data>
   <data name="isCaseSensetiveCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
   </data>
   <data name="isCaseSensetiveCheckBox.Text" xml:space="preserve">
-    <value>Учитывать регистр</value>
+    <value>Is case sensetive</value>
   </data>
   <data name="isCaseSensetiveCheckBox.ToolTip" xml:space="preserve">
-    <value>Регистр будет учитываться для всех расширений в наборе</value>
+    <value>All extensions in the set will be case sensitive</value>
   </data>
   <data name="&gt;&gt;isCaseSensetiveCheckBox.Name" xml:space="preserve">
     <value>isCaseSensetiveCheckBox</value>
@@ -428,6 +428,9 @@
   <data name="&gt;&gt;isCaseSensetiveCheckBox.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="includesTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 71</value>
   </data>
@@ -456,13 +459,13 @@
     <value>6, 55</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 13</value>
+    <value>91, 13</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
-    <value>Файл содержит...</value>
+    <value>Filename includes</value>
   </data>
   <data name="&gt;&gt;label5.Name" xml:space="preserve">
     <value>label5</value>
@@ -486,7 +489,7 @@
     <value>21</value>
   </data>
   <data name="groupBox1.Text" xml:space="preserve">
-    <value>Файл</value>
+    <value>File</value>
   </data>
   <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
     <value>groupBox1</value>
@@ -499,30 +502,6 @@
   </data>
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>7</value>
-  </data>
-  <metadata name="extColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="extColumn.HeaderText" xml:space="preserve">
-    <value>Расширение</value>
-  </data>
-  <data name="extColumn.Width" type="System.Int32, mscorlib">
-    <value>95</value>
-  </data>
-  <metadata name="includesColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="includesColumn.HeaderText" xml:space="preserve">
-    <value>Содержит</value>
-  </data>
-  <data name="extensionsList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 19</value>
-  </data>
-  <data name="extensionsList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 91</value>
-  </data>
-  <data name="extensionsList.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
   </data>
   <data name="&gt;&gt;extensionsList.Name" xml:space="preserve">
     <value>extensionsList</value>
@@ -546,7 +525,7 @@
     <value>22</value>
   </data>
   <data name="groupBox2.Text" xml:space="preserve">
-    <value>Расширения в наборе</value>
+    <value>Extensions in set</value>
   </data>
   <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
     <value>groupBox2</value>
@@ -560,9 +539,48 @@
   <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en-US</value>
+  <metadata name="extColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
+  <metadata name="includesColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="extensionsList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 19</value>
+  </data>
+  <data name="extensionsList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 91</value>
+  </data>
+  <data name="extensionsList.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;extensionsList.Name" xml:space="preserve">
+    <value>extensionsList</value>
+  </data>
+  <data name="&gt;&gt;extensionsList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;extensionsList.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;extensionsList.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="extColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="extColumn.HeaderText" xml:space="preserve">
+    <value>Extension</value>
+  </data>
+  <data name="extColumn.Width" type="System.Int32, mscorlib">
+    <value>78</value>
+  </data>
+  <metadata name="includesColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="includesColumn.HeaderText" xml:space="preserve">
+    <value>Filename includes</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -580,7 +598,7 @@
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>TrashVanish - Добавить набор расширений</value>
+    <value>TrashVanish - Create set</value>
   </data>
   <data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
     <value>toolTip1</value>

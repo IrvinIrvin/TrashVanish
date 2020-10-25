@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="setNameTextBox.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 13</value>
@@ -124,20 +127,41 @@
   <data name="label1.Text" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="label1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="extensionTextBox.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 13</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Extension</value>
   </data>
+  <data name="label2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="addExtensionToSetButton.Text" xml:space="preserve">
     <value>Add</value>
+  </data>
+  <data name="addExtensionToSetButton.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="addSetButton.Text" xml:space="preserve">
     <value>Add set</value>
   </data>
+  <data name="addSetButton.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="messageLabel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="deleteExtensionFromListButton.Text" xml:space="preserve">
     <value>Remove</value>
+  </data>
+  <data name="targetPathTextBox.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 13</value>
@@ -145,8 +169,14 @@
   <data name="label4.Text" xml:space="preserve">
     <value>Copy to...</value>
   </data>
+  <data name="label4.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="selectFolderButton.Text" xml:space="preserve">
     <value>Browse</value>
+  </data>
+  <data name="selectFolderButton.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="isCaseSensetiveCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 17</value>
@@ -154,17 +184,23 @@
   <data name="isCaseSensetiveCheckBox.Text" xml:space="preserve">
     <value>Is case sensetive</value>
   </data>
+  <data name="includesTextBox.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 13</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>Filename includes...</value>
   </data>
+  <data name="label5.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="groupBox1.Text" xml:space="preserve">
     <value>File</value>
   </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>Extensions in set</value>
+  <data name="groupBox1.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="extColumn.HeaderText" xml:space="preserve">
     <value>Extesnion</value>
@@ -176,7 +212,19 @@
   <data name="includesColumn.HeaderText" xml:space="preserve">
     <value>Filename include</value>
   </data>
+  <data name="extensionsList.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Extensions in set</value>
+  </data>
+  <data name="groupBox2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>TrashVanish - Add set</value>
+  </data>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
   </data>
 </root>

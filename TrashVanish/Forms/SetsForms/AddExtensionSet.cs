@@ -10,6 +10,7 @@ using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrashVanish.Classes;
 
 namespace TrashVanish.Forms.SetsForms
 {
@@ -23,7 +24,7 @@ namespace TrashVanish.Forms.SetsForms
             InitializeComponent();
             this.Icon = Properties.Resources.appicon;
             gridView = dataGridView;
-            resourceManager = new ResourceManager("TrashVanish.lang_" + System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, Assembly.GetExecutingAssembly());
+            resourceManager = currentCulture.GlobalResourseManager;
         }
 
         private void addExtensionToSetButton_Click(object sender, EventArgs e)

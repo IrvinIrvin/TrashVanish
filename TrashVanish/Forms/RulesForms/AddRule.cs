@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
-using System.Reflection;
 using System.Resources;
 using System.Windows.Forms;
+using TrashVanish.Classes;
 
 namespace TrashVanish
 {
@@ -17,7 +17,7 @@ namespace TrashVanish
             InitializeComponent();
             this.Icon = Properties.Resources.appicon;
             rulesGrid = dataGridView;
-            resourceManager = new ResourceManager("TrashVanish.lang_" + System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, Assembly.GetExecutingAssembly());
+            resourceManager = currentCulture.GlobalResourseManager;
         }
 
         private string path, extension, includes;
