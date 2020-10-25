@@ -162,16 +162,28 @@
     <EmbeddedResource Include="Forms\globalSettingsForm.en-US.resx">
       <DependentUpon>globalSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\globalSettingsForm.en.resx">
+      <DependentUpon>globalSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\globalSettingsForm.resx">
       <DependentUpon>globalSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\globalSettingsForm.ru.resx">
+      <DependentUpon>globalSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainWindow.en-US.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainWindow.ru.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RulesForms\AddRule.en-US.resx">
       <DependentUpon>AddRule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RulesForms\AddRule.resx">
+      <DependentUpon>AddRule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RulesForms\AddRule.ru.resx">
       <DependentUpon>AddRule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RulesForms\editRuleForm.en-US.resx">
@@ -186,6 +198,9 @@
     <EmbeddedResource Include="Forms\SetsForms\AddExtensionSet.resx">
       <DependentUpon>AddExtensionSet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetsForms\AddExtensionSet.ru.resx">
+      <DependentUpon>AddExtensionSet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SetsForms\editSetForm.en-US.resx">
       <DependentUpon>editSetForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetsForms\editSetForm.ru.resx">
+      <DependentUpon>editSetForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="lang_ru.resx">
       <Generator>ResXFileCodeGenerator</Generator>

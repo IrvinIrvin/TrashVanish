@@ -145,7 +145,7 @@
     <value>17, 17</value>
   </metadata>
   <data name="clearLogCheckbox.ToolTip" xml:space="preserve">
-    <value>Очистить лог перед выполнением задания</value>
+    <value>Clear the log before executing the task</value>
   </data>
   <data name="&gt;&gt;clearLogCheckbox.Name" xml:space="preserve">
     <value>clearLogCheckbox</value>
@@ -175,7 +175,7 @@
     <value>Overwrite files</value>
   </data>
   <data name="overwriteFiles.ToolTip" xml:space="preserve">
-    <value>Перезаписывать уже существующие файлы в случае конфликта (если не отмечено, файл не будет скопирован)</value>
+    <value>Overwrite existing files in case of conflict (if not checked, the file will not be copied)</value>
   </data>
   <data name="&gt;&gt;overwriteFiles.Name" xml:space="preserve">
     <value>overwriteFiles</value>
@@ -205,7 +205,7 @@
     <value>Delete after copy</value>
   </data>
   <data name="deleteFlag.ToolTip" xml:space="preserve">
-    <value>Удалить файл после копирования</value>
+    <value>Delete file after copying</value>
   </data>
   <data name="&gt;&gt;deleteFlag.Name" xml:space="preserve">
     <value>deleteFlag</value>
@@ -221,6 +221,90 @@
   </data>
   <data name="rulesAndSetsTabControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;RulesSettingsTab.Name" xml:space="preserve">
+    <value>RulesSettingsTab</value>
+  </data>
+  <data name="&gt;&gt;RulesSettingsTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RulesSettingsTab.Parent" xml:space="preserve">
+    <value>rulesAndSetsTabControl</value>
+  </data>
+  <data name="&gt;&gt;RulesSettingsTab.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;SetsSettingsTab.Name" xml:space="preserve">
+    <value>SetsSettingsTab</value>
+  </data>
+  <data name="&gt;&gt;SetsSettingsTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SetsSettingsTab.Parent" xml:space="preserve">
+    <value>rulesAndSetsTabControl</value>
+  </data>
+  <data name="&gt;&gt;SetsSettingsTab.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rulesAndSetsTabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 8</value>
+  </data>
+  <data name="rulesAndSetsTabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>605, 265</value>
+  </data>
+  <data name="rulesAndSetsTabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;rulesAndSetsTabControl.Name" xml:space="preserve">
+    <value>rulesAndSetsTabControl</value>
+  </data>
+  <data name="&gt;&gt;rulesAndSetsTabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rulesAndSetsTabControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;rulesAndSetsTabControl.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;rulesGrid.Name" xml:space="preserve">
+    <value>rulesGrid</value>
+  </data>
+  <data name="&gt;&gt;rulesGrid.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rulesGrid.Parent" xml:space="preserve">
+    <value>RulesSettingsTab</value>
+  </data>
+  <data name="&gt;&gt;rulesGrid.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="RulesSettingsTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="RulesSettingsTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="RulesSettingsTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>597, 239</value>
+  </data>
+  <data name="RulesSettingsTab.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="RulesSettingsTab.Text" xml:space="preserve">
+    <value>Rules</value>
+  </data>
+  <data name="&gt;&gt;RulesSettingsTab.Name" xml:space="preserve">
+    <value>RulesSettingsTab</value>
+  </data>
+  <data name="&gt;&gt;RulesSettingsTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RulesSettingsTab.Parent" xml:space="preserve">
+    <value>rulesAndSetsTabControl</value>
+  </data>
+  <data name="&gt;&gt;RulesSettingsTab.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="rulesGrid.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -243,18 +327,6 @@
   <metadata name="ruleRowControlMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>327, 17</value>
   </metadata>
-  <data name="editRuleItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 22</value>
-  </data>
-  <data name="editRuleItem.Text" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="deleteRuleItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 22</value>
-  </data>
-  <data name="deleteRuleItem.Text" xml:space="preserve">
-    <value>Delete</value>
-  </data>
   <data name="ruleRowControlMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 48</value>
   </data>
@@ -300,18 +372,6 @@
   <metadata name="ruleGridControlsStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>172, 17</value>
   </metadata>
-  <data name="UpdateGridItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
-  </data>
-  <data name="UpdateGridItem.Text" xml:space="preserve">
-    <value>Update</value>
-  </data>
-  <data name="AddRuleItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
-  </data>
-  <data name="AddRuleItem.Text" xml:space="preserve">
-    <value>Add rule</value>
-  </data>
   <data name="ruleGridControlsStrip.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 48</value>
   </data>
@@ -342,32 +402,68 @@
   <data name="&gt;&gt;rulesGrid.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="RulesSettingsTab.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="editRuleItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 22</value>
+  </data>
+  <data name="editRuleItem.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="deleteRuleItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 22</value>
+  </data>
+  <data name="deleteRuleItem.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="UpdateGridItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 22</value>
+  </data>
+  <data name="UpdateGridItem.Text" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="AddRuleItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 22</value>
+  </data>
+  <data name="AddRuleItem.Text" xml:space="preserve">
+    <value>Add rule</value>
+  </data>
+  <data name="&gt;&gt;extensionsSetGrid.Name" xml:space="preserve">
+    <value>extensionsSetGrid</value>
+  </data>
+  <data name="&gt;&gt;extensionsSetGrid.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;extensionsSetGrid.Parent" xml:space="preserve">
+    <value>SetsSettingsTab</value>
+  </data>
+  <data name="&gt;&gt;extensionsSetGrid.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="SetsSettingsTab.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
-  <data name="RulesSettingsTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="SetsSettingsTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="RulesSettingsTab.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="SetsSettingsTab.Size" type="System.Drawing.Size, System.Drawing">
     <value>597, 239</value>
   </data>
-  <data name="RulesSettingsTab.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="SetsSettingsTab.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="RulesSettingsTab.Text" xml:space="preserve">
-    <value>Rules</value>
+  <data name="SetsSettingsTab.Text" xml:space="preserve">
+    <value>Sets</value>
   </data>
-  <data name="&gt;&gt;RulesSettingsTab.Name" xml:space="preserve">
-    <value>RulesSettingsTab</value>
+  <data name="&gt;&gt;SetsSettingsTab.Name" xml:space="preserve">
+    <value>SetsSettingsTab</value>
   </data>
-  <data name="&gt;&gt;RulesSettingsTab.Type" xml:space="preserve">
+  <data name="&gt;&gt;SetsSettingsTab.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;RulesSettingsTab.Parent" xml:space="preserve">
+  <data name="&gt;&gt;SetsSettingsTab.Parent" xml:space="preserve">
     <value>rulesAndSetsTabControl</value>
   </data>
-  <data name="&gt;&gt;RulesSettingsTab.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;SetsSettingsTab.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="extensionsSetGrid.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -387,18 +483,6 @@
   <metadata name="setRowControlMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>652, 17</value>
   </metadata>
-  <data name="editSetItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 22</value>
-  </data>
-  <data name="editSetItem.Text" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="deleteSetItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 22</value>
-  </data>
-  <data name="deleteSetItem.Text" xml:space="preserve">
-    <value>Delete</value>
-  </data>
   <data name="setRowControlMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 48</value>
   </data>
@@ -447,18 +531,6 @@
   <metadata name="setGridControlStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>496, 17</value>
   </metadata>
-  <data name="updateSetGridItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 22</value>
-  </data>
-  <data name="updateSetGridItem.Text" xml:space="preserve">
-    <value>Update</value>
-  </data>
-  <data name="addSetItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 22</value>
-  </data>
-  <data name="addSetItem.Text" xml:space="preserve">
-    <value>Add set</value>
-  </data>
   <data name="setGridControlStrip.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 48</value>
   </data>
@@ -489,54 +561,33 @@
   <data name="&gt;&gt;extensionsSetGrid.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="SetsSettingsTab.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
+  <data name="editSetItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 22</value>
   </data>
-  <data name="SetsSettingsTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="editSetItem.Text" xml:space="preserve">
+    <value>Edit</value>
   </data>
-  <data name="SetsSettingsTab.Size" type="System.Drawing.Size, System.Drawing">
-    <value>597, 239</value>
+  <data name="deleteSetItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 22</value>
   </data>
-  <data name="SetsSettingsTab.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="deleteSetItem.Text" xml:space="preserve">
+    <value>Delete</value>
   </data>
-  <data name="SetsSettingsTab.Text" xml:space="preserve">
-    <value>Sets</value>
+  <data name="updateSetGridItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 22</value>
   </data>
-  <data name="&gt;&gt;SetsSettingsTab.Name" xml:space="preserve">
-    <value>SetsSettingsTab</value>
+  <data name="updateSetGridItem.Text" xml:space="preserve">
+    <value>Update</value>
   </data>
-  <data name="&gt;&gt;SetsSettingsTab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="addSetItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 22</value>
   </data>
-  <data name="&gt;&gt;SetsSettingsTab.Parent" xml:space="preserve">
-    <value>rulesAndSetsTabControl</value>
+  <data name="addSetItem.Text" xml:space="preserve">
+    <value>Add set</value>
   </data>
-  <data name="&gt;&gt;SetsSettingsTab.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="rulesAndSetsTabControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 8</value>
-  </data>
-  <data name="rulesAndSetsTabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>605, 265</value>
-  </data>
-  <data name="rulesAndSetsTabControl.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;rulesAndSetsTabControl.Name" xml:space="preserve">
-    <value>rulesAndSetsTabControl</value>
-  </data>
-  <data name="&gt;&gt;rulesAndSetsTabControl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rulesAndSetsTabControl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;rulesAndSetsTabControl.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>ru</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -561,54 +612,6 @@
   <data name="&gt;&gt;checkboxesToolTip.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;editRuleItem.Name" xml:space="preserve">
-    <value>editRuleItem</value>
-  </data>
-  <data name="&gt;&gt;editRuleItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;deleteRuleItem.Name" xml:space="preserve">
-    <value>deleteRuleItem</value>
-  </data>
-  <data name="&gt;&gt;deleteRuleItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;UpdateGridItem.Name" xml:space="preserve">
-    <value>UpdateGridItem</value>
-  </data>
-  <data name="&gt;&gt;UpdateGridItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;AddRuleItem.Name" xml:space="preserve">
-    <value>AddRuleItem</value>
-  </data>
-  <data name="&gt;&gt;AddRuleItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;editSetItem.Name" xml:space="preserve">
-    <value>editSetItem</value>
-  </data>
-  <data name="&gt;&gt;editSetItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;deleteSetItem.Name" xml:space="preserve">
-    <value>deleteSetItem</value>
-  </data>
-  <data name="&gt;&gt;deleteSetItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;updateSetGridItem.Name" xml:space="preserve">
-    <value>updateSetGridItem</value>
-  </data>
-  <data name="&gt;&gt;updateSetGridItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;addSetItem.Name" xml:space="preserve">
-    <value>addSetItem</value>
-  </data>
-  <data name="&gt;&gt;addSetItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;id.Name" xml:space="preserve">
     <value>id</value>
   </data>
@@ -620,6 +623,18 @@
   </data>
   <data name="&gt;&gt;FileExtension.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;editRuleItem.Name" xml:space="preserve">
+    <value>editRuleItem</value>
+  </data>
+  <data name="&gt;&gt;editRuleItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;deleteRuleItem.Name" xml:space="preserve">
+    <value>deleteRuleItem</value>
+  </data>
+  <data name="&gt;&gt;deleteRuleItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;NameIncludes.Name" xml:space="preserve">
     <value>NameIncludes</value>
@@ -639,6 +654,18 @@
   <data name="&gt;&gt;SavePath.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;UpdateGridItem.Name" xml:space="preserve">
+    <value>UpdateGridItem</value>
+  </data>
+  <data name="&gt;&gt;UpdateGridItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AddRuleItem.Name" xml:space="preserve">
+    <value>AddRuleItem</value>
+  </data>
+  <data name="&gt;&gt;AddRuleItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;dataGridViewTextBoxColumn1.Name" xml:space="preserve">
     <value>dataGridViewTextBoxColumn1</value>
   </data>
@@ -650,6 +677,18 @@
   </data>
   <data name="&gt;&gt;SetName.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;editSetItem.Name" xml:space="preserve">
+    <value>editSetItem</value>
+  </data>
+  <data name="&gt;&gt;editSetItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;deleteSetItem.Name" xml:space="preserve">
+    <value>deleteSetItem</value>
+  </data>
+  <data name="&gt;&gt;deleteSetItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Extensions.Name" xml:space="preserve">
     <value>Extensions</value>
@@ -668,6 +707,18 @@
   </data>
   <data name="&gt;&gt;targetPath.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;updateSetGridItem.Name" xml:space="preserve">
+    <value>updateSetGridItem</value>
+  </data>
+  <data name="&gt;&gt;updateSetGridItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;addSetItem.Name" xml:space="preserve">
+    <value>addSetItem</value>
+  </data>
+  <data name="&gt;&gt;addSetItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>globalSettingsForm</value>
