@@ -64,15 +64,15 @@
             // 
             // logMenuStrip
             // 
+            resources.ApplyResources(this.logMenuStrip, "logMenuStrip");
             this.logMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ClearLogItem});
             this.logMenuStrip.Name = "logMenuStrip";
-            resources.ApplyResources(this.logMenuStrip, "logMenuStrip");
             // 
             // ClearLogItem
             // 
-            this.ClearLogItem.Name = "ClearLogItem";
             resources.ApplyResources(this.ClearLogItem, "ClearLogItem");
+            this.ClearLogItem.Name = "ClearLogItem";
             this.ClearLogItem.Click += new System.EventHandler(this.ClearLogItem_Click);
             // 
             // globalSettings

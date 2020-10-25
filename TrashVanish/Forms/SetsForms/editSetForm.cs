@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Reflection;
 using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrashVanish.Classes;
 
@@ -26,7 +20,7 @@ namespace TrashVanish.Forms.SetsForms
             setToEdit = set;
             rulesGrid = dgv;
             this.Icon = Properties.Resources.appicon;
-            resourceManager = new ResourceManager("TrashVanish.lang_" + System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, Assembly.GetExecutingAssembly());
+            resourceManager = currentCulture.GlobalResourseManager;
         }
 
         private void editSetForm_Load(object sender, EventArgs e)

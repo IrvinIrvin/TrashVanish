@@ -118,122 +118,40 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="clearLogCheckbox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 17</value>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 13</value>
   </data>
-  <data name="clearLogCheckbox.Text" xml:space="preserve">
-    <value>Clear log</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Расширение</value>
   </data>
-  <data name="clearLogCheckbox.ToolTip" xml:space="preserve">
-    <value>Clear log before start vanishing</value>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 13</value>
   </data>
-  <data name="overwriteFiles.Text" xml:space="preserve">
-    <value>Overwrite files</value>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Имя файла содержит</value>
   </data>
-  <data name="overwriteFiles.ToolTip" xml:space="preserve">
-    <value>Overwrite existing files in case of conflict (if not checked, the file will not be copied)</value>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 13</value>
   </data>
-  <data name="deleteFlag.Text" xml:space="preserve">
-    <value>Delete files after copying</value>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Копировать в</value>
   </data>
-  <data name="deleteFlag.ToolTip" xml:space="preserve">
-    <value>Delete files after copying</value>
+  <data name="browseFolders.Text" xml:space="preserve">
+    <value>Обзор</value>
   </data>
-  <data name="editRuleItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 22</value>
+  <data name="AddRuleButton.Text" xml:space="preserve">
+    <value>Создать правило</value>
   </data>
-  <data name="editRuleItem.Text" xml:space="preserve">
-    <value>Edit</value>
+  <data name="browseFilesButton.Text" xml:space="preserve">
+    <value>Обзор</value>
   </data>
-  <data name="deleteRuleItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 22</value>
+  <data name="isCaseSensetiveCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 17</value>
   </data>
-  <data name="deleteRuleItem.Text" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="ruleRowControlMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 48</value>
-  </data>
-  <data name="FileExtension.HeaderText" xml:space="preserve">
-    <value>Extension</value>
-  </data>
-  <data name="NameIncludes.HeaderText" xml:space="preserve">
-    <value>Name includes</value>
-  </data>
-  <data name="isCaseSensetive.HeaderText" xml:space="preserve">
-    <value>Is case sensetive</value>
-  </data>
-  <data name="SavePath.HeaderText" xml:space="preserve">
-    <value>Path</value>
-  </data>
-  <data name="UpdateGridItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
-  </data>
-  <data name="UpdateGridItem.Text" xml:space="preserve">
-    <value>Update</value>
-  </data>
-  <data name="AddRuleItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
-  </data>
-  <data name="AddRuleItem.Text" xml:space="preserve">
-    <value>Add rule</value>
-  </data>
-  <data name="ruleGridControlsStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 48</value>
-  </data>
-  <data name="RulesSettingsTab.Text" xml:space="preserve">
-    <value>Rules</value>
-  </data>
-  <data name="editSetItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 22</value>
-  </data>
-  <data name="editSetItem.Text" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="deleteSetItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 22</value>
-  </data>
-  <data name="deleteSetItem.Text" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="setRowControlMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 48</value>
-  </data>
-  <data name="SetName.HeaderText" xml:space="preserve">
-    <value>Set name</value>
-  </data>
-  <data name="Extensions.HeaderText" xml:space="preserve">
-    <value>Extensions</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn2.HeaderText" xml:space="preserve">
-    <value>Is case sensetive</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="dataGridViewTextBoxColumn2.Width" type="System.Int32, mscorlib">
-    <value>114</value>
-  </data>
-  <data name="targetPath.HeaderText" xml:space="preserve">
-    <value>Path</value>
-  </data>
-  <data name="updateSetGridItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 22</value>
-  </data>
-  <data name="updateSetGridItem.Text" xml:space="preserve">
-    <value>Update</value>
-  </data>
-  <data name="addSetItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 22</value>
-  </data>
-  <data name="addSetItem.Text" xml:space="preserve">
-    <value>Add set</value>
-  </data>
-  <data name="setGridControlStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 48</value>
-  </data>
-  <data name="SetsSettingsTab.Text" xml:space="preserve">
-    <value>Sets</value>
+  <data name="isCaseSensetiveCheckBox.Text" xml:space="preserve">
+    <value>Учитывать регистр</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>TrashVanish - Settings</value>
+    <value>TrashVanisher - Создать правило</value>
   </data>
 </root>

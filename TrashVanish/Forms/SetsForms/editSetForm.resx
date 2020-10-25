@@ -207,10 +207,10 @@
     <value>setNameTextBox</value>
   </data>
   <data name="includesColumn.HeaderText" xml:space="preserve">
-    <value>Содержит</value>
+    <value>Filename includes</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>TrashVanish - Редактировать набор</value>
+    <value>TrashVanish - Edit set</value>
   </data>
   <data name="&gt;&gt;includesTextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -240,7 +240,7 @@
     <value>includesTextBox</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
-    <value>Файл содержит...</value>
+    <value>Filename includes</value>
   </data>
   <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>344, 116</value>
@@ -267,7 +267,7 @@
     <value>3</value>
   </data>
   <data name="addSetButton.Text" xml:space="preserve">
-    <value>Редактировать набор</value>
+    <value>Save set</value>
   </data>
   <data name="targetPathTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -297,7 +297,7 @@
     <value>217, 19</value>
   </data>
   <data name="extColumn.HeaderText" xml:space="preserve">
-    <value>Расширение</value>
+    <value>Extension</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 312</value>
@@ -306,7 +306,7 @@
     <value>groupBox1</value>
   </data>
   <data name="isCaseSensetiveCheckBox.Text" xml:space="preserve">
-    <value>Учитывать регистр</value>
+    <value>Is case sensetive</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
@@ -315,7 +315,7 @@
     <value>204, 91</value>
   </data>
   <data name="extColumn.Width" type="System.Int32, mscorlib">
-    <value>95</value>
+    <value>78</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>editSetForm</value>
@@ -354,7 +354,7 @@
     <value>$this</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 13</value>
+    <value>53, 13</value>
   </data>
   <data name="&gt;&gt;isCaseSensetiveCheckBox.Name" xml:space="preserve">
     <value>isCaseSensetiveCheckBox</value>
@@ -393,10 +393,10 @@
     <value>3</value>
   </data>
   <data name="isCaseSensetiveCheckBox.ToolTip" xml:space="preserve">
-    <value>Регистр будет учитываться для всех расширений в наборе</value>
+    <value>All extensions in the set will be case sensitive</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Название набора</value>
+    <value>Set name</value>
   </data>
   <data name="addSetButton.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -432,7 +432,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="isCaseSensetiveCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 17</value>
+    <value>108, 17</value>
   </data>
   <data name="messageLabel.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -465,7 +465,7 @@
     <value>$this</value>
   </data>
   <data name="addExtensionToSetButton.Text" xml:space="preserve">
-    <value>Добавить</value>
+    <value>Add</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -474,7 +474,7 @@
     <value>groupBox2</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Расширение</value>
+    <value>Extension</value>
   </data>
   <data name="label2.ToolTip" xml:space="preserve">
     <value />
@@ -483,13 +483,13 @@
     <value>134, 23</value>
   </data>
   <data name="selectFolderButton.Text" xml:space="preserve">
-    <value>Обзор</value>
+    <value>Browse</value>
   </data>
   <data name="label5.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="deleteExtensionFromListButton.Text" xml:space="preserve">
-    <value>Удалить</value>
+    <value>Remove</value>
   </data>
   <data name="&gt;&gt;selectFolderButton.Parent" xml:space="preserve">
     <value>$this</value>
@@ -507,7 +507,7 @@
     <value>204, 20</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 13</value>
+    <value>52, 13</value>
   </data>
   <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>11, 193</value>
@@ -582,7 +582,7 @@
     <value>-3, 352</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 13</value>
+    <value>91, 13</value>
   </data>
   <data name="includesTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -591,7 +591,7 @@
     <value>messageLabel</value>
   </data>
   <data name="groupBox2.Text" xml:space="preserve">
-    <value>Расширения в наборе</value>
+    <value>Extensions in set</value>
   </data>
   <data name="&gt;&gt;addSetButton.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -609,7 +609,7 @@
     <value>332, 20</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 13</value>
+    <value>43, 13</value>
   </data>
   <data name="extensionsList.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -618,7 +618,7 @@
     <value>$this</value>
   </data>
   <data name="groupBox1.Text" xml:space="preserve">
-    <value>Файл</value>
+    <value>File</value>
   </data>
   <data name="setNameTextBox.ToolTip" xml:space="preserve">
     <value />
@@ -627,7 +627,7 @@
     <value>True</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
-    <value>Сохранить в...</value>
+    <value>Copy to</value>
   </data>
   <data name="extensionsList.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 19</value>
@@ -636,7 +636,7 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en-US</value>
+    <value>ru</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

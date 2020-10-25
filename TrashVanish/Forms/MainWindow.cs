@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Reflection;
 using System.Resources;
 using System.Windows.Forms;
 using TrashVanish.Classes;
@@ -17,7 +16,7 @@ namespace TrashVanish
         {
             InitializeComponent();
             this.Icon = Properties.Resources.appicon;
-            resourceManager = new ResourceManager("TrashVanish.lang_" + System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, Assembly.GetExecutingAssembly());
+            resourceManager = currentCulture.GlobalResourseManager;
         }
 
         private ResourceManager resourceManager;

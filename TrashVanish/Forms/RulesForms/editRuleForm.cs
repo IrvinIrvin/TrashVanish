@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Reflection;
 using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrashVanish.Classes;
 
 namespace TrashVanish.Forms.RulesForms
 {
@@ -24,7 +18,7 @@ namespace TrashVanish.Forms.RulesForms
             InitializeComponent();
             rulesGrid = dataGridView;
             this.Icon = Properties.Resources.appicon;
-            resourceManager = new ResourceManager("TrashVanish.lang_" + System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName, Assembly.GetExecutingAssembly());
+            resourceManager = currentCulture.GlobalResourseManager;
         }
 
         private void editRuleForm_Load(object sender, EventArgs e)
